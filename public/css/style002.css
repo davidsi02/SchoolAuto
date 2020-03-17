@@ -1,0 +1,16 @@
+
+.linha_semanas{
+   background: #CDC9C9;
+}
+
+#dia_atual{
+   background: #009ACD;
+}
+
+#dia_comum{
+   background: #00B2EE;
+}
+
+#dia_branco{
+   background: #ffffff;
+}

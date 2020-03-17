@@ -1,0 +1,8 @@
+
+   //Controllers
+TransactionController@compactTransactions
+TransactionController@fullTransactions
+DataController@getUserType
+
+   //SessionVars
+Auth::user() -> ['Nome Variável']
