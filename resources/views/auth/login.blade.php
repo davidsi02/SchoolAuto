@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@if(isset(Auth::user()->email))
+    <script>window.location = "/dashboard";</script>
+@endif
+
+
 @section('content')
 <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header1-3" data-rv-view="0" style="background-image: url(assets/images/dsc-0066-source-1500x1000.jpg);">
   <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header1-3" data-rv-view="0" style="background-image: url(assets/images/dsc-0066-source-1500x1000.jpg);">

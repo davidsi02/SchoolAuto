@@ -58,6 +58,13 @@
 
 							@endif
 
+							<li class="active-pro">
+									<a href="/">
+											<i class="nc-settings-gear-64"></i>
+											<p>Configurações</p>
+									</a>
+							</li>
+
 			<li class="active-pro" action = "{{ route('logout') }}">
 									<a href="{{ url('/logout') }}">
 											<i class="pe-7s-power"></i>
