@@ -19,29 +19,30 @@ class PermissionController extends Controller
 
      session_start();
 
-     if (Auth::user()->tipoUtilizador == 1){
-
-         $_SESSION['permAdmin'] = 1;
-         $_SESSION['permSA'] = 1;
-
-          if ($_SESSION['permAdmin'] == 1) {
-           $_SESSION['permSA'] == 1;
-         }
-
-        if($_SESSION['permSA'] == 1){
-                 $_SESSION['AcessoCantina'] = 1;
-                 $_SESSION['AcessoPortaria'] = 1;
-                 $_SESSION['AcessoBar'] = 1;
-                 $_SESSION['AcessoBiblioteca'] = 1;
-        } else {
-
   $_SESSION['permAdmin'] = DB::table('permission')->
   where('idUser', Auth::user()->id) ->
   value('Admin');
 
+  if ($_SESSION['permAdmin'] == 1 || Auth::user()->tipoUtilizador == 1) {
+    $_SESSION['permAdmin'] = 1;
+    $_SESSION['permSA'] == 1;
+    $_SESSION['AcessoCantina'] = 1;
+    $_SESSION['AcessoPortaria'] = 1;
+    $_SESSION['AcessoBar'] = 1;
+    $_SESSION['AcessoBiblioteca'] = 1;
+
+ } else {
+
   $_SESSION['permSA'] = DB::table('permission')->
   where('idUser', Auth::user()->id) ->
   value('SAE');
+
+  if($_SESSION['permSA'] == 1){
+    $_SESSION['AcessoCantina'] = 1;
+    $_SESSION['AcessoPortaria'] = 1;
+    $_SESSION['AcessoBar'] = 1;
+    $_SESSION['AcessoBiblioteca'] = 1;
+  } else {
 
   $_SESSION['AcessoBar'] = DB::table('permission')->
   where ('idUser', Auth::user()->id) ->
