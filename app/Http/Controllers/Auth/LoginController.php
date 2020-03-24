@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = "/dashboard";
+    protected $redirectTo = "/permissions";
 
 
     public function __construct()
