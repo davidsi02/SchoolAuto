@@ -70,10 +70,7 @@ session_start();
            if(Auth::attempt(['email' => $id,
                              'password' => $password])){
 
-
-
-
-
+                           $_SESSION["loginmethod"] = 'sae';
 
      }else{
 
