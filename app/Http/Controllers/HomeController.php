@@ -26,5 +26,8 @@ class HomeController extends Controller
         return view('user/dashboard');
     }
 
-
+    public function indexShop()
+  {
+      return view('shop/home');
+  }
 }
