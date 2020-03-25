@@ -64,9 +64,8 @@ class PermissionController extends Controller
 }
 
 if ($_SESSION['loginmethod'] == 'user'){
-
-  echo $_SESSION['permAdmin'];
-//return redirect('/dashboard');
+  
+return redirect('/dashboard');
  }
 
  return ("Incompleto!");
