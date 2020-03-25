@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
-@if(Auth::user()->tipoUtilizador == 1))
 
-html lang="en">
+<?php
+	 session_start();
+?>
 
+@if($_SESSION['permAdmin'] == 1)
 
 <head>
 	<meta charset="utf-8" />
@@ -166,35 +168,12 @@ html lang="en">
     </div>
 </div>
 
-
 </body>
+   @else
 
+	 <script>
+alert("Não tem permissões para aceder à Area Restrita");
+window.location = "/dashboard";
+	 </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@else
-  @return view('/dashboard')
-
-   @endif
+	 @endif

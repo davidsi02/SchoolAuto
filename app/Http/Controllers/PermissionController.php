@@ -25,7 +25,7 @@ class PermissionController extends Controller
 
   if ($_SESSION['permAdmin'] == 1 || Auth::user()->tipoUtilizador == 1) {
     $_SESSION['permAdmin'] = 1;
-    $_SESSION['permSA'] == 1;
+  //  $_SESSION['permSA'] == 1;
     $_SESSION['AcessoCantina'] = 1;
     $_SESSION['AcessoPortaria'] = 1;
     $_SESSION['AcessoBar'] = 1;
@@ -64,8 +64,9 @@ class PermissionController extends Controller
 }
 
 if ($_SESSION['loginmethod'] == 'user'){
-echo "UI";
-return redirect('/dashboard');
+
+  echo $_SESSION['permAdmin'];
+//return redirect('/dashboard');
  }
 
  return ("Incompleto!");
