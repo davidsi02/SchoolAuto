@@ -2,14 +2,6 @@
 
 @section('content')
 
-<?php
-if (isset($_GET['input'])) {
-  $idC = $_GET['input'];
-}else{
-  return redirect('/login');
-}
-?>
-
 
 <html >
 <link rel="import" href="App\Http\Controllers\ProductController;">
@@ -78,7 +70,7 @@ if (isset($_GET['input'])) {
         @endforeach
         <a class="btn btn-primary just" href="{{route('cart.eliminar')}}" style="width:100% ;font-size:1.5rem;font-weight:bold;margin:0 auto;display:block;"> Eliminar Tudo </a>
         <input readonly style="text-align: center;font-size:1.5rem;font-weight:bold" value="Preço Total: {{cart::total()}} €"></input>
-        <a class="btn btn-primary just" href="{{route('pagar',<?php  session('input');?>)}}" style="width:100% ;font-size:1.5rem;font-weight:bold;margin:0 auto;display:block;"> Pagar </a>
+        <a class="btn btn-primary just" href="{{route('pagar')}}" style="width:100% ;font-size:1.5rem;font-weight:bold;margin:0 auto;display:block;"> Pagar </a>
       </div>
 
 

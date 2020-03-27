@@ -90,7 +90,7 @@ Route::get('/eliminar-cart',[
       'as' => 'prod.eliminar'
     ]);
 
-    Route::get('/pagar/{idC}',[
+    Route::get('/pagar',[
       'uses' => 'OperationController@Pagar',
       'as' => 'pagar'
     ]);
