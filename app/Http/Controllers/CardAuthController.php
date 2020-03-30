@@ -39,11 +39,7 @@ session_start();
                            $_SESSION['uid'] = $verificaEmail;
                                      echo $_SESSION['uid'];
 
-                               return view('sae/saelogin-password');
-
-
-                        //   if(Auth::attempt(['email' => $verificaEmail,
-                          //                   'password' => $password])){
+                                     return view('sae/saelogin-password');
 
 
 
@@ -71,6 +67,8 @@ session_start();
                              'password' => $password])){
 
                            $_SESSION["loginmethod"] = 'sae';
+                           echo "Password Correta";
+                           return redirect('/permissions');
 
      }else{
 
@@ -82,8 +80,8 @@ session_start();
 
 
           <?php
-          return view('sae/saelogin');
 
+                     return view('/sae/saelogin');
      }
 
   }

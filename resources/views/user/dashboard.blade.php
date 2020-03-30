@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
 
-@if(isset(Auth::user()->email))
+@if(isset(Auth::user()->id))
 
 	 <?php
       session_start();
@@ -217,5 +217,3 @@
 @else
 <script>window.location = "/login";</script>
    @endif
-
-</html>

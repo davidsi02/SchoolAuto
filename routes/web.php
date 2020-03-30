@@ -51,7 +51,6 @@ return view ('sae/saelogin-password');
 
 
 //SHOP//////////////////////////
-//Route::group(['middleware' => 'auth'], function () {
 Route::get('/loginShop', 'HomeController@indexShop')->name('ShopHome');
 
 Route::get('/shop', [

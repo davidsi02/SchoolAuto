@@ -64,10 +64,10 @@ class PermissionController extends Controller
 }
 
 if ($_SESSION['loginmethod'] == 'user'){
-  
+
 return redirect('/dashboard');
  }
 
- return ("Incompleto!");
+ return redirect("/shop");
 }
 }
