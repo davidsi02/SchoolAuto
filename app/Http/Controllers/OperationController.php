@@ -9,6 +9,9 @@ use Session;
 class OperationController extends Controller
 {
   public function Pagar(){
+    if (isset()) {
+      // code...
+    }
     $idC = Session::get('idC');
     foreach(\Cart::content() as $product){
       $total=$product->price * $product->qty;
@@ -26,6 +29,7 @@ class OperationController extends Controller
     \Cart::destroy();
 
     Auth::logout();
-    return redirect()->route('login');
+    unset($_SESSION['idC']);
+    return redirect()->route('product.index');
   }
 }

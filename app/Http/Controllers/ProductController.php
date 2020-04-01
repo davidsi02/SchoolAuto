@@ -12,27 +12,34 @@ use Session;
 
 class ProductController extends Controller
 {
+
   public function getIndex(){
-    if (null !== Session::get('idC')) {
-      $idC = Session::get('idC');
 
-      if (\DB::table('users')->where('numCartao', $idC)->first()) {
-        $products = Product::where('visibilidade', 1)->where('idCategoria', 1)->paginate(15);
-        $user = User::where('numCartao', $idC)->first();
-        return view('shop/shop', ['products' => $products,'user' => $user]);
-      }else {
-        ?><script>
 
-      alert("O número de cartão utilizador não existe!!");
+    $products = Product::where('visibilidade', 1)->where('idCategoria', 1)->paginate(15);
+    return view('shop/shop', ['products' => $products]);
 
-        </script><?php
-
-        return view('shop/home');
-      }
-    }else{
-      return redirect('loginShop');
-    }
   }
+  public function verifyCard(){
+    if ($_GET['input']) {
+    if (\DB::table('users')->where('numCartao', $_GET['input'])->first()) {
+      $products = Product::where('visibilidade', 1)->where('idCategoria', 1)->paginate(15);
+      $user = User::where('numCartao', $_GET['input'])->first();
+      return view('shop/shop', ['products' => $products,'user' => $user, 'idC' => $_GET['input']]);
+    }else {
+      ?><script>
+
+    alert("Não existe nenhum cartão acossiado a este número!!");
+
+      </script><?php
+      $products = Product::where('visibilidade', 1)->where('idCategoria', 1)->paginate(15);
+      return view('shop/shop', ['products' => $products]);
+      }
+  }else{
+    echo 'Ah';
+      }
+}
+
 
   public function getAddToCart($id, $nome,$preco) {
 
@@ -136,15 +143,15 @@ class ProductController extends Controller
   }
 
   public function eliminarCategoria() {
-try {
-  \DB::table('categoriaproduto')->where('nomeCategoria', $_GET['nomeCat'])->delete();
-  return redirect()->back();
-} catch (\Exception $e) {
-  ?><script>
-  alert("Esta categoria tem um ou mais produtos associados, porisso não pode ser eliminada!!");
-  </script>
-  <?php return view('shop/home');
-}
+    try {
+      \DB::table('categoriaproduto')->where('nomeCategoria', $_GET['nomeCat'])->delete();
+      return redirect()->back();
+    } catch (\Exception $e) {
+      ?>
+      <script>
+      alert("Esta categoria tem um ou mais produtos associados, porisso não pode ser eliminada!!");
+      </script><?php
+      return view('shop/shop');    }
   }
 
 

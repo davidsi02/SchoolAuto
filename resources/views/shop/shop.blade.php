@@ -36,13 +36,19 @@
     </div>
   </nav>
   <body>
-
-
+    <form class="" action="verifyCard" method="get">
+      <input id="myinputbox" class="inputValue" type="input" name="input" autofocus/>
+    </form>
+<script type="text/javascript">
+window.onload = function() {
+var input = document.getElementById("myinputbox").focus();
+}
+</script>
     <div class="table-primary " style="right:0;top:100;position: absolute; padding: 10 ;border-color: white;clear:both;float:right;width:30%;overflow:hidden">
       <div style="height:125px;">
-        <img style="height:125;transition: transform .4s;" dysplalign="left" src="{{$user->path_fotografia}}" alt="..."/>
+        <img style="height:125;transition: transform .4s;" dysplalign="left" src="{{$user->path_fotografia ?? ''}}" alt="..."/>
         <div class="container" style="position: absolute;float:right;background-color:white;padding:10;width:75%;height: 125;;display: inline-block">
-          <h4 class="title" style=";text-overflow:"><b>Nome:</b> {{$user->name}} <br> <br>  <b>Num. Processo:</b> {{$user->numProcesso}} <b><br>Saldo:</b> {{$user->saldo}}
+          <h4 class="title" style=";text-overflow:"><b>Nome:</b> {{$user->name ?? ''}} <br> <br>  <b>Num. Processo:</b> {{$user->numProcesso ?? ''}} <b><br>Saldo:</b> {{$user->saldo ?? ''}}
           </h4>
         </div>
       </div>
@@ -75,19 +81,25 @@
 
 
 
-      <div class="container" style="margin-top:50px;float:left;width:70%;padding:0; clear:both;">
+      <div class="container float-left" style="margin-top:50px;width:70%;padding:0; clear:both;">
         <div class="col-md-12" style="margin:0;padding:0">
           <div class="card" style="width:100%;padding:0">
-            <div style="background-color: #ffffff;" class="container ">
-              <!--Titles-->
-              <div class="title pb-5 col-12">
+            <div style="background-color: #ffffff;" class="container">
+              <div class="title pb-5 col-10">
                 <h2 class="align-left pb-3 mbr-fonts-style" style="font-size:7rem">
                   Posto de Venda
                 </h2>
               </div>
               <div style="font-size:4rem;font-weight: bold">
-                {{$products->render()}}
+                @if(isset($idC))
+                 {{ $products->appends(['input' => $idC])->links() }}
+                @else
+                {{ $products->render() }}
+                @endif
+
               </div>
+              <a href="/shop"  class="button float-right" style=" font-size:2.5rem; font-weight: bold" ><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/joypixels/239/counterclockwise-arrows-button_1f504.png" type="button" class="img2" href="/shop"><a>
+
               @foreach($products->chunk(15) as $productChunk)
               <div class="row " style="padding:10;">
                 @foreach($productChunk as $product)
@@ -99,7 +111,7 @@
                     <div class="card-box">
                       <h3 class="card outline" style="text-align: center;font-size:2rem ;border-style: none; background-color: white; color: black; ">
                         {{ $product-> nomeProduto}}
-                        <a href="{{route('product.addToCart',[$product->id,$product->nomeProduto ,$product->precoProduto ])}}"  class="btn btn-primary  " style=" font-size:2.5rem; font-weight: bold">{{$product-> precoProduto}}€ <a>
+                        <a href="{{route('product.addToCart',[$product->id,$product->nomeProduto ,$product->precoProduto ])}}"  class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold">{{$product-> precoProduto}}€ <a>
                         </h3>
                       </div>
                     </div>

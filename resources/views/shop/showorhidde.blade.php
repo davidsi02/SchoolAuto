@@ -11,7 +11,7 @@
       <div class="row justify-content-center">
         <div class="col-md-12">
           <div class="card" style="width:100%">
-            <a  href="{{route('ShopHome')}}" class="btn btn-primary " style="width:7.5%; margin-top:0;margin-bottom:2rem;font-size:3rem;float:left">
+            <a  href="{{route('shop/shop')}}" class="btn btn-primary " style="width:7.5%; margin-top:0;margin-bottom:2rem;font-size:3rem;float:left">
               🡄
             </a>
             <div style="background-color: #ffffff;" class="container ">

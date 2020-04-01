@@ -52,12 +52,18 @@ return view ('sae/saelogin-password');
 
 //SHOP//////////////////////////
 //Route::group(['middleware' => 'auth'], function () {
-Route::get('/loginShop', 'HomeController@indexShop')->name('ShopHome');
+Route::get('/here', 'HomeController@indexEscolha')->name('escolhaPosto');
+
 
 Route::get('/shop', [
 
   'uses' =>'ProductController@getIndex',
   'as' =>'product.index',
+]);
+Route::get('/verifyCard', [
+
+  'uses' =>'ProductController@verifyCard',
+  'as' =>'verifyCard',
 ]);
 Route::get('/visibilidade', [
 

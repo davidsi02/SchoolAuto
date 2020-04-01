@@ -11355,4 +11355,16 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
+.inputValue{
+  position:absolute;
+  left:-99999px
+}
+.img2{
+  position:absolute;
+  right:0;
+  top:0;
+  height: 100px
+}
+.halfWidth{
+  width: 50%;
+}
