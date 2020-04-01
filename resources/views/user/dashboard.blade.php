@@ -110,6 +110,7 @@
                     <div class="col-md-4">
                         <div class="card">
 
+                                                      @if(isset(Auth::user()->id))
                             <div class="header">
                                 <h4 class="title">Saldos e Movimentos</h4>
                                 <p class="category"></p>
@@ -144,6 +145,7 @@
 																 			</tbody>
 																 	</table>
 															 </div>
+                                              @endif
 
                                 <div class="footer">
                                     <div class="legend">
