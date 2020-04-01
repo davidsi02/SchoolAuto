@@ -13,19 +13,24 @@ use Session;
 class ProductController extends Controller
 {
   public function getIndex(){
-    if (isset($_GET['input'])) {
-      $idC = $_GET['input'];
+    if (null !== Session::get('idC')) {
+      $idC = Session::get('idC');
 
-      if (\DB::table('users')->where('numCartao', $_GET['input'])->first()) {
+      if (\DB::table('users')->where('numCartao', $idC)->first()) {
         $products = Product::where('visibilidade', 1)->where('idCategoria', 1)->paginate(15);
-        $user = User::where('numCartao', $_GET['input'])->first();
+        $user = User::where('numCartao', $idC)->first();
         return view('shop/shop', ['products' => $products,'user' => $user]);
       }else {
-        $erro = 1;
-        return view('shop/home', ['erro' => $erro]);
+        ?><script>
+
+      alert("O número de cartão utilizador não existe!!");
+
+        </script><?php
+
+        return view('shop/home');
       }
     }else{
-      return view('shop/home');
+      return redirect('loginShop');
     }
   }
 
@@ -41,9 +46,7 @@ class ProductController extends Controller
     return redirect()->back()->withInput();
 
   }
-  public function novoProd(){
-    return view('shop/novoProduto');
-  }
+
 
   public function getIndexVisibilidade()
   {
@@ -133,9 +136,15 @@ class ProductController extends Controller
   }
 
   public function eliminarCategoria() {
-    \DB::table('categoriaproduto')->where('nomeCategoria', $_GET['nomeCat'])->delete();
-    return redirect()->back();
-
+try {
+  \DB::table('categoriaproduto')->where('nomeCategoria', $_GET['nomeCat'])->delete();
+  return redirect()->back();
+} catch (\Exception $e) {
+  ?><script>
+  alert("Esta categoria tem um ou mais produtos associados, porisso não pode ser eliminada!!");
+  </script>
+  <?php return view('shop/home');
+}
   }
 
 

@@ -8,7 +8,8 @@ use App\Http\Requests;
 use Session;
 class OperationController extends Controller
 {
-  public function Pagar($idC){
+  public function Pagar(){
+    $idC = Session::get('idC');
     foreach(\Cart::content() as $product){
       $total=$product->price * $product->qty;
       $user = \DB::table('users')->where('numCartao', $idC)->first();
@@ -20,11 +21,8 @@ class OperationController extends Controller
         'idUtilizador' =>  $user->id,
         'quantidade' => $product->qty,
       ]);
-      return redirect()->route('login');
 
       }
-
-
     \Cart::destroy();
 
     Auth::logout();
