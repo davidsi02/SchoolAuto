@@ -42,23 +42,11 @@
     <!-- Bootstrap core CSS     -->
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
 
-    <!-- Animation library for notifications   -->
-    <link href="{{asset('assets/css/animate.min.css')}}" rel="stylesheet"/>
     <!--   Core JS Files   -->
     <script src="{{asset('assets/js/jquery.3.2.1.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
 
-	<!--  Charts Plugin -->
-	<script src="{{asset('assets/js/chartist.min.js')}}"></script>
 
-    <!--  Notifications Plugin    -->
-    <script src="{{asset('assets/js/bootstrap-notify.js')}}"></script>
-
-    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="{{asset('assets/js/light-bootstrap-dashboard.js?v=1.4.0')}}"></script>
-
-	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="{{asset('assets/js/demo.js')}}"></script>
 
 </head>
 <body>

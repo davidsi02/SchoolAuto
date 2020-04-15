@@ -14,6 +14,8 @@ class TransactionController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
+
+
    public function fullTransactions()
    {
        $operacao = DB::table('operacao')->where('idUtilizador', Auth::user()->id)->orderBy('dataOperacao' , 'DESC')->get();
@@ -22,7 +24,7 @@ class TransactionController extends Controller
 
    public function compactTransactions()
    {
-       $operacao = DB::table('operacao')->where('idUtilizador', Auth::user()->id)->orderBy('dataOperacao' , 'DESC')->limit(7)->get();
+       $operacao = DB::table('operacao')->where('idUtilizador', Auth::user()->id)->orderBy('dataOperacao' , 'DESC')->limit(4)->get();
        return view('user/dashboard', compact('operacao', ['operacao' => $operacao]));
    }
 

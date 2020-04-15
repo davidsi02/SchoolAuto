@@ -1,13 +1,8 @@
-
-@extends('layouts.app')
-
-@if(isset(Auth::user()->id))
+@if(isset(Auth::user()->email))
 
 	 <?php
       session_start();
 	 ?>
-
-
 
 
 <html lang="en">
@@ -18,17 +13,48 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
+	<!-- Scripts -->
+	<script src="{{ asset('js/app.js') }}" defer></script>
+	<script src="{{asset('assets/web/assets/jquery/jquery.min.js')}}"></script>
+	<script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('assets/smooth-scroll/smooth-scroll.js')}}"></script>
+	<script src="{{asset('assets/jarallax/jarallax.js')}}"></script>
+	<script src="{{asset('assets/mobirise/js/script.js')}}"></script>
+	<script src="{{asset('assets/senhas/script.js')}}"></script>
+
+
+	<!-- Fonts -->
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+	<!-- Styles -->
+	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
+	<link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/animatecss/animate.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/mobirise/css/style.css')}}">
+	<link rel="stylesheet" href="{{(asset('assets/senhas/style.css'))}}">
+
+	<!--     Fonts and icons     -->
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+	<link href="{{asset('assets/css/pe-icon-7-stroke.css')}}" rel="stylesheet" />
+
+	<!--  Light Bootstrap Table core CSS    -->
+	<link href="{{asset('assets/css/light-bootstrap-dashboard.css?v=1.4.0')}}" rel="stylesheet"/>
+
+	<!-- Bootstrap core CSS     -->
+	<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+
+	<!--   Core JS Files   -->
+	<script src="{{asset('assets/js/jquery.3.2.1.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
+
 
 	<title>SCHOOLAUTO - Área de Utilizador</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-
-
-
-
-
-+
 
 </head>
 <body>
@@ -110,7 +136,6 @@
                     <div class="col-md-4">
                         <div class="card">
 
-                                                      @if(isset(Auth::user()->id))
                             <div class="header">
                                 <h4 class="title">Saldos e Movimentos</h4>
                                 <p class="category"></p>
@@ -145,7 +170,7 @@
 																 			</tbody>
 																 	</table>
 															 </div>
-                                              @endif
+
 
                                 <div class="footer">
                                     <div class="legend">

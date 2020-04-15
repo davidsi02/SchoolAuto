@@ -19,5 +19,11 @@ class CardRedirectController extends Controller
 
      session_start();
 
+     if ($_SESSION['AcessoBar'] == 1){
+
+         return redirect('/shop');
+
+     }
+
 }
 }
