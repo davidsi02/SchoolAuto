@@ -20,21 +20,21 @@ Route::get('/home', 'HomeController@fullTransactions')->name('home');
 
 //WEB//
 Route::get ('/dashboard', function() {
-return view ('user/dashboard');
+return view ('user/dashboard') -> middleware('auth');
 });
 
 Route::get('/user', function(){
-  return view ('user/user');
+  return view ('user/user') -> middleware('auth');
 
 });
 
 Route::get('/transactions', function(){
-return view ('user/transactions');
+return view ('user/transactions') -> middleware('auth');
 
 });
 
 Route::get('/apanel', function(){
-return view ('admin/panel');
+return view ('admin/panel') -> middleware('auth');
 });
 
 //________________________________________________//
@@ -51,8 +51,6 @@ return view ('sae/saelogin-password');
 
 
 //SHOP//////////////////////////
-Route::get('/loginShop', 'HomeController@indexShop')->name('ShopHome');
-
 Route::get('/shop', [
 
   'uses' =>'ProductController@getIndex',
@@ -129,17 +127,17 @@ Route::get('/removerCategoria',[
 
 //Controllers//
           //TransactionController
-Route::get ('transactions', 'TransactionController@fullTransactions')->name('transactions');
-Route::get ('/dashboard', 'TransactionController@compactTransactions')->name('compactTransactions');
-Route::get ('/home', 'TransactionController@compactTransactions')->name('compactTransactions');
+Route::get ('transactions', 'TransactionController@fullTransactions')->name('transactions')->middleware('auth');
+Route::get ('/dashboard', 'TransactionController@compactTransactions')->name('compactTransactions')->middleware('auth');
+Route::get ('/home', 'TransactionController@compactTransactions')->name('compactTransactions')->middleware('auth');
 
           //DataController
-Route::get ('/user', 'DataController@getUserType')->name('getUserType');
+Route::get ('/user', 'DataController@getUserType')->name('getUserType')->middleware('auth')->middleware('auth');
          //CardAuthController
 Route::any ('/sae/ncartao', 'CardAuthController@cardLogin')->name('cardLogin');
 Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');
           //PermissionController
-Route::any ('/permissions','PermissionController@PermissionsVrf') ->name('PermissionVrf');
+Route::any ('/permissions','PermissionController@PermissionsVrf')->name('PermissionVrf')->middleware('auth');
         //AdminActionsController
 // Model: Route::get ('', 'AdminActionsController@')->name('');
 

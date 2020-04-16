@@ -20,7 +20,6 @@
 	<script src="{{asset('assets/smooth-scroll/smooth-scroll.js')}}"></script>
 	<script src="{{asset('assets/jarallax/jarallax.js')}}"></script>
 	<script src="{{asset('assets/mobirise/js/script.js')}}"></script>
-	<script src="{{asset('assets/senhas/script.js')}}"></script>
 
 
 	<!-- Fonts -->
@@ -222,17 +221,22 @@
         </div>
 
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
+				<footer class="footer">
+						<div class="container-fluid">
+								<nav class="pull-left">
+										<ul>
 
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
-                </p>
-            </div>
-        </footer>
+								</nav>
+								<p class="copyright pull-right">
+										&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
+								</p>
+
+								<center>
+				 <img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
+								</center>
+
+						</div>
+				</footer>
 
     </div>
 </div>

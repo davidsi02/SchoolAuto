@@ -1,5 +1,3 @@
-@if(isset(Auth::user()->email))
-
 <?php
 	 session_start();
 ?>
@@ -224,6 +222,11 @@
                 <p class="copyright pull-right">
                     &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
                 </p>
+
+								<center>
+				 <img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
+								</center>
+								
             </div>
         </footer>
 
@@ -234,7 +237,3 @@
 </body>
 
 </html>
-
-@else
-<script> window.location = "/login";</script>
-@endif
