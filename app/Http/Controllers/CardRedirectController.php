@@ -28,10 +28,14 @@ class CardRedirectController extends Controller
      }
 
      if ($_SESSION['AcessoBiblioteca'] == 1 && $_SESSION['PermAdmin'] != 1 && $_SESSION['permSA'] != 1){
-            //return redirect('/biblioteca);
+
+           $_SESSION['categoriaShop'] = 2;
+           return redirect('/shop');
      }
 
      if ($_SESSION['AcessoBar'] == 1 && $_SESSION['PermAdmin'] != 1 && $_SESSION['permSA'] != 1){
+
+         $_SESSION['categoriaShop'] = 1;
          return redirect('/shop');
      }
 

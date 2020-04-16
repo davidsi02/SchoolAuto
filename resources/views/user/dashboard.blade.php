@@ -133,63 +133,8 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
 
-                            <div class="header">
-                                <h4 class="title">Saldos e Movimentos</h4>
-                                <p class="category"></p>
-
-
-                            </div>
-                            <div class="content", action = {{('TransactionController@compactTransactions')}}>
-
-															   <div>
-																	 <table class="table table-hover table-striped", action = {{('TransactionController@compactTransactions')}}>
-																 			<thead>
-
-																 			</thead>
-																 			<tbody>
-
-
-																 				@foreach($operacao as $row)
-
-																 					<tr>
-
-																 					 <td>{{$row -> nomeOperacao}}</td>
-																 						<td>{{$row -> valorOperacao}}</td>
-																 						 <td>{{$row -> dataOperacao }}</td>
-
-																 					 <td></td>
-																 					</tr>
-
-
-																					@endforeach
-
-
-																 			</tbody>
-																 	</table>
-															 </div>
-
-
-                                <div class="footer">
-                                    <div class="legend">
-
-                                    </div>
-
-                                    <hr>
-                                    <div class="footer">
-                                        <i class="pe-7s-cash"></i>
-
-																				<h> <font size = '4'> Saldo disponivel: {{ Auth::user()->saldo }}€ </font> </h>
-
-																			                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Compra de Senhas</h4>
@@ -213,6 +158,62 @@
 
                         </div>
                     </div>
+
+										<div class="col-md-12">
+												<div class="card">
+
+														<div class="header">
+																<h4 class="title">Saldos e Movimentos</h4>
+																<p class="category"></p>
+
+
+														</div>
+														<div class="content", action = {{('TransactionController@compactTransactions')}}>
+
+																 <div>
+																	 <table class="table table-hover table-striped", action = {{('TransactionController@compactTransactions')}}>
+																			<thead>
+
+																			</thead>
+																			<tbody>
+
+
+																				@foreach($operacao as $row)
+
+																					<tr>
+
+																					 <td>{{$row -> nomeOperacao}}</td>
+																						<td>{{$row -> valorOperacao}}</td>
+																						 <td>{{$row -> dataOperacao }}</td>
+
+																					 <td></td>
+																					</tr>
+
+
+																					@endforeach
+
+
+																			</tbody>
+																	</table>
+															 </div>
+
+
+																<div class="footer">
+																		<div class="legend">
+
+																		</div>
+
+																		<hr>
+																		<div class="footer">
+																				<i class="pe-7s-cash"></i>
+
+																				<h> <font size = '4'> Saldo disponivel: {{ Auth::user()->saldo }}€ </font> </h>
+
+																																				 </div>
+																</div>
+														</div>
+												</div>
+										</div>
                 </div>
 
 
