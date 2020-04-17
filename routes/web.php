@@ -34,7 +34,7 @@ return view ('user/transactions') -> middleware('auth');
 });
 
 Route::get('/apanel', function(){
-return view ('admin/panel') -> middleware('auth');
+return view ('admin/panel');
 });
 
 //________________________________________________//
