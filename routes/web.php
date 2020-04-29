@@ -128,8 +128,8 @@ Route::get('/removerCategoria',[
 //Controllers//
           //TransactionController
 Route::get ('transactions', 'TransactionController@fullTransactions')->name('transactions')->middleware('auth');
-Route::get ('/dashboard', 'TransactionController@compactTransactions')->name('compactTransactions')->middleware('auth');
-Route::get ('/home', 'TransactionController@compactTransactions')->name('compactTransactions')->middleware('auth');
+//Route::get ('/dashboard', 'TransactionController@compactTransactions')->name('compactTransactions')->middleware('auth');
+//Route::get ('/home', 'TransactionController@compactTransactions')->name('compactTransactions')->middleware('auth');
 
           //DataController
 Route::get ('/user', 'DataController@getUserType')->name('getUserType')->middleware('auth')->middleware('auth');
@@ -140,5 +140,13 @@ Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');
 Route::any ('/permissions','PermissionController@PermissionsVrf')->name('PermissionVrf')->middleware('auth');
         //AdminActionsController
 // Model: Route::get ('', 'AdminActionsController@')->name('');
+        //SenhasController
+Route::any ('/criarsenha', 'SenhasController@addSenha')->name('addSenha');
+
+Route::get ('/dashboard', 'SenhasController@showSenha')->middleware('auth');
+
+                       //Route de teste:
+Route::any ('/testesenhas', 'SenhasController@showSenha')->name('showSenha');
+
 
 //__________________________________________________//

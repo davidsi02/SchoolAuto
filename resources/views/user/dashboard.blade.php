@@ -1,4 +1,3 @@
-@if(isset(Auth::user()->email))
 
 	 <?php
       session_start();
@@ -139,9 +138,34 @@
                                 <h4 class="title">Compra de Senhas</h4>
                                 <p class="category"></p>
                             </div>
-                            <div class="content" action = {{'CalendarController@show'}}>
-                                </div>
-                                <div id="chartHours" class="ct-chart"></div>
+                            <div class="content" action = {{('SenhasController@showSenha')}}
+														<div>
+															<table class="table table-hover table-striped", action = {{('SenhasController@showSenha')}}>
+																 <thead>
+
+																 </thead>
+																 <tbody>
+
+
+																	 @foreach($senha as $row)
+
+																		 <tr>
+                                        <td> {{$row -> diasemana}}</td>
+																			  <td><?php echo date('d-m-Y', strtotime($row -> dataRefeicao)); ?></td>
+																				<td> <button> </button> </td>
+
+																			<td></td>
+																		 </tr>
+
+
+																		 @endforeach
+
+
+																 </tbody>
+														 </table>
+													</div>
+											 </div>
+										 </div>
                                 <div class="footer">
                                     <div class="legend">
 
@@ -150,9 +174,7 @@
 
                                     </div>
                                     <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-history"></i> */php*/
-                                    </div>
+
                                 </div>
 
                         </div>
@@ -161,48 +183,7 @@
 										<div class="col-md-12">
 												<div class="card">
 
-														<div class="header">
-																<h4 class="title">Saldos e Movimentos</h4>
-																<p class="category"></p>
 
-
-														</div>
-														<div class="content", action = {{('TransactionController@compactTransactions')}}>
-
-																 <div>
-																	 <table class="table table-hover table-striped", action = {{('TransactionController@compactTransactions')}}>
-																			<thead>
-
-																			</thead>
-																			<tbody>
-
-
-																				@foreach($operacao as $row)
-
-																					<tr>
-
-																					 <td>{{$row -> nomeOperacao}}</td>
-																						<td>{{$row -> valorOperacao}}</td>
-																						 <td>{{$row -> dataOperacao }}</td>
-
-																					 <td></td>
-																					</tr>
-
-
-																					@endforeach
-
-
-																			</tbody>
-																	</table>
-															 </div>
-
-
-																<div class="footer">
-																		<div class="legend">
-
-																		</div>
-
-																		<hr>
 																		<div class="footer">
 																				<i class="pe-7s-cash"></i>
 
@@ -211,9 +192,7 @@
 																																				 </div>
 																</div>
 														</div>
-												</div>
-										</div>
-                </div>
+
 
 
                                                 </td>
@@ -243,9 +222,3 @@
 
 
 </body>
-
-
-
-@else
-<script>window.location = "/login";</script>
-   @endif
