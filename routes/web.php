@@ -51,10 +51,22 @@ return view ('sae/saelogin-password');
 
 
 //SHOP//////////////////////////
+Route::get('shop/pagina/{num}', 'ProductController@tabs')->name('tabs');
+Route::get('visibilidade/pagina/{num}', 'ProductController@tabsVisib')->name('tabsVisib');
+Route::get('visibilidade/changePagina/{id}]', 'ProductController@mudarPagina')->name('mudarPagina');
+Route::get('visibilidade/changeOrder/{id}/{pag}]', 'ProductController@mudarPosicao')->name('mudarPosicao');
+
+Route::get('/cantinaTeste', 'CantinaController@indexCantina')->name('indexCantina');
+
 Route::get('/shop', [
 
   'uses' =>'ProductController@getIndex',
   'as' =>'product.index',
+]);
+Route::get('/verifyCard', [
+
+  'uses' =>'ProductController@verifyCard',
+  'as' =>'verifyCard',
 ]);
 Route::get('/visibilidade', [
 
@@ -71,7 +83,6 @@ Route::get('/visibilidadeMostrar/{id}', [
   'uses' =>'ProductController@ProdMostrar',
   'as' =>'visibilidadeMostrar',
 ]);
-
 Route::get('/add-to-cart/{id}/{nomeProduto}/{precoProduto}',[
   'uses' => 'ProductController@getAddToCart',
   'as' => 'product.addToCart'
@@ -92,10 +103,14 @@ Route::get('/eliminar-cart',[
       'as' => 'pagar'
     ]);
 
-Route::get('shop/novoProduto', 'ProductController@indexNovoProd')->name('novoProduto');
+Route::get('shop/Criacao', 'ProductController@indexCriar')->name('indexCriação');
+Route::get('/criarCategoria',[
+  'uses' => 'ProductController@criarCategoria',
+  'as' => 'criar.cat'
+]);
 Route::get('/criarProduto',[
   'uses' => 'ProductController@criarProduto',
-  'as' => 'prod.criar'
+  'as' => 'criar.prod'
 ]);
 Route::get('shop/GerirPreco', 'ProductController@indexGerirPreco')->name('indexGerirPreco');
 
@@ -103,22 +118,13 @@ Route::get('/gerir-preco',[
   'uses' => 'ProductController@gerirPreco',
   'as' => 'gerir.Preco'
 ]);
-Route::get('shop/novaCategoria', 'ProductController@indexNovaCategoria')->name('indexNovaCategoria');
 
-Route::get('/criarCategoria',[
-  'uses' => 'ProductController@criarCategoria',
-  'as' => 'criar.cat'
-]);
+Route::get('shop/eliminar', 'ProductController@indexEliminar')->name('indexEliminar');
 
-Route::get('shop/eliminarProduto', 'ProductController@indexEliminarProduto')->name('indexEliminarProduto');
-
-Route::get('/RemoverProduto',[
+Route::get('/removerProduto',[
   'uses' => 'ProductController@eliminarProduto',
-  'as' => 'prod.eliminar'
+  'as' => 'eliminar.prod'
 ]);
-
-Route::get('shop/eliminarCategoria', 'ProductController@indexEliminarCategoria')->name('indexEliminarCategoria');
-
 Route::get('/removerCategoria',[
   'uses' => 'ProductController@eliminarCategoria',
   'as' => 'eliminar.cat'
