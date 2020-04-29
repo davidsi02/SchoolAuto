@@ -38,7 +38,9 @@
                 <div class="card-box">
                   <h3 class="card outline" style="text-align: center;font-size:2rem ;border-style: none; background-color: white; color: black; ">
                     Portaria
-                    <a href=""  class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold"> Portaria<a>
+                    <form class="" action="{{route('product.index')}}" method="get">
+                      <button href="" type="submit" class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold"> Portaria</button>
+                    </form>
                     </h3>
                   </div>
                 </div>
@@ -48,8 +50,9 @@
                   <div class="card-box">
                     <h3 class="card outline" style="text-align: center;font-size:2rem ;border-style: none; background-color: white; color: black; ">
                       Bar
-                      <a href=""  class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold"> Bar<a>
-                      </h3>
+                      <form class="" action="{{route('product.index')}}" method="get">
+                        <button href="" type="submit" class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold"> Portaria</button>
+                      </form>                      </h3>
                     </div>
                   </div>
                 </div>
@@ -59,8 +62,9 @@
                     <div class="card-box">
                       <h3 class="card outline" style="text-align: center;font-size:2rem ;border-style: none; background-color: white; color: black; ">
                         Biblioteca
-                        <a href=""  class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold"> Biblioteca<a>
-                        </h3>
+                        <form class="" action="{{route('product.index')}}" method="get">
+                          <button href="" type="submit" class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold"> Portaria</button>
+                        </form>                        </h3>
                       </div>
                     </div>
                   </div>
@@ -70,8 +74,9 @@
                       <div class="card-box">
                         <h3 class="card outline" style="text-align: center;font-size:2rem ;border-style: none; background-color: white; color: black; ">
                           Secretaria
-                          <a href=""  class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold">Secretaria <a>
-                          </h3>
+                          <form class="" action="{{route('product.index')}}" method="get">
+                            <button href="" type="submit" value="" class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold"> Portaria</button>
+                          </form>                          </h3>
                         </div>
                       </div>
                     </div>
@@ -81,8 +86,9 @@
                         <div class="card-box">
                           <h3 class="card outline" style="text-align: center;font-size:2rem ;border-style: none; background-color: white; color: black; ">
                             Refeitório
-                            <a href=""  class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold"> Refeitório <a>
-                            </h3>
+                            <form class="" action="{{route('product.index')}}" method="get">
+                              <button href="" type="submit" class="btn btn-primary" style=" font-size:2.5rem; font-weight: bold"> Portaria</button>
+                            </form>                            </h3>
                           </div>
                         </div>
                       </div>
