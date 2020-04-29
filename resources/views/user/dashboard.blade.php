@@ -140,10 +140,14 @@
                             </div>
                             <div class="content" action = {{('SenhasController@showSenha')}}
 														<div>
+														<form>
 															<table class="table table-hover table-striped", action = {{('SenhasController@showSenha')}}>
-																 <thead>
+																<thead>
+																		<th>Dia</th>
+																	<th>Data</th>
+																	<th>Preço</th>
 
-																 </thead>
+																</thead>
 																 <tbody>
 
 
@@ -152,7 +156,27 @@
 																		 <tr>
                                         <td> {{$row -> diasemana}}</td>
 																			  <td><?php echo date('d-m-Y', strtotime($row -> dataRefeicao)); ?></td>
-																				<td> <button> </button> </td>
+																				<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
+																				          if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
+																				          if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
+																									if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
+																				 ?> </td>
+
+																				<td>
+																					<?php
+                                              $senhacomprada = DB::table('refeicao')->where('dataSenha', '=', $row->dataRefeicao );
+
+                                            if ($senhacomprada != NULL){
+																											echo '
+																					<div class="checkbox">
+																							 <input id="checkbox4" type="checkbox" checked>
+																							 <label for="checkbox4"></label>
+																						 </div> ' ;
+																					 } else {
+                                                 echo 'Refeição já adquirida!';
+																					 }
+																						 ?>
+																								 </td>
 
 																			<td></td>
 																		 </tr>
@@ -163,6 +187,8 @@
 
 																 </tbody>
 														 </table>
+														 <input type="submit" name="	CompraSubmit" value="Comprar">
+													</form>
 													</div>
 											 </div>
 										 </div>
