@@ -2896,8 +2896,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #3490dc;
-  border-color: #3490dc;
+  background-color: #6cb2eb;
+  border-color: #6cb2eb;
 }
 
 .btn-primary:hover {
@@ -3018,9 +3018,9 @@ fieldset:disabled a.btn {
 }
 
 .btn-info {
-  color: #212529;
-  background-color: #6cb2eb;
-  border-color: #6cb2eb;
+  color: #fff;
+  background-color: #1d68a7;
+  border-color: #1d68a7;
 }
 
 .btn-info:hover {
@@ -11372,14 +11372,6 @@ a.text-dark:focus {
   border-radius: 10px;
 
 }
-.centrarButao {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
 .largura90{
   width: 90% !important;
 }
@@ -11404,5 +11396,17 @@ a.text-dark:focus {
 .largura100{
 
   width: 100% !important;
+}
+
+.btnInlineB{
+  display: inline-block;
+
+}
+.centrar{
+  display: block;
+  margin: 0 auto;
+}
+.fnt1ponto5rem{
+  font-size: 1.5rem;
 
 }

@@ -15,15 +15,15 @@ class OperationController extends Controller
       $total=$product->price * $product->qty;
       $user = \DB::table('users')->where('numCartao', $idC)->first();
       \DB::table('users')->where('numCartao', $idC)->update(['saldo' => $user->saldo - $total]);
-      \DB::table('operacoes')->insert(
+      \DB::table('operacao')->insert(
         ['valorOperacao' => $total,
         'nomeOperacao' => 'Compra',
         'idProduto' => $product->id,
         'idUtilizador' =>  $user->id,
         'quantidade' => $product->qty,
       ]);
-      $VV= \DB::table('products')->where('id', $product->id)->first();
-      \DB::table('products')->where('id', $product->id)->update(['VezesVendido' => $VV->VezesVendido + 1]);
+      $VV= \DB::table('produtos')->where('id', $product->id)->first();
+      \DB::table('produtos')->where('id', $product->id)->update(['VezesVendido' => $VV->VezesVendido + 1]);
 
       }
     \Cart::destroy();

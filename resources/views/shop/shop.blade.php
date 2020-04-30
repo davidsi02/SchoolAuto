@@ -35,7 +35,7 @@
     </div>
   </nav>
   <body>
-    <form class="" action="verifyCard" method="get">
+    <form action="{{route('verifyCard')}}" method="get">
       <input id="myinputbox" class="inputValue" type="input" name="input" autofocus required/>
     </form>
     <script type="text/javascript">
@@ -45,6 +45,7 @@
     </script>
     <?php $user= Session::get('user'); ?>
     @if(isset($user))
+
     <div class="table-primary " style="right:0;top:100;position: absolute; padding: 10 ;border-color: white;clear:both;float:right;width:30%;overflow:hidden">
       <div style="height:125px;">
         <img style="height:125;transition: transform .4s;" dysplalign="left" src="{{$user->path_fotografia ?? ''}}" alt="..."/>

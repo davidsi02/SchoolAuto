@@ -25,8 +25,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
-    <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/animatecss/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/mobirise/css/style.css')}}">
     <link rel="stylesheet" href="{{(asset('assets/senhas/style.css'))}}">
@@ -36,15 +34,8 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="{{asset('assets/css/pe-icon-7-stroke.css')}}" rel="stylesheet" />
 
-    <!--  Light Bootstrap Table core CSS    -->
-    <link href="{{asset('assets/css/light-bootstrap-dashboard.css?v=1.4.0')}}" rel="stylesheet"/>
-
-    <!-- Bootstrap core CSS     -->
-    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
-
-    <!--   Core JS Files   -->
     <script src="{{asset('assets/js/jquery.3.2.1.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
+	  <script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
 
 
 </head>

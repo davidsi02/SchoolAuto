@@ -40,12 +40,15 @@ class ProductController extends Controller
 
 
   public function verifyCard(){
-    if ($_GET['input']) {
+
+    if ($_GET['input']!=null) {
       if (\DB::table('users')->where('numCartao', $_GET['input'])->first()) {
-        $products = Produto::where('visibilidade', 1)->where('NoPagina', 1)->get();
+        $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(15)->get();
         $user = User::where('numCartao', $_GET['input'])->first();
         Session::forget('user');
         session(['idC' => $_GET['input'],'user' => $user]);
+        \Cart::destroy();
+
         return view('shop/shop', ['products' => $products,'user' => $user, 'idC' => $_GET['input'],'activepage'=>1]);
       }else {
         echo '<script type="text/javascript">';
@@ -142,8 +145,9 @@ class ProductController extends Controller
           ['nomeProduto' => $_GET['nomeProd'],
           'precoProduto' => $_GET['precoProd'],
           'idCategoria' => $cat->idCategoria,
-          'visibilidade' => 1,
+          'visibilidade' => 0,
           'ordem' => $lastM1,
+          'NoPagina' => 15,
 
         ]);
 
@@ -195,7 +199,7 @@ class ProductController extends Controller
     }
     public function eliminarProduto() {
       $produto = \DB::table('produtos')->where('nomeProduto',$_GET['nomeProd'])->first();
-      if(\DB::table('operacoes')->where('id',7)->first()){
+      if(\DB::table('operacao')->where('id',7)->first()){
         echo '<script type="text/javascript">';
         echo ' alert("Este produto não pode ser eliminado porque está associado a transações!!")';
         echo '</script>';
