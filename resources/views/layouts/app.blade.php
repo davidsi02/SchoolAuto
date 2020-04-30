@@ -11,8 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{asset('assets/web/assets/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/web/assets/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('assets/smooth-scroll/smooth-scroll.js')}}"></script>
     <script src="{{asset('assets/jarallax/jarallax.js')}}"></script>
     <script src="{{asset('assets/mobirise/js/script.js')}}"></script>
@@ -45,7 +45,6 @@
     <!--   Core JS Files   -->
     <script src="{{asset('assets/js/jquery.3.2.1.min.js')}}" type="text/javascript"></script>
 	<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
-
 
 
 </head>

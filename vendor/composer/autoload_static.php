@@ -114,6 +114,10 @@ class ComposerStaticInit39af71e11683af9cb71e71258cdd3ff5
         array (
             'Illuminate\\' => 11,
         ),
+        'G' => 
+        array (
+            'Gloudemans\\Shoppingcart\\' => 24,
+        ),
         'F' => 
         array (
             'Fideloper\\Proxy\\' => 16,
@@ -333,6 +337,10 @@ class ComposerStaticInit39af71e11683af9cb71e71258cdd3ff5
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
+        ),
+        'Gloudemans\\Shoppingcart\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src',
         ),
         'Fideloper\\Proxy\\' => 
         array (
@@ -581,10 +589,15 @@ class ComposerStaticInit39af71e11683af9cb71e71258cdd3ff5
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\CalendarController' => __DIR__ . '/../..' . '/app/Http/Controllers/CalendarController.php',
         'App\\Http\\Controllers\\CardAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/CardAuthController.php',
+        'App\\Http\\Controllers\\CardRedirectController' => __DIR__ . '/../..' . '/app/Http/Controllers/CardRedirectController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DataController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LogoutController' => __DIR__ . '/../..' . '/app/Http/Controllers/LogoutController.php',
+        'App\\Http\\Controllers\\OperationController' => __DIR__ . '/../..' . '/app/Http/Controllers/OperationController.php',
+        'App\\Http\\Controllers\\PermissionController' => __DIR__ . '/../..' . '/app/Http/Controllers/PermissionController.php',
+        'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
+        'App\\Http\\Controllers\\SenhasController' => __DIR__ . '/../..' . '/app/Http/Controllers/SenhasController.php',
         'App\\Http\\Controllers\\TransactionController' => __DIR__ . '/../..' . '/app/Http/Controllers/TransactionController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -594,6 +607,8 @@ class ComposerStaticInit39af71e11683af9cb71e71258cdd3ff5
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Operacao' => __DIR__ . '/../..' . '/app/Operacao.php',
+        'App\\Produto' => __DIR__ . '/../..' . '/app/Produto.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -1337,6 +1352,17 @@ class ComposerStaticInit39af71e11683af9cb71e71258cdd3ff5
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
+        'Gloudemans\\Shoppingcart\\CanBeBought' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/CanBeBought.php',
+        'Gloudemans\\Shoppingcart\\Cart' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Cart.php',
+        'Gloudemans\\Shoppingcart\\CartItem' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/CartItem.php',
+        'Gloudemans\\Shoppingcart\\CartItemOptions' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/CartItemOptions.php',
+        'Gloudemans\\Shoppingcart\\Contracts\\Buyable' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Contracts/Buyable.php',
+        'Gloudemans\\Shoppingcart\\Contracts\\InstanceIdentifier' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Contracts/InstanceIdentifier.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\CartAlreadyStoredException' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Exceptions/CartAlreadyStoredException.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\InvalidRowIDException' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Exceptions/InvalidRowIDException.php',
+        'Gloudemans\\Shoppingcart\\Exceptions\\UnknownModelException' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Exceptions/UnknownModelException.php',
+        'Gloudemans\\Shoppingcart\\Facades\\Cart' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/Facades/Cart.php',
+        'Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider' => __DIR__ . '/..' . '/bumbummen99/shoppingcart/src/ShoppingcartServiceProvider.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\AssertionError' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/AssertionError.php',
         'Hamcrest\\BaseMatcher' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/BaseMatcher.php',

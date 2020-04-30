@@ -45,7 +45,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: sans-serif !important;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -66,7 +66,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -11354,5 +11354,55 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+  }
+.inputValue{
+  position:absolute;
+  left:-99999px
 }
+.img2{
+  position:absolute;
+  right:0;
+  top:0;
+  height: 100px
+}
+.halfWidth{
+  width: 50%;
+}
+.SquareInput{
+  border-radius: 10px;
 
+}
+.centrarButao {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.largura90{
+  width: 90% !important;
+}
+.largura80{
+  border-radius: 10px;
+  width: 80% !important;
+
+}
+.largura70{
+  border-radius: 10px;
+  width: 70% !important;
+
+}
+.fnt2rem{
+  font-size: 2.5rem;
+
+}
+.spanProduto{
+  font-size: 2.5rem;
+  text-align: center;
+}
+.largura100{
+
+  width: 100% !important;
+
+}
