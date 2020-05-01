@@ -92,7 +92,6 @@
                   Posto de Venda
                 </h2>
               </div>
-              <a href="{{route('product.index')}}" ><img class="img2 float-right" src="{{url('assets/images/reloadIcon.png')}}" /></a>
               <div style="font-size:4rem;font-weight: bold;">
 
                 <div class="tabpanel">
