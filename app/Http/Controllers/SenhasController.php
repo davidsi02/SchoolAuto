@@ -26,10 +26,7 @@ class SenhasController extends Controller
 
      $numdiaSemana = date('w', strtotime('+'.$counter.' days'));
 
-     $senha = collect([
-        "dataRefeicao" => $dataRefeicao,
-        "diasemana" => $diasemana[$numdiaSemana]
-      ]);
+
 
 
  do{
@@ -41,16 +38,21 @@ class SenhasController extends Controller
 
      if ($numdiaSemana != 1 || $numdiaSemana != 7){
 
-              $senha->put($dataRefeicao, $diasemana[$numdiaSemana]);
+       $senha = collect([
+          "dataRefeicao" => $dataRefeicao,
+          "diasemana" => $diasemana[$numdiaSemana]
+        ]);
 
       }
 
            $counter ++;
-           echo $numsenhas = count($senha);
+      //     echo $numsenhas = count($senha);
 
  } while ($counter < 8);
 
-     return view('user/dashboard', compact('senha', ['senha' => $senha]));
+ echo count($senha);
+
+    return view('user/dashboard', compact('senha', ['senha' => $senha]));
 
     }
 

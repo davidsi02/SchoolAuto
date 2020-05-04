@@ -148,12 +148,12 @@
 
 																</thead>
 																 <tbody>
-																	 <?php $count=0; ?>
+
 																	 @foreach($senha as $row)
 
 																		 <tr>
-																			  <td><?php echo date('d-m-Y', strtotime($row -> $senha['diasemana'])); ?></td>
-																				<td> {{$row -> $senha['dataRefeicao']}}</td>
+																				<td> {{$row -> dataRefeicao}}</td>
+																				<td><?php echo date('d-m-Y', strtotime($row -> diasemana)); ?></td>
 																				<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
 																				          if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
 																				          if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
@@ -179,7 +179,7 @@
 
 																			<td></td>
 																		 </tr>
-																	<?php $count++; ?>	
+																	<?php $count++; ?>
 
 																		 @endforeach
 
