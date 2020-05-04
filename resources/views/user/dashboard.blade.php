@@ -148,7 +148,7 @@
 
 																</thead>
 																 <tbody>
-
+																	 <?php $count=0; ?>
 																	 @foreach($senha as $row)
 
 																		 <tr>
@@ -165,11 +165,12 @@
                                               $senhacomprada = DB::table('refeicao')->where('dataSenha', '=', $row->dataRefeicao );
 
                                             if ($senhacomprada != NULL){
-																											echo '
-																					<div class="checkbox">
-																							 <input id="checkbox4" type="checkbox" checked>
-																							 <label for="checkbox4"></label>
-																						 </div> ' ;
+																							?>
+																							 <div class="checkbox">
+																										<input id={{$count}} type="checkbox" checked>
+																										<label for={{$count}}></label>
+																									</div>
+																									<?php
 																					 } else {
                                                  echo 'Refeição já adquirida!';
 																					 }
@@ -178,7 +179,7 @@
 
 																			<td></td>
 																		 </tr>
-
+																	<?php $count++; ?>	
 
 																		 @endforeach
 
