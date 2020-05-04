@@ -138,9 +138,10 @@
                                 <h4 class="title">Compra de Senhas</h4>
                                 <p class="category"></p>
                             </div>
+                            <div class="content" action = {{('SenhasController@showSenha')}}
+														<div>
 														<form>
-
-															<table class="table table-hover table-striped">
+															<table class="table table-hover table-striped", action = {{('SenhasController@showSenha')}}>
 																<thead>
 																		<th>Dia</th>
 																	<th>Data</th>
@@ -148,44 +149,13 @@
 
 																</thead>
 																 <tbody>
-                                        <?php
-
-                                               $currentdate = time();
-																							 echo $currentdate;
-																							 $diasemana = array('Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado');
-
-																							$counter = 1;
-
-																					do{
-
-                                              $dataRefeicao = date ("Y-m-d", strtotime('+'.$counter.' days'));
-                                                 echo $dataRefeicao;
-
-                                              $numdiaSemana = date('w', strtotime('+'.$counter.' days'));
-                                                  echo $numdiaSemana;
-
-                                              if ($numdiaSemana != 6 &&  $numdiaSemana != 7){
-
-																						$senhas = [
-                                               "dataRefeicao" => $dataRefeicao,
-																							 "diasemana" => $diasemana[$numdiaSemana]
-                                                    ];
-
-                                               }
-
-																										$counter ++;
-                                                    $numsenhas = count($senhas);
-
-																					} while ($counter < 8);
 
 
-																														?>
-
-																	 @foreach($senhas as $row)
+																	 @foreach($senha as $row)
 
 																		 <tr>
-																			  <td><?php echo date('d-m-Y', strtotime($row -> diasemana)); ?></td>
-																				<td> {{$row -> dataRefeicao}}</td>
+                                        <td> {{$row -> diasemana}}</td>
+																			  <td><?php echo date('d-m-Y', strtotime($row -> dataRefeicao)); ?></td>
 																				<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
 																				          if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
 																				          if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
