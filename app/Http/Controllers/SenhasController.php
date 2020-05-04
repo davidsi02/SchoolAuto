@@ -48,10 +48,35 @@ class SenhasController extends Controller
 
     public function showSenha(){
 
-      $dataatual = date ("Y-m-d");
+      $currentdate = time();
+      $diasemana = array('Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado');
 
-      $senha = DB::table('refeicao')->where('dataRefeicao', '>', $dataatual )->orderBy ('dataRefeicao' , 'ASC')->limit(7)->get();
-      return view('user/dashboard', compact('senha', ['senha' => $senha]));
+     $counter = 1;
+
+ do{
+
+     $dataRefeicao = date ("Y-m-d", strtotime('+'.$counter.' days'));
+
+     $numdiaSemana = date('w', strtotime('+'.$counter.' days'));
+
+
+     if ($numdiaSemana != 6 &&  $numdiaSemana != 7){
+
+   $senha = collect([
+      "dataRefeicao" => $dataRefeicao,
+      "diasemana" => $diasemana[$numdiaSemana]
+    ]);
+
+      }
+
+           $counter ++;
+
+
+ } while ($counter < 8);
+
+ echo $numsenhas = count($senha);
+
+     return view('user/dashboard', compact('senha', ['senha' => $senha]));
 
     }
 
