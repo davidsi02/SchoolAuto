@@ -4,6 +4,9 @@
 
 @if(isset(Auth::user()->email))
 
+<?php
+	 session_start();
+?>
 
 <html lang="en">
 <head>
@@ -48,15 +51,22 @@
 											<p>Movimentos</p>
 									</a>
 							</li>
-							@if(Auth::user()->tipoUtilizador == 1)
-							<li>
-									<a href="/apanel">
-											<i class="nc-key-25"></i>
-											<p>Painel Administrativo</p>
+
+							@if($_SESSION['permAdmin'] == 1)
+			<li>
+					<a href="/apanel">
+							<i class="nc-key-25"></i>
+							<p>Painel Administrativo</p>
+					</a>
+			</li>
+						 @endif
+
+							<li class="active-pro">
+									<a href="/">
+											<i class="nc-settings-gear-64"></i>
+											<p>Configurações</p>
 									</a>
 							</li>
-
-							@endif
 
 			<li class="active-pro" action = "{{ route('logout') }}">
 									<a href="{{ url('/logout') }}">

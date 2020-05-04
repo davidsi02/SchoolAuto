@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Auth;
 
-class AdminActionsController extends Controller
+class PermissionController extends Controller
 {
 
     /*
@@ -15,33 +15,60 @@ class AdminActionsController extends Controller
 
    public function PermissionsVrf (){
 
-  $verificaPermAdm = DB::table('tipoUtilizador')->
-  where('id', Auth::user()->id) ->
-  value('permAdmin');
+     @csfr;
 
-  $verificaPermSA = DB::table('tipoUtilizador')->
-  where('id', Auth::user()->id) ->
-  value('permSA');
+     session_start();
 
+  $_SESSION['permAdmin'] = DB::table('permission')->
+  where('idUser', Auth::user()->id) ->
+  value('Admin');
 
+  if ($_SESSION['permAdmin'] == 1 || Auth::user()->tipoUtilizador == 1) {
+    $_SESSION['permAdmin'] = 1;
+  //  $_SESSION['permSA'] == 1;
+    $_SESSION['AcessoCantina'] = 1;
+    $_SESSION['AcessoPortaria'] = 1;
+    $_SESSION['AcessoBar'] = 1;
+    $_SESSION['AcessoBiblioteca'] = 1;
 
-  session_start();
+ } else {
 
-    if ($verificaPermSA == 1) {
-          $_SESSION['permSA'] = 1;
-  }  else {
-          $_SESSION['permSA'] = 0;
+  $_SESSION['permSA'] = DB::table('permission')->
+  where('idUser', Auth::user()->id) ->
+  value('SAE');
 
-  }
-
-  if ($verificaPermAdm == 1){
-       $_SESSION['permAdm'] = 1;
+  if($_SESSION['permSA'] == 1){
+    $_SESSION['AcessoCantina'] = 1;
+    $_SESSION['AcessoPortaria'] = 1;
+    $_SESSION['AcessoBar'] = 1;
+    $_SESSION['AcessoBiblioteca'] = 1;
   } else {
-      $_SESSION['permAdm'] = 0;
 
-  }
+  $_SESSION['AcessoBar'] = DB::table('permission')->
+  where ('idUser', Auth::user()->id) ->
+  value('AcessoBar');
 
-return view('/dashboard');                                              
+  $_SESSION['AcessoCantina'] = DB::table('permission')->
+  where('idUser', Auth::user()->id) ->
+  value('AcessoCantina');
 
-   }
+  $_SESSION['AcessoBiblioteca'] =  DB::table('permission')->
+  where('idUser', Auth::user()->id) ->
+  value('AcessoBiblioteca');
+
+  $_SESSION['AcessoPortaria'] =  DB::table('permission')->
+  where('idUser', Auth::user()->id) ->
+  value('AcessoPortaria');
+}
+
+}
+
+if ($_SESSION['loginmethod'] == 'user'){
+
+  echo $_SESSION['permAdmin'];
+//return redirect('/dashboard');
+ }
+
+ return ("Incompleto!");
+}
 }

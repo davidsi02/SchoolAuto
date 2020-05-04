@@ -139,10 +139,10 @@ Route::get ('/home', 'TransactionController@compactTransactions')->name('compact
           //DataController
 Route::get ('/user', 'DataController@getUserType')->name('getUserType');
          //CardAuthController
-Route::get ('/sae/ncartao', 'CardAuthController@cardLogin')->name('cardLogin');
+Route::any ('/sae/ncartao', 'CardAuthController@cardLogin')->name('cardLogin');
 Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');
           //PermissionController
-Route::post ('/sae/permissions','PermissionController@PermissionVrf') ->name('PermissionVrf');
+Route::any ('/permissions','PermissionController@PermissionsVrf') ->name('PermissionVrf');
         //AdminActionsController
 // Model: Route::get ('', 'AdminActionsController@')->name('');
 
