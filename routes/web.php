@@ -32,6 +32,8 @@ Route::get('/transactions', function(){
 return view ('user/transactions') -> middleware('auth');
 
 });
+Route::get('/transações/pdf', 'TransactionController@pdf');
+Route::get('/refeicoes_consumidas/pdf', 'TransactionController@pdf1');
 
 Route::get('/apanel', function(){
 return view ('admin/panel');
@@ -153,9 +155,6 @@ Route::get ('/dashboard', 'SenhasController@showSenha')->middleware('auth');
 
                        //Route de teste:
 Route::any ('/testesenhas', 'SenhasController@showSenha')->name('showSenha');
-
-       //RedirectController
-Route::any ('/redirect', 'CardRedirectController@CardRedirect');
 
 
 //__________________________________________________//

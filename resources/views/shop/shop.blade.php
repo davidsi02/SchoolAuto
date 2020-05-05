@@ -113,7 +113,7 @@
                     @foreach($products->chunk(15) as $productChunk)
                     <div class="row " style="padding:10;">
                       @foreach($productChunk as $product)
-                      @if($product->idCategoria == 1)
+                      @if($product->idCategoria == $_SESSION['categoriaShop'])
                       @if($product->visibilidade == 1)
 
                       <div class="col-sm-4 col-md-4">

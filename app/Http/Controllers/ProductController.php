@@ -28,6 +28,7 @@ class ProductController extends Controller
       $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(15)->get();
         return view('shop/shop', ['products' => $products,'activepage'=>1]);
 
+
     }else{
       if ($Pcount>15) {
         echo 'ahhhhhhhhhhhhhhhhhhhhhhahhhhhhhhhhhhhhhhhhhh';
@@ -140,11 +141,10 @@ class ProductController extends Controller
       }else{
         $last = \DB::table('produtos')->orderBy('ordem','desc')->first();
         $lastM1= $last->ordem + 1;
-        $cat = \DB::table('categoriaproduto')->where('nomeCategoria', $_GET['nomeCat'])->first();
         \DB::table('produtos')->insert(
           ['nomeProduto' => $_GET['nomeProd'],
           'precoProduto' => $_GET['precoProd'],
-          'idCategoria' => $cat->idCategoria,
+          'idCategoria' => $_SESSION['categoriaShop'],
           'visibilidade' => 0,
           'ordem' => $lastM1,
           'NoPagina' => 15,
