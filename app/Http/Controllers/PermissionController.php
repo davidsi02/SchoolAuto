@@ -66,6 +66,12 @@ class PermissionController extends Controller
 if ($_SESSION['loginmethod'] == 'user'){
 
 return redirect('/dashboard');
- }
+
+} else {
+
+return redirect('/redirect');
+
+
+}
 }
 }

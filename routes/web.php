@@ -154,5 +154,8 @@ Route::get ('/dashboard', 'SenhasController@showSenha')->middleware('auth');
                        //Route de teste:
 Route::any ('/testesenhas', 'SenhasController@showSenha')->name('showSenha');
 
+       //RedirectController
+Route::any ('/redirect', 'CardRedirectController@CardRedirect');
+
 
 //__________________________________________________//
