@@ -49,10 +49,10 @@
 <script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
 
 
-	<title>SCHOOLAUTO - Área de Utilizador</title>
+<title>SCHOOLAUTO - Área de Utilizador</title>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="viewport" content="width=device-width" />
 
 </head>
 <body>
@@ -60,71 +60,72 @@
 <div class="wrapper">
 
 
-    <div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
+	<div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
 
-    <!--
+	<!--
 
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
+			Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+			Tip 2: you can also add an image using data-image tag
 
-    -->
+	-->
 
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="https://www.etpsico.pt" class="simple-text">
-                    SCHOOLAUTO - ETP SICÓ
-                </a>
-            </div>
+		<div class="sidebar-wrapper">
+					<div class="logo">
+							<a href="https://www.etpsico.pt" class="simple-text">
+									SCHOOLAUTO - ETP SICÓ
+							</a>
+					</div>
 
-            <ul class="nav">
-                <li class="active">
-                    <a href="/dashboard">
-                        <i class="pe-7s-home"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li>
-                    <a href='/user'>
-                        <i class="pe-7s-user"></i>
-                        <p>Conta</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/transactions" action= {{'DataController@getUserPerms'}}>
-                        <i class="pe-7s-note2"></i>
-                        <p>Movimentos</p>
-                    </a>
-                </li>
+					<ul class="nav">
+							<li class="active">
+									<a href="{{ url('/dashboard') }}">
+											<i class="pe-7s-home"></i>
+											<p>Dashboard</p>
+									</a>
+							</li>
+							<li>
+									<a href="{{ url('/user') }}">
+											<i class="pe-7s-user"></i>
+											<p>Conta</p>
+									</a>
+							</li>
+							<li>
+									<a href="{{ url('/transactions') }}">
+											<i class="pe-7s-note2"></i>
+											<p>Movimentos</p>
+									</a>
+							</li>
 
-                        @if($_SESSION['permAdmin'] == 1)
-								<li>
-                    <a href="/apanel">
-                        <i class="nc-key-25"></i>
-                        <p>Painel Administrativo</p>
-                    </a>
-                </li>
-								       @endif
-
-
+											@if($_SESSION['permAdmin'] == 1)
+							<li>
+									<a href=" {{ url ('/apanel') }}">
+											<i class="nc-key-25"></i>
+											<p>Painel Administrativo</p>
+									</a>
+							</li>
+										 @endif
 
 
-								<li class="active-pro">
-										<a href="/">
-												<i class="nc-settings-gear-64"></i>
-												<p>Configurações</p>
-										</a>
-								</li>
 
-				<li class="active-pro" action = "{{ route('logout') }}">
-                    <a href="{{ url('/logout') }}">
-                        <i class="pe-7s-power"></i>
-                        <p>Sair</p>
-												@csrf
-                    </a>
-                </li>
-            </ul>
-    	</div>
-    </div>
+
+							<li class="active-pro">
+									<a href="{{ url('/') }}">
+											<i class="nc-settings-gear-64"></i>
+											<p>Configurações</p>
+									</a>
+							</li>
+
+			<li class="active-pro" action = "{{ route('logout') }}">
+									<a href="{{ url('/logout') }}">
+											<i class="pe-7s-power"></i>
+											<p>Sair</p>
+											@csrf
+									</a>
+							</li>
+					</ul>
+		</div>
+	</div>
+
 
     <div class="main-panel">
 
@@ -132,65 +133,77 @@
             <div class="container-fluid">
                 <div class="row">
 
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Compra de Senhas</h4>
-                                <p class="category"></p>
-                            </div>
-														<form>
-
-															<table class="table table-hover table-striped", action = {{'SenhasController@showSenha'}}>
-																<thead>
-																		<th>Dia</th>
-																	<th>Data</th>
-																	<th>Preço</th>
-
-																</thead>
-																 <tbody>
-																	 <?php $count=0; ?>
-																	 @foreach($senha as $row)
-
-																		 <tr>
-																			  <td><?php echo date('d-m-Y', strtotime($row -> $senha['diasemana'])); ?></td>
-																				<td> {{$row -> $senha['dataRefeicao']}}</td>
-																				<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
-																				          if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
-																				          if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
-																									if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
-																				 ?> </td>
-
-																				<td>
-																					<?php
-                                              $senhacomprada = DB::table('refeicao')->where('dataSenha', '=', $row->dataRefeicao );
-
-                                            if ($senhacomprada != NULL){
-																							?>
-																							 <div class="checkbox">
-																										<input id={{$count}} type="checkbox" checked>
-																										<label for={{$count}}></label>
-																									</div>
-																									<?php
-																					 } else {
-                                                 echo 'Refeição já adquirida!';
-																					 }
-																						 ?>
-																								 </td>
-
-																			<td></td>
-																		 </tr>
-																	<?php $count++; ?>	
-
-																		 @endforeach
-
-
-																 </tbody>
-														 </table>
-														 <input type="submit" name="	CompraSubmit" value="Comprar">
-													</form>
+									<div class="col-md-12">
+											<div class="card">
+													<div class="header">
+															<h4 class="title">Compra de Senhas</h4>
+															<p class="category"></p>
 													</div>
-											 </div>
+													<form>
+
+														<table class="table table-hover table-striped", action = {{'SenhasController@showSenha'}}>
+															<thead>
+																	<th>Dia</th>
+																<th>Data</th>
+																<th>Preço</th>
+
+															</thead>
+															 <tbody>
+
+																 @foreach($senha as $row)
+
+																	 <tr>
+																			<td> {{$row -> diasemana}}</td>
+																			<td>{{$row -> dataRefeicao}}</td>
+																			<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
+																								if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
+																								if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
+																								if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
+																			 ?> </td>
+
+																			<td>
+																				<?php
+																						$senhacomprada = DB::table('refeicao')->where('dataSenha', '=', $row->dataRefeicao );
+
+																					if ($senhacomprada != NULL){
+																						?>
+																						 <div class="checkbox">
+																									<input id=checkbox4 type="checkbox" checked>
+																									<label for=checkbox4</label>
+																								</div>
+																								<?php
+																				 } else {
+																							 echo 'Refeição já adquirida!';
+																				 }
+																					 ?>
+																							 </td>
+
+																		<td></td>
+																	 </tr>
+
+																	 @endforeach
+
+
+															 </tbody>
+													 </table>
+													 <input type="submit" name="	CompraSubmit" value="Comprar">
+												</form>
+												</div>
 										 </div>
+									 </div>
+															<div class="footer">
+																	<div class="legend">
+
+
+
+
+																	</div>
+																	<hr>
+
+															</div>
+
+											</div>
+									</div>
                                 <div class="footer">
                                     <div class="legend">
 
