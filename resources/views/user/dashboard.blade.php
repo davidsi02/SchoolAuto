@@ -152,8 +152,8 @@
 																	 @foreach($senha as $row)
 
 																		 <tr>
-																				<td> {{$row -> dataRefeicao}}</td>
-																				<td><?php echo date('d-m-Y', strtotime($row -> diasemana)); ?></td>
+																				<td> {{$row -> diasemana}}</td>
+																				<td>{{$row -> dataRefeicao}}</td>
 																				<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
 																				          if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
 																				          if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
@@ -167,8 +167,8 @@
                                             if ($senhacomprada != NULL){
 																							?>
 																							 <div class="checkbox">
-																										<input id={{$count}} type="checkbox" checked>
-																										<label for={{$count}}></label>
+																										<input id=checkbox4 type="checkbox" checked>
+																										<label for=checkbox4</label>
 																									</div>
 																									<?php
 																					 } else {
@@ -179,8 +179,7 @@
 
 																			<td></td>
 																		 </tr>
-																	<?php $count++; ?>
-
+																	
 																		 @endforeach
 
 
