@@ -32,8 +32,6 @@ Route::get('/transactions', function(){
 return view ('user/transactions') -> middleware('auth');
 
 });
-Route::get('/transações/pdf', 'TransactionController@pdf');
-Route::get('/refeicoes_consumidas/pdf', 'TransactionController@pdf1');
 
 Route::get('/apanel', function(){
 return view ('admin/panel');
@@ -51,6 +49,11 @@ return view ('sae/saelogin-password');
 });
 //__________________________________________________//
 
+//PDFs//
+Route::get('/transações/pdf', 'TransactionController@pdf');
+Route::get('/refeicoes_consumidas/pdf', 'TransactionController@$pdf1');
+
+//____________________________________________________//
 
 //SHOP//////////////////////////
 Route::get('shop/pagina/{num}', 'ProductController@tabs')->name('tabs');
