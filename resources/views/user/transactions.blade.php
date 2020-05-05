@@ -65,36 +65,39 @@
 					</div>
 
 					<ul class="nav">
-							<li>
-									<a href='/dashboard'>
+							<li class="active">
+									<a href="{{ url('/dashboard') }}">
 											<i class="pe-7s-home"></i>
 											<p>Dashboard</p>
 									</a>
 							</li>
 							<li>
-									<a href='/user'>
+									<a href="{{ url('/user') }}">
 											<i class="pe-7s-user"></i>
 											<p>Conta</p>
 									</a>
 							</li>
-							<li class = "active">
-									<a href="/transactions">
+							<li>
+									<a href="{{ url('/transactions') }}">
 											<i class="pe-7s-note2"></i>
 											<p>Movimentos</p>
 									</a>
 							</li>
 
-							@if($_SESSION['permAdmin'] == 1)
-			<li>
-					<a href="/apanel">
-							<i class="nc-key-25"></i>
-							<p>Painel Administrativo</p>
-					</a>
-			</li>
-						 @endif
+											@if($_SESSION['permAdmin'] == 1)
+							<li>
+									<a href=" {{ url ('/apanel') }}">
+											<i class="nc-key-25"></i>
+											<p>Painel Administrativo</p>
+									</a>
+							</li>
+										 @endif
+
+
+
 
 							<li class="active-pro">
-									<a href="/">
+									<a href="{{ url('/') }}">
 											<i class="nc-settings-gear-64"></i>
 											<p>Configurações</p>
 									</a>
@@ -109,7 +112,7 @@
 							</li>
 					</ul>
 		</div>
-    </div>
+	</div>
 
 
     <div class="main-panel">

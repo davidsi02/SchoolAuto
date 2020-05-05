@@ -66,41 +66,43 @@
 					</div>
 
 					<ul class="nav">
-							<li>
-									<a href='/dashboard'>
+							<li class="active">
+									<a href="{{ url('/dashboard') }}">
 											<i class="pe-7s-home"></i>
 											<p>Dashboard</p>
 									</a>
 							</li>
-							<li class="active">
-									<a href='/user'>
+							<li>
+									<a href="{{ url('/user') }}">
 											<i class="pe-7s-user"></i>
 											<p>Conta</p>
 									</a>
 							</li>
 							<li>
-									<a href="/transactions">
+									<a href="{{ url('/transactions') }}">
 											<i class="pe-7s-note2"></i>
 											<p>Movimentos</p>
 									</a>
 							</li>
 
-							@if($_SESSION['permAdmin'] == 1)
-			<li>
-					<a href="/apanel">
-							<i class="nc-key-25"></i>
-							<p>Painel Administrativo</p>
-					</a>
-			</li>
-						 @endif
+											@if($_SESSION['permAdmin'] == 1)
+							<li>
+									<a href=" {{ url ('/apanel') }}">
+											<i class="nc-key-25"></i>
+											<p>Painel Administrativo</p>
+									</a>
+							</li>
+										 @endif
+
+
+
 
 							<li class="active-pro">
-									<a href="/">
+									<a href="{{ url('/') }}">
 											<i class="nc-settings-gear-64"></i>
 											<p>Configurações</p>
 									</a>
 							</li>
-
 
 			<li class="active-pro" action = "{{ route('logout') }}">
 									<a href="{{ url('/logout') }}">
@@ -111,7 +113,7 @@
 							</li>
 					</ul>
 		</div>
-    </div>
+	</div>
 
     <div class="main-panel">
 
@@ -226,7 +228,7 @@
 								<center>
 				 <img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
 								</center>
-								
+
             </div>
         </footer>
 
