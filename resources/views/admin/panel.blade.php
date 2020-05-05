@@ -74,7 +74,7 @@
 					</div>
 
 					<ul class="nav">
-							<li class="active">
+							<li>
 									<a href="{{ url('/dashboard') }}">
 											<i class="pe-7s-home"></i>
 											<p>Dashboard</p>
@@ -94,7 +94,7 @@
 							</li>
 
 											@if($_SESSION['permAdmin'] == 1)
-							<li>
+							<li class="active">
 									<a href=" {{ url ('/apanel') }}">
 											<i class="nc-key-25"></i>
 											<p>Painel Administrativo</p>

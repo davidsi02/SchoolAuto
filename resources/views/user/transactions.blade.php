@@ -65,7 +65,7 @@
 					</div>
 
 					<ul class="nav">
-							<li class="active">
+                      <li>
 									<a href="{{ url('/dashboard') }}">
 											<i class="pe-7s-home"></i>
 											<p>Dashboard</p>
@@ -77,7 +77,7 @@
 											<p>Conta</p>
 									</a>
 							</li>
-							<li>
+							<li class="active">
 									<a href="{{ url('/transactions') }}">
 											<i class="pe-7s-note2"></i>
 											<p>Movimentos</p>

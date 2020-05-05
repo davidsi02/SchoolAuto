@@ -66,13 +66,13 @@
 					</div>
 
 					<ul class="nav">
-							<li class="active">
+							<li>
 									<a href="{{ url('/dashboard') }}">
 											<i class="pe-7s-home"></i>
 											<p>Dashboard</p>
 									</a>
 							</li>
-							<li>
+							<li class="active">
 									<a href="{{ url('/user') }}">
 											<i class="pe-7s-user"></i>
 											<p>Conta</p>
