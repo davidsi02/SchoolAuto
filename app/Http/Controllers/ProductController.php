@@ -17,6 +17,7 @@ class ProductController extends Controller
 
 
     $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(15)->get();
+    Session::forget('user');
     return view('shop/shop', ['products' => $products,'activepage'=>1]);
 
   }

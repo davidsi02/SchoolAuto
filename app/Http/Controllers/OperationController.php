@@ -16,7 +16,7 @@ class OperationController extends Controller
       $user = \DB::table('users')->where('numCartao', $idC)->first();
       \DB::table('users')->where('numCartao', $idC)->update(['saldo' => $user->saldo - $total]);
       \DB::table('operacao')->insert(
-        ['valorOperacao' => $total,
+        ['valorOperacao' => -$total,
         'nomeOperacao' => 'Compra',
         'idProduto' => $product->id,
         'idUtilizador' =>  $user->id,
