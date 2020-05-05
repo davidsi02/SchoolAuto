@@ -53,26 +53,26 @@ class TransactionController extends Controller
      $output = ' <h3 align="center">Transações</h3>
      <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
       <tr>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="10%">Valor da Operação</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="20%">Data da Operação</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Quantidade</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="15%"> Tipo de Operacao</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id do Produto</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%"> Id do Utilizador</th>
+    <th style="text-align:center;border: 1px solid; ;" width="5%">Id</th>
+    <th style="text-align:center;border: 1px solid; ;" width="10%">Valor da Operação</th>
+    <th style="text-align:center;border: 1px solid; ;" width="20%">Data da Operação</th>
+    <th style="text-align:center;border: 1px solid; ;" width="5%">Quantidade</th>
+    <th style="text-align:center;border: 1px solid; ;" width="15%"> Tipo de Operacao</th>
+    <th style="text-align:center;border: 1px solid; ;" width="5%">Id do Produto</th>
+    <th style="text-align:center;border: 1px solid; ;" width="5%"> Id do Utilizador</th>
    </tr>
      ';
      foreach($ops as $ops)
       {
        $output .= '
        <tr>
-        <td style="text-align:center;border: 1px solid; ">'.$ops->idOperacao.'</td>
-        <td style="text-align:center;border: 1px solid; padding:0px;">'.$ops->valorOperacao.'</td>
-        <td style="text-align:center;border: 1px solid; padding:0px;">'.$ops->dataOperacao.'</td>
-        <td style="text-align:center;border: 1px solid; padding:0px;">'.$ops->quantidade.'</td>
-        <td style="text-align:center;border: 1px solid; padding:0px;">'.$ops->nomeOperacao.'</td>
-        <td style="text-align:center;border: 1px solid; padding:0px;">'.$ops->idProduto.'</td>
-        <td style="text-align:center;border: 1px solid; padding:0px;">'.$ops->idUtilizador.'</td>
+        <td style="text-align:center;border: 1px solid;">'.$ops->idOperacao.'</td>
+        <td style="text-align:center;border: 1px solid;">'.$ops->valorOperacao.'</td>
+        <td style="text-align:center;border: 1px solid;">'.$ops->dataOperacao.'</td>
+        <td style="text-align:center;border: 1px solid;">'.$ops->quantidade.'</td>
+        <td style="text-align:center;border: 1px solid;">'.$ops->nomeOperacao.'</td>
+        <td style="text-align:center;border: 1px solid;">'.$ops->idProduto.'</td>
+        <td style="text-align:center;border: 1px solid;">'.$ops->idUtilizador.'</td>
        </tr>
        ';
       }
@@ -105,20 +105,20 @@ class TransactionController extends Controller
      $output1 = ' <h3 align="center">Refeições Consumidas</h3>
      <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
       <tr>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="10%">Numero de Processo</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="20%">Id da Refeição</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Data de Consumo</th>
+    <th style="text-align:center;border: 1px solid;" width="5%">Id</th>
+    <th style="text-align:center;border: 1px solid;" width="10%">Numero de Processo</th>
+    <th style="text-align:center;border: 1px solid;" width="20%">Id da Refeição</th>
+    <th style="text-align:center;border: 1px solid;" width="5%">Data de Consumo</th>
       </tr>
      ';
      foreach($rfc as $rfc)
       {
        $output1 .= '
        <tr>
-        <td style="text-align:center;border: 1px solid; padding:0px;">'.$ops->idConsumo.'</td>
-        <td style="text-align:center;border: 1px solid; padding:0px;">'.$ops->numProcesso.'</td>
-        <td style="text-align:center;border: 1px solid; padding:0px;">'.$ops->idRefeicao.'</td>
-        <td style="text-align:center;border: 1px solid; padding:0px;">'.$ops->dataConsumo.'</td>
+        <td style="text-align:center;border: 1px solid; ">'.$ops->idConsumo.'</td>
+        <td style="text-align:center;border: 1px solid; ">'.$ops->numProcesso.'</td>
+        <td style="text-align:center;border: 1px solid; ">'.$ops->idRefeicao.'</td>
+        <td style="text-align:center;border: 1px solid; ">'.$ops->dataConsumo.'</td>
        </tr>
        ';
       }
