@@ -51,7 +51,7 @@ return view ('sae/saelogin-password');
 
 //PDFs//
 Route::get('/transações/pdf', 'TransactionController@pdf');
-Route::get('/refeicoes_consumidas/pdf', 'TransactionController@$pdf1');
+Route::get('/refeicoes_consumidas/pdf', 'TransactionController@pdf1');
 
 //____________________________________________________//
 

@@ -176,7 +176,7 @@ session_start();
 								</div>
 							</div>
 							<div style="padding:20px;">
-								<a href="{{ url('transações/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem de Transações</a>
+								<a href="{{ url('transações/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Transações</a>
 							</div>
 						</br>
 						  <div style="padding:20px;">
