@@ -48,7 +48,6 @@ class ProductController extends Controller
         $user = User::where('numCartao', $_GET['input'])->first();
         Session::forget('user');
         session(['idC' => $_GET['input'],'user' => $user]);
-        \Cart::destroy();
 
         return view('shop/shop', ['products' => $products,'user' => $user, 'idC' => $_GET['input'],'activepage'=>1]);
       }else {
