@@ -128,7 +128,7 @@
 
     <div class="main-panel">
 
-        <div class="content">
+        <div class="content", action = {{'SenhasController@showSenha'}}>
             <div class="container-fluid">
                 <div class="row">
 
