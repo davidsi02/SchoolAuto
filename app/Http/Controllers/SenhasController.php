@@ -87,17 +87,15 @@ $myCollection = collect([
 
     }
     public function comprarSenhas(){
+          foreach($_GET['dr'] as $dr) {
+            \DB::table('operacao')->insert(
+              ['valorOperacao' => -$total,
+              'nomeOperacao' => 'Compra',
+              'idProduto' => $product->id,
+              'idUtilizador' =>  $user->id,
+              'quantidade' => $product->qty,
+            ]);
 
-
-        // here i would like use foreach:
-
-
-      if ($_GET['ds'] && $_GET['dr']) {
-          $a = json_decode(stripslashes($_POST['a']));
-          foreach($a as $d){
-
-        echo $d;
-      }
-    }
+          }
   }
 }
