@@ -12,9 +12,9 @@
         <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(0, 0, 0);"></div>
         <div class="mbr-box__container mbr-section__container container">
             <div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-center">
-                <div class="row"><div class=" col-sm-5 col-sm-offset-0">
+                <div class="row"><div class=" col-sm-12 col-sm-offset-0">
 
-<div class="container">
+<div class="container" style="width:100%">
     <div class="row justify-content-center">
         <div class="col-md-8 offset-md-30">
             <div class="card">
