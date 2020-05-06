@@ -37,6 +37,8 @@ Route::get('/apanel', function(){
 return view ('admin/panel');
 });
 
+Route::get('/dashboard/comprarSenhas', 'SenhasController@comprarSenhas')->name('comprarSenhas');
+
 //________________________________________________//
 
 //SAE//

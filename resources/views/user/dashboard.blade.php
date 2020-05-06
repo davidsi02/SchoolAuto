@@ -1,7 +1,7 @@
 
-	 <?php
-      session_start();
-	 ?>
+<?php
+session_start();
+?>
 
 
 <html lang="en">
@@ -46,259 +46,266 @@
 
 	<!--   Core JS Files   -->
 	<script src="{{asset('assets/js/jquery.3.2.1.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
+	<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
 
 
 	<title>SCHOOLAUTO - Área de Utilizador</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width" />
 
 </head>
 <body>
 
-<div class="wrapper">
+	<div class="wrapper">
 
 
-    <div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
+		<div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
 
-    <!--
+			<!--
 
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
+			Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+			Tip 2: you can also add an image using data-image tag
 
-    -->
+		-->
 
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="https://www.etpsico.pt" class="simple-text">
-                    SCHOOLAUTO - ETP SICÓ
-                </a>
-            </div>
+		<div class="sidebar-wrapper">
+			<div class="logo">
+				<a href="https://www.etpsico.pt" class="simple-text">
+					SCHOOLAUTO - ETP SICÓ
+				</a>
+			</div>
 
-            <ul class="nav">
-                <li class="active">
-                    <a href="/dashboard">
-                        <i class="pe-7s-home"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li>
-                    <a href='/user'>
-                        <i class="pe-7s-user"></i>
-                        <p>Conta</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/transactions" action= {{'DataController@getUserPerms'}}>
-                        <i class="pe-7s-note2"></i>
-                        <p>Movimentos</p>
-                    </a>
-                </li>
+			<ul class="nav">
+				<li class="active">
+					<a href="/dashboard">
+						<i class="pe-7s-home"></i>
+						<p>Dashboard</p>
+					</a>
+				</li>
+				<li>
+					<a href='/user'>
+						<i class="pe-7s-user"></i>
+						<p>Conta</p>
+					</a>
+				</li>
+				<li>
+					<a href="/transactions" action= {{'DataController@getUserPerms'}}>
+						<i class="pe-7s-note2"></i>
+						<p>Movimentos</p>
+					</a>
+				</li>
 
-                        @if($_SESSION['permAdmin'] == 1)
-								<li>
-                    <a href="/apanel">
-                        <i class="nc-key-25"></i>
-                        <p>Painel Administrativo</p>
-                    </a>
-                </li>
-								       @endif
-
-
+				@if($_SESSION['permAdmin'] == 1)
+				<li>
+					<a href="/apanel">
+						<i class="nc-key-25"></i>
+						<p>Painel Administrativo</p>
+					</a>
+				</li>
+				@endif
 
 
-								<li class="active-pro">
-										<a href="/apanel">
-												<i class="nc-settings-gear-64"></i>
-												<p>Configurações</p>
-										</a>
-								</li>
+
+
+				<li class="active-pro">
+					<a href="/apanel">
+						<i class="nc-settings-gear-64"></i>
+						<p>Configurações</p>
+					</a>
+				</li>
 
 				<li class="active-pro" action = "{{ route('logout') }}">
-                    <a href="{{ url('/logout') }}">
-                        <i class="pe-7s-power"></i>
-                        <p>Sair</p>
-												@csrf
-                    </a>
-                </li>
-            </ul>
-    	</div>
-    </div>
+					<a href="{{ url('/logout') }}">
+						<i class="pe-7s-power"></i>
+						<p>Sair</p>
+						@csrf
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
 
 
 
 
 
-		<div class="main-panel">
+	<div class="main-panel">
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-8">
-											<div class="card">
-													<div class="header">
-															<h4 class="title">Compra de Senhas</h4>
-															<p class="category"></p>
-													</div>
-													<div class="content" action = {{('SenhasController@showSenha')}}
-													<div>
-														<table class="table table-hover table-striped" action = {{('SenhasController@showSenha')}}>
-															<thead>
-																	<th>Dia</th>
-																<th>Data</th>
-																<th>Preço</th>
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="card">
+							<div class="header">
+								<h4 class="title">Compra de Senhas</h4>
+								<p class="category"></p>
+							</div>
+							<div class="content" action = {{('SenhasController@showSenha')}}
+							<div>
+								<table class="table table-hover table-striped" action = {{('SenhasController@showSenha')}}>
+									<thead>
+										<th>Dia</th>
+										<th>Data</th>
+										<th>Preço</th>
 
-															</thead>
-															 <tbody>
+									</thead>
+									<tbody>
 
-																 <?php $count=0; ?>
-																 @foreach($senha as $row)
+										<?php $count=0; ?>
+										@foreach($senha as $row)
 
-																	 <tr>
-																			<td> {{$row -> diasemana}}</td>
-																			<td><?php echo date('d-m-Y', strtotime($row -> dataRefeicao)); ?></td>
-																			<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
-																								if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
-																								if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
-																								if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
-																			 ?> </td>
+										<tr>
+											<td> {{$row -> diasemana}}</td>
+											<td><?php echo date('d-m-Y', strtotime($row -> dataRefeicao)); ?></td>
+											<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
+											if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
+											if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
+											if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
+											?> </td>
 
-																			<td>
-																				<?php
-																						$senhacomprada = DB::table('refeicao')->where('dataSenha', '=', $row->dataRefeicao );
+											<td>
+												<?php
+												$senhacomprada = DB::table('refeicao')->where('dataSenha', '=', $row->dataRefeicao );
 
-																					if ($senhacomprada != NULL){
-																						?>
-																						<form class="" action="index.html" method="post">
-																				<div class="checkbox">
-																						 <input class="mycheckbox" id={{$count}} type="checkbox" name="{{$row -> diasemana}}" value="{{$row -> dataRefeicao}}" checked>
-																						 <label class="mycheckbox" for={{$count}}></label>
-																					 </div>
-																				 </form>
-																					 <?php
-																				 } else {
-																							 echo 'Refeição já adquirida!';
-																				 }
-																					 ?>
-																							 </td>
+												if ($senhacomprada != NULL){
+													?>
+													<form class="" action="index.html" method="post">
+														<div class="checkbox">
+															<input class="mycheckbox" id={{$count}} type="checkbox" name="{{$row -> diasemana}}" value="{{$row -> dataRefeicao}}" checked>
+															<label class="mycheckbox" for={{$count}}></label>
+														</div>
+													</form>
+													<?php
+												} else {
+													echo 'Refeição já adquirida!';
+												}
+												?>
+											</td>
 
-																		<td></td>
-																	 </tr>
+											<td></td>
+										</tr>
 
-																	 <?php
-																	 $ds[$count]=$row -> diasemana;
-																	 $dr[$count]=$row -> dataRefeicao;
-																	 $count++;
-																	 ?>
+										<?php
+										$ds[$count]=$row -> diasemana;
+										$dr[$count]=$row -> dataRefeicao;
+										$count++;
+										?>
 
-																	 @endforeach
-
-
-															 </tbody>
-													 </table>
-													 <input type="submit" id="btnSubmit" value="Comprar">
-												</form>
-												</div>
-
-									</div>
-
-                                    <div class="clearfix"></div>
-                                </form>
-                            </div>
-
-														<div
-
-																																			 <div class="col-md-4">
-																																					 <div class="card card-user">
-																																							 <div class="image">
-																																									 <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-																																							 </div>
-																																							 <div class="content">
-																																									 <div class="author">
-																																												<a href="#">
-																																											 <img class="avatar border-gray" src="{{Auth::user()->path_fotografia}}" alt="..."/>
-
-																																												 <h4 class="title">{{Auth::user()->name}}<br />
-																																														<small>{{Auth::user()->numProcesso}}</small>
-																																												 </h4>
-																																											 </a>
-																																											 <span class="pe-7s-credit" style="font-size: 3rem"></span>
-																																											 <br>
-																																											 <h> <font size = '5'>{{ Auth::user()->saldo }}€</font> </h>
-
-																																									 </div>
-
-																																							 </div>
-																																							 <hr>
-
-																																					 </div>
-																																			 </div>
+										@endforeach
 
 
-																								 </div>
+									</tbody>
+								</table>
+								<input type="submit" id="btnSubmit" value="Comprar">
+							</form>
+						</div>
+
+					</div>
+
+					<div class="clearfix"></div>
+				</form>
+			</div>
+
+			<div
+
+			<div class="col-md-4">
+				<div class="card card-user">
+					<div class="image">
+						<img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+					</div>
+					<div class="content">
+						<div class="author">
+							<a href="#">
+								<img class="avatar border-gray" src="{{Auth::user()->path_fotografia}}" alt="..."/>
+
+								<h4 class="title">{{Auth::user()->name}}<br />
+									<small>{{Auth::user()->numProcesso}}</small>
+								</h4>
+							</a>
+							<span class="pe-7s-credit" style="font-size: 3rem"></span>
+							<br>
+							<h> <font size = '5'>{{ Auth::user()->saldo }}€</font> </h>
+
+						</div>
+
+					</div>
+					<hr>
+
+				</div>
+			</div>
+
+
+		</div>
 
 
 
-                        </div>
-
-
+	</div>
 
 
 
 
-                    </div>
 
-										<footer class="footer">
-						            <div class="container-fluid">
-						                <nav class="pull-left">
-						                    <ul>
 
-						                </nav>
-						                <p class="copyright pull-right">
-						                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
-						                </p>
+</div>
 
-														<center>
-										 <img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
-														</center>
+<footer class="footer">
+	<div class="container-fluid">
+		<nav class="pull-left">
+			<ul>
 
-						            </div>
-						        </footer>
+			</nav>
+			<p class="copyright pull-right">
+				&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
+			</p>
 
-            </div>
+			<center>
+				<img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
+			</center>
 
-    </div>
+		</div>
+	</footer>
+
+</div>
+
+</div>
 </div>
 
 
 </body>
 <script type="text/javascript">
 /*jQuery(function () {
-    // Whenever any of these checkboxes is clicked
-    $("input.mycheckbox").click(function () {
- 			var a=$(this).val();
-			var b=$(this).attr("id")
+// Whenever any of these checkboxes is clicked
+$("input.mycheckbox").click(function () {
+var a=$(this).val();
+var b=$(this).attr("id")
 
-			console.log(a);
-			console.log(b);
+console.log(a);
+console.log(b);
 
-    })
+})
 });
+
+location.href = 'dashboard/compraSenhas?ds='+a[]+'&dr='+b[];
 
 */
 $('#btnSubmit').click(function(){
- $('input[type=checkbox]:checked').each(function() {
-	 var a=$(this).attr("name")
-	 var b=$(this).attr("value")
-	 document.write(a);
-	 document.write('<->');
-	 document.write(b);
-	 document.write('-------');
+	var a= [];
+	$('input[type=checkbox]:checked').each(function() {
+		var b=$(this).val();
+	  a.push(b);
+		console.log(a);
+		});
+		$.ajax({
+			type: "GET",
+			url: "dashboard/comprarSenhas",
+			data: {a : a},
+			cache: false,
 
-
-
-});
+			success: function(){
+					alert("OK");
+			}
+	});
 });
 </script>
 

@@ -30,7 +30,7 @@ class SenhasController extends Controller
           $dia_aux = time()+86400*(++$controlo);
           $diasemana_aux = date("w", $dia_aux);
        }
-      ++$controlo;      
+      ++$controlo;
       $senha->push(['dataRefeicao' => date("Y-m-d", $dia_aux), 'diasemana' => $diasemana[$diasemana_aux]]);
       }
 
@@ -86,5 +86,18 @@ $myCollection = collect([
     return view('user/dashboard', compact('senha', $senha));
 
     }
+    public function comprarSenhas(){
 
+
+        // here i would like use foreach:
+
+
+      if ($_GET['ds'] && $_GET['dr']) {
+          $a = json_decode(stripslashes($_POST['a']));
+          foreach($a as $d){
+
+        echo $d;
+      }
+    }
   }
+}
