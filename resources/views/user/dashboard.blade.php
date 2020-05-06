@@ -143,8 +143,7 @@
 													</div>
 													<div class="content" action = {{('SenhasController@showSenha')}}
 													<div>
-													<form>
-														<table class="table table-hover table-striped", action = {{('SenhasController@showSenha')}}>
+														<table class="table table-hover table-striped" action = {{('SenhasController@showSenha')}}>
 															<thead>
 																	<th>Dia</th>
 																<th>Data</th>
@@ -153,7 +152,7 @@
 															</thead>
 															 <tbody>
 
-
+																 <?php $count=0; ?>
 																 @foreach($senha as $row)
 
 																	 <tr>
@@ -170,11 +169,14 @@
 																						$senhacomprada = DB::table('refeicao')->where('dataSenha', '=', $row->dataRefeicao );
 
 																					if ($senhacomprada != NULL){
-																										echo '
+																						?>
+																						<form class="" action="index.html" method="post">
 																				<div class="checkbox">
-																						 <input id="checkbox4" type="checkbox" checked>
-																						 <label for="checkbox4"></label>
-																					 </div> ' ;
+																						 <input class="mycheckbox" id={{$count}} type="checkbox" name="{{$row -> diasemana}}" value="{{$row -> dataRefeicao}}" checked>
+																						 <label class="mycheckbox" for={{$count}}></label>
+																					 </div>
+																				 </form>
+																					 <?php
 																				 } else {
 																							 echo 'Refeição já adquirida!';
 																				 }
@@ -184,13 +186,18 @@
 																		<td></td>
 																	 </tr>
 
+																	 <?php
+																	 $ds[$count]=$row -> diasemana;
+																	 $dr[$count]=$row -> dataRefeicao;
+																	 $count++;
+																	 ?>
 
 																	 @endforeach
 
 
 															 </tbody>
 													 </table>
-													 <input type="submit" name="	CompraSubmit" value="Comprar">
+													 <input type="submit" id="btnSubmit" value="Comprar">
 												</form>
 												</div>
 
@@ -266,4 +273,33 @@
 
 
 </body>
+<script type="text/javascript">
+/*jQuery(function () {
+    // Whenever any of these checkboxes is clicked
+    $("input.mycheckbox").click(function () {
+ 			var a=$(this).val();
+			var b=$(this).attr("id")
+
+			console.log(a);
+			console.log(b);
+
+    })
+});
+
+*/
+$('#btnSubmit').click(function(){
+ $('input[type=checkbox]:checked').each(function() {
+	 var a=$(this).attr("name")
+	 var b=$(this).attr("value")
+	 document.write(a);
+	 document.write('<->');
+	 document.write(b);
+	 document.write('-------');
+
+
+
+});
+});
+</script>
+
 </html>

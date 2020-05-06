@@ -29,7 +29,7 @@ class TransactionController extends Controller
        return view('user/dashboard', compact('operacao', ['operacao' => $operacao]));
    }
 
-//_Todas_As_Transações_//
+// Todas As Transações_//
 
    public function allTransactions()
    {
