@@ -39,7 +39,6 @@ class CardRedirectController extends Controller
          return redirect('/shop');
      }
 
-
      if ($_SESSION['permAdmin'] == 1){
          //return redirect('/areaselector');
      }

@@ -29,11 +29,11 @@ class TransactionController extends Controller
        return view('user/dashboard', compact('operacao', ['operacao' => $operacao]));
    }
 
-// Todas As Transações_//
+//_Todas_As_Transações_//
 
    public function allTransactions()
    {
-       $ops = \DB::table('operacao')
+       $ops = \DB::table('operacao', 'users')
                    ->orderBy('dataOperacao' , 'DESC')
                    ->get();
    return $ops;
@@ -53,27 +53,30 @@ class TransactionController extends Controller
      $output = ' <h3 align="center">Transações</h3>
      <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
       <tr>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="10%">Valor da Operação</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="20%">Data da Operação</th>
+    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id da Operação</th>
+    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Nome do Utilizador</th>
+    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Nome do Produto</th>
     <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Quantidade</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="15%"> Tipo de Operacao</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id do Produto</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%"> Id do Utilizador</th>
+    <th style="text-align:center;border: 1px solid; padding:10px;" width="10%">Valor da Operação</th>
+    <th style="text-align:center;border: 1px solid; padding:10px;" width="15%">Tipo de Operacao</th>
+    <th style="text-align:center;border: 1px solid; padding:10px;" width="20%">Data da Operação</th>
       </tr>
      ';
      foreach($ops as $ops)
       {
+
+        $userOperacao = \DB::table('users')->where('id',$ops->idUtilizador)->first();
+        $product = \DB::table('produtos')->where('id',$ops->idProduto)->first();
+
        $output .= '
        <tr>
-        <td style="text-align:center;border: 1px solid;">'.$ops->idOperacao.'</td>
-        <td style="text-align:center;border: 1px solid;">'.$ops->valorOperacao.'</td>
-        <td style="text-align:center;border: 1px solid;">'.$ops->dataOperacao.'</td>
-        <td style="text-align:center;border: 1px solid;">'.$ops->quantidade.'</td>
-        <td style="text-align:center;border: 1px solid;">'.$ops->nomeOperacao.'</td>
-        <td style="text-align:center;border: 1px solid;">'.$ops->idProduto.'</td>
-        <td style="text-align:center;border: 1px solid;">'.$ops->idUtilizador.'</td>
-
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$ops->idOperacao.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$userOperacao->name.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$product->nomeProduto.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$ops->quantidade.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$ops->valorOperacao.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$ops->nomeOperacao.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$ops->dataOperacao.'</td>
        </tr>
        ';
       }
@@ -86,7 +89,7 @@ class TransactionController extends Controller
 
    public function allRefeicoesConsumidas()
    {
-       $rfc = \DB::table('consumorefeicao')
+       $rfc = \DB::table('consumorefeicao', 'users')
                    ->orderBy('dataConsumo' , 'DESC')
                    ->get();
    return $rfc;
@@ -103,23 +106,28 @@ class TransactionController extends Controller
    public function cdth1()
    {
      $rfc= $this->allRefeicoesConsumidas();
-     $output1 = ' <h3 align="center">Refeições Consumidas</h3>
+     $output1 = '<h3 align="center">Listagem das Refeições</h3>
      <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
       <tr>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id</th>
+    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id Consumo</th>
     <th style="text-align:center;border: 1px solid; padding:10px;" width="10%">Numero de Processo</th>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="20%">Id da Refeição</th>
+    <th style="text-align:center;border: 1px solid; padding:10px;" width="40%">Nome do Aluno</th>
+    <th style="text-align:center;border: 1px solid; padding:10px;" width="30%">Data da Senha</th>
     <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Data de Consumo</th>
+
       </tr>
      ';
      foreach($rfc as $rfc)
       {
+       $user = \DB::table('users')->where('numProcesso',$rfc->numProcesso)->first();
+
        $output1 .= '
        <tr>
-        <td style="text-align:center;border: 1px solid;">'.$rfc->idConsumo.'</td>
-        <td style="text-align:center;border: 1px solid;">'.$rfc->numProcesso.'</td>
-        <td style="text-align:center;border: 1px solid;">'.$rfc->idRefeicao.'</td>
-        <td style="text-align:center;border: 1px solid;">'.$rfc->dataConsumo.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->idConsumo.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->numProcesso.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->name.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->dataSenha.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->dataConsumo.'</td>
        </tr>
        ';
       }

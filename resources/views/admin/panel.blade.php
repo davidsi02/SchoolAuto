@@ -128,19 +128,69 @@
 			<div class="content" style="min-height:1px;padding: 0;padding-top:20">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-5">
 							<div class="card">
 
 								<div class="header">
-									<h4 class="title">Saldos e Movimentos</h4>
+									<h4 class="title">Notificações</h4>
 									<p class="category"></p>
 								</div>
 								<div class="content">
+
 									<div>
-									</div>
+
+                                       <!---- Impmentar com failed_jobs ---->
+
+										<div class="alert alert-info alert-with-icon" data-notify="container">
+												<button type="button" aria-hidden="true" class="close">×</button>
+												<span data-notify="icon" class="pe-7s-bell"></span>
+												<span data-notify="message">Isto é um exemplo de notificação!</span>
+										</div>
+
+										<div class="alert alert-danger alert-with-icon" data-notify="container">
+												<button type="button" aria-hidden="true" class="close">×</button>
+												<span data-notify="icon" class="pe-7s-bell"></span>
+												<span data-notify="message">Isto é um exemplo de notificação de erro!</span>
+										</div>
+
+										<div class="alert alert-warning alert-with-icon" data-notify="container">
+												<button type="button" aria-hidden="true" class="close">×</button>
+												<span data-notify="icon" class="pe-7s-bell"></span>
+												<span data-notify="message">Algo não está bem!</span>
+										</div>
+
+										<div class="alert alert-success alert-with-icon" data-notify="container">
+												<button type="button" aria-hidden="true" class="close">×</button>
+												<span data-notify="icon" class="pe-7s-bell"></span>
+												<span data-notify="message">Os sistema está a funcionar dentro da normalidade!</span>
+										</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										
+										<div class="col-md-5">
+											<div class="card">
+
+												<div class="header">
+													<h4 class="title">Utilizadores com PAR</h4>
+													<p class="category"></p>
+												</div>
+												<div class="typo-line">
+
+														<h2><p class="category">  Aviso!</p>     Em Construção!</h2>
+                            <p> <img src = 'https://www.agenciamestre.com/wp-content/uploads/2008/08/contrucao.png', allign = "middle"> </p>
+												</div>
+												<div class="content">
+
 								</div>
 							</div>
 						</div>
+
+
+
 					</div>
 				</div>
 			</div>
@@ -149,19 +199,7 @@
 			<div class="content" style="min-height:1px;padding: 0;padding-top:20">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
 
-								<div class="header">
-									<h4 class="title">Saldos e Movimentos</h4>
-									<p class="category"></p>
-								</div>
-								<div class="content">
-									<div>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -189,7 +227,7 @@
 									<a href="{{ url('transações/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Transações</a>
 								</div>
 							</br>
-							  <div style="padding:20px;">
+							  <div style="padding:10px;">
 								<a href="{{ url('refeicoes_consumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Refeições Consumidas</a>
 							  </div>
 				     </div>
@@ -199,22 +237,23 @@
 						</div>
 			</div>
 
-		<footer class="footer">
-			<div class="container-fluid">
-				<nav class="pull-left">
-					<ul>
 
-					</nav>
-					<p class="copyright pull-right">
-						&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
-					</p>
+			<footer class="footer">
+				<div class="container-fluid">
+					<nav class="pull-left">
+						<ul>
 
-					<center>
-						<img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
-					</center>
+						</nav>
+						<p class="copyright pull-right">
+							&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
+						</p>
 
-				</div>
-			</footer>
+						<center>
+							<img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
+						</center>
+
+					</div>
+				</footer>
 
 		</body>
 		@else
