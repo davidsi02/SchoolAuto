@@ -1,5 +1,5 @@
 <?php
-session_start();
+	 session_start();
 ?>
 
 @if($_SESSION['permAdmin'] == 1)
@@ -44,174 +44,184 @@ session_start();
 
 	<!--   Core JS Files   -->
 	<script src="{{asset('assets/js/jquery.3.2.1.min.js')}}" type="text/javascript"></script>
-	<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
 
 
 
 	<title>SCHOOLAUTO - Área de Utilizador</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-	<meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" />
 
 </head>
 <body>
 
-	<div class="wrapper">
-		<div class="sidebar" data-color="blue" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
+<div class="wrapper">
+    <div class="sidebar" data-color="blue" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
 
-			<!--
+    <!--
 
-			Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-			Tip 2: you can also add an image using data-image tag
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
 
-		-->
+    -->
 
 		<div class="sidebar-wrapper">
-			<div class="logo">
-				<a href="https://www.etpsico.pt" class="simple-text">
-					SCHOOLAUTO - ETP SICÓ
-				</a>
-			</div>
+					<div class="logo">
+							<a href="https://www.etpsico.pt" class="simple-text">
+									SCHOOLAUTO - ETP SICÓ
+							</a>
+					</div>
 
-			<ul class="nav">
-				<li>
-					<a href="/dashboard">
-						<i class="pe-7s-home"></i>
-						<p>Dashboard</p>
-					</a>
-				</li>
-				<li>
-					<a href='/user'>
-						<i class="pe-7s-user"></i>
-						<p>Conta</p>
-					</a>
-				</li>
-				<li>
-					<a href="/transactions">
-						<i class="pe-7s-note2"></i>
-						<p>Movimentos</p>
-					</a>
-				</li>
-				@if(Auth::user()->tipoUtilizador == 1)
-				<li class="active">
-					<a href="/apanel">
-						<i class="nc-key-25"></i>
-						<p>Painel Administrativo</p>
-					</a>
-				</li>
+					<ul class="nav">
+							<li>
+									<a href="{{ url('/dashboard') }}">
+											<i class="pe-7s-home"></i>
+											<p>Dashboard</p>
+									</a>
+							</li>
+							<li>
+									<a href="{{ url('/user') }}">
+											<i class="pe-7s-user"></i>
+											<p>Conta</p>
+									</a>
+							</li>
+							<li>
+									<a href="{{ url('/transactions') }}">
+											<i class="pe-7s-note2"></i>
+											<p>Movimentos</p>
+									</a>
+							</li>
 
-				@endif
+											@if($_SESSION['permAdmin'] == 1)
+							<li class="active">
+									<a href=" {{ url ('/apanel') }}">
+											<i class="nc-key-25"></i>
+											<p>Painel Administrativo</p>
+									</a>
+							</li>
+										 @endif
 
-				<li class="active-pro" action = "{{ route('logout') }}">
-					<a href="{{ url('/logout') }}">
-						<i class="pe-7s-power"></i>
-						<p>Sair</p>
-						@csrf
-					</a>
-				</li>
-			</ul>
+
+
+
+							<li class="active-pro">
+									<a href="{{ url('/') }}">
+											<i class="nc-settings-gear-64"></i>
+											<p>Configurações</p>
+									</a>
+							</li>
+
+			<li class="active-pro" action = "{{ route('logout') }}">
+									<a href="{{ url('/logout') }}">
+											<i class="pe-7s-power"></i>
+											<p>Sair</p>
+											@csrf
+									</a>
+							</li>
+					</ul>
 		</div>
 	</div>
 
 	<div class="main-panel">
 
-		<div class="content" style="min-height:1px;padding: 0;padding-top:20">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="card">
+			<div class="content" style="min-height:1px;padding: 0;padding-top:20">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
 
-							<div class="header">
-								<h4 class="title">Saldos e Movimentos</h4>
-								<p class="category"></p>
-							</div>
-							<div class="content">
-								<div>
+								<div class="header">
+									<h4 class="title">Saldos e Movimentos</h4>
+									<p class="category"></p>
+								</div>
+								<div class="content">
+									<div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<i class=""></i>
+			<i class=""></i>
 
-		<div class="content" style="min-height:1px;padding: 0;padding-top:20">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="card">
+			<div class="content" style="min-height:1px;padding: 0;padding-top:20">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
 
-							<div class="header">
-								<h4 class="title">Saldos e Movimentos</h4>
-								<p class="category"></p>
-							</div>
-							<div class="content">
-								<div>
+								<div class="header">
+									<h4 class="title">Saldos e Movimentos</h4>
+									<p class="category"></p>
+								</div>
+								<div class="content">
+									<div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<i class=""></i>
+			<i class=""></i>
 
-		<div class="content" style="min-height:1px;padding: 0;padding-top:20">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="card">
+			<div class="content" style="min-height:1px;padding: 0;padding-top:20">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
 
-							<div class="header">
-								<h4 class="title">Listagens</h4>
-								<p class="category"></p>
-							</div>
-							<div class="footer">
-								<div class="legend">
+								<div class="header">
+									<h4 class="title">Listagens</h4>
+									<p class="category"></p>
 								</div>
-								<hr>
 								<div class="footer">
-									<i class=""></i>
+									<div class="legend">
+									</div>
+									<hr>
+									<div class="footer">
+										<i class=""></i>
+									</div>
+								</div>
+								<div style="padding:20px;">
+									<a href="{{ url('transações/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Transações</a>
+								</div>
+							</br>
+							  <div style="padding:20px;">
+								<a href="{{ url('refeicoes_consumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Refeições Consumidas</a>
+							  </div>
+				     </div>
+
 								</div>
 							</div>
-							<div style="padding:20px;">
-								<a href="{{ url('transações/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Transações</a>
-							</div>
-						</br>
-						  <div style="padding:20px;">
-							<a href="{{ url('refeicoes_consumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Refeições Consumidas</a>
-						  </div>
-			     </div>
-
-							</div>
 						</div>
-					</div>
-		</div>
-
-	<footer class="footer">
-		<div class="container-fluid">
-			<nav class="pull-left">
-				<ul>
-
-				</nav>
-				<p class="copyright pull-right">
-					&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
-				</p>
-
-				<center>
-					<img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
-				</center>
-
 			</div>
-		</footer>
 
-	</body>
-	@else
+		<footer class="footer">
+			<div class="container-fluid">
+				<nav class="pull-left">
+					<ul>
 
-	<script>
-	alert("Não tem permissões para aceder à Area Restrita");
-	window.location = "/dashboard";
-	</script>
+					</nav>
+					<p class="copyright pull-right">
+						&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
+					</p>
 
-	@endif
+					<center>
+						<img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
+					</center>
+
+				</div>
+			</footer>
+
+		</body>
+		@else
+
+		<script>
+		alert("Não tem permissões para aceder à Area Restrita");
+		window.location = "/dashboard";
+		</script>
+
+		@endif
