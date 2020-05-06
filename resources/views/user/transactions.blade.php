@@ -97,7 +97,7 @@
 
 
 							<li class="active-pro">
-									<a href="{{ url('/') }}">
+								<a href="{{ url('/configs') }}">
 											<i class="nc-settings-gear-64"></i>
 											<p>Configurações</p>
 									</a>

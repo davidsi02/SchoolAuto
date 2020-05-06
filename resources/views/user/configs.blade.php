@@ -2,8 +2,6 @@
 	 session_start();
 ?>
 
-@if($_SESSION['permAdmin'] == 1)
-
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -57,7 +55,7 @@
 <body>
 
 <div class="wrapper">
-	<div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
+  <div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
 
     <!--
 
@@ -94,7 +92,7 @@
 							</li>
 
 											@if($_SESSION['permAdmin'] == 1)
-							<li class="active">
+							<li>
 									<a href=" {{ url ('/apanel') }}">
 											<i class="nc-key-25"></i>
 											<p>Painel Administrativo</p>
@@ -105,8 +103,8 @@
 
 
 
-							<li class="active-pro">
-								<a href="{{ url('/configs') }}">
+							<li class="active">
+                <a href="{{ url('/configs') }}">
 											<i class="nc-settings-gear-64"></i>
 											<p>Configurações</p>
 									</a>
@@ -256,11 +254,3 @@
 				</footer>
 
 		</body>
-		@else
-
-		<script>
-		alert("Não tem permissões para aceder à Area Restrita");
-		window.location = "/dashboard";
-		</script>
-
-		@endif

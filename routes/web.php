@@ -39,6 +39,10 @@ Route::get('/apanel', function(){
 return view ('admin/panel');
 });
 
+Route::any ('/configs', function() {
+  return view ('user/configs');
+});
+
 Route::get('/dashboard/comprarSenhas', 'SenhasController@comprarSenhas')->name('cS');
 
 //________________________________________________//
