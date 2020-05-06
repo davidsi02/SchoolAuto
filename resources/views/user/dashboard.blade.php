@@ -69,62 +69,62 @@
 
     -->
 
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="https://www.etpsico.pt" class="simple-text">
-                    SCHOOLAUTO - ETP SICÓ
-                </a>
-            </div>
+		<div class="wrapper">
+			<div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
 
-            <ul class="nav">
-                <li class="active">
-                    <a href="/dashboard">
-                        <i class="pe-7s-home"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li>
-                    <a href='/user'>
-                        <i class="pe-7s-user"></i>
-                        <p>Conta</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="/transactions" action= {{'DataController@getUserPerms'}}>
-                        <i class="pe-7s-note2"></i>
-                        <p>Movimentos</p>
-                    </a>
-                </li>
+				<div class="sidebar-wrapper">
+							<div class="logo">
+									<a href="https://www.etpsico.pt" class="simple-text">
+											SCHOOLAUTO - ETP SICÓ
+									</a>
+							</div>
 
-                        @if($_SESSION['permAdmin'] == 1)
-								<li>
-                    <a href="/apanel">
-                        <i class="nc-key-25"></i>
-                        <p>Painel Administrativo</p>
-                    </a>
-                </li>
-								       @endif
+							<ul class="nav">
+		                      <li class="active">
+											<a href="{{ url('/dashboard') }}">
+													<i class="pe-7s-home"></i>
+													<p>Dashboard</p>
+											</a>
+									</li>
+									<li>
+											<a href="{{ url('/user') }}">
+													<i class="pe-7s-user"></i>
+													<p>Conta</p>
+											</a>
+									</li>
+									<li>
+											<a href="{{ url('/transactions') }}">
+													<i class="pe-7s-note2"></i>
+													<p>Movimentos</p>
+											</a>
+									</li>
 
+													@if($_SESSION['permAdmin'] == 1)
+									<li>
+											<a href=" {{ url ('/apanel') }}">
+													<i class="nc-key-25"></i>
+													<p>Painel Administrativo</p>
+											</a>
+									</li>
+												 @endif
 
+									<li>
+											<a href="{{ url('/') }}">
+													<i class="nc-settings-gear-64"></i>
+													<p>Configurações</p>
+											</a>
+									</li>
 
-
-								<li class="active-pro">
-										<a href="/apanel">
-												<i class="nc-settings-gear-64"></i>
-												<p>Configurações</p>
-										</a>
-								</li>
-
-				<li class="active-pro" action = "{{ route('logout') }}">
-                    <a href="{{ url('/logout') }}">
-                        <i class="pe-7s-power"></i>
-                        <p>Sair</p>
-												@csrf
-                    </a>
-                </li>
-            </ul>
-    	</div>
-    </div>
+					<li class="active-pro" action = "{{ route('logout') }}">
+											<a href="{{ url('/logout') }}">
+													<i class="pe-7s-power"></i>
+													<p>Sair</p>
+													@csrf
+											</a>
+									</li>
+							</ul>
+				</div>
+			</div>
 
 
 
