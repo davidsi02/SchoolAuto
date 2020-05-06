@@ -11,7 +11,7 @@ session_start();
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<meta name="csrf_token" content="{{ csrf_token() }}" />
+
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}" defer></script>
 	<script src="{{asset('assets/web/assets/jquery/jquery.min.js')}}"></script>
@@ -49,83 +49,73 @@ session_start();
 	<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
 
 
-	<title>SCHOOLAUTO - Área de Utilizador</title>
+	<title>SCHOOLAUTO - Área do Utilizador</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-	<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width" />
 
-</head>
-<body>
+	</head>
+	<body>
 
 	<div class="wrapper">
-
-
-		<div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
-
-			<!--
-
-			Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-			Tip 2: you can also add an image using data-image tag
-
-		-->
+	<div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
 
 		<div class="sidebar-wrapper">
-			<div class="logo">
-				<a href="https://www.etpsico.pt" class="simple-text">
-					SCHOOLAUTO - ETP SICÓ
-				</a>
-			</div>
+					<div class="logo">
+							<a href="https://www.etpsico.pt" class="simple-text">
+									SCHOOLAUTO - ETP SICÓ
+							</a>
+					</div>
 
-			<ul class="nav">
-				<li class="active">
-					<a href="/dashboard">
-						<i class="pe-7s-home"></i>
-						<p>Dashboard</p>
-					</a>
-				</li>
-				<li>
-					<a href='/user'>
-						<i class="pe-7s-user"></i>
-						<p>Conta</p>
-					</a>
-				</li>
-				<li>
-					<a href="/transactions" action= {{'DataController@getUserPerms'}}>
-						<i class="pe-7s-note2"></i>
-						<p>Movimentos</p>
-					</a>
-				</li>
+					<ul class="nav">
+											<li class="active">
+									<a href="{{ url('/dashboard') }}">
+											<i class="pe-7s-home"></i>
+											<p>Dashboard</p>
+									</a>
+							</li>
+							<li>
+									<a href="{{ url('/user') }}">
+											<i class="pe-7s-user"></i>
+											<p>Conta</p>
+									</a>
+							</li>
+							<li>
+									<a href="{{ url('/transactions') }}">
+											<i class="pe-7s-note2"></i>
+											<p>Movimentos</p>
+									</a>
+							</li>
 
-				@if($_SESSION['permAdmin'] == 1)
-				<li>
-					<a href="/apanel">
-						<i class="nc-key-25"></i>
-						<p>Painel Administrativo</p>
-					</a>
-				</li>
-				@endif
-
-
+											@if($_SESSION['permAdmin'] == 1)
+							<li>
+									<a href=" {{ url ('/apanel') }}">
+											<i class="nc-key-25"></i>
+											<p>Painel Administrativo</p>
+									</a>
+							</li>
+										 @endif
 
 
-				<li class="active-pro">
-					<a href="/apanel">
-						<i class="nc-settings-gear-64"></i>
-						<p>Configurações</p>
-					</a>
-				</li>
 
-				<li class="active-pro" action = "{{ route('logout') }}">
-					<a href="{{ url('/logout') }}">
-						<i class="pe-7s-power"></i>
-						<p>Sair</p>
-						@csrf
-					</a>
-				</li>
-			</ul>
+
+							<li class="active-pro">
+									<a href="{{ url('/') }}">
+											<i class="nc-settings-gear-64"></i>
+											<p>Configurações</p>
+									</a>
+							</li>
+
+			<li class="active-pro" action = "{{ route('logout') }}">
+									<a href="{{ url('/logout') }}">
+											<i class="pe-7s-power"></i>
+											<p>Sair</p>
+											@csrf
+									</a>
+							</li>
+					</ul>
 		</div>
 	</div>
-
 
 
 
@@ -151,7 +141,6 @@ session_start();
 
 									</thead>
 									<tbody>
-										<form  action = "{{route('cS')}}" method="get">
 
 										<?php $count=0; ?>
 										@foreach($senha as $row)
@@ -159,24 +148,24 @@ session_start();
 										<tr>
 											<td> {{$row -> diasemana}}</td>
 											<td><?php echo date('d-m-Y', strtotime($row -> dataRefeicao)); ?></td>
-											<td><?php
-											if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
-											if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
-											if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
-											if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
+											<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
+										          	if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
+										          	if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
+											          if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
 											?> </td>
 
 											<td>
 												<?php
-												$dr[$count]=$row -> dataRefeicao;
 												$senhacomprada = DB::table('refeicao')->where('dataSenha', '=', $row->dataRefeicao );
 
 												if ($senhacomprada != NULL){
 													?>
+													<form class="" action="index.html" method="post">
 														<div class="checkbox">
-															<input id={{$count}} name="dr[]" type="checkbox" value="{{$row -> dataRefeicao}}" checked>
-															<label for={{$count}}></label>
+															<input class="mycheckbox" id={{$count}} type="checkbox" name="{{$row -> diasemana}}" value="{{$row -> dataRefeicao}}" checked>
+															<label class="mycheckbox" for={{$count}}></label>
 														</div>
+													</form>
 													<?php
 												} else {
 													echo 'Refeição já adquirida!';
@@ -188,6 +177,8 @@ session_start();
 										</tr>
 
 										<?php
+										$ds[$count]=$row -> diasemana;
+										$dr[$count]=$row -> dataRefeicao;
 										$count++;
 										?>
 
@@ -273,34 +264,39 @@ session_start();
 
 </body>
 <script type="text/javascript">
-	/*	$('#btnSubmit').click(function(){
-			var a= [];
-			$('input[type=checkbox]:checked').each(function() {
-				var b=$(this).val();
-			  a.push(b);
-				console.log(a);
+/*jQuery(function () {
+// Whenever any of these checkboxes is clicked
+$("input.mycheckbox").click(function () {
+var a=$(this).val();
+var b=$(this).attr("id")
 
+console.log(a);
+console.log(b);
 
-				});
+})
+});
 
-				$.ajax({
+location.href = 'dashboard/compraSenhas?ds='+a[]+'&dr='+b[];
 
-					 type:'get',
+*/
+$('#btnSubmit').click(function(){
+	var a= [];
+	$('input[type=checkbox]:checked').each(function() {
+		var b=$(this).val();
+	  a.push(b);
+		console.log(a);
+		});
+		$.ajax({
+			type: "GET",
+			url: "dashboard/comprarSenhas",
+			data: {a : a},
+			cache: false,
 
-					 url:'/compraSenhas',
-
-					 data:{a:a},
-
-					 success:function(data){
-
-
-					 }
-
-				});
-
+			success: function(){
+					alert("OK");
+			}
 	});
-
-});*/
+});
 </script>
 
 </html>
