@@ -95,7 +95,7 @@
               <div style="font-size:4rem;font-weight: bold;">
 
                 <div class="tabpanel">
-
+<?php session_start(); ?>
                   <!-- Nav tabs -->
                   <ul class="nav navbar" role="tablist">
                     <?php
