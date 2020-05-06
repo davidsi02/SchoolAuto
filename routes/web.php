@@ -14,7 +14,9 @@ Route::get('/logout', 'LogoutController@logout');
 //________________________________________________________________//
 
 //Home//
-Route::get('/home', 'HomeController@fullTransactions')->name('home');
+Route::get ('/home', function() {
+return view ('user/dashboard') -> middleware('auth');
+});
 //_______________________________________________________________//
 
 
