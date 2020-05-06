@@ -153,8 +153,6 @@ Route::any ('/sae/ncartao', 'CardAuthController@cardLogin')->name('cardLogin');
 Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');
           //PermissionController
 Route::any ('/permissions','PermissionController@PermissionsVrf')->name('PermissionVrf')->middleware('auth');
-Route::any ('/redirect','CardRedirectController@CardRedirect')->middleware('auth');
-
         //AdminActionsController
 // Model: Route::get ('', 'AdminActionsController@')->name('');
         //SenhasController
