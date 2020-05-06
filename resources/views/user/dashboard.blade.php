@@ -157,10 +157,11 @@
 											<td>
 												<?php											$dr[$count]=$row -> dataRefeicao;
 
-												$senhacomprada = DB::table('refeicao')->where('dataSenha', '=', $row->dataRefeicao );
 												$dr[$count]=$row -> dataRefeicao;
 
-												if ($senhacomprada != NULL){
+												if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->first()){
+													echo 'Refeição já adquirida!';
+												} else {
 													?>
 													<form  action="{{route('cS')}}" method="get">
 														<div class="checkbox">
@@ -168,8 +169,6 @@
 															<label for={{$count}}></label>
 														</div>
 													<?php
-												} else {
-													echo 'Refeição já adquirida!';
 												}
 												?>
 											</td>
