@@ -160,7 +160,10 @@
 												$dr[$count]=$row -> dataRefeicao;
 
 												if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->first()){
-													echo 'Refeição já adquirida!';
+													?>
+													<small >Refeição já adquirida!</small>
+													<?php
+
 												} else {
 													?>
 													<form  action="{{route('cS')}}" method="get">
