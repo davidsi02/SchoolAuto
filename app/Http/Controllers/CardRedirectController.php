@@ -19,30 +19,26 @@ class CardRedirectController extends Controller
 
      session_start();
 
-     if ($_SESSION['AcessoPortaria'] == 1 && $_SESSION['PermAdmin'] != 1 && $_SESSION['permSA'] != 1){
+     if ($_SESSION['AcessoPortaria'] == 1 && $_SESSION['permAdmin'] != 1 && $_SESSION['permSA'] != 1){
              // return redirect('/portaria');
      }
 
-     if ($_SESSION['AcessoCantina'] == 1 && $_SESSION['PermAdmin'] != 1 && $_SESSION['permSA'] != 1){
+     if ($_SESSION['AcessoCantina'] == 1 && $_SESSION['permAdmin'] != 1 && $_SESSION['permSA'] != 1){
              // return redirect('/cantina');
      }
 
-     if ($_SESSION['AcessoBiblioteca'] == 1 && $_SESSION['PermAdmin'] != 1 && $_SESSION['permSA'] != 1){
+     if ($_SESSION['AcessoBiblioteca'] == 1 && $_SESSION['permAdmin'] != 1 && $_SESSION['permSA'] != 1){
 
            $_SESSION['categoriaShop'] = 2;
            return redirect('/shop');
      }
 
-     if ($_SESSION['AcessoBar'] == 1 && $_SESSION['PermAdmin'] != 1 && $_SESSION['permSA'] != 1){
+     if ($_SESSION['AcessoBar'] == 1 && $_SESSION['permAdmin'] != 1 && $_SESSION['permSA'] != 1){
 
          $_SESSION['categoriaShop'] = 1;
          return redirect('/shop');
      }
 
-     if ($_SESSION['permSA'] == 1 && $_SESSION['permAdmin'] != 1){
-         //return redirect('/areaselector');
-
-     }
 
      if ($_SESSION['permAdmin'] == 1){
          //return redirect('/areaselector');

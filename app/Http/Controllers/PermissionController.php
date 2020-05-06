@@ -19,6 +19,12 @@ class PermissionController extends Controller
 
      session_start();
 
+     $_SESSION['permAdmin'] = 0;
+     $_SESSION['AcessoCantina'] = 0;
+     $_SESSION['AcessoPortaria'] = 0;
+     $_SESSION['AcessoBar'] = 0;
+     $_SESSION['AcessoBiblioteca'] = 0;
+
   $_SESSION['permAdmin'] = DB::table('permission')->
   where('idUser', Auth::user()->id) ->
   value('Admin');
