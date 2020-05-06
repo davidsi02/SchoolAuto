@@ -128,7 +128,7 @@
 			<div class="content" style="min-height:1px;padding: 0;padding-top:20">
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-5">
+						<div class="col-md-6">
 							<div class="card">
 
 								<div class="header">
@@ -171,7 +171,7 @@
 
 
 
-										<div class="col-md-5">
+										<div class="col-md-6">
 											<div class="card">
 
 												<div class="header">

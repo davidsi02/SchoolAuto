@@ -123,93 +123,51 @@
 
 	<div class="main-panel">
 
-			<div class="content" style="min-height:1px;padding: 0;padding-top:20">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-5">
-							<div class="card">
+    <div class="content" style="min-height:1px;padding: 0;padding-top:20">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card">
 
-								<div class="header">
-									<h4 class="title">Alterar cor </h4>
-									<p class="category"></p>
-								</div>
-								<div class="content">
+              <div class="header">
+                <h4 class="title">Alterar Cor</h4>
+                <p class="category"></p>
+              </div>
+              <div class="content">
 
-									<div>
-                         
-													</div>
-												</div>
-											</div>
-										</div>
+                <div>
 
 
-
-										<div class="col-md-5">
-											<div class="card">
-
-												<div class="header">
-													<h4 class="title">Utilizadores com PAR</h4>
-													<p class="category"></p>
-												</div>
-												<div class="typo-line">
-
-														<h2><p class="category">  Aviso!</p>     Em Construção!</h2>
-                            <p> <img src = 'https://www.agenciamestre.com/wp-content/uploads/2008/08/contrucao.png', allign = "middle"> </p>
-												</div>
-												<div class="content">
-
-								</div>
-							</div>
-						</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
 
 
-					</div>
-				</div>
-			</div>
-			<i class=""></i>
+                  <div class="col-md-8">
+                    <div class="card">
 
-			<div class="content" style="min-height:1px;padding: 0;padding-top:20">
-				<div class="container-fluid">
-					<div class="row">
+                      <div class="header">
+                        <h4 class="title">Enviar Sugestão/Reclamação</h4>
+                        <p class="category"></p>
+                      </div>
+                      <div class="typo-line">
 
-					</div>
-				</div>
-			</div>
-			<i class=""></i>
+                          <h2><p class="category">  Aviso!</p>     Em Construção!</h2>
+                          <p> <img src = 'https://www.agenciamestre.com/wp-content/uploads/2008/08/contrucao.png', allign = "middle"> </p>
+                      </div>
+                      <div class="content">
 
-			<div class="content" style="min-height:1px;padding: 0;padding-top:20">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="card">
+              </div>
+            </div>
+          </div>
 
-								<div class="header">
-									<h4 class="title">Listagens</h4>
-									<p class="category"></p>
-								</div>
-								<div class="footer">
-									<div class="legend">
-									</div>
-									<hr>
-									<div class="footer">
-										<i class=""></i>
-									</div>
-								</div>
-								<div style="padding:20px;">
-									<a href="{{ url('transações/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Transações</a>
-								</div>
-							</br>
-							  <div style="padding:10px;">
-								<a href="{{ url('refeicoes_consumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Refeições </a>
-							  </div>
-				     </div>
 
-								</div>
-							</div>
-						</div>
-			</div>
 
+        </div>
+      </div>
+    </div>
 
 			<footer class="footer">
 				<div class="container-fluid">
