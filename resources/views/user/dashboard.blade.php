@@ -1,8 +1,10 @@
 
 <?php
-session_start();
+    if(!isset($_SESSION))
+    { 
+        session_start();
+    }
 ?>
-
 
 <html lang="en">
 
@@ -131,9 +133,8 @@ session_start();
 								<h4 class="title">Compra de Senhas</h4>
 								<p class="category"></p>
 							</div>
-							<div class="content" action = {{('SenhasController@showSenha')}}
-							<div>
-								<table class="table table-hover table-striped" action = {{('SenhasController@showSenha')}}>
+							<div class="content">
+								<table class="table table-hover table-striped">
 									<thead>
 										<th>Dia</th>
 										<th>Data</th>
@@ -153,19 +154,19 @@ session_start();
 										          	if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
 											          if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
 											?> </td>
-
 											<td>
-												<?php
+												<?php											$dr[$count]=$row -> dataRefeicao;
+
 												$senhacomprada = DB::table('refeicao')->where('dataSenha', '=', $row->dataRefeicao );
+												$dr[$count]=$row -> dataRefeicao;
 
 												if ($senhacomprada != NULL){
 													?>
-													<form class="" action="index.html" method="post">
+													<form  action="{{route('cS')}}" method="get">
 														<div class="checkbox">
-															<input class="mycheckbox" id={{$count}} type="checkbox" name="{{$row -> diasemana}}" value="{{$row -> dataRefeicao}}" checked>
-															<label class="mycheckbox" for={{$count}}></label>
+															<input id={{$count}} type="checkbox" name='dr[]' value="{{$row -> dataRefeicao}}" checked>
+															<label for={{$count}}></label>
 														</div>
-													</form>
 													<?php
 												} else {
 													echo 'Refeição já adquirida!';
@@ -178,7 +179,6 @@ session_start();
 
 										<?php
 										$ds[$count]=$row -> diasemana;
-										$dr[$count]=$row -> dataRefeicao;
 										$count++;
 										?>
 
@@ -278,7 +278,7 @@ console.log(b);
 
 location.href = 'dashboard/compraSenhas?ds='+a[]+'&dr='+b[];
 
-*/
+
 $('#btnSubmit').click(function(){
 	var a= [];
 	$('input[type=checkbox]:checked').each(function() {
@@ -296,7 +296,7 @@ $('#btnSubmit').click(function(){
 					alert("OK");
 			}
 	});
-});
+});*/
 </script>
 
 </html>
