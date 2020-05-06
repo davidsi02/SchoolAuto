@@ -170,7 +170,7 @@
 										</div>
 
 
-										
+
 										<div class="col-md-5">
 											<div class="card">
 
@@ -228,7 +228,7 @@
 								</div>
 							</br>
 							  <div style="padding:10px;">
-								<a href="{{ url('refeicoes_consumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Refeições Consumidas</a>
+								<a href="{{ url('refeicoes_consumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Refeições </a>
 							  </div>
 				     </div>
 
