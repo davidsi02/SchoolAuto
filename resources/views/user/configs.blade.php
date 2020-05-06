@@ -130,38 +130,13 @@
 							<div class="card">
 
 								<div class="header">
-									<h4 class="title">Notificações</h4>
+									<h4 class="title">Alterar cor </h4>
 									<p class="category"></p>
 								</div>
 								<div class="content">
 
 									<div>
-
-                                       <!---- Impmentar com failed_jobs ---->
-
-										<div class="alert alert-info alert-with-icon" data-notify="container">
-												<button type="button" aria-hidden="true" class="close">×</button>
-												<span data-notify="icon" class="pe-7s-bell"></span>
-												<span data-notify="message">Isto é um exemplo de notificação!</span>
-										</div>
-
-										<div class="alert alert-danger alert-with-icon" data-notify="container">
-												<button type="button" aria-hidden="true" class="close">×</button>
-												<span data-notify="icon" class="pe-7s-bell"></span>
-												<span data-notify="message">Isto é um exemplo de notificação de erro!</span>
-										</div>
-
-										<div class="alert alert-warning alert-with-icon" data-notify="container">
-												<button type="button" aria-hidden="true" class="close">×</button>
-												<span data-notify="icon" class="pe-7s-bell"></span>
-												<span data-notify="message">Algo não está bem!</span>
-										</div>
-
-										<div class="alert alert-success alert-with-icon" data-notify="container">
-												<button type="button" aria-hidden="true" class="close">×</button>
-												<span data-notify="icon" class="pe-7s-bell"></span>
-												<span data-notify="message">Os sistema está a funcionar dentro da normalidade!</span>
-										</div>
+                         
 													</div>
 												</div>
 											</div>
