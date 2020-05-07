@@ -24,17 +24,20 @@ class DataController extends Controller
    {
       session_start();
 
-      if ($_SESSION['colorchange'] = 1) $color = 'red';
-      if ($_SESSION['colorchange'] = 2) $color = 'orange';
-      if ($_SESSION['colorchange'] = 3) $color = 'blue';
-      if ($_SESSION['colorchange'] = 4) $color = 'azure';
-      if ($_SESSION['colorchange'] = 5) $color = 'purple';
-      if ($_SESSION['colorchange'] = 6) $color = NULL;
+             echo $_SESSION['colorchange'];
+
+      if (isset ($_POST['red'])) $color = 'red';
+      if (isset ($_POST['orange'])) $color = 'orange';
+      if (isset ($_POST['blue'])) $color = 'blue';
+      if (isset ($_POST['azure'])) $color = 'azure';
+      if (isset ($_POST['purple'])) $color = 'purple';
+      if (isset ($_POST['none'])) $color = NULL;
 
       DB::update('update users set uiColor = ?',[$color]);
 
       echo $color;
 
+      return redirect('/configs');
 
    }
 

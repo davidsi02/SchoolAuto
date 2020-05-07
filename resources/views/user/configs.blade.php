@@ -136,9 +136,10 @@
               </div>
               <div class="content">
 
-
-
                 <div>
+									<form method="POST" action= "{{ route('/colorchange') }}" >
+											@csrf
+
 									<table class="table table-hover table-striped">
 											<thead>
 													<th>Cor</th>
@@ -146,22 +147,18 @@
 											</thead>
 											<tbody>
 
-                                 <form method="POST" action= "{{ route('/colorchange') }}" >
-                                              @csrf
 													<tr>
 													 <td>Vermelho</td>
-													 <td>		<button type="submit" class="btn btn-secondary" <?php $_SESSION['colorchange'] = 1; ?>>
+													 <td>		<button name = 'red' type="submit" class="btn btn-secondary">
 
 
 																	 {{ __('Selecionar') }}
 															 </button> </td>
 													</tr>
 
-												                           </form>
-
 													<tr>
 													 <td>Laranja</td>
-													 <td>		<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['colorchange'] = 2; ?>>
+													 <td>		<button name = 'orange' type="submit" class="btn btn-secondary">
 
 
 																	 {{ __('Selecionar') }}
@@ -170,7 +167,7 @@
 
 													<tr>
 													 <td>Azul Escuro</td>
-													 <td>		<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['colorchange'] = 3; ?>>
+													 <td>		<button name = 'blue' type="submit" class="btn btn-secondary">
 
 
 																	 {{ __('Selecionar') }}
@@ -179,7 +176,7 @@
 
 													<tr>
 													 <td>Azul Claro</td>
-													 <td>		<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['colorchange'] = 4; ?>>
+													 <td>		<button name = 'azure' type="submit" class="btn btn-secondary">
 
 
 																	 {{ __('Selecionar') }}
@@ -188,7 +185,7 @@
 													<tr>
 
 													 <td>Roxo</td>
-													 <td>		<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['colorchange'] = 5 ; ?>>
+													 <td>		<button name = 'purple' type="submit" class="btn btn-secondary">
 
 
 																	 {{ __('Selecionar') }}
@@ -196,12 +193,13 @@
 													</tr>
 
 													<td>Cinza</td>
-						 						 <td>		<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['colorchange'] = 6;  ?>>
+						 						 <td>		<button name = "none" type="submit" class="btn btn-secondary" action = <?php $_SESSION['submittype'] = 2; ?>>
 
 
 						 										 {{ __('Selecionar') }}
 						 								 </button> </td>
-						 						</tr>
+													 </form>
+												</tr>
 
 
 											</tbody>
@@ -242,7 +240,7 @@
 
 														<div class="form-group row mb-0">
 																<div class="col-md-8 offset-md-4">
-																	<button type="submit" class="btn btn-primary" action = <?php $_SESSION['submittype'] = 1; ?>>
+																	<button type="submit" class="btn btn-primary" <?php $_SESSION['submittype'] = 1; ?>>
 
 
 																			{{ __('Enviar Sugestão') }}
@@ -261,7 +259,7 @@
 														</div>
 
 												</form>
-												<br> <br> <br> <br> <br>
+												<br> <br> <br> <br>
               </div>
             </div>
           </div>
