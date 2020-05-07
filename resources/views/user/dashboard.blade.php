@@ -60,7 +60,7 @@ if(!isset($_SESSION))
 <body>
 
   <div class="wrapper">
-    <div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image= url('assets/images/dsc-0066-source-1500x1000.jpg') >
+    <div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
 
       <div class="sidebar-wrapper">
         <div class="logo">
