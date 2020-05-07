@@ -96,18 +96,15 @@
 											@if($_SESSION['permAdmin'] == 1)
 							<li class="active">
 									<a href=" {{ url ('/apanel') }}">
-											<i class="nc-key-25"></i>
+											<i class="pe-7s-id"></i>
 											<p>Painel Administrativo</p>
 									</a>
 							</li>
 										 @endif
 
-
-
-
 							<li class="active-pro">
 								<a href="{{ url('/configs') }}">
-											<i class="nc-settings-gear-64"></i>
+											<i class="pe-7s-config"></i>
 											<p>Configurações</p>
 									</a>
 							</li>
@@ -166,7 +163,33 @@
 										</div>
 													</div>
 												</div>
+
+
+												<form action="{{ url('/notifications') }}">
+
+												<div class="content">
+																								<div class="form-group row mb-0">
+																										<div class="col-md-8 offset-md-4">
+																												<button type="submit" class="btn btn-primary" >
+																														{{ __('Ver mais') }}
+																												</button>
+																										</div>
+																								</div>
+												</div>
+												</form>
+
+
 											</div>
+
+
+
+
+
+
+
+
+
+
 										</div>
 
 
@@ -187,11 +210,11 @@
 
 								</div>
 							</div>
+
+
 						</div>
 
 
-
-					</div>
 				</div>
 			</div>
 			<i class=""></i>

@@ -19,6 +19,13 @@ return view ('user/dashboard') -> middleware('auth');
 });
 //_______________________________________________________________//
 
+//Notificações//
+
+Route::any('/notifications', function() {
+return view('pageextensions/notifications');
+
+});
+//_________________________________________________//
 
 //WEB//
 Route::get ('/dashboard', function() {
