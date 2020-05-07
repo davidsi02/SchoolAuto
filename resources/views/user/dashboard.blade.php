@@ -92,7 +92,7 @@ if(!isset($_SESSION))
           @if($_SESSION['permAdmin'] == 1)
           <li>
             <a href=" {{ url ('/apanel') }}">
-              <i class="nc-key-25"></i>
+              <i class="pe-7s-id"></i>
               <p>Painel Administrativo</p>
             </a>
           </li>
@@ -103,7 +103,7 @@ if(!isset($_SESSION))
 
           <li class="active-pro">
             <a href="{{ url('/configs') }}">
-              <i class="nc-settings-gear-64"></i>
+              <i class="pe-7s-config"></i>
               <p>Configurações</p>
             </a>
           </li>

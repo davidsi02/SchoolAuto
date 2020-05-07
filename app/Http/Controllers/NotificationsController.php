@@ -36,10 +36,11 @@ return redirect('/configs');
 }
 
 }
+
 /*
 public function NotificationsTable(){
 
-  $notf = DB::table('notification')->where('tipoNotificacao', != , '10')->orderBy('data' , 'DESC')->limit(30)->get();
+  $notf = DB::table('notification')->where('tipoNotificacao' != 10)->orderBy('data' , 'DESC')->limit(30)->get();
   return view('pageextensions/notifications', compact('notf', ['notf' => $notf]));
 }
 
