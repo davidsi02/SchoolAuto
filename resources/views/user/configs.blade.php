@@ -243,7 +243,7 @@
 																	<button  name = 'suggestion' type="submit" class="btn btn-primary" >
 
 
-																			{{ __('Enviar Sugestão') }}
+																			{{ __('Enviar') }}
 																	</button>
 </div>
 	</div>
