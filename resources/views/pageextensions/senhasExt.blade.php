@@ -171,7 +171,7 @@
 																			?>
 																			<form  action="{{route('cS')}}" method="get">
 																				<div class="checkbox">
-																					<input id={{$count}} type="checkbox" name='a' value="{{$row -> dataRefeicao}}" checked>
+																					<input id={{$count}} type="checkbox" name='dr[]' value="{{$row -> dataRefeicao}}" checked>
 																					<label for={{$count}}></label>
 																				</div>
 																			<?php
@@ -220,18 +220,6 @@
                   </div>
 
 
-									<form action="{{ url('/apanel') }}">
-
-									<div class="content" allign="middle">
-																					<div class="form-group row mb-0">
-																							<div class="col-md-8 offset-md-4">
-																									<button type="submit" class="btn btn-primary" >
-																											{{ __('Voltar') }}
-																									</button>
-																							</div>
-																					</div>
-									</div>
-									</form>
 
 
                     <footer class="footer" style="position:block">
@@ -255,7 +243,7 @@
               </body>
 <script type="text/javascript">
 function toggle(source) {
-checkboxes = document.getElementsByName('a');
+checkboxes = document.getElementsByName('dr[]');
 for(var i=0, n=checkboxes.length;i<n;i++) {
 	checkboxes[i].checked = source.checked;
 }

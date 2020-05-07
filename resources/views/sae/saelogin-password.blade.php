@@ -23,7 +23,7 @@
 
 </head>
 <body>
-  <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header1-3" data-rv-view="0" style="background-image: url(assets/images/dsc-0066-source-1500x1000.jpg);">
+  <section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header1-3" data-rv-view="0" style="background-image: url('{{ asset('assets/images/mainBackground.jpg')}}');">
     <div class="mbr-box__magnet mbr-box__magnet--sm-padding mbr-box__magnet--center-center">
         <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(0, 0, 0);"></div>
         <div class="mbr-box__container mbr-section__container container">
@@ -37,7 +37,7 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-md-12 offset-md-30">
-                                <p class="mbr-hero__subtext"> Introduza a sua password</p>
+                                <p class="mbr-hero__subtext" style="color:white"> Introduza a sua password</p>
                                 <div class="card">
                                     <div class="card-body">
 
