@@ -24,8 +24,6 @@ class DataController extends Controller
    {
       session_start();
 
-             echo $_SESSION['colorchange'];
-
       if (isset ($_POST['red'])) $color = 'red';
       if (isset ($_POST['orange'])) $color = 'orange';
       if (isset ($_POST['blue'])) $color = 'blue';
