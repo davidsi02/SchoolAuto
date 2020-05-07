@@ -1,4 +1,5 @@
 <?php
+
 	 session_start();
 ?>
 
@@ -154,44 +155,42 @@
                       </div>
                       <div class="typo-line">
                         <br>
-                        <form method="POST" action="">
-
-                            <div class = "col-md-12" allign = "center">
-
-                        <textarea onKeyPress="return taLimit(this)" onKeyUp="return taCount(this,'myCounter')" rows="8" class="form-control"
-                        placeholder="Introduza aqui o texto a enviar com um limite de 100 caracteres!" value="content"> </textarea>
-
-                      </div>
-                        </div>
+												<form method="POST" action= "{{ route('/notificationsubmit') }}" >
+														@csrf
 
 
+																<div class="col-md-12">
 
-                      <B><SPAN id=myCounter>100</SPAN> / 100 caracteres disponiveis.
+																	<textarea id='notcontent' name = "notcontent" type ="text" onKeyPress="return taLimit(this)" onKeyUp="return taCount(this,'myCounter')" rows="8" class="form-control"
+																 placeholder="Introduza aqui o texto a enviar com um limite de 100 caracteres!"> </textarea>
 
+																</div>
+														</div>
 
-                      <div class="content">
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary" action = <?php $_SESSION['submittype'] = 1; ?>>
-
-
-                                    {{ __('Enviar Sugestão') }}
-                                </button>
-
-                                <button type="submit" class="btn btn-secondary" action = <?php $_SESSION['submittype'] = 1; ?>>
+														<B><SPAN id=myCounter>100</SPAN> / 100 caracteres disponiveis.
 
 
-                                    {{ __('Reportar Erro') }}
-                                </button>
-
-                            </div>
-                        </div>
+														<div class="form-group row mb-0">
+																<div class="col-md-8 offset-md-4">
+																	<button type="submit" class="btn btn-primary" <?php $_SESSION['submittype'] = 1; ?>>
 
 
+																			{{ __('Enviar Sugestão') }}
+																	</button>
+
+																	<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['submittype'] = 2; ?>>
+
+
+																			{{ __('Reportar Erro') }}
+																	</button>
+																</div>
+														</div>
+												</form>
+												<br> <br>
               </div>
             </div>
           </div>
-        </form>
+
 
 
         </div>

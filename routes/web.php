@@ -176,5 +176,9 @@ Route::get ('/dashboard', 'SenhasController@showSenha')->middleware('auth');
                        //Route de teste:
 Route::any ('/testesenhas', 'SenhasController@showSenha')->name('showSenha');
 
+          //NotificationsController
+Route::any ('/notificationsubmit', 'NotificationsController@getUserNotification') -> name ('/notificationsubmit') -> middleware('auth');
+
+
 
 //__________________________________________________//
