@@ -22,18 +22,21 @@ session_start();
 
 $content = $_POST['notcontent']; //Está triste ;(
 
-   echo $_SESSION['submittype'];
+   if (isset($_POST['suggestion'])) $type = 1;
+   if (isset($_POST['error'])) $type = 2;
 
 DB::table('notification')->insert(
   ['numProcesso' =>  Auth::user()->numProcesso,
   'content' => $content ,
-  'tipoNotificacao' => $_SESSION["submittype"]
+  'tipoNotificacao' => $type
 ]);
 
 return redirect('/configs');
 
 }
 
+}
+/*
 public function NotificationsTable(){
 
   $notf = DB::table('notification')->where('tipoNotificacao', != , '10')->orderBy('data' , 'DESC')->limit(30)->get();
