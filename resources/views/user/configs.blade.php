@@ -95,16 +95,18 @@
 											@if($_SESSION['permAdmin'] == 1)
 							<li>
 									<a href=" {{ url ('/apanel') }}">
-											<i class="pe-7s-id"></i>
+											<i class="nc-key-25"></i>
 											<p>Painel Administrativo</p>
 									</a>
 							</li>
 										 @endif
 
 
+
+
 							<li class="active">
                 <a href="{{ url('/configs') }}">
-											<i class="pe-7s-config"></i>
+											<i class="nc-settings-gear-64"></i>
 											<p>Configurações</p>
 									</a>
 							</li>
@@ -134,7 +136,76 @@
               </div>
               <div class="content">
 
+
+
                 <div>
+									<table class="table table-hover table-striped">
+											<thead>
+													<th>Cor</th>
+												<th></th>
+											</thead>
+											<tbody>
+
+                                 <form method="POST" action= "{{ route('/colorchange') }}" >
+                                              @csrf
+													<tr>
+													 <td>Vermelho</td>
+													 <td>		<button type="submit" class="btn btn-secondary" <?php $_SESSION['colorchange'] = 1; ?>>
+
+
+																	 {{ __('Selecionar') }}
+															 </button> </td>
+													</tr>
+
+												                           </form>
+
+													<tr>
+													 <td>Laranja</td>
+													 <td>		<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['colorchange'] = 2; ?>>
+
+
+																	 {{ __('Selecionar') }}
+															 </button> </td>
+													</tr>
+
+													<tr>
+													 <td>Azul Escuro</td>
+													 <td>		<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['colorchange'] = 3; ?>>
+
+
+																	 {{ __('Selecionar') }}
+															 </button> </td>
+													</tr>
+
+													<tr>
+													 <td>Azul Claro</td>
+													 <td>		<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['colorchange'] = 4; ?>>
+
+
+																	 {{ __('Selecionar') }}
+															 </button> </td>
+													</tr>
+													<tr>
+
+													 <td>Roxo</td>
+													 <td>		<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['colorchange'] = 5 ; ?>>
+
+
+																	 {{ __('Selecionar') }}
+															 </button> </td>
+													</tr>
+
+													<td>Cinza</td>
+						 						 <td>		<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['colorchange'] = 6;  ?>>
+
+
+						 										 {{ __('Selecionar') }}
+						 								 </button> </td>
+						 						</tr>
+
+
+											</tbody>
+									</table>
 
 
                         </div>
@@ -167,24 +238,30 @@
 
 														<B><SPAN id=myCounter>100</SPAN> / 100 caracteres disponiveis.
 
+	<br> <br> <br>
 
 														<div class="form-group row mb-0">
 																<div class="col-md-8 offset-md-4">
-																	<button type="submit" class="btn btn-primary" <?php $_SESSION['submittype'] = 1; ?>>
+																	<button type="submit" class="btn btn-primary" action = <?php $_SESSION['submittype'] = 1; ?>>
 
 
 																			{{ __('Enviar Sugestão') }}
 																	</button>
+</div>
+	</div>
 
+	<div class="form-group row mb-0">
+			<div class="col-md-8 offset-md-4">
 																	<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['submittype'] = 2; ?>>
 
 
 																			{{ __('Reportar Erro') }}
 																	</button>
-																</div>
+
 														</div>
+
 												</form>
-												<br> <br>
+												<br> <br> <br> <br> <br>
               </div>
             </div>
           </div>

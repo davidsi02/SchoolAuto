@@ -158,7 +158,9 @@ Route::get ('transactions', 'TransactionController@fullTransactions')->name('tra
 //Route::get ('/home', 'TransactionController@compactTransactions')->name('compactTransactions')->middleware('auth');
 
           //DataController
-Route::get ('/user', 'DataController@getUserType')->name('getUserType')->middleware('auth')->middleware('auth');
+Route::get ('/user', 'DataController@getUserType')->name('getUserType')->middleware('auth');
+Route::any ('/colorchange', 'DataController@changeColor')->name('/colorchange')->middleware('auth');
+
          //CardAuthController
 Route::any ('/sae/ncartao', 'CardAuthController@cardLogin')->name('cardLogin');
 Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');
