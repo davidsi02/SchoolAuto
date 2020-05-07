@@ -85,7 +85,7 @@
 							</li>
 
 											@if($_SESSION['permAdmin'] == 1)
-							<li class = 'active'>
+							<li>
 									<a href=" {{ url ('/apanel') }}">
 											<i class="pe-7s-id"></i>
 											<p>Painel Administrativo</p>
