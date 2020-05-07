@@ -22,6 +22,8 @@ session_start();
 
 $content = $_POST['notcontent']; //Está triste ;(
 
+   echo $_SESSION['submittype'];
+
 DB::table('notification')->insert(
   ['numProcesso' =>  Auth::user()->numProcesso,
   'content' => $content ,
