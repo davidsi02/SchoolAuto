@@ -1,8 +1,3 @@
-<?php
-
-	 session_start();
-?>
-
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -240,7 +235,7 @@
 
 														<div class="form-group row mb-0">
 																<div class="col-md-8 offset-md-4">
-																	<button type="submit" class="btn btn-primary" <?php $_SESSION['submittype'] = 1; ?>>
+																	<button name = "suggestion" type="submit" class="btn btn-primary" <?php $_SESSION['submittype'] = 1; ?>>
 
 
 																			{{ __('Enviar Sugestão') }}
@@ -250,7 +245,7 @@
 
 	<div class="form-group row mb-0">
 			<div class="col-md-8 offset-md-4">
-																	<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['submittype'] = 2; ?>>
+																	<button name = "error" type="submit" class="btn btn-secondary">
 
 
 																			{{ __('Reportar Erro') }}
