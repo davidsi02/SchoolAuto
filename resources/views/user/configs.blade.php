@@ -149,20 +149,49 @@
                     <div class="card">
 
                       <div class="header">
-                        <h4 class="title">Enviar Sugestão/Reclamação</h4>
+                        <h4 class="title">Enviar Sugestão / Reportar Erro</h4>
                         <p class="category"></p>
                       </div>
                       <div class="typo-line">
+                        <br>
+                        <form method="POST" action="">
 
-                          <h2><p class="category">  Aviso!</p>     Em Construção!</h2>
-                          <p> <img src = 'https://www.agenciamestre.com/wp-content/uploads/2008/08/contrucao.png', allign = "middle"> </p>
+                            <div class = "col-md-12" allign = "center">
+
+                        <textarea onKeyPress="return taLimit(this)" onKeyUp="return taCount(this,'myCounter')" rows="8" class="form-control"
+                        placeholder="Introduza aqui o texto a enviar com um limite de 100 caracteres!" value="content"> </textarea>
+
                       </div>
+                        </div>
+
+
+
+                      <B><SPAN id=myCounter>100</SPAN> / 100 caracteres disponiveis.
+
+
                       <div class="content">
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary" action = <?php $_SESSION['submittype'] = 1; ?>>
+
+
+                                    {{ __('Enviar Sugestão') }}
+                                </button>
+
+                                <button type="submit" class="btn btn-secondary" action = <?php $_SESSION['submittype'] = 1; ?>>
+
+
+                                    {{ __('Reportar Erro') }}
+                                </button>
+
+                            </div>
+                        </div>
+
 
               </div>
             </div>
           </div>
-
+        </form>
 
 
         </div>
@@ -187,3 +216,34 @@
 				</footer>
 
 		</body>
+
+    <script language = "Javascript">
+/**
+ * DHTML textbox character counter script. Courtesy of SmartWebby.com (http://www.smartwebby.com/dhtml/)
+ */
+
+maxL=100;
+var bName = navigator.appName;
+function taLimit(taObj) {
+	if (taObj.value.length==maxL) return false;
+	return true;
+}
+
+function taCount(taObj,Cnt) {
+	objCnt=createObject(Cnt);
+	objVal=taObj.value;
+	if (objVal.length>maxL) objVal=objVal.substring(0,maxL);
+	if (objCnt) {
+		if(bName == "Netscape"){
+			objCnt.textContent=maxL-objVal.length;}
+		else{objCnt.innerText=maxL-objVal.length;}
+	}
+	return true;
+}
+function createObject(objId) {
+	if (document.getElementById) return document.getElementById(objId);
+	else if (document.layers) return eval("document." + objId);
+	else if (document.all) return eval("document.all." + objId);
+	else return eval("document." + objId);
+}
+</script>
