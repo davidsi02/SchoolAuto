@@ -49,9 +49,16 @@ return view ('admin/panel');
 Route::any ('/configs', function() {
   return view ('user/configs');
 });
-
+//Senhas//
 Route::get('/dashboard/comprarSenhas', 'SenhasController@comprarSenhas')->name('cS');
-
+//ExtSenhas//
+Route::get('/MSenhas',[
+  'uses' => 'SenhasController@showSenha',
+  'as' => 'Ms'
+]);
+Route::any ('/MaisSenhas', function() {
+  return view ('pageextensions/senhasExt');
+});
 //________________________________________________//
 
 //SAE//
@@ -183,4 +190,4 @@ Route::any ('/notificationsubmit', 'NotificationsController@getUserNotification'
 
 
 
-//__________________________________________________//
+//);//
