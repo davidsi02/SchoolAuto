@@ -51,9 +51,16 @@ return view ('admin/panel');
 Route::any ('/configs', function() {
   return view ('user/configs');
 });
-
+//Senhas//
 Route::get('/dashboard/comprarSenhas', 'SenhasController@comprarSenhas')->name('cS');
-
+//ExtSenhas//
+Route::get('/MSenhas',[
+  'uses' => 'SenhasController@showSenha',
+  'as' => 'Ms'
+]);
+Route::any ('/MaisSenhas', function() {
+  return view ('pageextensions/senhasExt');
+});
 //________________________________________________//
 
 //SAE//
@@ -160,7 +167,9 @@ Route::get ('transactions', 'TransactionController@fullTransactions')->name('tra
 //Route::get ('/home', 'TransactionController@compactTransactions')->name('compactTransactions')->middleware('auth');
 
           //DataController
-Route::get ('/user', 'DataController@getUserType')->name('getUserType')->middleware('auth')->middleware('auth');
+Route::get ('/user', 'DataController@getUserType')->name('getUserType')->middleware('auth');
+Route::any ('/colorchange', 'DataController@changeColor')->name('/colorchange')->middleware('auth');
+
          //CardAuthController
 Route::any ('/sae/ncartao', 'CardAuthController@cardLogin')->name('cardLogin');
 Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');
@@ -183,4 +192,4 @@ Route::any ('/notificationsubmit', 'NotificationsController@getUserNotification'
 
 
 
-//__________________________________________________//
+//);//

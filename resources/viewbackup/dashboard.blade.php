@@ -49,85 +49,80 @@
 <script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
 
 
-	<title>SCHOOLAUTO - Área de Utilizador</title>
+<title>SCHOOLAUTO - Área de Utilizador</title>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="viewport" content="width=device-width" />
 
 </head>
 <body>
 
 <div class="wrapper">
+<div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
 
+	<!--
 
-    <div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
+			Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+			Tip 2: you can also add an image using data-image tag
 
-    <!--
+	-->
 
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
-
-    -->
-
-		<div class="wrapper">
-			<div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
-
-				<div class="sidebar-wrapper">
-							<div class="logo">
-									<a href="https://www.etpsico.pt" class="simple-text">
-											SCHOOLAUTO - ETP SICÓ
-									</a>
-							</div>
-
-							<ul class="nav">
-									<li class="active">
-											<a href="{{ url('/dashboard') }}">
-													<i class="pe-7s-home"></i>
-													<p>Dashboard</p>
-											</a>
-									</li>
-									<li>
-											<a href="{{ url('/user') }}">
-													<i class="pe-7s-user"></i>
-													<p>Conta</p>
-											</a>
-									</li>
-									<li>
-											<a href="{{ url('/transactions') }}">
-													<i class="pe-7s-note2"></i>
-													<p>Movimentos</p>
-											</a>
-									</li>
-
-													@if($_SESSION['permAdmin'] == 1)
-									<li>
-											<a href=" {{ url ('/apanel') }}">
-													<i class="nc-key-25"></i>
-													<p>Painel Administrativo</p>
-											</a>
-									</li>
-												 @endif
-
-
-
-
-									<li class="active-pro">
-											<a href="{{ url('/') }}">
-													<i class="nc-settings-gear-64"></i>
-													<p>Configurações</p>
-											</a>
-									</li>
-
-					<li class="active-pro" action = "{{ route('logout') }}">
-											<a href="{{ url('/logout') }}">
-													<i class="pe-7s-power"></i>
-													<p>Sair</p>
-													@csrf
-											</a>
-									</li>
-							</ul>
+	<div class="sidebar-wrapper">
+				<div class="logo">
+						<a href="https://www.etpsico.pt" class="simple-text">
+								SCHOOLAUTO - ETP SICÓ
+						</a>
 				</div>
-			</div>
+
+				<ul class="nav">
+						<li class = "active">
+								<a href="{{ url('/dashboard') }}">
+										<i class="pe-7s-home"></i>
+										<p>Dashboard</p>
+								</a>
+						</li>
+						<li>
+								<a href="{{ url('/user') }}">
+										<i class="pe-7s-user"></i>
+										<p>Conta</p>
+								</a>
+						</li>
+						<li>
+								<a href="{{ url('/transactions') }}">
+										<i class="pe-7s-note2"></i>
+										<p>Movimentos</p>
+								</a>
+						</li>
+
+										@if($_SESSION['permAdmin'] == 1)
+						<li>
+								<a href=" {{ url ('/apanel') }}">
+										<i class="nc-key-25"></i>
+										<p>Painel Administrativo</p>
+								</a>
+						</li>
+									 @endif
+
+
+
+
+						<li>
+							<a href="{{ url('/configs') }}">
+										<i class="nc-settings-gear-64"></i>
+										<p>Configurações</p>
+								</a>
+						</li>
+
+		<li class="active-pro" action = "{{ route('logout') }}">
+								<a href="{{ url('/logout') }}">
+										<i class="pe-7s-power"></i>
+										<p>Sair</p>
+										@csrf
+								</a>
+						</li>
+				</ul>
+	</div>
+</div>
 
     <div class="main-panel">
 

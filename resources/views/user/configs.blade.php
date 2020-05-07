@@ -95,16 +95,18 @@
 											@if($_SESSION['permAdmin'] == 1)
 							<li>
 									<a href=" {{ url ('/apanel') }}">
-											<i class="pe-7s-id"></i>
+											<i class="nc-key-25"></i>
 											<p>Painel Administrativo</p>
 									</a>
 							</li>
 										 @endif
 
 
+
+
 							<li class="active">
                 <a href="{{ url('/configs') }}">
-											<i class="pe-7s-config"></i>
+											<i class="nc-settings-gear-64"></i>
 											<p>Configurações</p>
 									</a>
 							</li>
@@ -135,6 +137,73 @@
               <div class="content">
 
                 <div>
+									<form method="POST" action= "{{ route('/colorchange') }}" >
+											@csrf
+
+									<table class="table table-hover table-striped">
+											<thead>
+													<th>Cor</th>
+												<th></th>
+											</thead>
+											<tbody>
+
+													<tr>
+													 <td>Vermelho</td>
+													 <td>		<button name = 'red' type="submit" class="btn btn-secondary">
+
+
+																	 {{ __('Selecionar') }}
+															 </button> </td>
+													</tr>
+
+													<tr>
+													 <td>Laranja</td>
+													 <td>		<button name = 'orange' type="submit" class="btn btn-secondary">
+
+
+																	 {{ __('Selecionar') }}
+															 </button> </td>
+													</tr>
+
+													<tr>
+													 <td>Azul Escuro</td>
+													 <td>		<button name = 'blue' type="submit" class="btn btn-secondary">
+
+
+																	 {{ __('Selecionar') }}
+															 </button> </td>
+													</tr>
+
+													<tr>
+													 <td>Azul Claro</td>
+													 <td>		<button name = 'azure' type="submit" class="btn btn-secondary">
+
+
+																	 {{ __('Selecionar') }}
+															 </button> </td>
+													</tr>
+													<tr>
+
+													 <td>Roxo</td>
+													 <td>		<button name = 'purple' type="submit" class="btn btn-secondary">
+
+
+																	 {{ __('Selecionar') }}
+															 </button> </td>
+													</tr>
+
+													<td>Cinza</td>
+						 						 <td>		<button name = "none" type="submit" class="btn btn-secondary" action = <?php $_SESSION['submittype'] = 2; ?>>
+
+
+						 										 {{ __('Selecionar') }}
+						 								 </button> </td>
+													 </form>
+												</tr>
+
+
+											</tbody>
+									</table>
 
 
                         </div>
@@ -167,6 +236,7 @@
 
 														<B><SPAN id=myCounter>100</SPAN> / 100 caracteres disponiveis.
 
+	<br> <br> <br>
 
 														<div class="form-group row mb-0">
 																<div class="col-md-8 offset-md-4">
@@ -175,16 +245,21 @@
 
 																			{{ __('Enviar Sugestão') }}
 																	</button>
+</div>
+	</div>
 
+	<div class="form-group row mb-0">
+			<div class="col-md-8 offset-md-4">
 																	<button type="submit" class="btn btn-secondary" action = <?php $_SESSION['submittype'] = 2; ?>>
 
 
 																			{{ __('Reportar Erro') }}
 																	</button>
-																</div>
+
 														</div>
+
 												</form>
-												<br> <br>
+												<br> <br> <br> <br>
               </div>
             </div>
           </div>

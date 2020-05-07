@@ -15,7 +15,12 @@ class SenhasController extends Controller
     * @return \Illuminate\Http\Response
     */
     public function showSenha(){
-      $ndiasmax = 7; // N.º dias que querem que "apareça"
+      if (isset($_GET['ndias'])) {
+        $ndiasmax = $_GET['ndias']; // N.º dias que querem que "apareça"
+
+      }else {
+        $ndiasmax = 7; // N.º dias que querem que "apareça"
+      }
       $currentdate = time();
       $diasemana = array('Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sabado');
 
@@ -35,9 +40,16 @@ class SenhasController extends Controller
       }
 
      $senha=$senha->map(function($row) {
-        return (object) $row;
+       return (object)$row;
       });
+      if ($ndiasmax==30) {
+        return view('pageextensions/senhasExt', compact('senha', $senha));
+      }else {
+        return view('user/dashboard', compact('senha', $senha));
 
+      }
+
+      }
 /*
 $myCollection = collect([
     ['product_id' => 1, 'price' => 200, 'discount' => '50'],
@@ -83,16 +95,14 @@ $myCollection = collect([
 */
 
 //    return view('user/dashboard', compact('senha', ['senha' => $senha]));
-    return view('user/dashboard', compact('senha', $senha));
 
-    }
     public function comprarSenhas(){
       if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) $preco = 0.00;
       if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) $preco = 2.50;
       if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) $preco = 0.00;
       if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) $preco = 2.50;
 
-            if ( Auth::user()->saldo - $preco*count($_GET['dr']) <0) {
+            if ( Auth::user()->saldo - $preco*count($_GET['a']) <0) {
               ?><script type="text/javascript">
               alert("Não tem saldo suficiente para efectuar esta transação!!")
               </script><?php
@@ -101,7 +111,7 @@ $myCollection = collect([
 
             }else {
               \DB::table('users')->where('id', Auth::user()->id)->update(['saldo' =>  Auth::user()->saldo - $preco*count($_GET['dr'])]);
-              foreach($_GET['dr'] as $dr) {
+              foreach($_GET['a'] as $dr) {
 
                 \DB::table('consumorefeicao')->insert(
                   ['numProcesso' =>  Auth::user()->numProcesso,
