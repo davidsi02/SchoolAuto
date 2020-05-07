@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Auth;
 
-class AdminActionsController extends Controller
+class NotificationsController extends Controller
 {
 
     /**
@@ -14,7 +14,34 @@ class AdminActionsController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-public function ()
+public function getUserNotification(){
+
+session_start();
+
+@csfr;
+
+$content = $_POST['notcontent']; //Está triste ;(
+
+DB::table('notification')->insert(
+  ['numProcesso' =>  Auth::user()->numProcesso,
+  'content' => $content ,
+  'tipoNotificacao' => $_SESSION["submittype"]
+]);
+
+ ?>
+
+<script type="text/javascript">
+
+alert("Feedback recebido com sucesso! Obrigado!");
+
+</script>
+
+ <?php
+
+return redirect('/configs');
+
+
+}
 
 
 
@@ -27,4 +54,3 @@ public function ()
 
 
     }
-}
