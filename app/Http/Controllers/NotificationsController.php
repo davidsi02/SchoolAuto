@@ -28,29 +28,15 @@ DB::table('notification')->insert(
   'tipoNotificacao' => $_SESSION["submittype"]
 ]);
 
- ?>
-
-<script type="text/javascript">
-
-alert("Feedback recebido com sucesso! Obrigado!");
-
-</script>
-
- <?php
-
 return redirect('/configs');
-
 
 }
 
+public function NotificationsTable(){
+
+  $notf = DB::table('notification')->where('tipoNotificacao', != , '10')->orderBy('data' , 'DESC')->limit(30)->get();
+  return view('pageextensions/notifications', compact('notf', ['notf' => $notf]));
+}
 
 
-
-
-
-
-
-
-
-
-    }
+}

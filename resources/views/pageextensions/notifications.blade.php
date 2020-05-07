@@ -129,12 +129,34 @@
 
 
 
+														<div class="content table-responsive table-full-width"  action = {{('NotificationsController@NotificationsTable')}}>
+																<table class="table table-hover table-striped">
+																		<thead>
+																			<th>Id da Notificação</th>
+																			<th>Conteudo</th>
+																			<th>Data</th>
+															        <th>Numero de Processo</th>
+																			<th>Tipo Notificação</th>
+																		</thead>
+																		<tbody>
 
 
+																			@foreach($notf as $row)
+																				 <tr>
+																				 <td>{{$row -> id}}</td>
+																				 <td>{{$row -> content}}</td>
+																				 <td>{{$row -> date}}</td>
+																				 <td>{{$row -> numProcesso}}</td>
+																				 <td>{{$row -> tipoNotificacao}}</td>
+																				 <td></td>
+																				 </tr>
+																			@endforeach
 
 
+																		</tbody>
+																</table>
 
-
+														</div>
 
 
 

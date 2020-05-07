@@ -25,6 +25,8 @@ Route::any('/notifications', function() {
 return view('pageextensions/notifications');
 
 });
+
+Route::any ('/notifications', 'NotificationsController@NotificationsTable')->middleware('auth');
 //_________________________________________________//
 
 //WEB//
