@@ -85,7 +85,7 @@
 							</li>
 
 											@if($_SESSION['permAdmin'] == 1)
-							<li class = 'active'>
+							<li>
 									<a href=" {{ url ('/apanel') }}">
 											<i class="pe-7s-id"></i>
 											<p>Painel Administrativo</p>
@@ -132,10 +132,10 @@
 														<div class="content table-responsive table-full-width"  action = {{('NotificationsController@NotificationsTable')}}>
 																<table class="table table-hover table-striped">
 																		<thead>
-																			<th>Id da Notificação</th>
+																			<th>Id</th>
 																			<th>Conteudo</th>
 																			<th>Data</th>
-															        <th>Numero de Processo</th>
+															        <th>Nº Processo</th>
 																			<th>Tipo Notificação</th>
 																		</thead>
 																		<tbody>
@@ -147,7 +147,12 @@
 																				 <td>{{$row -> content}}</td>
 																				 <td>{{$row -> date}}</td>
 																				 <td>{{$row -> numProcesso}}</td>
-																				 <td>{{$row -> tipoNotificacao}}</td>
+																				 <td><?php if ($row -> tipoNotificacao == 1) echo 'Sugestão';
+																				           if ($row -> tipoNotificacao == 2) echo 'Alerta';
+																									 if ($row -> tipoNotificacao == 3) echo 'Erro!';
+																									 if ($row -> tipoNotificacao == 4) echo '';
+																							?>
+																							</td>
 																				 <td></td>
 																				 </tr>
 																			@endforeach

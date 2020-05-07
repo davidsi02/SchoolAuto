@@ -236,31 +236,30 @@
 
 														<B><SPAN id=myCounter>100</SPAN> / 100 caracteres disponiveis.
 
-	<br> <br> <br>
+	<br> 
 
 														<div class="form-group row mb-0">
-																<div class="col-md-8 offset-md-4">
-																	<button  name = 'suggestion' type="submit" class="btn btn-primary" >
+																<div class="col-md-8 offset-md-5">
+																	<div class="checkbox">
+																		<input id="suggestion" name="suggestion" type="checkbox" value="1" >
+																		<label for="suggestion"> Sugestão</label>
+                            			</div>
+																	<div class="checkbox">
+																		<input id="error" name="error" type="checkbox"value="3">
+																		<label for="error"> Erro</label>
+                            			</div>
+																	<button  id="enviar"  style="margin-bottom:10"name = 'enviar' type="submit" class="btn btn-primary" >
 
 
-																			{{ __('Enviar Sugestão') }}
+																			{{ __('Enviar') }}
 																	</button>
+
+
+
 </div>
 	</div>
 
-	<div class="form-group row mb-0">
-			<div class="col-md-8 offset-md-4">
-																	<button name = 'error' type="submit" class="btn btn-secondary" >
 
-
-																			{{ __('Reportar Erro') }}
-																	</button>
-
-														</div>
-
-												</form>
-												<br> <br> <br> <br>
-              </div>
             </div>
           </div>
 
@@ -300,6 +299,22 @@ function taLimit(taObj) {
 	if (taObj.value.length==maxL) return false;
 	return true;
 }
+
+$('input[type="checkbox"]').on('change', function() {
+   $('input[type="checkbox"]').not(this).prop('checked', false);
+});
+
+$(document).ready(function () {
+    $('#enviar').click(function() {
+      checked = $("input[type=checkbox]:checked").length;
+
+      if(!checked) {
+        alert("Escolhe uma das opções de envio.");
+        return false;
+      }
+
+    });
+});
 
 function taCount(taObj,Cnt) {
 	objCnt=createObject(Cnt);

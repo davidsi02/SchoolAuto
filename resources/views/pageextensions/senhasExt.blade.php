@@ -85,7 +85,7 @@
 							</li>
 
 											@if($_SESSION['permAdmin'] == 1)
-							<li class = 'active'>
+							<li>
 									<a href=" {{ url ('/apanel') }}">
 											<i class="pe-7s-id"></i>
 											<p>Painel Administrativo</p>
@@ -124,7 +124,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title col-md-4">Compra de Refeições</h4>
+                                <h4 class="title col-md-4">Compra de Senhas</h4>
 																<form class="col-md-4 float-right" action="{{ url('/dashboard') }}">
 																	<input type="submit" id="btnSubmit" value="Voltar">
 
