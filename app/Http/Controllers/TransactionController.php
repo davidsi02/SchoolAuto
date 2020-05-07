@@ -53,7 +53,7 @@ class TransactionController extends Controller
      $output = ' <h3 align="center">Transações</h3>
      <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
       <tr>
-    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id da Operação</th>
+    <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Numero de Processo</th>
     <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Nome do Utilizador</th>
     <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Nome do Produto</th>
     <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Quantidade</th>
@@ -64,13 +64,13 @@ class TransactionController extends Controller
      ';
      foreach($ops as $ops)
       {
-
+        $numProcUser= \DB::table('users')->where('id',$ops->idUtilizador) ->first();
         $userOperacao = \DB::table('users')->where('id',$ops->idUtilizador)->first();
         $product = \DB::table('produtos')->where('id',$ops->idProduto)->first();
 
        $output .= '
        <tr>
-        <td style="text-align:center;border: 1px solid; padding:1px;">'.$ops->idOperacao.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$numProcUser->numProcesso.'</td>
         <td style="text-align:center;border: 1px solid; padding:1px;">'.$userOperacao->name.'</td>
         <td style="text-align:center;border: 1px solid; padding:1px;">'.$product->nomeProduto.'</td>
         <td style="text-align:center;border: 1px solid; padding:1px;">'.$ops->quantidade.'</td>
