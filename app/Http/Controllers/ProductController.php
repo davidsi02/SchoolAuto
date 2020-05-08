@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Cart;
@@ -12,35 +11,25 @@ use Session;
 
 class ProductController extends Controller
 {
-
   public function getIndex(){
-
 
     $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(15)->get();
     Session::forget('user');
     return view('shop/shop', ['products' => $products,'activepage'=>1]);
 
   }
-
   public function tabs($num) {
     $Pcount = Produto::where('visibilidade', 1)->where('NoPagina', $num)->count();
     if ($num==1) {
       $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(15)->get();
         return view('shop/shop', ['products' => $products,'activepage'=>1]);
 
-
     }else{
-      if ($Pcount>15) {
-        echo 'ahhhhhhhhhhhhhhhhhhhhhhahhhhhhhhhhhhhhhhhhhh';
-      }
       $products = Produto::where('visibilidade', 1)->where('NoPagina', $num)->get();
         return view('shop/shop', ['products' => $products,'activepage'=>$num]);
 
     }
   }
-
-
-
   public function verifyCard(){
 
     if ($_GET['input']!=null) {
@@ -63,35 +52,27 @@ class ProductController extends Controller
       return view('shop/shop', ['products' => $products,'activepage'=>1]);
     }
   }
-
   public function getAddToCart($id, $nome,$preco) {
 
     \Cart::add($id,$nome,1,$preco);
     return redirect()->back()->withInput();
   }
-
   public function destroy() {
 
     \Cart::destroy();
     return redirect()->back()->withInput();
-
   }
-
-
   public function getIndexVisibilidade()
   {
     $products = Produto::where('visibilidade',1)->orderBy('VezesVendido', 'desc')->take(15)->get();
     return view('shop/showorhidde', ['products' => $products,'activepage'=>1]);
   }
-
   public function tabsVisib($num)
   {
-
     $Pcount = Produto::where('NoPagina', $num)->count();
     if ($num==1) {
       $products = Produto::where('visibilidade',1)->orderBy('VezesVendido', 'desc')->take(15)->get();
       return view('shop/showorhidde', ['products' => $products,'activepage'=>1]);
-
 
     }if ($num==15) {
       $products = Produto::where('visibilidade',0)->orderBy('ordem', 'asc')->get();
@@ -117,20 +98,17 @@ class ProductController extends Controller
       \DB::table('produtos')->where('id',$id)->update(['visibilidade' => 0]);
       return redirect()->back()->withInput();
     }
-
     public function ProdMostrar($id)
     {
       \DB::table('produtos')->where('id',$id)->update(['visibilidade' => 1]);
       \DB::table('produtos')->where('id',$id)->update(['Nopagina' => $_GET['pag']]);
       return redirect()->back()->withInput();
     }
-
     public function indexCriar()
     {
       $categorias= \DB::table('categoriaproduto')->get();
       return view('shop/criar', ['categorias' => $categorias]);
     }
-
     public function criarProduto() {
 
       if(\DB::table('produtos')->where('nomeProduto', $_GET['nomeProd'])->first()){
@@ -150,11 +128,9 @@ class ProductController extends Controller
           'NoPagina' => 15,
 
         ]);
-
         return redirect()->back();
       }
     }
-
     public function criarCategoria() {
       if(\DB::table('categoriaproduto')->where('nomeCategoria', $_GET['nomeCat'])->first()){
         echo '<script type="text/javascript">';
@@ -166,19 +142,15 @@ class ProductController extends Controller
         return redirect()->back();
       }
     }
-
     public function indexGerirPreco()
     {
       $produtos= \DB::table('produtos')->get();
       return view('shop/gerirPreco', ['produtos' => $produtos]);
     }
-
     public function gerirPreco() {
       \DB::table('produtos')->where('nomeProduto', $_GET['nomeProd'])->update(['precoProduto' => $_GET['precoProd']]);
       return redirect()->back();
-
     }
-
     public function indexEliminar()
     {
       $categorias= \DB::table('categoriaproduto')->get();
