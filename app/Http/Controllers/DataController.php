@@ -31,8 +31,7 @@ class DataController extends Controller
       if (isset ($_POST['purple'])) $color = 'purple';
       if (isset ($_POST['none'])) $color = NULL;
 
-      DB::update('update users set uiColor = ?',[$color]);
-
+      \DB::table('users')->where('id',Auth::user()->id)->update(['uiColor'=> $color]);
       echo $color;
 
       return redirect('/configs');
