@@ -11410,3 +11410,19 @@ a.text-dark:focus {
   font-size: 1.5rem;
 
 }
+.subtitulo{
+  font-size:4rem;
+  text-align: center;
+}
+
+.inputTexto{
+  text-align: center;
+  background-color: #b8daff;
+  font-size:2rem;
+  font-weight:bold;
+   border: solid #275dcf;
+}
+.legendas{
+  font-size:2rem;
+  text-align: center;
+}

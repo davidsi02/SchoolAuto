@@ -21,7 +21,7 @@
               <!--Titles-->
               <div class="title pb-5 col-12" style="width:80%;margin:0;margin:0;display:block;padding-bottom:0 !important">
                 <h2 class="align-left pb-3 " style="font-size:6rem;width:80%padding-bottom: 0px !important;">
-                  Mostrar/ Ocultar Produtos
+                Ordenação e Visibilidade
                 </h2>
               </div>
 

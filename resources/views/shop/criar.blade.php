@@ -26,9 +26,9 @@
               <div class="col">
                 <div class="collapse multi-collapse" id="multiCollapseExample1">
                   <div class="card card-body">
-                      <a class="txt legendas subtitulo"> Criar Categoria </a>
+                      <a class="subtitulo"> Criar Categoria </a>
                       <form action="{{route('criar.cat')}}" method="GET">
-                        <a class="txt legendas" style="width:80% ;font-size:2rem;margin:0 auto;display:block;text-align:center;">Nome da Categoria </a>
+                        <a class="subtitulo" style="width:80% ;font-size:2rem;margin:0 auto;display:block;text-align:center;">Nome da Categoria </a>
                         <input  style="text-align: center;background-color: #b8daff;font-size:2rem;font-weight:bold; border: solid #275dcf;" name="nomeCat" required></input>
                         <input class="btn btn-primary"  type="submit" value="Criar Categoria"style="padding-bottom: 50px ;width:80% ; color:white ;font-size:2rem;font-weight:bold;margin:0 auto;display:block;text-align:center;"></input>
                       </form>
@@ -39,16 +39,16 @@
                   <div class="collapse multi-collapse" id="multiCollapseExample2">
                     <div class="card card-body">
 
-                        <a class="txt legendas subtitulo"> Criar Produto </a>
+                        <a class="subtitulo"> Criar Produto </a>
                         <form action="{{route('criar.prod')}}" method="GET">
-                        <a class="txt legendas">Nome do Produto </a>
+                        <a class="legendas ">Nome do Produto </a>
                         <input class="inputTexto" name="nomeProd" required></input>
 
-                        <a class="txt legendas"> Preço do Produto <small>(Exemplo: <b>01.00</b>)</small></a>
+                        <a class="legendas "> Preço do Produto <small>(Exemplo: <b>01.00</b>)</small></a>
                         <input  class="inputTexto" name="precoProd" required></input>
 
-                      <a class="txt legendas"> Categoria </a>
-                        <select class="inputTexto2" name="nomeCat" required>
+                      <a class="legendas "> Categoria </a>
+                        <select class="inputTexto" name="nomeCat" required>
                           @foreach($categorias as $categorias)
                            <option style="text-align: center;" value="{{ $categorias->nomeCategoria}}">{{ $categorias->nomeCategoria}}</option>
                           @endforeach
