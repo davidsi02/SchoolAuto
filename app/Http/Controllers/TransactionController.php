@@ -19,7 +19,7 @@ class TransactionController extends Controller
 
    public function fullTransactions()
    {
-       $operacao = DB::table('operacao')->where('idUtilizador', Auth::user()->id)->orderBy('dataOperacao' , 'DESC')->get();
+       $operacao = DB::table('operacao')->where('idUtilizador', Auth::user()->id)->orderBy('dataOperacao' , 'DESC')->limit(40)->get();
        return view('user/transactions', compact('operacao', ['operacao' => $operacao]));
    }
 
