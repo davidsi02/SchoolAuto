@@ -203,7 +203,6 @@ if(!isset($_SESSION))
             </form>
           </div>
 
-          @if($count!=30)
           <div class="col-md-4">
             <div class="card card-user">
               <div class="image">
@@ -229,7 +228,6 @@ if(!isset($_SESSION))
 
             </div>
           </div>
-          @endif
 
         </div>
 

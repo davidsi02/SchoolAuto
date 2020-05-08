@@ -79,8 +79,6 @@
         <a class="btn btn-primary just" href="{{route('cart.eliminar')}}" style="width:100% ;font-size:1.5rem;font-weight:bold;margin:0 auto;display:block;"> Eliminar Tudo </a>
         <input readonly style="text-align: center;font-size:1.5rem;font-weight:bold" value="Preço Total: {{\Cart::total()}} €"></input>
         <a class="btn btn-primary just" href="{{route('pagar')}}" style="width:100% ;font-size:1.5rem;font-weight:bold;margin:0 auto;display:block;"> Pagar </a>
-        <br>
-        <a class="btn btn-primary just" href="{{\Cart::destroy()}}" style="width:100% ;font-size:1.5rem;font-weight:bold;margin:0 auto;display:block;"> Cancelar carrinho </a>
 
       </div>
 
