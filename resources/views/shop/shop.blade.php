@@ -20,7 +20,7 @@
           <a class="nav-link" href="{{route('indexCriação')}}">Criar <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ">
-          <a class="nav-link" href="{{route('visibilidade')}}">Visibilidade de Produtos <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{route('visibilidade')}}">Ordenação e Visibilidade <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ">
           <a class="nav-link" href="{{route('indexGerirPreco')}}">Alterar Preços <span class="sr-only">(current)</span></a>
