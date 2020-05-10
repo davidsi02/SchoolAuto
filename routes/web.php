@@ -51,6 +51,7 @@ return view ('admin/panel');
 Route::any ('/configs', function() {
   return view ('user/configs');
 });
+
 //Senhas//
 Route::get('/dashboard/comprarSenhas', 'SenhasController@comprarSenhas')->name('cS');
 //ExtSenhas//
@@ -70,6 +71,10 @@ return view ('sae/saelogin');
 
 Route::get ('/password', function() {
 return view ('sae/saelogin-password');
+});
+
+Route::any ('/portaria', function() {
+  return view ('sae/portaria');
 });
 //__________________________________________________//
 
@@ -189,6 +194,10 @@ Route::any ('/testesenhas', 'SenhasController@showSenha')->name('showSenha');
 
           //NotificationsController
 Route::any ('/notificationsubmit', 'NotificationsController@getUserNotification') -> name ('/notificationsubmit') -> middleware('auth');
+
+//PortariaController
+
+Route::get ('/portaria/registar', 'PortariaController@acessoPortaria') -> name ('/acessoPortaria') ->middleware('auth');
 
 
 
