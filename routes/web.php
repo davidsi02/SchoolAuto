@@ -26,6 +26,8 @@ return view('pageextensions/notifications');
 
 });
 
+Route::any ('/notifications', 'NotificationsController@showNotification');
+
 Route::any ('/notifications', 'NotificationsController@NotificationsTable')->middleware('auth');
 //_________________________________________________//
 
