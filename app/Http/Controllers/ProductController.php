@@ -30,9 +30,6 @@ class ProductController extends Controller
 
 
     }else{
-      if ($Pcount>15) {
-        echo 'ahhhhhhhhhhhhhhhhhhhhhhahhhhhhhhhhhhhhhhhhhh';
-      }
       $products = Produto::where('visibilidade', 1)->where('NoPagina', $num)->get();
         return view('shop/shop', ['products' => $products,'activepage'=>$num]);
 
