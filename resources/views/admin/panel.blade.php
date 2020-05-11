@@ -132,65 +132,37 @@
 									<h4 class="title">Notificações</h4>
 									<p class="category"></p>
 								</div>
-								<div class="content" action = {{('NotificationsController@showNotification')}}>
+								<div class="content">
+
 									<div>
 
+                                       <!---- Impmentar com failed_jobs ---->
 
+										<div class="alert alert-info alert-with-icon" data-notify="container">
+												<button type="button" aria-hidden="true" class="close">×</button>
+												<span data-notify="icon" class="pe-7s-bell"></span>
+												<span data-notify="message">Isto é um exemplo de notificação!</span>
+										</div>
 
+										<div class="alert alert-danger alert-with-icon" data-notify="container">
+												<button type="button" aria-hidden="true" class="close">×</button>
+												<span data-notify="icon" class="pe-7s-bell"></span>
+												<span data-notify="message">Isto é um exemplo de notificação de erro!</span>
+										</div>
 
+										<div class="alert alert-warning alert-with-icon" data-notify="container">
+												<button type="button" aria-hidden="true" class="close">×</button>
+												<span data-notify="icon" class="pe-7s-bell"></span>
+												<span data-notify="message">Algo não está bem!</span>
+										</div>
 
-										@foreach($senha as $row)
-
-										<tr>
-											<td> {{$row -> diasemana}}</td>
-											<td><?php echo date('d-m-Y', strtotime($row -> dataRefeicao)); ?></td>
-											<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
-											if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
-											if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
-											if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
-											?> </td>
-											<td>
-												<?php											$dr[$count]=$row -> dataRefeicao;
-
-												$dr[$count]=$row -> dataRefeicao;
-
-												if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->first()){
-													?>
-													<small >Refeição já adquirida!</small>
-													<?php
-
-												} else {
-													?>
-													<form  action="{{route('cS')}}" method="get">
-														<div class="checkbox">
-															<input id={{$count}} type="checkbox" name='dr[]' value="{{$row -> dataRefeicao}}" checked>
-															<label for={{$count}}></label>
-														</div>
-														<?php
-													}
-													?>
-												</td>
-
-												<td></td>
-											</tr>
-
-											<?php
-											$ds[$count]=$row -> diasemana;
-											$count++;
-											?>
-
-											@endforeach
-
-
-
-
-
-
-
-
-
-									</div>
-								</div>
+										<div class="alert alert-success alert-with-icon" data-notify="container">
+												<button type="button" aria-hidden="true" class="close">×</button>
+												<span data-notify="icon" class="pe-7s-bell"></span>
+												<span data-notify="message">Os sistema está a funcionar dentro da normalidade!</span>
+										</div>
+													</div>
+												</div>
 
 
 												<form action="{{ url('/notifications') }}">
