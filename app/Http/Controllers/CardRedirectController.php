@@ -20,7 +20,7 @@ class CardRedirectController extends Controller
      session_start();
 
      if ($_SESSION['AcessoPortaria'] == 1 && $_SESSION['permAdmin'] != 1 && $_SESSION['permSA'] != 1){
-             // return redirect('/portaria');
+             return redirect('/portaria');
      }
 
      if ($_SESSION['AcessoCantina'] == 1 && $_SESSION['permAdmin'] != 1 && $_SESSION['permSA'] != 1){

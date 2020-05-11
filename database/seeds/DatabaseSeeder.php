@@ -12,11 +12,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
       DB::table('users')->insert([
-              'name' => 'David Castanheira Simões',
-              'email' => '17gpsi7@etpsico.pt',
-              'password' => bcrypt('Simoes.100'),
-              'tipoUtilizador' => 1,
-              'numProcesso' => 20202,
+              'name' => 'Acesso Portaria',
+              'email' => 'ap@etpsico.pt',
+              'password' => bcrypt('password'),
+              'tipoUtilizador' => 0,
+              'numProcesso' => 999992,
                'pin' => bcrypt(6859)
              ]);
                 }
