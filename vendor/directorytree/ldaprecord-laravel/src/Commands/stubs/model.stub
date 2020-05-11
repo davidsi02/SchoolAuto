@@ -1,0 +1,15 @@
+<?php
+
+namespace DummyNamespace;
+
+use LdapRecord\Models\Model;
+
+class DummyClass extends Model
+{
+    /**
+     * The object classes of the LDAP model.
+     *
+     * @var array
+     */
+    public static $objectClasses = [];
+}
