@@ -71,3 +71,10 @@ alert("Numero de cartão não encontrado!");
 
 
 </body>
+
+
+<script type="text/javascript">
+window.onload = function() {
+  var input = document.getElementById("input").focus();
+}
+</script>
