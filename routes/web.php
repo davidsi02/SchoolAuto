@@ -18,11 +18,20 @@ Route::get ('/home', function() {
 return view ('user/dashboard') -> middleware('auth');
 });
 //_______________________________________________________________//
+//Cantina//
+
+Route::get('/verifySenha', [
+
+  'uses' =>'CantinaController@verifySenha',
+  'as' =>'verifySenha',
+]);
+
+Route::get('/refeitorio', 'CantinaController@indexCantina')->name('indexCantina');
+
+//________________________________________________//
 
 
 
-
-//_________________________________________________//
 
 //WEB//
 Route::get ('/dashboard', function() {

@@ -247,7 +247,7 @@
 									<a href="{{ url('transações/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Transações</a>
 								</div>
 							</br>
-							  <div style="padding:10px;">
+							  <div style="padding:20px;">
 								<a href="{{ url('refeicoes_consumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Refeições </a>
 							  </div>
 				     </div>
