@@ -132,54 +132,23 @@
 									<h4 class="title">Notificações</h4>
 									<p class="category"></p>
 								</div>
-								<div class="content" action = {{('NotificationsController@showNotification')}}>
-									<div>
+								<div class="content">
+									<div class="content" action = {{'NotificationsController@showNotification'}}>
 
 
+										@foreach($notf as $row)
 
 
+													<div class="{{$row -> codigo}}" data-notify="container">
+													<button type="button" aria-hidden="true" class="close">×</button>
+													<span data-notify="icon" class="pe-7s-bell"></span>
+													<span data-notify="message"> {{$row -> content}} </span>
+													</div>
 
-										@foreach($senha as $row)
-
-										<tr>
-											<td> {{$row -> diasemana}}</td>
-											<td><?php echo date('d-m-Y', strtotime($row -> dataRefeicao)); ?></td>
-											<td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
-											if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
-											if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
-											if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
-											?> </td>
-											<td>
-												<?php											$dr[$count]=$row -> dataRefeicao;
-
-												$dr[$count]=$row -> dataRefeicao;
-
-												if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->first()){
-													?>
-													<small >Refeição já adquirida!</small>
-													<?php
-
-												} else {
-													?>
-													<form  action="{{route('cS')}}" method="get">
-														<div class="checkbox">
-															<input id={{$count}} type="checkbox" name='dr[]' value="{{$row -> dataRefeicao}}" checked>
-															<label for={{$count}}></label>
-														</div>
-														<?php
-													}
-													?>
-												</td>
-
-												<td></td>
-											</tr>
-
-											<?php
-											$ds[$count]=$row -> diasemana;
-											$count++;
-											?>
 
 											@endforeach
+
+
 
 
 
@@ -278,7 +247,7 @@
 									<a href="{{ url('transações/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Transações</a>
 								</div>
 							</br>
-							  <div style="padding:10px;">
+							  <div style="padding:20px;">
 								<a href="{{ url('refeicoes_consumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Refeições </a>
 							  </div>
 				     </div>
