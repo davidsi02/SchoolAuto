@@ -19,16 +19,9 @@ return view ('user/dashboard') -> middleware('auth');
 });
 //_______________________________________________________________//
 
-//Notificações//
 
-Route::any('/notifications', function() {
-return view('pageextensions/notifications');
 
-});
 
-Route::any ('/notifications', 'NotificationsController@showNotification');
-
-Route::any ('/notifications', 'NotificationsController@NotificationsTable')->middleware('auth');
 //_________________________________________________//
 
 //WEB//
@@ -52,6 +45,11 @@ return view ('admin/panel');
 
 Route::any ('/configs', function() {
   return view ('user/configs');
+});
+
+Route::any('/notifications', function() {
+return view('pageextensions/notifications');
+
 });
 
 //Senhas//
@@ -196,9 +194,18 @@ Route::any ('/testesenhas', 'SenhasController@showSenha')->name('showSenha');
 
           //NotificationsController
 Route::any ('/notificationsubmit', 'NotificationsController@getUserNotification') -> name ('/notificationsubmit') -> middleware('auth');
+Route::get('/apanel',[
+  'uses' => 'NotificationsController@showNotification',
+  'as' => 'showNotification'
+]);
 
-//PortariaController
+Route::any ('/notifications', 'NotificationsController@NotificationsTable')->middleware('auth');
 
+
+
+
+
+          //PortariaController
 Route::get ('/portaria/registar', 'PortariaController@acessoPortaria') -> name ('/acessoPortaria') ->middleware('auth');
 
 

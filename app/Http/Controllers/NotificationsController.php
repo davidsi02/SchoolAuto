@@ -38,75 +38,62 @@ return redirect('/configs');
 
 public function showNotification(){
 
+ echo 'aaaaa';
+
+
   $shownotf = DB::table('notification')->where('tipoNotificacao', '!=' ,  10)->orderBy('date' , 'DESC')->limit(6)->get();
-  return view('pageextensions/notifications', compact('shownotf', ['shownotf' => $shownotf]));
+  $notf = collect([['codigo' => NULL, 'content' => NULL]]);
 
-  $notificacao = collect([['codigo' => NULL]]);
-   $contador;
 
- foreach (row as $shownotf){
+ foreach ($shownotf as $row){
 
-if ($row -> type == 1) {
+if ($row -> tipoNotificacao == 1) {
 
-  $codigo = '<div class="alert alert-info alert-with-icon" data-notify="container">
-      <button type="button" aria-hidden="true" class="close">×</button>
-      <span data-notify="icon" class="pe-7s-bell"></span>
-      <span data-notify="message"> <?php echo $content ?> </span>
-      </div>';
+  $codigo = "alert alert-info alert-with-icon";
 
-  $content->push (['codigo' => $codigo]);
+  $notf->push (['codigo' => $codigo, 'content' => $row -> content]);
 
 }
 
-if ($row -> type == 4) {
+if ($row -> tipoNotificacao == 4) {
 
-  $codigo = '<div class="alert alert-danger alert-with-icon" data-notify="container">
-      <button type="button" aria-hidden="true" class="close">×</button>
-      <span data-notify="icon" class="pe-7s-bell"></span>
-      <span data-notify="message"> <?php echo $content ?> </span>
-  </div>';
+  $codigo = "alert alert-danger alert-with-icon";
 
-  $content->push (['codigo' => $codigo]);
+  $notf->push (['codigo' => $codigo, 'content' => $row -> content]);
+
 
 }
 
-if ($row -> type == 2) {
+if ($row -> tipoNotificacao == 2) {
 
-  $codigo = '<div class="alert alert-warning alert-with-icon" data-notify="container">
-      <button type="button" aria-hidden="true" class="close">×</button>
-      <span data-notify="icon" class="pe-7s-bell"></span>
-      <span data-notify="message"> <?php echo $content ?> </span>
-  </div>';
+  $codigo = "alert alert-warning alert-with-icon";
 
-  $content->push (['codigo' => $codigo]);
+  $notf->push (['codigo' => $codigo, 'content' => $row -> content]);
+
 
 }
 
-if ($row -> type == 3) {
+if ($row -> tipoNotificacao == 3) {
 
-  $codigo = '<div class="alert alert-success alert-with-icon" data-notify="container">
-      <button type="button" aria-hidden="true" class="close">×</button>
-      <span data-notify="icon" class="pe-7s-bell"></span>
-      <span data-notify="message"> <?php echo $content ?> </span>
-  </div>';
+  $codigo = "alert alert-success alert-with-icon";
 
-  $content->push (['codigo' => $codigo]);
+  $notf->push (['codigo' => $codigo, 'content' => $row -> content]);
+
 
 }
 
-  $contador++;
 
 }
 
-$content = $content->map(function ($row) {
+$notf = $notf->map(function ($row) {
 return (object)$row;
 });
 
-return view ('user/notifications', compact('content', $content));
+return view ('admin/panel', compact('notf', $notf));
 
 }
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 public function NotificationsTable(){
 
