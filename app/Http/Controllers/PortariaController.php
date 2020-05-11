@@ -27,7 +27,7 @@ class PortariaController extends Controller
          where('numCartao', $numCartao) ->
          orderBy('idRegisto', 'DESC') -> value('valor');
 
-         if (isset($numCartao)){
+         if (isset($vrf)){
 
              if ($valoranterior == NULL) $valor = 1;
              if ($valoranterior == 1) $valor = 2;
@@ -50,6 +50,7 @@ class PortariaController extends Controller
 
             DB::table('notification')->insert(
               [
+              
               'content' => $errormessage,
               'tipoNotificacao' => 4
             ]);
