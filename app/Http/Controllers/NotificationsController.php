@@ -41,7 +41,7 @@ public function showNotification(){
  echo 'aaaaa';
 
 
-  $shownotf = DB::table('notification')->where('tipoNotificacao', '!=' ,  10)->orderBy('date' , 'DESC')->limit(6)->get();
+  $shownotf = DB::table('notification')->where('tipoNotificacao', '!=' ,  10)->orderBy('date' , 'DESC')->limit(5)->get();
   $notf = collect([['codigo' => NULL, 'content' => NULL]]);
 
 
