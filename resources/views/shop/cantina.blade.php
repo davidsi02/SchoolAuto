@@ -22,7 +22,7 @@
           <div style="background-color: #b8daff;overflow:auto;" class="container ">
             <img style="height: 420px;transition: transform .4s;padding: 70px 0;margin-left:50px" dysplalign="left"src="{{$user->path_fotografia}}" />
             <div class="container" style="position: absolute;margin:10%;background-color:white;padding:10;width:50%;display: inline-block;margin-left:20px">
-              <h4 class="title" style="vertical-align: middle;padding: 20px;text-overflow:hidden;background-color:#ffffff"><b>Nome:</b>{{$user->name}}<br> <br>  <b>Num. Processo:</b>{{ $user->numProcesso  }}<br> <br>
+              <h4 class="title" style="vertical-align: middle;padding: 20px;text-overflow:hidden;background-color:#ffffff"><b>Nome:  </b>{{$user->name}}<br> <br>  <b>Num. Processo:  </b>{{ $user->numProcesso  }}<br> <br>
                 @if($senha==1) <a class="btn btn-success" style="font-size:2rem;">Senha adquirida!!</a> @elseif($senha==0) <a class="btn btn-danger" style="font-size:2rem;">Senha não adquirida</a> @elseif($senha==2)<a class="btn btn-danger" style="font-size:2rem;">Refeição já consumida!!</a>@endif
               </h4>
             </div>
