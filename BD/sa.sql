@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `categoriaproduto` (
   PRIMARY KEY (`idCategoria`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolauto.categoriaproduto: ~1 rows (approximately)
+-- Dumping data for table schoolauto.categoriaproduto: ~3 rows (approximately)
 /*!40000 ALTER TABLE `categoriaproduto` DISABLE KEYS */;
 INSERT INTO `categoriaproduto` (`idCategoria`, `nomeCategoria`) VALUES
 	(1, 'Bar'),
@@ -40,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `consumorefeicao` (
   PRIMARY KEY (`idConsumo`),
   KEY `Consumo_Utilizador` (`numProcesso`),
   CONSTRAINT `Consumo_Utilizador` FOREIGN KEY (`numProcesso`) REFERENCES `users` (`numProcesso`)
-) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolauto.consumorefeicao: ~0 rows (approximately)
+-- Dumping data for table schoolauto.consumorefeicao: ~8 rows (approximately)
 /*!40000 ALTER TABLE `consumorefeicao` DISABLE KEYS */;
 INSERT INTO `consumorefeicao` (`idConsumo`, `numProcesso`, `dataConsumo`, `dataSenha`) VALUES
 	(132, 20202, NULL, '2020-05-07 00:00:00'),
@@ -52,7 +52,9 @@ INSERT INTO `consumorefeicao` (`idConsumo`, `numProcesso`, `dataConsumo`, `dataS
 	(136, 20202, NULL, '2020-05-12 00:00:00'),
 	(137, 20202, NULL, '2020-05-13 00:00:00'),
 	(138, 20202, NULL, '2020-05-14 00:00:00'),
-	(139, 20202, NULL, '2020-05-15 00:00:00');
+	(139, 20202, NULL, '2020-05-15 00:00:00'),
+	(140, 20202, NULL, '2020-05-18 00:00:00'),
+	(141, 20202, NULL, '2020-05-09 00:00:00');
 /*!40000 ALTER TABLE `consumorefeicao` ENABLE KEYS */;
 
 -- Dumping structure for table schoolauto.failed_jobs
@@ -92,15 +94,15 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `id` int NOT NULL AUTO_INCREMENT,
   `content` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `numProcesso` int unsigned NOT NULL,
+  `numProcesso` int unsigned DEFAULT NULL,
   `tipoNotificacao` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `numProcesso` (`numProcesso`),
   CONSTRAINT `notification_user` FOREIGN KEY (`numProcesso`) REFERENCES `users` (`numProcesso`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table schoolauto.notification: ~0 rows (approximately)
+-- Dumping data for table schoolauto.notification: ~21 rows (approximately)
 /*!40000 ALTER TABLE `notification` DISABLE KEYS */;
 INSERT INTO `notification` (`id`, `content`, `date`, `numProcesso`, `tipoNotificacao`) VALUES
 	(1, 'aaaaa', '2020-05-07 04:21:12', 20202, 2),
@@ -116,7 +118,18 @@ INSERT INTO `notification` (`id`, `content`, `date`, `numProcesso`, `tipoNotific
 	(11, ' asdfghjkl', '2020-05-07 04:37:25', 20202, 2),
 	(12, ' aaaaaaaaaaa', '2020-05-07 04:41:49', 20202, 2),
 	(13, ' dfghj', '2020-05-07 04:45:55', 20202, 2),
-	(14, ' cfvgbh', '2020-05-07 04:48:33', 20202, 2);
+	(14, ' cfvgbh', '2020-05-07 04:48:33', 20202, 2),
+	(15, ' sdfgh\r\n', '2020-05-07 05:00:42', 20202, 2),
+	(16, ' ggggg', '2020-05-07 05:03:55', 20202, 2),
+	(17, ' uhiuhiuo', '2020-05-07 05:04:12', 20202, 2),
+	(18, ' giugigui', '2020-05-07 05:05:39', 20202, 2),
+	(19, ' ugiuguigiug', '2020-05-07 05:05:49', 20202, 2),
+	(20, ' ughuihiuhuih', '2020-05-07 05:06:52', 20202, 2),
+	(21, 'ojpojpo ', '2020-05-07 05:07:02', 20202, 2),
+	(22, ' uigiug\r\n', '2020-05-07 05:07:19', 20202, 2),
+	(23, ' pop', '2020-05-07 16:07:40', 20202, 1),
+	(24, ' ouhohuo', '2020-05-07 16:07:47', 20202, 2),
+	(25, 'aaaa', '2020-05-07 16:51:21', 20202, 1);
 /*!40000 ALTER TABLE `notification` ENABLE KEYS */;
 
 -- Dumping structure for table schoolauto.operacao
@@ -133,9 +146,9 @@ CREATE TABLE IF NOT EXISTS `operacao` (
   KEY `idUtilizador` (`idUtilizador`),
   CONSTRAINT `operacao_produto` FOREIGN KEY (`idProduto`) REFERENCES `produtos` (`id`),
   CONSTRAINT `utilizador_operacao` FOREIGN KEY (`idUtilizador`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolauto.operacao: ~15 rows (approximately)
+-- Dumping data for table schoolauto.operacao: ~22 rows (approximately)
 /*!40000 ALTER TABLE `operacao` DISABLE KEYS */;
 INSERT INTO `operacao` (`idOperacao`, `valorOperacao`, `dataOperacao`, `quantidade`, `nomeOperacao`, `idProduto`, `idUtilizador`) VALUES
 	(1, 20000.00, '2020-05-06 14:07:28', 1, 'Carregamento', 12, 10),
@@ -159,7 +172,9 @@ INSERT INTO `operacao` (`idOperacao`, `valorOperacao`, `dataOperacao`, `quantida
 	(30, -2.50, '2020-05-06 22:29:12', 1, 'Compra de senha', 101, 10),
 	(31, -2.50, '2020-05-06 22:29:12', 1, 'Compra de senha', 101, 10),
 	(32, -2.50, '2020-05-06 22:29:12', 1, 'Compra de senha', 101, 10),
-	(33, -2.50, '2020-05-06 22:29:12', 1, 'Compra de senha', 101, 10);
+	(33, -2.50, '2020-05-06 22:29:12', 1, 'Compra de senha', 101, 10),
+	(34, -2.50, '2020-05-07 17:14:12', 1, 'Compra de senha', 101, 10),
+	(35, -2.50, '2020-05-08 13:33:10', 1, 'Compra de senha', 101, 10);
 /*!40000 ALTER TABLE `operacao` ENABLE KEYS */;
 
 -- Dumping structure for table schoolauto.password_resets
@@ -192,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `permission` (
   CONSTRAINT `user_permission` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolauto.permission: ~1 rows (approximately)
+-- Dumping data for table schoolauto.permission: ~0 rows (approximately)
 /*!40000 ALTER TABLE `permission` DISABLE KEYS */;
 INSERT INTO `permission` (`ID`, `idUser`, `Admin`, `SAE`, `AcessoBar`, `AcessoCantina`, `AcessoBiblioteca`, `AcessoPortaria`) VALUES
 	(1, 10, 1, 1, 1, 1, 1, 1),
@@ -201,17 +216,25 @@ INSERT INTO `permission` (`ID`, `idUser`, `Admin`, `SAE`, `AcessoBar`, `AcessoCa
 
 -- Dumping structure for table schoolauto.portaria
 CREATE TABLE IF NOT EXISTS `portaria` (
-  `idRegisto` bigint NOT NULL,
-  `numProcesso` int unsigned NOT NULL,
+  `idRegisto` bigint NOT NULL AUTO_INCREMENT,
+  `numCartao` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '0',
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `valor` int NOT NULL,
   PRIMARY KEY (`idRegisto`),
-  KEY `portaria_numProcesso` (`numProcesso`),
-  CONSTRAINT `portaria_numProcesso` FOREIGN KEY (`numProcesso`) REFERENCES `users` (`numProcesso`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `numCartao` (`numCartao`),
+  CONSTRAINT `portaria_ibfk_1` FOREIGN KEY (`numCartao`) REFERENCES `users` (`numCartao`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table schoolauto.portaria: ~0 rows (approximately)
 /*!40000 ALTER TABLE `portaria` DISABLE KEYS */;
+INSERT INTO `portaria` (`idRegisto`, `numCartao`, `time`, `valor`) VALUES
+	(1, '2', '2020-05-10 01:31:16', 1),
+	(2, '2', '2020-05-10 01:31:45', 2),
+	(3, '2', '2020-05-10 01:31:55', 2),
+	(4, '2', '2020-05-10 01:32:01', 2),
+	(5, '2', '2020-05-10 01:37:10', 1),
+	(6, '2', '2020-05-10 01:37:16', 2),
+	(7, '2', '2020-05-10 01:37:28', 1);
 /*!40000 ALTER TABLE `portaria` ENABLE KEYS */;
 
 -- Dumping structure for table schoolauto.produtos
@@ -300,10 +323,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table schoolauto.users: ~4 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `created_at`, `updated_at`, `numCartao`, `tipoUtilizador`, `numProcesso`, `saldo`, `pin`, `path_fotografia`, `remember_token`, `uiColor`, `isencaoSenha`) VALUES
-	(6, 'Administrador', 'sae@etpsico.pt', NULL, '$2y$10$LP0RZUyeuLiSpR8lK08T2O6bI54GhgRujOsaxnS9NTHsj0pDO675i', NULL, NULL, '0', 1, 0, 20000.00, '$2y$10$Ac4LNTTt0RS7.aAZoSOQXuP4DGvm7I9jP0ghGB2TPc3gNhjBgipfq', NULL, NULL, NULL, 0),
-	(7, 'Catarina Lucas', 'catarina.lucas@etpsico.pt', NULL, '$2y$10$Yf4gWzGHeC6DtqnRXlEQSeuLtB0BN.fuLCtNjuCuyZpyvNzV0y9iC', NULL, NULL, '2', 2, 21234569, 0.00, '$2y$10$qa/ux6jexqF38QBwkxEGsuY2dqN/LS4iAM0B42OQ4fKdvb7teQEHG', 'http://www.etpsico.pt/media/formandos/14/catarina_lucas.jpg', NULL, NULL, 0),
-	(8, 'testes', 'testesa@etpsico.pt', NULL, '$2y$10$yDsZaeNJHwXOfwIl/M/gaOJRikruYfLFqPAoPtt6BYhV2Ni4dQaLu', NULL, NULL, '0', 2, 9999999, 0.00, '$2y$10$aB7c4GbiimNwJFmOXBFuUuQAImJsgFc3T3m18Vi4geZK2QBODZO6u', NULL, NULL, NULL, 0),
-	(10, 'David Castanheira Simões', '17gpsi7@etpsico.pt', NULL, '$2y$10$LKiDDcIK4lnTDWIn4n/PoOyDhYrho/Q5GDBvkISFPa.9g34DeqaH6', NULL, NULL, '0002723976', 1, 20202, 18598.05, '$2y$10$l4MCMp75s800v1Bk/iap6u7bRnIpZnQXduP02JgmCKdHjx7c26brm', 'http://www.etpsico.pt/media/alunos/94/david_sim_es.jpg', NULL, 'azure', 0);
+	(6, 'Administrador', 'sae@etpsico.pt', NULL, '$2y$10$LP0RZUyeuLiSpR8lK08T2O6bI54GhgRujOsaxnS9NTHsj0pDO675i', NULL, NULL, '0', 1, 0, 20000.00, '$2y$10$Ac4LNTTt0RS7.aAZoSOQXuP4DGvm7I9jP0ghGB2TPc3gNhjBgipfq', NULL, NULL, 'red', 0),
+	(7, 'Catarina Lucas', 'catarina.lucas@etpsico.pt', NULL, '$2y$10$Yf4gWzGHeC6DtqnRXlEQSeuLtB0BN.fuLCtNjuCuyZpyvNzV0y9iC', NULL, NULL, '2', 2, 21234569, 0.00, '$2y$10$qa/ux6jexqF38QBwkxEGsuY2dqN/LS4iAM0B42OQ4fKdvb7teQEHG', 'http://www.etpsico.pt/media/formandos/14/catarina_lucas.jpg', NULL, 'red', 0),
+	(8, 'testes', 'testesa@etpsico.pt', NULL, '$2y$10$yDsZaeNJHwXOfwIl/M/gaOJRikruYfLFqPAoPtt6BYhV2Ni4dQaLu', NULL, NULL, '0', 2, 9999999, 0.00, '$2y$10$aB7c4GbiimNwJFmOXBFuUuQAImJsgFc3T3m18Vi4geZK2QBODZO6u', NULL, NULL, 'red', 0),
+	(10, 'David Castanheira Simões', '17gpsi7@etpsico.pt', NULL, '$2y$10$LKiDDcIK4lnTDWIn4n/PoOyDhYrho/Q5GDBvkISFPa.9g34DeqaH6', NULL, NULL, '0002723976', 1, 20202, 18593.05, '$2y$10$l4MCMp75s800v1Bk/iap6u7bRnIpZnQXduP02JgmCKdHjx7c26brm', 'http://www.etpsico.pt/media/alunos/94/david_sim_es.jpg', NULL, 'red', 0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
