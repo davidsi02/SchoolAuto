@@ -18,7 +18,7 @@ class PortariaController extends Controller
 
         $numCartao = $_GET['input'];
 
-        $vrf = DB::table('portaria')->
+        $vrf = DB::table('users')->
         where('numCartao', $numCartao) ->
         value('numCartao');
 
