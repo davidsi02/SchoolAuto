@@ -50,7 +50,7 @@ class PortariaController extends Controller
 
             DB::table('notification')->insert(
               [
-              
+
               'content' => $errormessage,
               'tipoNotificacao' => 4
             ]);

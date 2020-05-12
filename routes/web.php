@@ -186,7 +186,7 @@ Route::any ('/colorchange', 'DataController@changeColor')->name('/colorchange')-
 Route::any ('/sae/ncartao', 'CardAuthController@cardLogin')->name('cardLogin');
 Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');
           //PermissionController
-Route::any ('/permissions','PermissionController@PermissionsVrf')->name('PermissionVrf')->middleware('auth');
+Route::any ('/permissions','PermissionController@PermissionsVrf')->name('PermissionVrf');
 Route::any ('/redirect','CardRedirectController@CardRedirect')->middleware('auth');
 
         //AdminActionsController
