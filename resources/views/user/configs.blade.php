@@ -236,10 +236,10 @@
 
 														<B><SPAN id=myCounter>100</SPAN> / 100 caracteres disponiveis.
 
-	<br> 
+	<br>
 
 														<div class="form-group row mb-0">
-																<div class="col-md-8 offset-md-5">
+																<div class="col-md-4 offset-md-4">
 																	<div class="checkbox">
 																		<input id="suggestion" name="suggestion" type="checkbox" value="1" >
 																		<label for="suggestion"> Sugestão</label>
@@ -248,11 +248,12 @@
 																		<input id="error" name="error" type="checkbox"value="3">
 																		<label for="error"> Erro</label>
                             			</div>
-																	<button  id="enviar"  style="margin-bottom:10"name = 'enviar' type="submit" class="btn btn-primary" >
+																	<form style="padding:20px 10px;" action="{{ url('/apanel') }}" method="get">
+																		<input class="col-md-12	float-left" type="submit"   value="Enviar">
+																		<input id="enviar" hidden style="margin-bottom:10"name = 'enviar' type="submit" class="btn btn-primary">
+																	</form>
 
 
-																			{{ __('Enviar') }}
-																	</button>
 
 
 

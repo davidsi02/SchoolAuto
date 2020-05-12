@@ -41,57 +41,57 @@ public function showNotification(){
  echo 'aaaaa';
 
 
-  $shownotf = DB::table('notification')->where('tipoNotificacao', '!=' ,  10)->orderBy('date' , 'DESC')->limit(5)->get();
-  $notf = collect([['codigo' => NULL, 'content' => 'Notificações:']]);
+   $shownotf = DB::table('notification')->where('tipoNotificacao', '!=' ,  10)->where('visibilidade',1)->orderBy('date' , 'DESC')->limit(5)->get();
+   $notf = collect();
 
 
- foreach ($shownotf as $row){
+  foreach ($shownotf as $row){
 
-if ($row -> tipoNotificacao == 1) {
+ if ($row -> tipoNotificacao == 1) {
 
-  $codigo = "alert alert-info alert-with-icon";
+   $codigo = "alert alert-info alert-with-icon";
 
-  $notf->push (['codigo' => $codigo, 'content' => $row -> content]);
+   $notf->push (['codigo' => $codigo, 'content' => $row -> content, 'id' => $row->id]);
 
-}
+ }
 
-if ($row -> tipoNotificacao == 4) {
+ if ($row -> tipoNotificacao == 4) {
 
-  $codigo = "alert alert-danger alert-with-icon";
+   $codigo = "alert alert-danger alert-with-icon";
 
-  $notf->push (['codigo' => $codigo, 'content' => $row -> content]);
-
-
-}
-
-if ($row -> tipoNotificacao == 2) {
-
-  $codigo = "alert alert-warning alert-with-icon";
-
-  $notf->push (['codigo' => $codigo, 'content' => $row -> content]);
+   $notf->push (['codigo' => $codigo, 'content' => $row -> content, 'id' =>$row->id]);
 
 
-}
+ }
 
-if ($row -> tipoNotificacao == 3) {
+ if ($row -> tipoNotificacao == 2) {
 
-  $codigo = "alert alert-success alert-with-icon";
+   $codigo = "alert alert-warning alert-with-icon";
 
-  $notf->push (['codigo' => $codigo, 'content' => $row -> content]);
-
-
-}
+   $notf->push (['codigo' => $codigo, 'content' => $row -> content, 'id' =>$row->id]);
 
 
-}
+ }
 
-$notf = $notf->map(function ($row) {
-return (object)$row;
-});
+ if ($row -> tipoNotificacao == 3) {
 
-return view ('admin/panel', compact('notf', $notf));
+   $codigo = "alert alert-success alert-with-icon";
 
-}
+   $notf->push (['codigo' => $codigo, 'content' => $row -> content, 'id' =>$row->id]);
+
+
+ }
+
+
+ }
+
+ $notf = $notf->map(function ($row) {
+ return (object)$row;
+ });
+
+ return view ('admin/panel', compact('notf', $notf));
+
+ }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -103,5 +103,10 @@ public function NotificationsTable(){
   return view('pageextensions/notifications', compact('notf', ['notf' => $notf]));
 }
 
+public function remNot($id){
+
+  \DB::table('notification')->where('id', $id)->update(['visibilidade' => 0 ]);
+  return $this->showNotification();
+}
 
 }

@@ -164,6 +164,10 @@
 														</div>
 
 
+														<form style="padding:20px 10px; padding-bottom:0px" action="{{ url('/apanel') }}" method="get">
+															<input class="col-md-12 float-right	" type="submit"   value="Voltar">
+															<input type="hidden" name="ndias" value="30">
+														</form>
 
 
 
@@ -172,18 +176,7 @@
                   </div>
 
 
-									<form action="{{ url('/apanel') }}">
 
-									<div class="content" allign="middle">
-																					<div class="form-group row mb-0">
-																							<div class="col-md-8 offset-md-4">
-																									<button type="submit" class="btn btn-primary" >
-																											{{ __('Voltar') }}
-																									</button>
-																							</div>
-																					</div>
-									</div>
-									</form>
 
 
                     <footer class="footer">

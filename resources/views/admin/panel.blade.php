@@ -129,24 +129,25 @@
 							<div class="card">
 
 								<div class="header">
-									<h4 class="title">Notificações</h4>
+									<h4 class="title col-md-4">Notificações</h4>
+
 									<p class="category"></p>
 								</div>
 								<div class="content">
 									<div class="content" action = {{'NotificationsController@showNotification'}}>
-
-
+										<div data-notify="container">
+											<span data-notify="icon" class="pe-7s-bell"></span>
+											<span data-notify="message"> Notificações: </span>
+										</div>
 										@foreach($notf as $row)
 
+											<div class="{{$row -> codigo}}" data-notify="container">
+													<a  href="{{route('rN',$row->id)}}" type="submit" aria-hidden="true" class="close">×</a>
+												<span data-notify="icon" class="pe-7s-bell"></span>
+												<span data-notify="message"> {{$row -> content}} </span>
+											</div>
 
-													<div class="{{$row -> codigo}}" data-notify="container">
-													<button type="button" aria-hidden="true" class="close">×</button>
-													<span data-notify="icon" class="pe-7s-bell"></span>
-													<span data-notify="message"> {{$row -> content}} </span>
-													</div>
-
-
-											@endforeach
+										@endforeach
 
 
 
@@ -156,24 +157,16 @@
 
 
 
-
+										<form style="padding-top:20px" action="{{ url('/notifications') }}" method="get">
+											<input class="col-md-12 float-right	" type="submit"   value="Histórico de Notificações">
+											<input type="hidden" name="ndias" value="30">
+										</form>
 
 									</div>
 								</div>
 
 
-												<form action="{{ url('/notifications') }}">
 
-												<div class="content">
-																								<div class="form-group row mb-0">
-																										<div class="col-md-8 offset-md-4">
-																												<button type="submit" class="btn btn-primary" >
-																														{{ __('Ver mais') }}
-																												</button>
-																										</div>
-																								</div>
-												</div>
-												</form>
 
 
 											</div>
@@ -247,7 +240,7 @@
 									<a href="{{ url('transações/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Transações</a>
 								</div>
 							</br>
-							  <div style="padding:10px;">
+							  <div style="padding:20px;">
 								<a href="{{ url('refeicoes_consumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Listagem das Refeições </a>
 							  </div>
 				     </div>

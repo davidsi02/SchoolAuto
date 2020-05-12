@@ -18,11 +18,17 @@ Route::get ('/home', function() {
 return view ('user/dashboard') -> middleware('auth');
 });
 //_______________________________________________________________//
+//Cantina//
 
+Route::get('/verifySenha', [
 
+  'uses' =>'CantinaController@verifySenha',
+  'as' =>'verifySenha',
+]);
 
+Route::get('/refeitorio', 'CantinaController@indexCantina')->name('indexCantina');
 
-//_________________________________________________//
+//________________________________________________//
 
 //WEB//
 Route::get ('/dashboard', function() {
@@ -51,7 +57,10 @@ Route::any('/notifications', function() {
 return view('pageextensions/notifications');
 
 });
-
+Route::get('remNot/{id?}',[
+  'uses' => 'NotificationsController@remNot',
+  'as' => 'rN'
+]);
 //Senhas//
 Route::get('/dashboard/comprarSenhas', 'SenhasController@comprarSenhas')->name('cS');
 //ExtSenhas//
@@ -89,8 +98,6 @@ Route::get('shop/pagina/{num}', 'ProductController@tabs')->name('tabs');
 Route::get('visibilidade/pagina/{num}', 'ProductController@tabsVisib')->name('tabsVisib');
 Route::get('visibilidade/changePagina/{id}]', 'ProductController@mudarPagina')->name('mudarPagina');
 Route::get('visibilidade/changeOrder/{id}/{pag}]', 'ProductController@mudarPosicao')->name('mudarPosicao');
-
-Route::get('/cantinaTeste', 'CantinaController@indexCantina')->name('indexCantina');
 
 Route::get('/shop', [
 
