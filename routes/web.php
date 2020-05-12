@@ -26,7 +26,7 @@ Route::get('/verifySenha', [
   'as' =>'verifySenha',
 ]);
 
-Route::get('/refeitorio', 'CantinaController@indexCantina')->name('indexCantina');
+Route::get('/refeitorio', 'CantinaController@indexCantina')->name('indexCantina')->middleware('auth');
 
 //________________________________________________//
 

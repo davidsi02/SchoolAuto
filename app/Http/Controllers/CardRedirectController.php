@@ -24,7 +24,7 @@ class CardRedirectController extends Controller
      }
 
      if ($_SESSION['AcessoCantina'] == 1 && $_SESSION['permAdmin'] != 1 && $_SESSION['permSA'] != 1){
-             // return redirect('/cantina');
+             return redirect('/refeitorio');
      }
 
      if ($_SESSION['AcessoBiblioteca'] == 1 && $_SESSION['permAdmin'] != 1 && $_SESSION['permSA'] != 1){
