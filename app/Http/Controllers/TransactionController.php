@@ -126,7 +126,7 @@ class TransactionController extends Controller
         <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->idConsumo.'</td>
         <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->numProcesso.'</td>
         <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->name.'</td>
-        <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->dataSenha.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.date('Y-m-d', strtotime($rfc->dataSenha)).'</td>
         <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->dataConsumo.'</td>
        </tr>
        ';
