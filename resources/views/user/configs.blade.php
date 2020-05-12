@@ -183,6 +183,14 @@ session_start();
 													</button> </td>
 												</tr>
 												<tr>
+													<td>Verde</td>
+													<td>		<button name = 'green' type="submit" class="btn btn-secondary">
+
+
+														{{ __('Selecionar') }}
+													</button> </td>
+												</tr>
+												<tr>
 
 													<td>Roxo</td>
 													<td>		<button name = 'purple' type="submit" class="btn btn-secondary">
@@ -254,7 +262,7 @@ session_start();
 										</form>
 
 
-										
+
 
 
 									</div>

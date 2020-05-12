@@ -29,6 +29,7 @@ class DataController extends Controller
       if (isset ($_POST['blue'])) $color = 'blue';
       if (isset ($_POST['azure'])) $color = 'azure';
       if (isset ($_POST['purple'])) $color = 'purple';
+      if (isset ($_POST['green'])) $color = 'green';
       if (isset ($_POST['none'])) $color = NULL;
 
       \DB::table('users')->where('id',Auth::user()->id)->update(['uiColor'=> $color]);
