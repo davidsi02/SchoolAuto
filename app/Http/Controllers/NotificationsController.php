@@ -38,8 +38,6 @@ return redirect('/configs');
 
 public function showNotification(){
 
- echo 'aaaaa';
-
 
    $shownotf = DB::table('notification')->where('tipoNotificacao', '!=' ,  10)->where('visibilidade',1)->orderBy('date' , 'DESC')->limit(5)->get();
    $notf = collect();
