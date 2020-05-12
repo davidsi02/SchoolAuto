@@ -62,10 +62,9 @@
                                   </a>
                                   @else
 
-                                    <form class="form-inline" action="{{route('visibilidadeMostrar',$product->id)}}" method="get">
-                                      <a type="submit" class="btn btn-danger fnt2rem centrar  ">Mostrar</a>
-                                    <input class="SquareInput centrar largura90 tam" type="text" name="pag" name="fname"  maxlength="2" placeholder="Página em que o produto vai ser adicionado" required>
-                                  </form>
+                                      <a  href=" {{route('visibilidadeMostrar',$product->id)}}"  class="btn btn-danger fnt2rem largura90 centrar">
+                                        Mostrar
+                                      </a>
                                   @endif
 
                                   @if($NOTpagina1 ?? ''== true)
@@ -74,9 +73,7 @@
                                     <button type="submit" class="btn btn-info largura90  fnt1ponto5rem centrar"> Mudar para a pagina:</button>
                                     <input class="SquareInput centrar largura90 fnt2rem " type="text" name="pag"   maxlength="2" required>
                                   </form>
-                                  @endif
 
-                                  @if($NOTpagina1 ?? ''== true)
                                   <div class="dropdown-divider"></div>
                                     <form class="form-inline" action="{{route('mudarPosicao', [$product->id,$activepage])}}" method="get">
                                     <button type="submit" class="btn btn-info largura90 fnt1ponto5rem centrar"> Mudar posição do produto:</button>

@@ -31,15 +31,22 @@ class ProductController extends Controller
     }
   }
   public function verifyCard(){
-
     if ($_GET['input']!=null) {
       if (\DB::table('users')->where('numCartao', $_GET['input'])->first()) {
         $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(15)->get();
         $user = User::where('numCartao', $_GET['input'])->first();
         Session::forget('user');
-        session(['idC' => $_GET['input'],'user' => $user]);
+        if (\DB::table('portaria')->where('numProcesso',$user->numProcesso)->where('valor',1)->first()) {
+          session(['idC' => $_GET['input'],'user' => $user]);
 
-        return view('shop/shop', ['products' => $products,'user' => $user, 'idC' => $_GET['input'],'activepage'=>1]);
+          return view('shop/shop', ['products' => $products,'user' => $user, 'idC' => $_GET['input'],'activepage'=>1]);
+        }else {
+          echo '<script type="text/javascript">';
+          echo ' alert("Não passou o cartão na portaria!!")';
+          echo '</script>';
+          header("Refresh:.25; url='shop'");
+        }
+
       }else {
         echo '<script type="text/javascript">';
         echo ' alert("Não existe nenhum cartão acossiado a este número!!")';
@@ -89,7 +96,7 @@ class ProductController extends Controller
           $i++;
         }
       }
-      $products = Produto::where('NoPagina', $num)->orderBy('ordem','asc')->get();
+      $products = Produto::where('NoPagina', $num)->where('visibilidade', 1)->orderBy('ordem','asc')->get();
       return view('shop/showorhidde', ['products' => $products, 'NOTpagina1' =>true,'activepage'=>$num]);
 }
     }
@@ -122,7 +129,7 @@ class ProductController extends Controller
         \DB::table('produtos')->insert(
           ['nomeProduto' => $_GET['nomeProd'],
           'precoProduto' => $_GET['precoProd'],
-          'idCategoria' => $_SESSION['categoriaShop'],
+          'idCategoria' =>  $_SESSION['categoriaShop'],
           'visibilidade' => 0,
           'ordem' => $lastM1,
           'NoPagina' => 15,
