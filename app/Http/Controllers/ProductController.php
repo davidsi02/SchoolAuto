@@ -36,10 +36,11 @@ class ProductController extends Controller
         $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(15)->get();
         $user = User::where('numCartao', $_GET['input'])->first();
         Session::forget('user');
-        if (\DB::table('portaria')->where('numProcesso',$user->numProcesso)->where('valor',1)->first()) {
+        $vrf = \DB::table('portaria')->where('numCartao',  $_GET['input'])->orderBy('idRegisto','desc') ->value('valor');
+        if($vrf==1) {
           session(['idC' => $_GET['input'],'user' => $user]);
-
           return view('shop/shop', ['products' => $products,'user' => $user, 'idC' => $_GET['input'],'activepage'=>1]);
+
         }else {
           echo '<script type="text/javascript">';
           echo ' alert("Não passou o cartão na portaria!!")';
