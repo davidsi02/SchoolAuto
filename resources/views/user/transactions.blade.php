@@ -126,7 +126,6 @@
                             <div class="content table-responsive table-full-width"  action = {{('TransactionController@fullTransactions')}}>
                                 <table class="table table-hover table-striped">
                                     <thead>
-                                        <th>ID</th>
                                     	<th>Operacao</th>
                                     	<th>Efeito no Saldo</th>
                                     	<th>Data</th>
@@ -141,7 +140,10 @@
 																		     <td>{{$row -> nomeOperacao}}</td>
 																		      <td>{{$row -> valorOperacao}}</td>
 																					 <td>{{$row ->dataOperacao }}</td>
-																					  <td>{{$row -> idProduto }}</td>
+																					 @if($row->idProduto !=101)
+																					 <?php $ah=\DB::table('produtos')->where('id',$row->idProduto)->value('nomeProduto'); ?>
+																					  <td>{{$ah}}</td>
+																						@endif
 																		     <td></td>
 																		    </tr>
 																		    @endforeach

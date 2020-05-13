@@ -162,7 +162,7 @@
 
 																		$dr[$count]=$row -> dataRefeicao;
 
-																		if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->first()){
+																		if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->where('numProcesso',Auth::user()->numProcesso)->first()){
 																			?>
 																			<small >Refeição já adquirida!</small>
 																			<?php

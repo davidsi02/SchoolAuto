@@ -277,20 +277,20 @@ session_start();
 					</div>
 				</div>
 			</div>
+		</div>
 
 			<footer class="footer">
 				<div class="container-fluid">
-					<nav class="pull-left">
-						<ul>
+					<nav class="pull-right">
 
+							<p class="copyright pull-right">
+								&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
+							</p>
 						</nav>
-						<p class="copyright pull-right">
-							&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
-						</p>
 
-						<center>
-							<img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
-						</center>
+						<div class="col-md-8 float-right">
+							<img  src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="">
+						</div>
 
 					</div>
 				</footer>

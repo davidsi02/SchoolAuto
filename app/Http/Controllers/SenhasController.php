@@ -133,13 +133,24 @@ $myCollection = collect([
 
   }
   public function anularSenha(){
-
+    if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) $preco = 0.00;
+    if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) $preco = 2.50;
+    if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) $preco = 0.00;
+    if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) $preco = 2.50;
 
         DB::table('consumorefeicao')
           ->where('numProcesso',Auth::user()->numProcesso)
           ->where('dataSenha', $_GET['Anular'])
           ->delete();
 
+          \DB::table('users')->where('id', Auth::user()->id)->update(['saldo' =>  Auth::user()->saldo + 2.50]);
+          \DB::table('operacao')->insert(
+            ['valorOperacao' => $preco,
+            'nomeOperacao' => 'Anulação de Senha',
+            'idProduto' => 101,
+            'idUtilizador' =>  Auth::user()->id,
+            'quantidade' => 1,
+          ]);
       return redirect('/dashboard');
     }
 
