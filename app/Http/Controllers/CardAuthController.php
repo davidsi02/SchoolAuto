@@ -33,12 +33,7 @@ session_start();
        //echo $verificaPassword;
 
                if ($verificanumCartao != NULL){
-                           echo "Utilizador Encontrado!";
-
-
                            $_SESSION['uid'] = $verificaEmail;
-                                     echo $_SESSION['uid'];
-
                                      return view('sae/saelogin-password');
 
 
