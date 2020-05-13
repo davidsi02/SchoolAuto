@@ -131,9 +131,16 @@ $myCollection = collect([
               return redirect('/dashboard');
             }
 
-
-
-
-
   }
+  public function anularSenha(){
+
+
+        DB::table('consumorefeicao')
+          ->where('numProcesso',Auth::user()->numProcesso)
+          ->where('dataSenha', $_GET['Anular'])
+          ->delete();
+
+      return redirect('/dashboard');
+    }
+
 }

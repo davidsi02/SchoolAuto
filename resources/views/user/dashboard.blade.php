@@ -229,8 +229,52 @@ if(!isset($_SESSION))
             </div>
           </div>
 
-        </div>
 
+        </div>
+        <div class="content">
+          <div class="container-fluid" style="padding:0">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="card">
+
+                  <div class="header">
+                    <h4 class="title">Anular Senha</h4>
+                    <p class="category"></p>
+                  </div>
+                  <div class="footer">
+                    <div class="legend">
+                    </div>
+                    <hr>
+                    <div class="footer">
+                      <i class=""></i>
+                    </div>
+                  </div>
+                  <form action="{{ route('aS') }}" method="get">
+
+                  <select class="form-control col-md-" style="margin:0 auto;width:90%;font-size: 2rem;height:40px" name="Anular" required>
+                    @foreach($senha as $row)
+
+                    @if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->where('numProcesso', auth::user()->numProcesso)->first())
+
+                     <option style="text-align: center;" value="{{ $row->dataRefeicao}}">{{$row->diasemana}},  {{ $row->dataRefeicao}}</option>
+                     @endif
+
+                    @endforeach
+                  </select>
+                </br>
+                <div style="padding:20px;padding-top:0px;">
+                  <button class="btn btn-danger" type="submit" style="width:100%" >Anular Senha </button>
+                </div>
+
+                </form>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        </div>
 
 
       </div>

@@ -63,6 +63,8 @@ Route::get('remNot/{id?}',[
 ]);
 //Senhas//
 Route::get('/dashboard/comprarSenhas', 'SenhasController@comprarSenhas')->name('cS');
+Route::get('/dashboard/anularSenha', 'SenhasController@anularSenha')->name('aS');
+
 //ExtSenhas//
 Route::get('/MSenhas',[
   'uses' => 'SenhasController@showSenha',
@@ -186,7 +188,7 @@ Route::any ('/colorchange', 'DataController@changeColor')->name('/colorchange')-
 Route::any ('/sae/ncartao', 'CardAuthController@cardLogin')->name('cardLogin');
 Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');
           //PermissionController
-Route::any ('/permissions','PermissionController@PermissionsVrf')->name('PermissionVrf');
+Route::any ('/permissions','PermissionController@PermissionsVrf')->name('PermissionVrf')->middleware('auth');
 Route::any ('/redirect','CardRedirectController@CardRedirect')->middleware('auth');
 
         //AdminActionsController

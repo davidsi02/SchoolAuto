@@ -25,7 +25,7 @@ class CantinaController extends Controller
        if (\DB::table('users')->where('numCartao', $_GET['input'])->first()) {
          $user=$this->user( $_GET['input']);
          $vrf = \DB::table('portaria')->where('numCartao',  $_GET['input'])->orderBy('idRegisto','desc') ->value('valor');
-         if($vrf==1) {
+         if($vrf!=1) {
            echo '<script type="text/javascript">';
            echo ' alert("Não passou o cartão na portaria!!")';
            echo '</script>';
