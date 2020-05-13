@@ -132,7 +132,6 @@ session_start();
 								<div class="content table-responsive table-full-width"  action = {{('NotificationsController@NotificationsTable')}}>
 									<table class="table table-hover table-striped">
 										<thead>
-											<th>Id</th>
 											<th>Conteudo</th>
 											<th>Data</th>
 											<th>Nº Processo</th>
@@ -143,7 +142,6 @@ session_start();
 
 											@foreach($notf as $row)
 											<tr>
-												<td>{{$row -> id}}</td>
 												<td>{{$row -> content}}</td>
 												<td>{{$row -> date}}</td>
 												<td>{{$row -> numProcesso}}</td>
