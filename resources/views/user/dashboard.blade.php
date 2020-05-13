@@ -271,6 +271,17 @@ if(!isset($_SESSION))
                 </div>
               </div>
 
+              <div class="col-md-4">
+                <div class="card">
+
+                  <div class="content">
+
+
+                  </div>
+
+
+                </div>
+
             </div>
           </div>
         </div>
