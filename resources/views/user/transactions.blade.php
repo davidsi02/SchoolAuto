@@ -159,23 +159,23 @@
 								</div>
 
 
-                    <footer class="footer">
-                        <div class="container-fluid">
-                            <nav class="pull-left">
-                                <ul>
+							</div>
 
-                            </nav>
-                            <p class="copyright pull-right">
-                                &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
-                            </p>
-														<center>
-										 <img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
-														</center>
-                        </div>
-                    </footer>
+								<footer class="footer">
+									<div class="container-fluid">
+										<nav class="pull-right">
 
-                </div>
-              </div>
+												<p class="copyright pull-right">
+													&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
+												</p>
+											</nav>
+
+											<div class="col-md-8 float-right">
+												<img  src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="">
+											</div>
+
+										</div>
+									</footer>
 
 
               </body>
