@@ -15,7 +15,6 @@
     <script src="{{asset('assets/web/assets/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('assets/smooth-scroll/smooth-scroll.js')}}"></script>
     <script src="{{asset('assets/jarallax/jarallax.js')}}"></script>
-    <script src="{{asset('assets/mobirise/js/script.js')}}"></script>
     <script src="{{asset('assets/senhas/script.js')}}"></script>
 
 
