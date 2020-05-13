@@ -62,9 +62,11 @@
                                   </a>
                                   @else
 
-                                      <a  href=" {{route('visibilidadeMostrar',$product->id)}}"  class="btn btn-danger fnt2rem largura90 centrar">
-                                        Mostrar
-                                      </a>
+                                  <div class="dropdown-divider"></div>
+                                    <form class="form-inline" action="{{route('mudarPagina', [$product->id])}}" method="get">
+                                    <button type="submit" class="btn btn-danger largura90  fnt1ponto5rem centrar">Mostrar</button>
+                                    <input class="SquareInput centrar largura90 fnt2rem " type="text" name="pag" placeholder="Número de página"  maxlength="2" required>
+                                  </form>
                                   @endif
 
                                   @if($NOTpagina1 ?? ''== true)
