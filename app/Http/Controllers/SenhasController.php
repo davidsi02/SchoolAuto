@@ -45,7 +45,14 @@ class SenhasController extends Controller
       if ($ndiasmax==30) {
         return view('pageextensions/senhasExt', compact('senha', $senha));
       }else {
-        return view('user/dashboard', compact('senha', $senha));
+
+
+      if(\DB::table('consumorefeicao')->where('numProcesso', Auth::user()->numProcesso)->where('dataSenha',date('Y-m-d'))->first()){
+        $m = 1;
+      }else{
+        $m= 2;
+      }
+        return view('user/dashboard', ['senha'=> $senha,'m'=>$m]);
 
       }
 

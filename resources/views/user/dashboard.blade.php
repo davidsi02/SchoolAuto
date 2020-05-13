@@ -272,18 +272,21 @@ if(!isset($_SESSION))
               </div>
 
               <div class="col-md-4">
+                <div class="header">
+									<h4 class="title col-md-4">Refeição Diária</h4>
                 <div class="card">
-
-                  <div class="content">
-
-
+                  <div class="content" >
+                    @if($m==1)
+                    <input class="col-md-12"  disabled  value="Senha comprada!"  value="Senha não comprada!">
+                    @elseif($m==2)
+                    <input class="col-md-12" disabled  value="Senha não comprada!">
+                    @endif
                   </div>
-
-
                 </div>
 
             </div>
           </div>
+
 
         </div>
 

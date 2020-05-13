@@ -75,6 +75,12 @@ Route::any ('/MaisSenhas', function() {
 });
 //________________________________________________//
 
+//ConfirmaçãoSenhaDiaria//
+
+Route::any('/dashboard/showsenhadiaria', 'SenhasController@showsenhadiaria')->name('sd');
+
+//____________________________//
+
 //SAE//
 Route::get ('/saelogin', function() {
 return view ('sae/saelogin');
