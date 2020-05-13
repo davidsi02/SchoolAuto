@@ -109,8 +109,6 @@ class ProductController extends Controller
     public function ProdMostrar($id)
     {
       \DB::table('produtos')->where('id',$id)->update(['visibilidade' => 1]);
-      \DB::table('produtos')->where('id',$id)->update(['Nopagina' => $_GET['pag']]);
-      return redirect()->back()->withInput();
     }
     public function indexCriar()
     {
@@ -232,6 +230,7 @@ class ProductController extends Controller
         header("Refresh:.25;location:javascript://history.go(-1)");
 
       }else {
+        $this->ProdMostrar($id);
         \DB::table('produtos')->where('id',$id)->update(['Nopagina' => $_GET['pag']]);
         return redirect()->back();
 
