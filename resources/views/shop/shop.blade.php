@@ -28,9 +28,6 @@
         <li class="nav-item active ">
           <a class="nav-link" href="{{route('indexEliminar')}}">Eliminar<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item active ">
-          <a class="nav-link" href="{{route('indexCantina')}}">Teste Cantina<span  class="sr-only">(current)</span></a>
-        </li>
       </ul>
     </div>
   </nav>

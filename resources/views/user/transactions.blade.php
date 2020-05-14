@@ -136,14 +136,13 @@
 
 																			@foreach($operacao as $row)
 																		    <tr>
-																		     <td>{{$row -> idOperacao}}</td>
 																		     <td>{{$row -> nomeOperacao}}</td>
 																		      <td>{{$row -> valorOperacao}}</td>
 																					 <td>{{$row ->dataOperacao }}</td>
-																					 @if($row->idProduto !=101)
+
 																					 <?php $ah=\DB::table('produtos')->where('id',$row->idProduto)->value('nomeProduto'); ?>
 																					  <td>{{$ah}}</td>
-																						@endif
+																						
 																		     <td></td>
 																		    </tr>
 																		    @endforeach

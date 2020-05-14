@@ -32,7 +32,7 @@ Route::get('/refeitorio', 'CantinaController@indexCantina')->name('indexCantina'
 
 //WEB//
 Route::get ('/dashboard', function() {
-return view ('user/dashboard') -> middleware('auth');
+return view ('user/dashboard');
 });
 
 Route::get('/user', function(){

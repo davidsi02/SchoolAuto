@@ -27,7 +27,7 @@
             <div class="mbr-box mbr-box--stretched"><div class="mbr-box__magnet mbr-box__magnet--center-center">
                 <div class="row"><div class=" col-sm-12 col-sm-offset-2">
                     <div class="mbr-hero animated fadeInUp">
-                        <h1 class="mbr-hero__text">SCHOOLAUTO ®<br>ETP SICÓ&nbsp;</h1>
+                        <h1 class="mbr-hero__text">SCHOOLAUTO ® - PORTARIA<br>ETP SICÓ&nbsp;</h1>
                         <p class="mbr-hero__subtext"></p>
                     </div></div>
 
