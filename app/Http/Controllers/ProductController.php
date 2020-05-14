@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Session;
+session_start();
 
 class ProductController extends Controller
 {
