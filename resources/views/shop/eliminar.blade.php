@@ -18,30 +18,8 @@
               🡄
             </a>
             <div style="background-color: #ffffff;" class="container ">
-              <p>
-                <a class="btn btn-primary fnt2rem" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Eliminar Categoria</a>
-                <button class="btn btn-primary fnt2rem float-right" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Eliminar Produto</button>
-              </p>
               <div class="row">
                 <div class="col">
-                  <div class="collapse multi-collapse" id="multiCollapseExample1">
-                    <div class="card card-body">
-                      <form action="{{route('eliminar.cat')}}" method="GET">
-
-                        <a class="txt" style="width:80% ;font-size:2rem;font-weight:bold;margin:0 auto;display:block;text-align:center;"> Escolha a categoria que pretende eliminar </a>
-                        <select style="font-size:2rem;font-weight: bold;border: solid rgb(39, 93, 207);background-color: #b8daff;margin-bottom:20;"name="nomeCat" required>
-                          @foreach($categorias as $categorias)
-                          <option style="text-align: center;" value="{{ $categorias->nomeCategoria}}">{{ $categorias->nomeCategoria}}</option>
-                          @endforeach
-                        </select>
-
-                        <input class="btn btn-primary"  type="submit" value="Eliminar"style="padding-bottom: 50px ;width:80% ; color:white ;font-size:2rem;font-weight:bold;margin:0 auto;display:block;text-align:center;"></input>
-                      </form>                          </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="collapse multi-collapse" id="multiCollapseExample2">
-                        <div class="card card-body">
                           <form action="{{route('eliminar.prod')}}" method="GET">
 
                             <a class="txt" style="width:80% ;font-size:2rem;font-weight:bold;margin:0 auto;display:block;text-align:center;"> Escolha o produto que pretende eliminar </a>

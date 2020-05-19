@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active ">
-          <a class="nav-link" href="{{route('indexCriação')}}">Criar <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{route('indexCriação')}}">Criar Produto<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ">
           <a class="nav-link" href="{{route('visibilidade')}}">Ordenação e Visibilidade <span class="sr-only">(current)</span></a>
@@ -26,7 +26,7 @@
           <a class="nav-link" href="{{route('indexGerirPreco')}}">Alterar Preços <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active ">
-          <a class="nav-link" href="{{route('indexEliminar')}}">Eliminar<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{route('indexEliminar')}}">Eliminar Produto<span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
