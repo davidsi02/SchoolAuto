@@ -95,6 +95,12 @@ Route::any ('/portaria', function() {
 });
 //__________________________________________________//
 
+//Secretaria//
+Route::get ('/secretaria', function(){
+return view ('sae/secretaria/home');
+});
+
+
 //PDFs//
 Route::get('/transações/pdf', 'TransactionController@pdf');
 Route::get('/refeicoes_consumidas/pdf', 'TransactionController@pdf1');
