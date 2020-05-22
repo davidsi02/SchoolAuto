@@ -14,7 +14,7 @@ class ProductController extends Controller
 {
   public function getIndex(){
 
-    $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(15)->get();
+    $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(20)->get();
     Session::forget('user');
     return view('shop/shop', ['products' => $products,'activepage'=>1]);
 
@@ -22,7 +22,7 @@ class ProductController extends Controller
   public function tabs($num) {
     $Pcount = Produto::where('visibilidade', 1)->where('NoPagina', $num)->count();
     if ($num==1) {
-      $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(15)->get();
+      $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(20)->get();
         return view('shop/shop', ['products' => $products,'activepage'=>1]);
 
     }else{
