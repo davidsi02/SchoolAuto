@@ -96,9 +96,8 @@ Route::any ('/portaria', function() {
 //__________________________________________________//
 
 //Secretaria//
-Route::get ('/secretaria', function(){
-return view ('sae/secretaria/home');
-});
+Route::get('secretaria', 'SecretariaController@EeS')->name('indexSecretaria');
+
 
 
 //PDFs//
