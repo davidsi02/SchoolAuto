@@ -100,6 +100,9 @@ Route::get ('/secretaria', function(){
 return view ('sae/secretaria/home');
 });
 
+Route::get ('/gestaousers', function(){
+return view ('sae/secretaria/gestaouser');
+});
 
 //PDFs//
 Route::get('/transações/pdf', 'TransactionController@pdf');
