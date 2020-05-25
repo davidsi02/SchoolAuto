@@ -256,7 +256,6 @@ session_start();
 											<input id="error" name="error" type="checkbox"value="3">
 											<label for="error"> Erro</label>
 										</div>
-										<form style="padding:20px 10px;" action="{{ url('/apanel') }}" method="get">
 											<input class="col-md-12	float-left" type="submit"   value="Enviar">
 											<input id="enviar" hidden style="margin-bottom:10"name = 'enviar' type="submit" class="btn btn-primary">
 										</form>
