@@ -52,7 +52,7 @@
 
             <ul class="nav">
                 <li>
-                    <a href="dashboard.html">
+                    <a href="{{ url('/listagem') }}">
                         <i class="pe-7s-graph"></i>
                         <p> Início </p>
                     </a>
@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="{{ url('/gestaousers') }}">
                         <i class="pe-7s-user"></i>
                         <p>Gestão de utilizadores</p>
                     </a>
