@@ -30,7 +30,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav navbar" role="tablist">
                   <?php
-                  for ($num=1; $num <= 13 ; $num++) { ?>
+                  for ($num=1; $num <= 12 ; $num++) { ?>
                     <li role="presentation" >
                       <a type="button" @if($num==$activepage ?? '') class="btn btn-info"  @else  class="btn btn-primary" @endif style="font-size:2.5rem;width:5rem" href="{{route('tabsVisib',[$num])}}">{{ $num }}</a>
                     </li>

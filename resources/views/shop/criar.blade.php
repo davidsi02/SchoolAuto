@@ -18,25 +18,8 @@
             🡄
           </a>
           <div style="background-color: #ffffff;" class="container ">
-            <p>
-              <a class="btn btn-primary fnt2rem" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Criar Categoria</a>
-              <button class="btn btn-primary fnt2rem float-right" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Criar Produto</button>
-            </p>
             <div class="row">
               <div class="col">
-                <div class="collapse multi-collapse" id="multiCollapseExample1">
-                  <div class="card card-body">
-                      <a class="subtitulo"> Criar Categoria </a>
-                      <form action="{{route('criar.cat')}}" method="GET">
-                        <a class="subtitulo" style="width:80% ;font-size:2rem;margin:0 auto;display:block;text-align:center;">Nome da Categoria </a>
-                        <input  style="text-align: center;background-color: #b8daff;font-size:2rem;font-weight:bold; border: solid #275dcf;" name="nomeCat" required></input>
-                        <input class="btn btn-primary"  type="submit" value="Criar Categoria"style="padding-bottom: 50px ;width:80% ; color:white ;font-size:2rem;font-weight:bold;margin:0 auto;display:block;text-align:center;"></input>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="collapse multi-collapse" id="multiCollapseExample2">
                     <div class="card card-body">
 
                         <a class="subtitulo"> Criar Produto </a>
