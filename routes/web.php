@@ -231,5 +231,7 @@ Route::any ('/notifications', 'NotificationsController@NotificationsTable')->mid
 
           //PortariaController
 Route::get ('/portaria/registar', 'PortariaController@acessoPortaria') -> name ('/acessoPortaria') ->middleware('auth');
+Route::get ('sae/secretaria/getuserdata','DataController@getUserbyProcesso') -> name ('/getUser') -> middleware('auth');
+
 
 //);//

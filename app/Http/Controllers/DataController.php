@@ -39,4 +39,30 @@ class DataController extends Controller
 
    }
 
+   public function getUserbyProcesso(){
+
+       $numProcesso = $_GET['numProcesso'];
+       $userdata = collect();
+
+      $user= DB::table('users')->where('numProcesso', $numProcesso);
+
+
+      if (isset($user)){
+
+           $_SESSION['pesquisa'] = 1;
+
+           return view ('/sae/secretaria/gestaouser', compact('user', $user));
+
+      }else{
+
+        $_SESSION['pesquisa'] = 0;
+
+        return view ('/sae/secretaria/gestaouser');
+
+      }
+
+
+
+   }
+
 }

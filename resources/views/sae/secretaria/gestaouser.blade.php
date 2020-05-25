@@ -1,35 +1,50 @@
 <!doctype html>
+<?php
+	 session_start();
+?>
+
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>SCHOOLAUTO - Secretaria</title>
-
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
-
-
-    <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Animation library for notifications   -->
-    <link href="assets/css/animate.min.css" rel="stylesheet"/>
-
-    <!--  Light Bootstrap Table core CSS    -->
-    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+	<!-- Scripts -->
+	<script src="{{ asset('js/app.js') }}" defer></script>
+	<script src="{{asset('assets/web/assets/jquery/jquery.min.js')}}"></script>
+	<script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('assets/smooth-scroll/smooth-scroll.js')}}"></script>
+	<script src="{{asset('assets/jarallax/jarallax.js')}}"></script>
+	<script src="{{asset('assets/mobirise/js/script.js')}}"></script>
+	<script src="{{asset('assets/senhas/script.js')}}"></script>
 
 
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="assets/css/demo.css" rel="stylesheet" />
+	<!-- Fonts -->
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+	<!-- Styles -->
+	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
+	<link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/animatecss/animate.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/mobirise/css/style.css')}}">
+	<link rel="stylesheet" href="{{(asset('assets/senhas/style.css'))}}">
 
-    <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+	<!--     Fonts and icons     -->
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+	<link href="{{asset('assets/css/pe-icon-7-stroke.css')}}" rel="stylesheet" />
 
+	<!--  Light Bootstrap Table core CSS    -->
+	<link href="{{asset('assets/css/light-bootstrap-dashboard.css?v=1.4.0')}}" rel="stylesheet"/>
+
+	<!-- Bootstrap core CSS     -->
+	<link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+
+	<!--   Core JS Files   -->
+	<script src="{{asset('assets/js/jquery.3.2.1.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
 </head>
 <body>
 
@@ -86,66 +101,7 @@
     	</div>
     </div>
 
-    <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Dashboard</a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-dashboard"></i>
-								<p class="hidden-lg hidden-md">Dashboard</p>
-                            </a>
-                        </li>
-
-                        <li>
-                           <a href="">
-                                <i class="fa fa-search"></i>
-								<p class="hidden-lg hidden-md">Search</p>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-										Dropdown
-										<b class="caret"></b>
-									</p>
-
-                              </a>
-                              <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p>Sair</p>
-                            </a>
-                        </li>
-						<li class="separator hidden-lg"></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+    <br> <br> <br>
 
         <div class="content">
             <div class="container-fluid">
@@ -156,13 +112,13 @@
                             <div class="header">
 
 
-                            <form method="POST" action= "" >
+                            <form method="GET" action= "{{ route('/getUser') }}" >
                               @csrf
 
-                                        
 
 
-                                            <input style="text-align:center;" id="psw" type="password" name="psw" autofocus >
+
+                                            <input style="text-align:center;" id="numProcesso" type="password" name="numProcesso" autofocus >
 
 
 
@@ -173,6 +129,89 @@
                             </div>
                         </div>
                     </div>
+
+                    <div>
+
+
+
+                      @if(isset($_SESSION['pesquisa']))
+                        @if($_SESSION['pesquisa'] == 1)
+
+                      <form method="POST" action= "{{ route('/colorchange') }}" >
+                        @csrf
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="header">
+                                        <h4 class="title">Dados</h4>
+                                    </div>
+                                    <div class="content">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Escola</label>
+                                                        <input type="text" class="form-control" disabled placeholder="Escola" value="ETP Sicó">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail1">Email</label>
+                                                        <input type="text" class="form-control" disabled placeholder="Email" value='{{Auth::user()->email}}'>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Saldo:</label>
+                                                        <input type="text" class="form-control" disabled placeholder="Saldo" value="{{Auth::user()->saldo}}€">
+                                                    </div>
+
+                                            <!--    <div class="col-md-6">
+                                                    <div class="form-group" action = {{'DataController@getUserType'}} >
+                                                        <label>Tipo Utilizador:</label>
+                                                        <input type="text" class="form-control" disabled placeholder="Erro!" value=
+
+                                                      -->
+
+
+
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Numero de Processo:</label>
+                                                        <input type="text" class="form-control" disabled placeholder="NProcesso" value='{{Auth::user()->numProcesso}}'>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Numero do Cartão de Acesso:</label>
+                                                        <input type="text" class="form-control" disabled placeholder="nCartao" value="{{Auth::user()->numCartao}}">
+                                                    </div>
+
+                                            </div>
+
+                  <button>
+  </button>
+
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+
+                  @endif
+                  @endif
+
+
+
+
 
 
                 </div>

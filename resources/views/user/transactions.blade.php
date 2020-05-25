@@ -123,7 +123,7 @@
                             <div class="header">
                                 <h4 class="title">Operações</h4>
                             </div>
-                            <div class="content table-responsive table-full-width"  action = {{('TransactionController@fullTransactions')}}>
+                            <div class="content table-responsive table-full-width"  action = "{{ route('/getuser') }}">
                                 <table class="table table-hover table-striped">
                                     <thead>
                                     	<th>Operacao</th>
@@ -142,7 +142,7 @@
 
 																					 <?php $ah=\DB::table('produtos')->where('id',$row->idProduto)->value('nomeProduto'); ?>
 																					  <td>{{$ah}}</td>
-																						
+
 																		     <td></td>
 																		    </tr>
 																		    @endforeach
