@@ -98,6 +98,9 @@ Route::any ('/portaria', function() {
 //Secretaria//
 Route::get('secretaria', 'SecretariaController@EeS')->name('indexSecretaria');
 
+Route::any ('/listagem', function() {
+  return view ('sae/secretaria/listagem');
+});
 
 Route::get ('/gestaousers', function(){
 return view ('sae/secretaria/gestaouser');
