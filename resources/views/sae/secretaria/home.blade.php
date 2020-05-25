@@ -116,7 +116,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="user.html">
+							<a href="{{ url('/listagem') }}">
 								<i class="pe-7s-note2"></i>
 								<p>Listagens</p>
 							</a>
