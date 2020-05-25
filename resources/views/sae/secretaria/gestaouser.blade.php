@@ -1,7 +1,5 @@
 <!doctype html>
-<?php
-	 session_start();
-?>
+
 
 <html lang="en">
 <head>
@@ -133,12 +131,12 @@
                     <div>
 
 
+												 @if (isset($_SESSION['pesquisa']))
+												@if($_SESSION['pesquisa'] == 1)
 
-                      @if(isset($_SESSION['pesquisa']))
-                        @if($_SESSION['pesquisa'] == 1)
-
-                      <form method="POST" action= "{{ route('/colorchange') }}" >
+                      <form method="POST">
                         @csrf
+
 
                         <div class="row">
                             <div class="col-md-8">
@@ -159,16 +157,11 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="exampleInputEmail1">Email</label>
-                                                        <input type="text" class="form-control" disabled placeholder="Email" value='{{Auth::user()->email}}'>
+                                                        <input type="text" class="form-control" disabled placeholder="Email" value='{{$user->email}}'>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            
 
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <label>Saldo:</label>
-                                                        <input type="text" class="form-control" disabled placeholder="Saldo" value="{{Auth::user()->saldo}}€">
-                                                    </div>
 
                                             <!--    <div class="col-md-6">
                                                     <div class="form-group" action = {{'DataController@getUserType'}} >
@@ -177,14 +170,12 @@
 
                                                       -->
 
-
-
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Numero de Processo:</label>
-                                                        <input type="text" class="form-control" disabled placeholder="NProcesso" value='{{Auth::user()->numProcesso}}'>
+                                                        <input type="text" class="form-control" disabled placeholder="NProcesso" value='{{$user->numProcesso}}'>
                                                     </div>
                                                 </div>
 
@@ -193,7 +184,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Numero do Cartão de Acesso:</label>
-                                                        <input type="text" class="form-control" disabled placeholder="nCartao" value="{{Auth::user()->numCartao}}">
+                                                        <input type="text" class="form-control" disabled placeholder="nCartao" value="{{$user->numCartao}}">
                                                     </div>
 
                                             </div>
@@ -204,10 +195,36 @@
                   </div>
                   </div>
                   </div>
+									<div class="col-md-4">
+											<div class="card card-user">
+													<div class="image">
+															<img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+													</div>
+													<div class="content">
+															<div class="author">
+																	 <a href="#">
+																	<img class="avatar border-gray" src="{{$user->path_fotografia}}" alt="..."/>
+
+																		<h4 class="title">{{$user->name}}<br />
+																			 <small>{{$user->numProcesso}}</small>
+																		</h4>
+																	</a>
+															</div>
+
+													</div>
+													<hr>
+
+											</div>
+									</div>
                   </div>
 
+
+
+
+                  @else
+                    <script> alert('Utilizador não encontrado'); </script>
                   @endif
-                  @endif
+									@endif
 
 
 

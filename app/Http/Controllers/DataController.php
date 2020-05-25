@@ -24,6 +24,8 @@ class DataController extends Controller
    {
       session_start();
 
+
+
       if (isset ($_POST['red'])) $color = 'red';
       if (isset ($_POST['orange'])) $color = 'orange';
       if (isset ($_POST['blue'])) $color = 'blue';
@@ -41,21 +43,25 @@ class DataController extends Controller
 
    public function getUserbyProcesso(){
 
+     session_start();
+
+      $_SESSION['pesquisa'] = 0;
+
        $numProcesso = $_GET['numProcesso'];
        $userdata = collect();
 
-      $user= DB::table('users')->where('numProcesso', $numProcesso);
-
+      $user = DB::table('users')->where('numProcesso', $numProcesso)->first();
 
       if (isset($user)){
 
            $_SESSION['pesquisa'] = 1;
-
-           return view ('/sae/secretaria/gestaouser', compact('user', $user));
+           return view ('/sae/secretaria/gestaouser', ['user' => $user]);
 
       }else{
 
         $_SESSION['pesquisa'] = 0;
+
+        echo $_SESSION['pesquisa'];
 
         return view ('/sae/secretaria/gestaouser');
 

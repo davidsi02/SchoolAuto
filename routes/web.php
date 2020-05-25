@@ -197,6 +197,8 @@ Route::get ('transactions', 'TransactionController@fullTransactions')->name('tra
           //DataController
 Route::get ('/user', 'DataController@getUserType')->name('getUserType')->middleware('auth');
 Route::any ('/colorchange', 'DataController@changeColor')->name('/colorchange')->middleware('auth');
+Route::get ('sae/secretaria/getuserdata','DataController@getUserbyProcesso') -> name ('/getUser') -> middleware('auth');
+
 
          //CardAuthController
 Route::any ('/sae/ncartao', 'CardAuthController@cardLogin')->name('cardLogin');
@@ -230,7 +232,6 @@ Route::any ('/notifications', 'NotificationsController@NotificationsTable')->mid
 
           //PortariaController
 Route::get ('/portaria/registar', 'PortariaController@acessoPortaria') -> name ('/acessoPortaria') ->middleware('auth');
-Route::get ('sae/secretaria/getuserdata','DataController@getUserbyProcesso') -> name ('/getUser') -> middleware('auth');
 
 
 //);//
