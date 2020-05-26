@@ -165,7 +165,7 @@
 												<option >@if($user->numCartao == 1) Sim @else Não @endif</option>
 												<option >@if($user->numCartao != 1) Sim @else Não @endif</option>
 											</select>
-											<input class="col-md-3 form-control" name="Editar" type="button" value="Editar">
+											<input class="col-md-3 form-control" name="EditarSel" type="button" value="Editar">
 										</div>
 									</div>
 
@@ -193,7 +193,7 @@
 												<option > Colaborador </option>
 
 											</select>
-											<input class="col-md-3 form-control" name="Editar" type="button" value="Editar">
+											<input class="col-md-3 form-control" name="EditarSel" type="button" value="Editar">
 										</div>
 									</div>
 
@@ -268,11 +268,17 @@ $('[name="Editar"]').on('click', function() {
 	ro   = prev.prop('disabled');
 	prev.prop('disabled', !ro).focus();
 	$(this).val(ro ? 'Guardar' : 'Editar');
+	var a = $(this).val();
+	console.log(a);
+	if ($(this).val()=='Editar') {
+		$(this).prop("type", "submit");
+	}
 });
-$('[name="Editar"]').on('click', function() {
-	var prev = $(this).prev('select'),
-	ro   = prev.prop('disabled');
-	prev.prop('disabled', !ro).focus();
-	$(this).val(ro ? 'Guardar' : 'Editar');
+
+$('[name="EditarSel"]').on('click', function() {
+	var prev1 = $(this).prev('select'),
+	ro1   = prev1.prop('disabled');
+	prev1.prop('disabled', !ro1).focus();
+	$(this).val(ro1 ? 'Guardar' : 'Editar');
 });
 </script>
