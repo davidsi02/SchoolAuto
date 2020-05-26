@@ -101,32 +101,23 @@
 
     <br> <br> <br>
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="card">
-
-                            <div class="header">
 
 
+                           <div class="row">
+														 <div class="col-md-8">
+																 <div class="card">
                             <form method="GET" action= "{{ route('/getUser') }}" >
                               @csrf
 
 
 
 
-                                            <input style="text-align:center;" id="numProcesso" type="password" name="numProcesso" autofocus >
+                                            <input style="text-align:center;" id="numProcesso" type="password" name="numProcesso" autofocus placeholder = "Introduza o numero de Processo">
 
-
-
-
-
-                              </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                           </form>
+												 </div>
+												 </div>
+												 </div>
 
                     <div>
 
@@ -160,41 +151,46 @@
                                                         <input type="text" class="form-control" disabled placeholder="Email" value='{{$user->email}}'>
                                                     </div>
                                                 </div>
-                                            
 
 
-                                            <!--    <div class="col-md-6">
+
+                                               <div class="col-md-6">
                                                     <div class="form-group" action = {{'DataController@getUserType'}} >
                                                         <label>Tipo Utilizador:</label>
-                                                        <input type="text" class="form-control" disabled placeholder="Erro!" value=
+                                                        <input type="text" class="form-control" disabled placeholder="Erro!" value= "Em breve...">
 
-                                                      -->
 
+                                                   </div>
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Numero de Processo:</label>
                                                         <input type="text" class="form-control" disabled placeholder="NProcesso" value='{{$user->numProcesso}}'>
-                                                    </div>
+                                                     </div>
+
+																										<div class="form-group">
+																												<label>Numero de Cartão:</label>
+																												<input type="text" class="form-control" disabled placeholder="Sem cartão associado!" value='{{$user->numCartao}}'>
+																										</div>
+
                                                 </div>
 
 
 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label>Numero do Cartão de Acesso:</label>
-                                                        <input type="text" class="form-control" disabled placeholder="nCartao" value="{{$user->numCartao}}">
+                                                        <label>Isenção de Senha:</label>
+                                                        <input type="text" class="form-control" disabled placeholder="Erro!" value="<?php if($user->numCartao == 1) echo 'Sim'; else echo 'Não'; ?>">
                                                     </div>
 
                                             </div>
 
-                  <button>
-  </button>
+                  </div>
 
                   </div>
-                  </div>
-                  </div>
+								</div>
+							</div>
 									<div class="col-md-4">
 											<div class="card card-user">
 													<div class="image">

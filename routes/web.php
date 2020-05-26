@@ -98,20 +98,11 @@ Route::any ('/portaria', function() {
 //Secretaria//
 Route::get('secretaria', 'SecretariaController@EeS')->name('indexSecretaria');
 
-Route::any ('/listagem', function() {
-  return view ('sae/secretaria/listagem');
-});
 
 Route::get ('/gestaousers', function(){
 return view ('sae/secretaria/gestaouser');
 });
-//Secretaria ----------> Tasks
-Route::any ('/tarefaSubmit', 'TasksController@novaTask') -> name('tarefaSubmit') -> middleware('auth');
-Route::get('remTask/{id?}',[
-  'uses' => 'NotificationsController@remTask',
-  'as' => 'rT'
-]);
-//__________________________________________________//
+
 //PDFs//
 Route::get('/transações/pdf', 'TransactionController@pdf');
 Route::get('/refeicoes_consumidas/pdf', 'TransactionController@pdf1');
