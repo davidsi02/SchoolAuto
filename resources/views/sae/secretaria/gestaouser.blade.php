@@ -280,5 +280,10 @@ $('[name="EditarSel"]').on('click', function() {
 	ro1   = prev1.prop('disabled');
 	prev1.prop('disabled', !ro1).focus();
 	$(this).val(ro1 ? 'Guardar' : 'Editar');
+	var a = $(this).val();
+	console.log(a);
+	if ($(this).val()=='Editar') {
+		$(this).prop("type", "submit");
+	}
 });
 </script>
