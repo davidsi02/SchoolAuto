@@ -105,6 +105,13 @@ Route::get('/listagem', function(){
 Route::get ('/gestaousers', function(){
 return view ('sae/secretaria/gestaouser');
 });
+
+//Secretaria--->PDFs//
+
+Route::get('/carregamentos_diarios/pdf', 'ListagensController@pdf2');
+
+//______________________________________________________________//
+
 //Secretaria ----------> Tasks
 Route::any ('/tarefaSubmit', 'TasksController@novaTask') -> name('tarefaSubmit') -> middleware('auth');
 Route::get('remTask/{id}',[

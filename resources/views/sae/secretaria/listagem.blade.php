@@ -196,9 +196,9 @@
                                         <i class="fa fa-circle text-alert"></i> Hoje
                                     </div>
                                     <hr>
-                                    <div style="padding:0px;padding-top:0px;" >
-                                      <button class="btn btn-danger" type="submit" style="margin: 0 auto">Carregamentos Diários</button>
-                                    </div>
+																		<div style="padding:20px;">
+																	 <a href="{{ url('CarregamentosDiarios/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Carregamentos Diários</a>
+																	 </div>
                                 </div>
                             </div>
                         </div>

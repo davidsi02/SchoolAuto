@@ -17,26 +17,28 @@ class TransactionController extends Controller
     */
 
 
-      public function RefeicoesConsumidas()
+//Carregamentos Efectuados//
+
+      public function CarregamentosDiarios()
       {
-          $rfc = \DB::table('consumorefeicao', 'users')
-                      ->orderBy('dataConsumo' , 'DESC')
+          $cgd = \DB::table('operacao', 'users')
+                      ->orderBy('dataOperacao' , 'DESC')
                       ->get();
-      return $rfc;
+      return $cgd;
 
       }
 
-      public function pdf1()
+      public function pdf2()
       {
-        $pdf1 = \App::make('dompdf.wrapper');
-        $pdf1->loadHTML($this->cdth1());
-        return $pdf1->stream();
+        $pdf2 = \App::make('dompdf.wrapper');
+        $pdf2->loadHTML($this->cdthc());
+        return $pdf2->stream();
       }
 
-      public function cdth1()
+      public function cdthc()
       {
-        $rfc= $this->allRefeicoesConsumidas();
-        $output1 = '<h3 align="center">Listagem das Refeições</h3>
+        $cgd= $this->CarregamentosDiarios();
+        $outputc = '<h3 align="center">Listagem das Refeições</h3>
         <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
          <tr>
        <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id Consumo</th>
@@ -46,22 +48,26 @@ class TransactionController extends Controller
 
          </tr>
         ';
-        foreach($rfc as $rfc)
+        foreach($cgd as $cgd)
          {
-          $user = \DB::table('users')->where('numProcesso',$rfc->numProcesso)->first();
+          $user = \DB::table('users')->where('id',$cgd->idUtilizador)->first();
 
-          $output1 .= '
+          $outputc .= '
           <tr>
-           <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->idConsumo.'</td>
-           <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->numProcesso.'</td>
+           <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->idConsumo.'</td>
+           <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->numProcesso.'</td>
            <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->name.'</td>
-           <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->dataConsumo.'</td>
+           <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->dataOperacao.'</td>
           </tr>
           ';
          }
-         $output1 .= '</table>';
-         return $output1;
-      }
-    }
+         $outputc .= '</table>';
+         return $outputc;
+     }
+
+
+
+//Refeições Consumidas e não Consumidas//
+
 
 }
