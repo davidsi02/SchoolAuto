@@ -79,8 +79,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-							<button type="button" type="submit" class="btn btn-primary">Criar Tarefa</button>
-							<input class="col-md-12	float-left" type="submit"   value="Enviar">
+							<button  type="submit" value="Enviar" class="btn btn-primary">Criar Tarefa</button>
 						</form>
 
 						</div>
@@ -324,18 +323,18 @@
 
 														<td>
 															<div class="checkbox">
-																<input id="checkbox1" type="checkbox">
-																<label for="checkbox1"></label>
+																<input id="{{$row->idTask}}" type="checkbox">
+																<label for="{{$row->idTask}}"></label>
 															</div>
 														</td>
-														<td><input type="text" class="form" readonly value='{{$row->conteudo}}'></td>
+														<td><input type="text" strikethrough class="form" readonly value='{{$row->conteudo}}'></td>
 															<td class="td-actions text-right">
 															<button type="button" rel="tooltip" name="Editar" title="Editar Tarefa" class="btn btn-info btn-simple btn-xs">
 																<i class="fa fa-edit"></i>
 															</button>
-															<button type="button" rel="tooltip"  href="{{route('rT',$row->idTask)}}" title="Remover" class="btn btn-danger btn-simple btn-xs">
+															<a type="submit" rel="tooltip"  href="{{route('rT',$row->idTask)}}" title="Remover" class="btn btn-danger btn-simple btn-xs">
 																<i class="fa fa-times"></i>
-															</button>
+															</a>
 														</td>
 													</tr>
 													@endforeach
@@ -370,26 +369,27 @@
 													<tr>
 
 														@foreach($TG as $row)
+														<tr id="a">
+
 														<td>
 															<div class="checkbox">
-																<input id="checkbox1" type="checkbox">
-																<label for="checkbox1"></label>
+																<input id="{{$row->idTask}}" type="checkbox">
+																<label for="{{$row->idTask}}"></label>
 															</div>
 														</td>
-														<form>
-															<label hidden>First Name</label>
 
 														<td><input type="text" class="form" readonly value='{{$row->conteudo}}'></td>
 														<td class="td-actions text-right">
 															<button rel="tooltip" type="text" name="Edit" type="button" value="" title="Editar Tarefa" class="btn btn-info btn-simple btn-xs">
 																<i class="fa fa-edit"></i>
 															</button>
-														</form>
 
-															<button type="button" rel="tooltip"  href="{{route('rT',$row->idTask)}}" title="Remover" class="btn btn-danger btn-simple btn-xs">
+															<a type="submit" rel="tooltip"  href="{{route('rT',$row->idTask)}}" title="Remover" class="btn btn-danger btn-simple btn-xs">
 																<i class="fa fa-times"></i>
-															</button>
+															</a>
 														</td>
+													</tr>
+
 														@endforeach
 
 													</tr>
@@ -401,10 +401,6 @@
 											<div class="stats">
 												<i class="fa fa-history"></i>
 												{{     $TGU}}
-												<form>
-																<label>First Name</label>
-																<input  placeholder="Lorem" readonly required  /><input >
-															</form>
 
 											</div>
 										</div>
@@ -535,7 +531,12 @@
     		var prev = $(this).prev('input'),
         ro   = prev.prop('readonly');
     		prev.prop('readonly', !ro).focus();
-    		$(this).val(ro ? 'Save' : 'Edit');
+				});
+
+				$(document).ready(function(){
+				  $('[type="checkbox"]').click(function(){
+				    $("#a").fadeToggle();
+				  });
 				});
 				</script>
 

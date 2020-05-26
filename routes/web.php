@@ -102,6 +102,13 @@ Route::get('secretaria', 'SecretariaController@EeS')->name('indexSecretaria');
 Route::get ('/gestaousers', function(){
 return view ('sae/secretaria/gestaouser');
 });
+//Secretaria ----------> Tasks
+Route::any ('/tarefaSubmit', 'TasksController@novaTask') -> name('tarefaSubmit') -> middleware('auth');
+Route::get('remTask/{id}',[
+  'uses' => 'SecretariaController@remTask',
+  'as' => 'rT'
+]);
+//__________________________________________________//
 
 //PDFs//
 Route::get('/transações/pdf', 'TransactionController@pdf');
