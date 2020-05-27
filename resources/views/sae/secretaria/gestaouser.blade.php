@@ -125,6 +125,7 @@
 		@if (isset($_SESSION['pesquisa']))
 		@if($_SESSION['pesquisa'] == 1)
 
+		<form method="POST">
 			@csrf
 
 
@@ -134,67 +135,55 @@
 						<div class="header">
 							<h4 class="title">Dados</h4>
 						</div>
-
+						<div class="content">
+							<form>
 								<div class="row">
-									<div class="content">
-										<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group" >
-											<label id = "escola" name = "escola" class="col-md-12" style="padding-left:0;">Escola</label>
+											<label class="col-md-12" style="padding-left:0;">Escola</label>
 											<input type="text" class="col-md-9 form-control" disabled placeholder="Escola" value="ETP Sicó">
-											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+											<input class="col-md-3 form-control" name="Editar" type="button" value="Editar">
 
 										</div>
 									</div>
-								</form>
-								<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
 
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Email</label>
-											<input id = "email" name = "email" type="text" class="form-control col-md-9" disabled placeholder="Email" value='{{$user->email}}'>
-											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+											<input type="text" class="form-control col-md-9" disabled placeholder="Email" value='{{$user->email}}'>
+											<input class="col-md-3 form-control" name="Editar" type="button" value="Editar">
 										</div>
 
 									</div>
-								</form>
-								<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
+
+
 
 									<div class="col-md-6" style="padding-bottom: 10">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Isenção de Senha:</label>
-											<select class="form-control col-md-9" disabled id = "isencaoSenha" name = "isencaoSenha" value = "<?php if ($user->isencaoSenha == 1) echo "Sim";
-                                                                                                                              if ($user->isencaoSenha != 1) echo "Não";  ?>">
-												<option >@if($user->isencaoSenha == 1) Sim @else Não @endif</option>
-												<option >@if($user->isencaoSenha != 1) Sim @else Não @endif</option>
+											<select class="form-control col-md-9" disabled >
+												<option >@if($user->numCartao == 1) Sim @else Não @endif</option>
+												<option >@if($user->numCartao != 1) Sim @else Não @endif</option>
 											</select>
-											<input class="col-md-3 form-control" id="EditarSel" type="button" value="Editar">
+											<input class="col-md-3 form-control" name="EditarSel" type="button" value="Editar">
 										</div>
 									</div>
-								</form>
-								<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
 
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Numero de Processo:</label>
-											<input id = "numProcesso" name = "numProcesso" type="text" class="form-control col-md-9" disabled placeholder="NProcesso" value='{{$user->numProcesso}}'>
-											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+											<input type="text" class="form-control col-md-9" disabled placeholder="NProcesso" value='{{$user->numProcesso}}'>
+											<input class="col-md-3 form-control" name="Editar" type="button" value="Editar">
 										</div>
 									</div>
-								</form>
-								<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
 
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group">
-
 											<label class="col-md-12" style="padding-left:0;">Numero de Cartão:</label>
-											<input name = "numCartao" type="text" class="form-control col-md-9" disabled placeholder="Sem cartão associado!" value='{{$user->numCartao}}'>
-											<button class="col-md-3 form-control" id="Editar" type="button" value="Editar"></button>
-</div>
+											<input type="text" class="form-control col-md-9" disabled placeholder="Sem cartão associado!" value='{{$user->numCartao}}'>
+											<input class="col-md-3 form-control" name="Editar" type="button" value="Editar">
+										</div>
 									</div>
-								</form>
-								<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
-
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group" action = {{'DataController@getUserType'}} >
 											<label class="col-md-12" style="padding-left:0;">Tipo Utilizador:</label>
@@ -204,10 +193,9 @@
 												<option > Colaborador </option>
 
 											</select>
-											<input class="col-md-3 form-control" id="EditarSel" type="button" value="Editar">
+											<input class="col-md-3 form-control" name="EditarSel" type="button" value="Editar">
 										</div>
 									</div>
-								</form>
 
 								</div>
 
@@ -275,21 +263,19 @@
 	</div>
 </div>
 <script type="text/javascript">
-$('[id="Editar"]').on('click', function() {
-	if ($(this).val()=='Guardar') {
+$('[name="Editar"]').on('click', function() {
+	var prev = $(this).prev('input'),
+	ro   = prev.prop('disabled');
+	prev.prop('disabled', !ro).focus();
+	$(this).val(ro ? 'Guardar' : 'Editar');
+	var a = $(this).val();
+	console.log(a);
+	if ($(this).val()=='Editar') {
 		$(this).prop("type", "submit");
-	}else {
-		var prev = $(this).prev('input'),
-		ro   = prev.prop('disabled');
-		prev.prop('disabled', !ro).focus();
-		$(this).val(ro ? 'Guardar' : 'Editar');
-		var a = $(this).val();
 	}
-
-
 });
 
-$('[id="EditarSel"]').on('click', function() {
+$('[name="EditarSel"]').on('click', function() {
 	var prev1 = $(this).prev('select'),
 	ro1   = prev1.prop('disabled');
 	prev1.prop('disabled', !ro1).focus();
