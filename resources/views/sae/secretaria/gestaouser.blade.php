@@ -125,7 +125,7 @@
 		@if (isset($_SESSION['pesquisa']))
 		@if($_SESSION['pesquisa'] == 1)
 
-		<form method="POST">
+		<form method="POST" action = "{{ url('/gestaousers/alteruser') }}">
 			@csrf
 
 
@@ -140,7 +140,7 @@
 								<div class="row">
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group" >
-											<label class="col-md-12" style="padding-left:0;">Escola</label>
+											<label id = "escola" name = "escola" class="col-md-12" style="padding-left:0;">Escola</label>
 											<input type="text" class="col-md-9 form-control" disabled placeholder="Escola" value="ETP Sicó">
 											<input class="col-md-3 form-control" name="Editar" type="button" value="Editar">
 
@@ -150,7 +150,7 @@
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Email</label>
-											<input type="text" class="form-control col-md-9" disabled placeholder="Email" value='{{$user->email}}'>
+											<input id = "email" name = "email" type="text" class="form-control col-md-9" disabled placeholder="Email" value='{{$user->email}}'>
 											<input class="col-md-3 form-control" name="Editar" type="button" value="Editar">
 										</div>
 
@@ -161,9 +161,10 @@
 									<div class="col-md-6" style="padding-bottom: 10">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Isenção de Senha:</label>
-											<select class="form-control col-md-9" disabled >
-												<option >@if($user->numCartao == 1) Sim @else Não @endif</option>
-												<option >@if($user->numCartao != 1) Sim @else Não @endif</option>
+											<select class="form-control col-md-9" disabled id = "isencaoSenha" name = "isencaoSenha" value = "<?php if ($user->isencaoSenha == 1) echo "Sim";
+                                                                                                                              if ($user->isencaoSenha != 1) echo "Não";  ?>">
+												<option >@if($user->isencaoSenha == 1) Sim @else Não @endif</option>
+												<option >@if($user->isencaoSenha != 1) Sim @else Não @endif</option>
 											</select>
 											<input class="col-md-3 form-control" name="EditarSel" type="button" value="Editar">
 										</div>
@@ -172,7 +173,7 @@
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Numero de Processo:</label>
-											<input type="text" class="form-control col-md-9" disabled placeholder="NProcesso" value='{{$user->numProcesso}}'>
+											<input id = "numProcesso" name = "numProcesso" type="text" class="form-control col-md-9" disabled placeholder="NProcesso" value='{{$user->numProcesso}}'>
 											<input class="col-md-3 form-control" name="Editar" type="button" value="Editar">
 										</div>
 									</div>
@@ -180,7 +181,7 @@
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Numero de Cartão:</label>
-											<input type="text" class="form-control col-md-9" disabled placeholder="Sem cartão associado!" value='{{$user->numCartao}}'>
+											<input id = "numCartao" name = "numCartao" type="text" class="form-control col-md-9" disabled placeholder="Sem cartão associado!" value='{{$user->numCartao}}'>
 											<input class="col-md-3 form-control" name="Editar" type="button" value="Editar">
 										</div>
 									</div>
