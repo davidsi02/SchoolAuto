@@ -215,7 +215,7 @@ Route::get ('transactions', 'TransactionController@fullTransactions')->name('tra
 Route::get ('/user', 'DataController@getUserType')->name('getUserType')->middleware('auth');
 Route::any ('/colorchange', 'DataController@changeColor')->name('/colorchange')->middleware('auth');
 Route::any ('sae/secretaria/getuserdata','DataController@getUserbyProcesso') -> name ('/getUser') -> middleware('auth');
-Route::any ('/gestaousers/alteruser','DataController@alterUser') -> name ('/getUser') -> middleware('auth');
+Route::any ('/gestaousers/alteruser','DataController@alterUser') -> name ('/alterUser') -> middleware('auth');
 
 
          //CardAuthController
