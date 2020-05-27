@@ -48,6 +48,7 @@ class DataController extends Controller
       $_SESSION['pesquisa'] = 0;
 
        $numProcesso = $_GET['numProcesso'];
+       $_SESSION['numProcesso'] = $numProcesso;
        $userdata = collect();
 
       $user = DB::table('users')->where('numProcesso', $numProcesso)->first();
@@ -68,6 +69,47 @@ class DataController extends Controller
       }
 
 
+
+   }
+
+   public function alterUser(){
+
+        session_start();
+
+        $teste = $_POST['numCartao'];
+
+       if (isset($_POST['email'])){
+
+           echo 'email';
+
+            $field = 'email';
+            $value = $_POST['email'];
+       }
+
+       if (isset($_POST['isencaoSenha'])){
+          echo 'isencaoSenha';
+            $field = 'isencaoSenha';
+            if  ($_POST['isencaoSenha'] == "Sim") $value = 1;
+            if  ($_POST['isencaoSenha'] == "Não") $value = 2;
+
+       }
+
+       if (isset($_POST['numProcesso'])){
+          echo 'numProcesso';
+            $field = 'numProcesso';
+            $value = $_POST['numProcesso'];
+       }
+
+
+
+       if (isset($_POST['numCartao'])){
+          echo 'numCartao';
+            $field = 'numCartao';
+            $value = $_POST['numCartao'];
+       }
+
+
+       DB::table('users')->where('numProcesso', $_SESSION['numProcesso'])->value($field, $value);
 
    }
 
