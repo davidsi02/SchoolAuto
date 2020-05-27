@@ -177,8 +177,7 @@
                                 <h4 class="title">Carregamentos Diários</h4>
                                 <p class="category">Sondagens</p>
                             </div>
-                            <div class="content" action = {{'ListagensController@listagem1'}}>
-
+                            <div class="content">
 
 
 																From Date:-
@@ -189,15 +188,14 @@
 																<input type="text" name="" class="form-control" autocomplete="off" id="to_date" placeholder="Select Date">
 
 
-
                                 <div class="footer">
                                     <div class="legend">
                                         <i class="fa fa-circle text-info"></i> Dia Anterior
                                         <i class="fa fa-circle text-alert"></i> Hoje
                                     </div>
                                     <hr>
-																		<div style="padding:20px;">
-																	 <a href="{{ url('CarregamentosDiarios/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Carregamentos Diários</a>
+																		<div style="padding:10px;">
+																	 <a href="{{ url('carregamentos_diarios/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Carregamentos Diários</a>
 																	 </div>
                                 </div>
                             </div>
@@ -215,16 +213,16 @@
                                 <div class="footer">
                                     <div class="legend">
                                         <i class="fa fa-circle text-info"></i> Refeições Consumidas
-                                        <i class="fa fa-circle text-alert"></i> Refeições não Consumidas
+                                        <i class="fa fa-circle text-warning"></i> Refeições não Consumidas
                                     </div>
                                     <hr>
-                                    <div style="padding:0px;padding-top:0px;" >
-                                      <button class="btn btn-danger" type="submit" style="margin: 0 auto">Refeições Consumidas</button>
-                                    </div>
+																		<div style="padding:10px;">
+																	 <a href="{{ url('refeicoesconsumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Refeições Consumidas</a>
+																	 </div>
 
-                                    <div style="padding:0px;padding-top:0px;" >
-                                      <button class="btn btn-danger" type="submit" style="margin: 0 auto">Refeições não Consumidas</button>
-                                    </div>
+																	 <div style="padding:10px;">
+																	<a href="{{ url('refeicoesnconsumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Refeições não Consumidas</a>
+																	</div>
                                 </div>
                             </div>
                         </div>

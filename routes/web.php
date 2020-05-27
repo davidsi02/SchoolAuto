@@ -109,7 +109,8 @@ return view ('sae/secretaria/gestaouser');
 //Secretaria--->PDFs//
 
 Route::get('/carregamentos_diarios/pdf', 'ListagensController@pdf2');
-
+Route::get('/refeicoesconsumidas/pdf', 'ListagensController@pdf3');
+Route::get('/refeicoesnconsumidas/pdf', 'ListagensController@pdf4');
 //______________________________________________________________//
 
 //Secretaria ----------> Tasks
