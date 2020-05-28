@@ -76,7 +76,6 @@ class DataController extends Controller
 
         session_start();
 
-        $teste = $_POST['numCartao'];
 
        if (isset($_POST['email'])){
 
