@@ -78,15 +78,11 @@ class DataController extends Controller
 
 
        if (isset($_POST['email'])){
-
-           echo 'email';
-
             $field = 'email';
             $value = $_POST['email'];
        }
 
        if (isset($_POST['isencaoSenha'])){
-          echo 'isencaoSenha';
             $field = 'isencaoSenha';
             if  ($_POST['isencaoSenha'] == "1") $value = 1;
             if  ($_POST['isencaoSenha'] == "0") $value = 2;
@@ -94,7 +90,6 @@ class DataController extends Controller
        }
 
        if (isset($_POST['numProcesso'])){
-          echo 'numProcesso';
             $field = 'numProcesso';
             $value = $_POST['numProcesso'];
        }
@@ -102,16 +97,16 @@ class DataController extends Controller
 
 
        if (isset($_POST['numCartao'])){
-          echo 'numCartao';
             $field = 'numCartao';
             $value = $_POST['numCartao'];
        }
 
-       DB::table('users')->where('numProcesso', $_SESSION['numProcesso'])->value($field, $value);
-       echo '<script type="text/javascript">';
-       echo ' alert("aaaa")';
-       echo '</script>';
-       return redirect()->back();
+       DB::table('users')-> where('numProcesso', $_SESSION['numProcesso']) -> update([$field => $value]);
+
+
+
+
+
    }
 
 }

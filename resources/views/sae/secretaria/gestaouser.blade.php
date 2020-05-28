@@ -142,8 +142,6 @@
 										<div class="form-group" >
 											<label id = "escola" name = "escola" class="col-md-12" style="padding-left:0;">Escola</label>
 											<input type="text" class="col-md-9 form-control" disabled placeholder="Escola" value="ETP Sicó">
-											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
-
 										</div>
 									</div>
 								</form>
@@ -179,7 +177,7 @@
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Numero de Processo:</label>
-											<input id = "numProcesso" name = "numProcesso" type="text" class="form-control col-md-9" disabled placeholder="NProcesso" value='{{$user->numProcesso}}'>
+											<input id = "numProcesso" name = "numProcesso" type="text" class="form-control col-md-9" disabled placeholder='{{$user->numProcesso}}'>
 											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
 										</div>
 									</div>
