@@ -104,7 +104,7 @@ class DataController extends Controller
        DB::table('users')-> where('numProcesso', $_SESSION['numProcesso']) -> update([$field => $value]);
 
 
-
+       return redirect()->back();
 
 
    }

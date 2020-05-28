@@ -101,10 +101,31 @@
 
 	<br> <br> <br>
 
+@if($user ?? '')
+	<div class="col-md-4 float-right">
+		<div class="card card-user">
+			<div class="image">
+				<img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+			</div>
+			<div class="content">
+				<div class="author">
+					<a href="#">
+						<img class="avatar border-gray" src="{{$user->path_fotografia}}" alt="..."/>
 
+						<h4 class="title">{{$user->name}}<br />
+							<small>{{$user->numProcesso}}</small>
+						</h4>
+					</a>
+				</div>
 
-	<div class="row">
-		<div class="col-md-8">
+			</div>
+			<hr>
+
+		</div>
+	</div>
+@endif
+	<div @if($user ?? '') class="row col-md-8" @else class="row col-md-12" @endif>
+		<div class="col-md-12">
 			<div class="card">
 				<form method="GET" action= "{{ route('/getUser') }}" >
 					@csrf
@@ -127,21 +148,21 @@
 
 
 
-			<div class="row">
-				<div class="col-md-8">
+			<div class="row col-md-8">
+				<div class="col-md-12">
 					<div class="card">
 						<div class="header">
 							<h4 class="title">Dados</h4>
 						</div>
 
 								<div class="row">
-									<div class="content">
+									<div class="content col-md-12 col-sm-12 ">
 										<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group" >
 											<label id = "escola" name = "escola" class="col-md-12" style="padding-left:0;">Escola</label>
-											<input type="text" class="col-md-9 form-control" disabled placeholder="Escola" value="ETP Sicó">
+											<input type="text" class="col-md-12 form-control" disabled placeholder="Escola" value="ETP Sicó">
 										</div>
 									</div>
 								</form>
@@ -190,7 +211,7 @@
 
 											<label class="col-md-12" style="padding-left:0;">Numero de Cartão:</label>
 											<input name = "numCartao" type="text" class="form-control col-md-9" disabled placeholder="Sem cartão associado!" value='{{$user->numCartao}}'>
-											<button class="col-md-3 form-control" id="Editar" type="button" value="Editar"></button>
+											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
 </div>
 									</div>
 								</form>
@@ -216,27 +237,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="card card-user">
-							<div class="image">
-								<img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
-							</div>
-							<div class="content">
-								<div class="author">
-									<a href="#">
-										<img class="avatar border-gray" src="{{$user->path_fotografia}}" alt="..."/>
 
-										<h4 class="title">{{$user->name}}<br />
-											<small>{{$user->numProcesso}}</small>
-										</h4>
-									</a>
-								</div>
-
-							</div>
-							<hr>
-
-						</div>
-					</div>
 				</div>
 
 
