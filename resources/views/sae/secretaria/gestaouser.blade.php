@@ -125,7 +125,6 @@
 		@if (isset($_SESSION['pesquisa']))
 		@if($_SESSION['pesquisa'] == 1)
 
-			@csrf
 
 
 			<div class="row">
@@ -137,7 +136,8 @@
 
 								<div class="row">
 									<div class="content">
-										<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
+										<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
+
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group" >
 											<label id = "escola" name = "escola" class="col-md-12" style="padding-left:0;">Escola</label>
@@ -147,7 +147,8 @@
 										</div>
 									</div>
 								</form>
-								<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
+								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
+
 
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group">
@@ -158,21 +159,22 @@
 
 									</div>
 								</form>
-								<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
+								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
+
 
 									<div class="col-md-6" style="padding-bottom: 10">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Isenção de Senha:</label>
-											<select class="form-control col-md-9" disabled id = "isencaoSenha" name = "isencaoSenha" value = "<?php if ($user->isencaoSenha == 1) echo "Sim";
-                                                                                                                              if ($user->isencaoSenha != 1) echo "Não";  ?>">
-												<option >@if($user->isencaoSenha == 1) Sim @else Não @endif</option>
-												<option >@if($user->isencaoSenha != 1) Sim @else Não @endif</option>
+											<select class="form-control col-md-9" disabled id = "isencaoSenha" name = "isencaoSenha">
+												@if($user->isencaoSenha == 1)<option value="1">Sim</option>@else <option value="0" >Não</option> @endif
+												@if($user->isencaoSenha != 1)<option value="1">Sim</option>@else <option value="0">Não</option> @endif
 											</select>
 											<input class="col-md-3 form-control" id="EditarSel" type="button" value="Editar">
 										</div>
 									</div>
 								</form>
-								<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
+								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
+
 
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group">
@@ -182,7 +184,8 @@
 										</div>
 									</div>
 								</form>
-								<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
+								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
+
 
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group">
@@ -193,7 +196,8 @@
 </div>
 									</div>
 								</form>
-								<form method="get" action = "{{ url('/gestaousers/alteruser') }}">
+								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
+
 
 									<div class="col-md-6" style="padding-bottom: 10px">
 										<div class="form-group" action = {{'DataController@getUserType'}} >
@@ -290,14 +294,16 @@ $('[id="Editar"]').on('click', function() {
 });
 
 $('[id="EditarSel"]').on('click', function() {
-	var prev1 = $(this).prev('select'),
-	ro1   = prev1.prop('disabled');
-	prev1.prop('disabled', !ro1).focus();
-	$(this).val(ro1 ? 'Guardar' : 'Editar');
-	var a = $(this).val();
-	console.log(a);
-	if ($(this).val()=='Editar') {
+	if ($(this).val()=='Guardar') {
 		$(this).prop("type", "submit");
+	}else {
+		var prev = $(this).prev('select'),
+		ro   = prev.prop('disabled');
+		prev.prop('disabled', !ro).focus();
+		$(this).val(ro ? 'Guardar' : 'Editar');
+		var a = $(this).val();
 	}
+
+
 });
 </script>

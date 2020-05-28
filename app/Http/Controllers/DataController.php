@@ -88,8 +88,8 @@ class DataController extends Controller
        if (isset($_POST['isencaoSenha'])){
           echo 'isencaoSenha';
             $field = 'isencaoSenha';
-            if  ($_POST['isencaoSenha'] == "Sim") $value = 1;
-            if  ($_POST['isencaoSenha'] == "Não") $value = 2;
+            if  ($_POST['isencaoSenha'] == "1") $value = 1;
+            if  ($_POST['isencaoSenha'] == "0") $value = 2;
 
        }
 
@@ -107,9 +107,11 @@ class DataController extends Controller
             $value = $_POST['numCartao'];
        }
 
-
        DB::table('users')->where('numProcesso', $_SESSION['numProcesso'])->value($field, $value);
-
+       echo '<script type="text/javascript">';
+       echo ' alert("aaaa")';
+       echo '</script>';
+       return redirect()->back();
    }
 
 }
