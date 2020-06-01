@@ -318,20 +318,22 @@
 										<div class="table-full-width">
 											<table class="table">
 												<tbody>
-													<tr>
 														@foreach($TP as $row)
+														<tr id="a">
 
 														<td>
 															<div class="checkbox">
-																<input id="{{$row->idTask}}" type="checkbox">
+																<input id="{{$row->idTask}}" type="checkbox" onclick="a(this);">
 																<label for="{{$row->idTask}}"></label>
 															</div>
 														</td>
-														<td><input type="text" strikethrough class="form" readonly value='{{$row->conteudo}}'></td>
-															<td class="td-actions text-right">
-															<button type="button" rel="tooltip" name="Editar" title="Editar Tarefa" class="btn btn-info btn-simple btn-xs">
+
+														<td><input type="text" class="form" readonly value='{{$row->conteudo}}'></td>
+														<td class="td-actions text-right">
+															<button rel="tooltip" type="text" name="Edit" type="button" value="" title="Editar Tarefa" class="btn btn-info btn-simple btn-xs">
 																<i class="fa fa-edit"></i>
 															</button>
+
 															<a type="submit" rel="tooltip"  href="{{route('rT',$row->idTask)}}" title="Remover" class="btn btn-danger btn-simple btn-xs">
 																<i class="fa fa-times"></i>
 															</a>
@@ -373,12 +375,12 @@
 
 														<td>
 															<div class="checkbox">
-																<input id="{{$row->idTask}}" type="checkbox">
+																<input id="{{$row->idTask}}" type="checkbox" href="{{route('rT',$row->idTask)}}" onclick="a(this);" >
 																<label for="{{$row->idTask}}"></label>
 															</div>
 														</td>
 
-														<td><input type="text" class="form" readonly value='{{$row->conteudo}}'></td>
+														<td><input type="text" class="form" readonly value='{{$row->conteudo}}'</td>
 														<td class="td-actions text-right">
 															<button rel="tooltip" type="text" name="Edit" type="button" value="" title="Editar Tarefa" class="btn btn-info btn-simple btn-xs">
 																<i class="fa fa-edit"></i>
@@ -528,16 +530,18 @@
 
 
 				$('[name="Editar"]').on('click', function() {
-    		var prev = $(this).prev('input'),
+    		var prev = $(this).nearest('input'),
         ro   = prev.prop('readonly');
     		prev.prop('readonly', !ro).focus();
 				});
+				function a(id)
+				        {
+									var b = id.closest('tr');
+									console.log(b.id);
+									$(this).closest('td').find('.contact_name').text();
+										$(b).fadeToggle();
 
-				$(document).ready(function(){
-				  $('[type="checkbox"]').click(function(){
-				    $("#a").fadeToggle();
-				  });
-				});
+								}
 				</script>
 
 
