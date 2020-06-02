@@ -322,10 +322,14 @@
 														<tr id="a">
 
 														<td>
+															<form class="" action="{{route('rT',$row->idTask)}}" method="post">
+
 															<div class="checkbox">
-																<input id="{{$row->idTask}}" type="checkbox" onclick="a(this);">
+																<input id="{{$row->idTask}}"  type="checkbox" type="submit" onclick="a(this);">
 																<label for="{{$row->idTask}}"></label>
 															</div>
+														</form>
+
 														</td>
 
 														<td><input type="text" class="form" readonly value='{{$row->conteudo}}'></td>
