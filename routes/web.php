@@ -96,7 +96,7 @@ Route::any ('/portaria', function() {
 //__________________________________________________//
 
 //Secretaria//
-Route::any('secretaria', 'SecretariaController@EeS')->name('indexSecretaria')->middleware('auth');
+Route::get('secretaria', 'SecretariaController@EeS')->name('indexSecretaria')->middleware('auth');
 
 Route::get('/listagem', function(){
   return view ('sae/secretaria/listagem');
@@ -115,7 +115,7 @@ Route::get('/refeicoesnconsumidas/pdf', 'ListagensController@pdf4');
 
 //Secretaria ----------> Tasks
 Route::any ('/tarefaSubmit', 'TasksController@novaTask') -> name('tarefaSubmit') -> middleware('auth');
-Route::any('remTask',[
+Route::get('remTask/{id}',[
   'uses' => 'SecretariaController@remTask',
   'as' => 'rT'
 ]);

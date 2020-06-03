@@ -37,7 +37,7 @@
 </head>
 <body>
 
-	<!-- Modal Criar-->
+	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -89,124 +89,6 @@
 
 			<!-- End Modal -->
 
-				<!-- Modal TPA-->
-				<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Tarefas pessoais Acabadas</h4>
-							</div>
-							<div class="modal-body">
-								<div class="content">
-									<div class="table-full-width">
-										<table class="table">
-											<tbody>
-													@foreach($TPA as $row)
-													<tr id="a">
-
-													<td>
-														<form class="" action="{{route('rT',$row->idTask)}}" method="post">
-
-														<div class="checkbox">
-															<input id="a" checked disabled type="checkbox">
-															<label for="a"></label>
-														</div>
-													</form>
-
-													</td>
-
-													<td><input type="text" class="form" readonly value='{{$row->conteudo}}'></td>
-
-												</tr>
-												@endforeach
-
-											</tbody>
-										</table>
-									</div>
-									<div class="footer">
-										<hr>
-										<div class="stats">
-											<i class="fa fa-history"></i>
-											{{ $TPAU	}}
-										</div>
-									</div>
-								</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-										<button  type="submit" value="Enviar" class="btn btn-primary">Criar Tarefa</button>
-									</form>
-
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- End Modal TPA-->
-						<!-- Modal TGA-->
-						<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										<h4 class="modal-title" id="myModalLabel">Tarefas gerais Acabadas</h4>
-									</div>
-									<div class="modal-body">
-										<div class="content">
-											<div class="table-full-width">
-												<table class="table">
-													<tbody>
-															@foreach($TGA as $row)
-															<tr id="a">
-
-															<td>
-																<form class="" action="{{route('rT',$row->idTask)}}" method="post">
-
-																<div class="checkbox">
-																	<input id="{{$row->idTask}}"  type="checkbox" type="submit" onclick="a(this);">
-																	<label for="{{$row->idTask}}"></label>
-																</div>
-															</form>
-
-															</td>
-
-															<td><input type="text" class="form" readonly value='{{$row->conteudo}}'></td>
-															<td class="td-actions text-right">
-																<button rel="tooltip" type="text" name="Edit" type="button" value="" title="Editar Tarefa" class="btn btn-info btn-simple btn-xs">
-																	<i class="fa fa-edit"></i>
-																</button>
-
-																<a type="submit" rel="tooltip"  href="{{route('rT',$row->idTask)}}" title="Remover" class="btn btn-danger btn-simple btn-xs">
-																	<i class="fa fa-times"></i>
-																</a>
-															</td>
-														</tr>
-														@endforeach
-
-													</tbody>
-												</table>
-											</div>
-											<div class="footer">
-												<hr>
-												<div class="stats">
-													<i class="fa fa-history"></i>
-													{{ $TGAU	}}
-												</div>
-											</div>
-										</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-												<button  type="submit" value="Enviar" class="btn btn-primary">Criar Tarefa</button>
-											</form>
-
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- End Modal TGA-->
 
 			<div class="wrapper">
 				<div class="sidebar" data-color="<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
@@ -344,6 +226,20 @@
 
 				<div class="content">
 					<div class="container-fluid">
+						@if ($erroNada ?? '')
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card" style="background-color: #ffe0e0;">
+
+									<div class="header inline-block">
+										<h4 class="title" >ERRO<h4>
+										<p class="category">Não foi possivel criar a tarefa!! Tente novamente!</p>
+
+									</div>
+								</div>
+							</div>
+						</div>
+ 					@endif
 						<div class="row">
 							<div class="col-md-4">
 								<div class="card">
@@ -369,6 +265,7 @@
 									</div>
 								</div>
 							</div>
+
 							<div class="col-md-8">
 								<div class="card">
 									<div class="header">
@@ -415,7 +312,7 @@
 							<div class="col-md-6">
 								<div class="card ">
 									<div class="header inline-block">
-										<h4 class="title ">Tarefas pessoais	<i class="fa fa-plus-square" style="float: right" data-toggle="modal" data-target="#myModal" title="Criar Tarefa"></i><i class="fa fa-check-square" style="float: right;margin-right:5px;" data-toggle="modal" data-target="#myModal1" title="Criar Tarefa"></i></h4>
+										<h4 class="title ">Tarefas pessoais	<i class="fa fa-plus-square" style="float: right" data-toggle="modal" data-target="#myModal" title="Criar Tarefa"></i></h4>
 									</div>
 									<div class="content">
 										<div class="table-full-width">
@@ -465,7 +362,7 @@
 							<div class="col-md-6">
 								<div class="card ">
 									<div class="header inline-block">
-										<h4 class="title ">Tarefas Gerais	<i class="fa fa-plus-square" style="float: right" data-toggle="modal" data-target="#myModal" title="Criar Tarefa"></i><i class="fa fa-check-square" style="float: right;margin-right:5px;" data-toggle="modal" data-target="#myModal2" title="Criar Tarefa"></i></h4>
+										<h4 class="title ">Tarefas Gerais	<i class="fa fa-plus-square" style="float: right" data-toggle="modal" data-target="#myModal" title="Criar Tarefa"></i></h4>
 
 									</div>
 
@@ -647,23 +544,7 @@
 									console.log(b.id);
 									$(this).closest('td').find('.contact_name').text();
 										$(b).fadeToggle();
-										var id = $(id).attr('id');
 
-									         $.ajax({
-									                 url:'/remTask',
-									                 type:'post',
-									                 cache:true,
-									                 data: {
-									                   id: id,
-																		 _token: '{{csrf_token()}}'
-									                 },
-									                 success:  function (response) {
-																		 console.log(id);
-									                     console.log("ok");
-																			 location.reload();
-
-									                 },
-									         });
 								}
 				</script>
 
