@@ -30,7 +30,9 @@ class TasksController extends Controller
     DB::table('tasks')->insert(
       ['created_by' =>  Auth::user()->numProcesso,
       'conteudo' => $content ,
-      'visibilidade' => $visib
+      'tipo' => $visib,
+      'visibilidade' => 1
+
     ]);
     return redirect('/secretaria');
 
@@ -43,5 +45,5 @@ class TasksController extends Controller
 
     }
 
-    
+
 }

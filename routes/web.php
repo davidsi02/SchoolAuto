@@ -115,9 +115,13 @@ Route::get('/refeicoesnconsumidas/pdf', 'ListagensController@pdf4');
 
 //Secretaria ----------> Tasks
 Route::any ('/tarefaSubmit', 'TasksController@novaTask') -> name('tarefaSubmit') -> middleware('auth');
-Route::get('remTask/{id}',[
+Route::any('remTask',[
   'uses' => 'SecretariaController@remTask',
   'as' => 'rT'
+]);
+Route::any('atlTask',[
+  'uses' => 'SecretariaController@atlTask',
+  'as' => 'aT'
 ]);
 //__________________________________________________//
 
