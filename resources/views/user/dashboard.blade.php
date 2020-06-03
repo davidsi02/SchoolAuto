@@ -317,7 +317,18 @@ if(!isset($_SESSION))
       </footer>
 
 </body>
-<script type="text/javascript">
+
+
+<!--   Core JS Files   -->  <!--Foto da escola no Background do Menu -->
+<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+
+
+
 /*jQuery(function () {
 // Whenever any of these checkboxes is clicked
 $("input.mycheckbox").click(function () {
@@ -351,6 +362,5 @@ alert("OK");
 }
 });
 });*/
-</script>
 
 </html>
