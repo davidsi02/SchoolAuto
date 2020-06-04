@@ -223,6 +223,7 @@ Route::any ('sae/secretaria/getuserdata','DataController@getUserbyProcesso') -> 
 Route::any ('/gestaousers/alteruser','DataController@alterUser') -> name ('/alterUser') -> middleware('auth');
 
 
+
          //CardAuthController
 Route::any ('/sae/ncartao', 'CardAuthController@cardLogin')->name('cardLogin');
 Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');

@@ -153,17 +153,17 @@ if(!isset($_SESSION))
                       <tr>
                         <td> {{$row -> diasemana}}</td>
                         <td><?php echo date('d-m-Y', strtotime($row -> dataRefeicao)); ?></td>
-                        <td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€';
+                        <td><?php if(Auth::user()->tipoUtilizador == 3 || Auth::user()->isencaoSenha == 1) echo '0.00€'; else {
                         if(Auth::user()->tipoUtilizador == 3 && Auth::user()->isencaoSenha != 1) echo '2.50€';
                         if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 1) echo '0.00€';
                         if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) echo '2.50€';
-                        ?> </td>
+                      }?> </td>
                         <td>
                           <?php											$dr[$count]=$row -> dataRefeicao;
 
                           $dr[$count]=$row -> dataRefeicao;
 
-                          if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->where('numProcesso',Auth::user()->numProcesso)->first()){
+                          if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->where('idUser',Auth::user()->idUser)->first()){
                             ?>
                             <small >Refeição já adquirida!</small>
                             <?php
@@ -254,7 +254,7 @@ if(!isset($_SESSION))
                   <select class="form-control col-md-" style="margin:0 auto;width:90%;font-size: 2rem;height:40px" name="Anular" required>
                     @foreach($senha as $row)
 
-                    @if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->where('numProcesso', auth::user()->numProcesso)->first())
+                    @if (\DB::table('consumorefeicao')->where('dataSenha', $row->dataRefeicao)->where('idUser', auth::user()->id)->first())
 
                      <option style="text-align: center;" value="{{ $row->dataRefeicao}}">{{$row->diasemana}},  {{ $row->dataRefeicao}}</option>
                      @endif

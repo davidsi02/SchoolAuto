@@ -31,12 +31,12 @@ class CantinaController extends Controller
            echo '</script>';
            header("Refresh:.25; url='refeitorio'");
          }else {
-           if (\DB::table('consumorefeicao')->where('numProcesso', $user->numProcesso)->where('dataSenha', date('Y-m-d'))->first()) {
+           if (\DB::table('consumorefeicao')->where('idUser', $user->id)->where('dataSenha', date('Y-m-d'))->first()) {
 
-             if (\DB::table('consumorefeicao')->where('numProcesso',$user->numProcesso)->where('dataSenha', date('Y-m-d'))->where('dataConsumo','!=',null)->first()) {
+             if (\DB::table('consumorefeicao')->where('idUser',$user->id)->where('dataSenha', date('Y-m-d'))->where('dataConsumo','!=',null)->first()) {
                return view('shop/cantina', ['senha' => 2,'user'=>$user]);
              }else {
-               \DB::table('consumorefeicao')->where('numProcesso', $user->numProcesso)->where('dataSenha', date('Y-m-d'))->update(['dataConsumo' => date('Y-m-d')]);
+               \DB::table('consumorefeicao')->where('idUser', $user->id)->where('dataSenha', date('Y-m-d'))->update(['dataConsumo' => date('Y-m-d')]);
 
                return view('shop/cantina', ['senha' => 1,'user'=>$user]);
              }

@@ -123,7 +123,7 @@
                             <div class="header">
                                 <h4 class="title">Operações</h4>
                             </div>
-                            <div class="content table-responsive table-full-width"  action = "{{ route('/getuser') }}">
+                            <div class="content table-responsive table-full-width"  action = "{{ route('transactions') }}">
                                 <table class="table table-hover table-striped">
                                     <thead>
                                     	<th>Operacao</th>

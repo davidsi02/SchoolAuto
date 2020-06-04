@@ -47,7 +47,7 @@ class SenhasController extends Controller
       }else {
 
 
-      if(\DB::table('consumorefeicao')->where('numProcesso', Auth::user()->numProcesso)->where('dataSenha',date('Y-m-d'))->first()){
+      if(\DB::table('consumorefeicao')->where('idUser', Auth::user()->id)->where('dataSenha',date('Y-m-d'))->first()){
         $m = 1;
       }else{
         $m= 2;
@@ -121,7 +121,7 @@ $myCollection = collect([
               foreach($_GET['dr'] as $dr) {
 
                 \DB::table('consumorefeicao')->insert(
-                  ['numProcesso' =>  Auth::user()->numProcesso,
+                  ['idUser' =>  Auth::user()->id,
                   'dataConsumo' => null,
                   'dataSenha' => $dr,
                 ]);
@@ -146,7 +146,7 @@ $myCollection = collect([
     if(Auth::user()->tipoUtilizador != 3 && Auth::user()->isencaoSenha == 0) $preco = 2.50;
 
         DB::table('consumorefeicao')
-          ->where('numProcesso',Auth::user()->numProcesso)
+          ->where('idUser',Auth::user()->id)
           ->where('dataSenha', $_GET['Anular'])
           ->delete();
 
