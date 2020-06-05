@@ -259,47 +259,45 @@ session_start();
 											<input class="col-md-12	float-left" type="submit"   value="Enviar">
 											<input id="enviar" hidden style="margin-bottom:10"name = 'enviar' type="submit" class="btn btn-primary">
 										</form>
-
-
-
-
-
 									</div>
 								</div>
 
+							</div>
+							</div>
 
 							</div>
-						</div>
+							</div>
+							</div>
 
 
+							<footer class="footer">
+							<div class="container-fluid">
+							<nav class="pull-left">
+							<ul>
 
-					</div>
-				</div>
-			</div>
-		</div>
-
-			<footer class="footer">
-				<div class="container-fluid">
-					<nav class="pull-right">
-
+							</nav>
 							<p class="copyright pull-right">
-								&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
+							&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
 							</p>
-						</nav>
 
-						<div class="col-md-8 float-right">
-							<img  src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="">
-						</div>
+							<center>
+							<img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
+							</center>
 
-					</div>
-				</footer>
+							</div>
+							</footer>
 
 			</body>
-
 
 			<!--   Core JS Files   -->  <!--Foto da escola no Background do Menu -->
 			<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 			<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+			<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+			<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+
+			<!--  Charts Plugin -->
+			<script src="assets/js/chartist.min.js"></script>
 
 			<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 			<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
