@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `consumorefeicao` (
   CONSTRAINT `Fk_idUser` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolauto.consumorefeicao: ~0 rows (approximately)
+-- Dumping data for table schoolauto.consumorefeicao: ~6 rows (approximately)
 /*!40000 ALTER TABLE `consumorefeicao` DISABLE KEYS */;
 INSERT IGNORE INTO `consumorefeicao` (`idConsumo`, `dataConsumo`, `dataSenha`, `idUser`) VALUES
 	(164, NULL, '2020-05-20 00:00:00', 10),
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
   CONSTRAINT `notification_user` FOREIGN KEY (`numProcesso`) REFERENCES `users` (`numProcesso`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table schoolauto.notification: ~6 rows (approximately)
+-- Dumping data for table schoolauto.notification: ~7 rows (approximately)
 /*!40000 ALTER TABLE `notification` DISABLE KEYS */;
 INSERT IGNORE INTO `notification` (`id`, `content`, `date`, `numProcesso`, `tipoNotificacao`, `visibilidade`) VALUES
 	(1, 'Isto é um exemplo de sugestão', '2020-05-12 00:00:00', 21234569, 1, 1),
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `operacao` (
   CONSTRAINT `utilizador_operacao` FOREIGN KEY (`idUtilizador`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolauto.operacao: ~110 rows (approximately)
+-- Dumping data for table schoolauto.operacao: ~30 rows (approximately)
 /*!40000 ALTER TABLE `operacao` DISABLE KEYS */;
 INSERT IGNORE INTO `operacao` (`idOperacao`, `valorOperacao`, `dataOperacao`, `quantidade`, `nomeOperacao`, `idProduto`, `idUtilizador`) VALUES
 	(43, -2.50, '2020-05-13 11:31:37', 1, 'Compra de senha', 101, 10),
@@ -203,34 +203,16 @@ INSERT IGNORE INTO `permission` (`ID`, `idUser`, `Admin`, `SAE`, `AcessoBar`, `A
 -- Dumping structure for table schoolauto.portaria
 CREATE TABLE IF NOT EXISTS `portaria` (
   `idRegisto` bigint NOT NULL AUTO_INCREMENT,
-  `numCartao` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `idUser` bigint unsigned NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `valor` int NOT NULL,
   PRIMARY KEY (`idRegisto`),
-  KEY `numCartao` (`numCartao`),
-  CONSTRAINT `portaria_ibfk_1` FOREIGN KEY (`numCartao`) REFERENCES `users` (`numCartao`)
+  KEY `FK_portaria_users` (`idUser`),
+  CONSTRAINT `FK_portaria_users` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolauto.portaria: ~18 rows (approximately)
+-- Dumping data for table schoolauto.portaria: ~0 rows (approximately)
 /*!40000 ALTER TABLE `portaria` DISABLE KEYS */;
-INSERT IGNORE INTO `portaria` (`idRegisto`, `numCartao`, `time`, `valor`) VALUES
-	(15, '0002723976', '2020-05-13 11:48:23', 1),
-	(16, '0002723976', '2020-05-13 11:48:40', 2),
-	(17, '0002723976', '2020-05-13 11:49:15', 1),
-	(18, '0002723976', '2020-05-13 11:49:21', 2),
-	(19, '0002723976', '2020-05-13 11:52:04', 1),
-	(20, '2', '2020-05-13 11:52:43', 1),
-	(21, '0002723976', '2020-05-13 23:04:05', 2),
-	(22, '0002723976', '2020-05-13 23:05:32', 1),
-	(23, '0002723976', '2020-05-14 15:32:45', 2),
-	(24, '0002723976', '2020-05-14 15:32:52', 1),
-	(25, '0002723976', '2020-05-14 15:36:06', 2),
-	(26, '0002723976', '2020-05-14 15:39:28', 1),
-	(27, '0002723976', '2020-05-17 23:10:34', 2),
-	(28, '2', '2020-05-19 14:57:23', 2),
-	(29, '2', '2020-05-19 14:58:23', 1),
-	(30, '2', '2020-05-25 09:41:56', 2),
-	(31, '0002723976', '2020-05-25 09:48:58', 1);
 /*!40000 ALTER TABLE `portaria` ENABLE KEYS */;
 
 -- Dumping structure for table schoolauto.produtos
@@ -248,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `produtos` (
   CONSTRAINT `produto_categoria` FOREIGN KEY (`idCategoria`) REFERENCES `categoriaproduto` (`idCategoria`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=latin1;
 
--- Dumping data for table schoolauto.produtos: ~21 rows (approximately)
+-- Dumping data for table schoolauto.produtos: ~22 rows (approximately)
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
 INSERT IGNORE INTO `produtos` (`id`, `nomeProduto`, `precoProduto`, `ordem`, `idCategoria`, `visibilidade`, `Nopagina`, `VezesVendido`) VALUES
 	(1, 'Halls', 1.00, 77.00, 1, 1, 6, 62),
@@ -289,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   CONSTRAINT `tasks_users` FOREIGN KEY (`created_by`) REFERENCES `users` (`numProcesso`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table schoolauto.tasks: ~3 rows (approximately)
+-- Dumping data for table schoolauto.tasks: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
 
