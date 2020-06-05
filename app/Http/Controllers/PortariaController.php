@@ -20,11 +20,11 @@ class PortariaController extends Controller
 
         $vrf = DB::table('users')->
         where('numCartao', $numCartao) ->
-        value('numCartao');
+        value('id');
 
 
          $valoranterior = DB::table('portaria')->
-         where('numCartao', $numCartao) ->
+         where('idUser', $vrf) ->
          orderBy('idRegisto', 'DESC') -> value('valor');
 
          if (isset($vrf)){
@@ -35,7 +35,7 @@ class PortariaController extends Controller
 
                DB::table('portaria')->insert(
                  [
-                 'numCartao' => $numCartao,
+                 'idUser' => $vrf,
                  'valor' => $valor
                ]);
 
