@@ -18,6 +18,19 @@ class ListagensController extends Controller
 
 
 //Carregamentos Efectuados//
+public function carregamentosDiarios()
+ {
+   if (isset($_POST['CD'])) {
+   }
+ }
+
+ public function carregamentosDatados()
+  {
+    if (isset($_POST['DataInicio'])) {
+      if (isset($_POST['DataInicio'])) {
+      }
+    }
+  }
 
 if isset($_POST['DataInicio']) $botao1 = BotaoCarregamentosDiarios;
 if isset($_POST['DataFim']) $botao1 = BotaoCarregamentosDiarios;
@@ -25,8 +38,6 @@ if isset($_POST['DataFim']) $botao1 = BotaoCarregamentosDiarios;
 if isset($_POST['DataInicio']) $botao = BotaoCarregamentosPorData;
 if isset($_POST['DataFim']) $botao = BotaoCarregamentosPorData;
 
-if (isset($_POST['DataInicio'])) {
-  if (isset($_POST['DataInicio'])) {
 
     if (isset($botao1])) {
            if (isset($_POST['DataInicio'] && $_POST['DataFim'])){

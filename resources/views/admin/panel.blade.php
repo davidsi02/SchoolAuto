@@ -4,6 +4,8 @@
 
 @if($_SESSION['permAdmin'] == 1)
 
+<html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -271,9 +273,17 @@
 		</body>
 		@else
 
+		<!--   Core JS Files   -->  <!--Foto da escola no Background do Menu -->
+		<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+		<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+		<!--  Charts Plugin -->
+		<script src="assets/js/chartist.min.js"></script>
+
 		<script>
 		alert("Não tem permissões para aceder à Area Restrita");
 		window.location = "/dashboard";
 		</script>
 
 		@endif
+</html>
