@@ -166,6 +166,19 @@
 										</div>
 									</div>
 								</form>
+
+								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
+
+
+									<div class="col-md-6" style="padding-bottom: 10px">
+										<div class="form-group" action = {{'DataController@getUserType'}} >
+											<label class="col-md-12" style="padding-left:0;">Nome</label>
+											<input id = "nome" name = "nome" type="text" class="form-control col-md-9" disabled placeholder="Nome" value='{{$user->name}}'>
+											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+										</div>
+									</div>
+								</form>
+
 								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
 
@@ -231,8 +244,19 @@
 										</div>
 									</div>
 								</form>
+								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
+
+									<div class="col-md-6" style="padding-bottom: 10px">
+										<div class="form-group" action = {{'DataController@getUserType'}} >
+											<label class="col-md-12" style="padding-left:0;">Fotografia:</label>
+											<input id = "path" name = "path" type="file" class="form-control col-md-9" disabled placeholder="Não associada" value='{{$user->path_fotografia}}'>
+											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+										</div>
+									</div>
+								</form>
 								</div>
+
 
 							</div>
 						</div>
