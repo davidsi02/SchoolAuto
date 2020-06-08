@@ -37,7 +37,8 @@ class ProductController extends Controller
         $products = Produto::where('visibilidade', 1)->orderBy('VezesVendido', 'desc')->take(15)->get();
         $user = User::where('numCartao', $_GET['input'])->first();
         Session::forget('user');
-        $vrf = \DB::table('portaria')->where('numCartao',  $_GET['input'])->orderBy('idRegisto','desc') ->value('valor');
+        $vrf = \DB::table('portaria')->where('idUser',  $user->id)->orderBy('idRegisto','desc') ->value('valor');
+
         if($vrf==1) {
           session(['idC' => $_GET['input'],'user' => $user]);
           return view('shop/shop', ['products' => $products,'user' => $user, 'idC' => $_GET['input'],'activepage'=>1]);
