@@ -17,7 +17,7 @@ class SecretariaController extends Controller
     */
     public function VeS(){
       $eS = DB::table('portaria')
-            ->join('users', 'users.numCartao', '=', 'portaria.numCartao')
+            ->join('users', 'users.numCartao', '=', 'portaria.idUser')
             ->orderBy('time','desc')->limit(4)->get();
       return $eS;
     }

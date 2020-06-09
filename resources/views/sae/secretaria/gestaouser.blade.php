@@ -47,7 +47,7 @@
 <body>
 
 	<div class="wrapper">
-		<div class="sidebar" data-color="<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
+		<div class="sidebar" data-color="azure" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
 
 			<!--
 
@@ -65,25 +65,25 @@
 
 			<ul class="nav">
 				<li>
-					<a href="dashboard.html">
+					<a href="{{ url('/secretaria') }}">
 						<i class="pe-7s-graph"></i>
 						<p> Início </p>
 					</a>
 				</li>
 				<li>
-					<a href="user.html">
+					<a href="{{ url('/listagem') }}">
 						<i class="pe-7s-note2"></i>
 						<p>Listagens</p>
 					</a>
 				</li>
-				<li class="active">
-					<a href="table.html">
+				<li  class="active">
+					<a href="{{ url('/gestaousers') }}">
 						<i class="pe-7s-user"></i>
 						<p>Gestão de utilizadores</p>
 					</a>
 				</li>
 				<li>
-					<a href="typography.html">
+					<a href="{{url('/shop')}}" >
 						<i class="pe-7s-news-paper"></i>
 						<p>Posto de Venda</p>
 					</a>
@@ -124,6 +124,7 @@
 		</div>
 	</div>
 @endif
+
 	<div @if($user ?? '') class="row col-md-8" @else class="row col-md-12" @endif>
 		<div class="col-md-12">
 			<div class="card">
@@ -166,6 +167,19 @@
 										</div>
 									</div>
 								</form>
+
+								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
+
+
+									<div class="col-md-6" style="padding-bottom: 10px">
+										<div class="form-group" action = {{'DataController@getUserType'}} >
+											<label class="col-md-12" style="padding-left:0;">Nome</label>
+											<input id = "nome" name = "nome" type="text" class="form-control col-md-9" disabled placeholder="Nome" value='{{$user->name}}'>
+											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+										</div>
+									</div>
+								</form>
+
 								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
 
@@ -231,8 +245,19 @@
 										</div>
 									</div>
 								</form>
+								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
+
+									<div class="col-md-6" style="padding-bottom: 10px">
+										<div class="form-group" action = {{'DataController@getUserType'}} >
+											<label class="col-md-12" style="padding-left:0;">Fotografia:</label>
+											<input id = "path" name = "path" type="file" class="form-control col-md-9" disabled placeholder="Não associada" value='{{$user->path_fotografia}}'>
+											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+										</div>
+									</div>
+								</form>
 								</div>
+
 
 							</div>
 						</div>

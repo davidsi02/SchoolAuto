@@ -327,7 +327,7 @@ if(!isset($_SESSION))
 <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 
-
+<!--
 
 /*jQuery(function () {
 // Whenever any of these checkboxes is clicked
@@ -362,5 +362,8 @@ alert("OK");
 }
 });
 });*/
+
+
+-->
 
 </html>

@@ -58,8 +58,9 @@
 </head>
 <body>
 
-<div class="wrapper">
-	<div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
+
+		<div class="wrapper">
+			<div class="sidebar" data-color= "<?php echo Auth::user()->uiColor ?>" data-image="{{asset('assets/images/dsc-0066-source-1500x1000.jpg')}}">
 
     <!--
 
@@ -252,7 +253,7 @@
 						</div>
 			</div>
 
-
+</div>
 			<footer class="footer">
 				<div class="container-fluid">
 					<nav class="pull-left">
@@ -271,7 +272,6 @@
 				</footer>
 
 		</body>
-		@else
 
 		<!--   Core JS Files   -->  <!--Foto da escola no Background do Menu -->
 		<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
@@ -279,7 +279,7 @@
 
 		<!--  Charts Plugin -->
 		<script src="assets/js/chartist.min.js"></script>
-
+@else
 		<script>
 		alert("Não tem permissões para aceder à Area Restrita");
 		window.location = "/dashboard";

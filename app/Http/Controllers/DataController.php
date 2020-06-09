@@ -101,6 +101,17 @@ class DataController extends Controller
             $value = $_POST['numCartao'];
        }
 
+       if (isset($_POST['nome'])){
+             $field = 'name';
+             $value = $_POST['nome'];
+           }
+
+           if (isset($_POST['path'])){
+                 $field = 'path_fotografia';
+                 $value = $_POST['path'];
+               }
+
+
        DB::table('users')-> where('numProcesso', $_SESSION['numProcesso']) -> update([$field => $value]);
 
 
