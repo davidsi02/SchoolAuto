@@ -45,6 +45,7 @@ class CardRedirectController extends Controller
 
      if ($_SESSION['permSA'] == 1){
        $_SESSION['categoriaShop'] = 4;
+       return redirect('/secretaria');
 
 }
 
