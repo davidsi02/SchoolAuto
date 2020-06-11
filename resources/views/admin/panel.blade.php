@@ -168,20 +168,7 @@
 									</div>
 								</div>
 
-
-
-
-
-											</div>
-
-
-
-
-
-
-
-
-
+										</div>
 
 										</div>
 
@@ -191,16 +178,18 @@
 											<div class="card">
 
 												<div class="header">
-													<h4 class="title">Utilizadores com PAR</h4>
+													<h4 class="title">Gestão de Permissões</h4>
 													<p class="category"></p>
 												</div>
-												<div class="typo-line">
-
-														<h2><p class="category">  Aviso!</p>     Em Construção!</h2>
-                            <p> <img src = 'https://www.agenciamestre.com/wp-content/uploads/2008/08/contrucao.png', allign = "middle"> </p>
-												</div>
 												<div class="content">
+													<div style="padding:20px;">
+														<a href="{{ url('/gestperms') }}" class="btn btn-success" target="_blank" style="width:100%" > Gerir Permissões</a>
+													</div>
 
+												  <div style="padding:20px;">
+													<a href="{{ url('/historicopermissoes') }}" class="btn btn-danger" target="_blank" style="width:100%" > Histórico de Alterações </a>
+												  </div>
+									     </div>
 								</div>
 							</div>
 
