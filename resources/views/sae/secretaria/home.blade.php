@@ -405,7 +405,7 @@
 											<hr>
 											<div class="stats">
 												<i class="fa fa-history"></i>
-												{{ Carbon\Carbon::parse($eSfirst->time)->diffForHumans()}}
+												{{ $eSfirst}}
 											</div>
 										</div>
 									</div>

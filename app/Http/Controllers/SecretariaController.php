@@ -22,7 +22,9 @@ class SecretariaController extends Controller
       return $eS;
     }
     public function VeSfirst(){
-      $eSfirst = DB::table('portaria')->orderBy('time','desc')->first();
+      $eSfirst = DB::table('portaria')->orderBy('time','desc')->value('time');
+      $eSfirst= \Carbon\Carbon::parse($eSfirst)->diffForHumans();
+      if($eSfirst ==1) $eSfirst ='--';
       return $eSfirst;
     }
 
@@ -36,7 +38,7 @@ class SecretariaController extends Controller
     public function tasksPessoaisUpdated(){
       $TPU = DB::table('tasks')->where('visibilidade',1)->where('tipo',1)->where('created_by',Auth::user()->numProcesso)->orderBy('updated_at','desc')->value('updated_at');
       $TPU= \Carbon\Carbon::parse($TPU)->diffForHumans();
-      if($TPU ==null) $TPU ='--';
+      if($TPU ==1) $TPU ='--';
       return $TPU;
     }
 
@@ -48,7 +50,7 @@ class SecretariaController extends Controller
     public function tasksGeraisUpdated(){
       $TGU = DB::table('tasks')->where('visibilidade',1)->where('tipo',0)->orderBy('updated_at','desc')->value('updated_at');
       $TGU= \Carbon\Carbon::parse($TGU)->diffForHumans();
-      if($TGU==null) $TGU ='--';
+      if($TGU==1) $TGU ='--';
       return $TGU;
     }
 
@@ -62,7 +64,7 @@ class SecretariaController extends Controller
     public function tasksPessoaisAcabadasUpdated(){
       $TPAU = DB::table('tasks')->where('visibilidade',0)->where('tipo',1)->where('created_by',Auth::user()->numProcesso)->orderBy('updated_at','desc')->value('updated_at');
       $TPAU= \Carbon\Carbon::parse($TPAU)->diffForHumans();
-      if($TPAU==null) $TPAU ='--';
+      if($TPAU==1) $TPAU ='--';
       return $TPAU;
     }
 
@@ -74,7 +76,7 @@ class SecretariaController extends Controller
     public function tasksGeraisAcabadasUpdated(){
       $TGAU = DB::table('tasks')->where('visibilidade',0)->where('tipo',0)->orderBy('updated_at','desc')->value('updated_at');
       $TGAU= \Carbon\Carbon::parse($TGAU)->diffForHumans();
-      if($TGAU==null) $TGAU ='--';
+      if($TGAU==1) $TGAU ='--';
       return $TGAU;
     }
 

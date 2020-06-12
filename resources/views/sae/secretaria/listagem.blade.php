@@ -199,10 +199,10 @@
                                     </div>
                                     <hr>
 																		<div style="padding:10px;">
-																	 <a href="{{ url('carregamentos_diarios/pdf') }}" class="btn btn-danger" name="BotaoCarregamentosDiarios" id="BotaoCarregamentosDiarios" target="_blank" style="width:100%" >Carregamentos Diários</a>
+																	 <a href="{{ url('carregamentos/pdf') }}" class="btn btn-danger" name="BotaoCarregamentosDiarios" id="BotaoCarregamentosDiarios" target="_blank" style="width:100%" >Carregamentos Diários</a>
 																	 </div>
 																	 <div style="padding:10px;">
-																	<a href="{{ url('carregamentos_diarios_por_datas/pdf') }}" class="btn btn-danger" name="BotaoCarregamentosPorData" id="BotaoCarregamentosPorData" target="_blank" style="width:100%" >Carregamentos por Datas</a>
+																	<a href="{{ url('carregamentos/pdf') }}" class="btn btn-danger" name="BotaoCarregamentosPorData" id="BotaoCarregamentosPorData" target="_blank" style="width:100%" >Carregamentos por Datas</a>
 																	</div>
                                 </div>
 																</form>
