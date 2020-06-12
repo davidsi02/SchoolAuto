@@ -61,6 +61,11 @@ Route::get('remNot/{id?}',[
   'uses' => 'NotificationsController@remNot',
   'as' => 'rN'
 ]);
+
+Route::get('/gestperms', function() {
+return view ('admin/gestperms');
+});
+
 //Senhas//
 Route::get('/dashboard/comprarSenhas', 'SenhasController@comprarSenhas')->name('cS');
 Route::get('/dashboard/anularSenha', 'SenhasController@anularSenha')->name('aS');
@@ -230,7 +235,7 @@ Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');
           //PermissionController
 Route::any ('/permissions','PermissionController@PermissionsVrf')->name('PermissionVrf')->middleware('auth');
 Route::any ('/redirect','CardRedirectController@CardRedirect')->middleware('auth');
-
+Route::any ('/getuserperms', 'PermissionController@getPermissions')->middleware('auth');
         //AdminActionsController
 // Model: Route::get ('', 'AdminActionsController@')->name('');
         //SenhasController

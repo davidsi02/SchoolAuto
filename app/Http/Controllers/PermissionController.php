@@ -80,4 +80,39 @@ return redirect('/redirect');
 
 }
 }
+
+public function getPermissions (){
+
+  session_start();
+
+  $_SESSION['pesquisa'] = 0;
+
+  $numProcesso = $_GET['numProcesso'];
+  $userperms = collect();
+
+   $perms = DB::table('permission')
+   ->join('users', function ($join) {
+        $join->on('users.id', '=', 'permission.idUser')
+             ->where('users.numProcesso', '=', $_GET['numProcesso']);
+    });
+
+   if (isset($user)){
+
+      $_SESSION['pesquisa'] = 1;
+      return view ('/admin/gestperms', ['perms' => $perms]);
+
+
+   }else{
+
+   echo "ERRO!";
+
+
+
+   }
+
+
+
+}
+
+
 }
