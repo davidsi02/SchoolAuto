@@ -99,10 +99,12 @@
 		</div>
 	</div>
 
-	<br> <br> <br>
 
+
+	     <div class="main-panel">
+				 <div class="content">
 @if($user ?? '')
-	<div class="col-md-4 float-right">
+	<div class="col-md-3 float-right">
 		<div class="card card-user">
 			<div class="image">
 				<img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
@@ -146,7 +148,6 @@
 
 		@if (isset($_SESSION['pesquisa']))
 		@if($_SESSION['pesquisa'] == 1)
-
 
 
 			<div class="row col-md-8">
@@ -281,6 +282,8 @@
 			</div>
 		</div>
 	</div>
+</div>
+</div>
 
 
 	<footer class="footer">
