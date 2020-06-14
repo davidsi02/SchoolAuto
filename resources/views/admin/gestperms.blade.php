@@ -112,11 +112,10 @@
   </div>
 
 
-</br>
-</br>
-</br>
 
-  <div class="row col-md-4" >
+<div class="main-panel">
+<div class="content">
+  <div class="row col-md-6" >
 		<div class="col-md-12">
 			<div class="card">
 				<form method="GET" action= "{{ url('/getuserperms') }}" >
@@ -131,7 +130,54 @@
 			</div>
 		</div>
 	</div>
+
+  <table class="table table-hover table-striped">
+    <thead>
+      <th>Nome</th>
+      <th>Estado</th>
+
+    </thead>
+    <tbody>
+
+      <tr>
+        <td>Acesso Portaria</td>
+        <td> <form  action="{{route('cS')}}" method="get">
+          <div class="checkbox">
+            <input id= "aportaria" type="checkbox" name='dr[]' value="1" checked>
+                  <label></label>
+
+          </div> </td>
+      </tr>
+
+
+
+
+      </tbody>
+    </table>
+    <input type="submit" id="btnSubmit" value="Comprar">
+  </form>
 </div>
+
+</div>
+
+<div class="clearfix"></div>
+</form>
+
+</div>
+
+
+
+
+
+
+
+  </div>
+</div>
+</div>
+
+
+
+
 
 
 
