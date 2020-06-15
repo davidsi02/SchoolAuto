@@ -131,6 +131,11 @@
 		</div>
 	</div>
 
+
+   @if (isset($_SESSION['pesquisa']))
+      @if ($_SESSION['pesquisa'] == 0))
+
+
   <table class="table table-hover table-striped">
     <thead>
       <th>Nome</th>
@@ -141,20 +146,69 @@
 
       <tr>
         <td>Acesso Portaria</td>
+        <td> <form  action= {{'PermissionController@getPermissions'}} method="get">
+          <div class="checkbox">
+            <input id= "aportaria" type="checkbox" name='dr[]' value="{{$perms->AcessoPortaria}}">
+                  <label for= "aportaria" ></label>
+
+          </div> </td>
+      </tr>
+
+      <tr>
+        <td>Acesso Cantina</td>
         <td> <form  action="{{route('cS')}}" method="get">
           <div class="checkbox">
-            <input id= "aportaria" type="checkbox" name='dr[]' value="1" checked>
-                  <label></label>
+            <input id= "acantina" type="checkbox" name='dr[]' value="1" checked>
+                  <label for= "acantina" ></label>
+
+          </div> </td>
+      </tr>
+
+      <tr>
+        <td>Acesso Bar</td>
+        <td> <form  action="{{route('cS')}}" method="get">
+          <div class="checkbox">
+            <input id= "abar" type="checkbox" name='dr[]' value="1" checked>
+                  <label for= "abar" ></label>
+
+          </div> </td>
+      </tr>
+
+      <tr>
+        <td>Acesso Biblioteca</td>
+        <td> <form  action="{{route('cS')}}" method="get">
+          <div class="checkbox">
+            <input id= "abiblioteca" type="checkbox" name='dr[]' value="1" checked>
+                  <label for= "abiblioteca" ></label>
+
+          </div> </td>
+      </tr>
+
+      <tr>
+        <td>SAE</td>
+        <td> <form  action="{{route('cS')}}" method="get">
+          <div class="checkbox">
+            <input id= "sae" type="checkbox" name='dr[]' value="1" checked>
+                  <label for= "sae" ></label>
+
+          </div> </td>
+      </tr>
+
+      <tr>
+        <td>Administrador</td>
+        <td> <form  action="{{route('cS')}}" method="get">
+          <div class="checkbox">
+            <input id= "admin" type="checkbox" name='dr[]' value="1" checked>
+                  <label for= "admin" ></label>
 
           </div> </td>
       </tr>
 
 
 
-
       </tbody>
     </table>
-    <input type="submit" id="btnSubmit" value="Comprar">
+    <input type="submit" id="btnSubmit" value="Aplicar">
   </form>
 </div>
 
@@ -166,14 +220,22 @@
 </div>
 
 
+@else
 
+<script>
 
+alert("Utilizador não encontrado.");
 
+</script>
 
+@endif
+@endif
 
   </div>
 </div>
 </div>
+
+
 
 
 

@@ -89,27 +89,24 @@ public function getPermissions (){
   $userperms = collect();
 
    $perms = DB::table('permission')
-   ->join('users', function ($join) {
-        $join->on('users.id', '=', 'permission.idUser')
-             ->where('users.numProcesso', '=', $_GET['numProcesso']);
-    });
-
-   if (isset($perms)){
-
-      $_SESSION['pesquisa'] = 1;
-
-      return view ('/admin/gestperms', ['perms' => $perms]);
+     -> join('users', 'permission.idUser', '=', 'users.id')
+     -> where('users.numProcesso', $_GET['numProcesso']);
 
 
+     if (isset($perms)){
 
+          $_SESSION['pesquisa'] = 1;
+          return view ('/admin/gestperms', ['perms' => $perms]);
 
-   }else{
+     }else{
 
-   echo "ERRO!";
+       $_SESSION['pesquisa'] = 0;
 
+       echo $_SESSION['pesquisa'];
 
+       return view ('/admin/gestperms');
 
-   }
+     }
 
 
 
