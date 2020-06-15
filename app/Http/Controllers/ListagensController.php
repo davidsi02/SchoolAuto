@@ -21,16 +21,15 @@ class ListagensController extends Controller
 
  public function carregamentos()
   {
-    if (isset($_POST['DI']) && isset($_POST['DF'])) {
+    if (isset($_GET['DI']) && isset($_GET['DF'])) {
+      $DI=date('yy-m-d', strtotime($_GET['DI']));
+      $DF=date('yy-m-d', strtotime($_GET['DF']));
+
         $cgd = \DB::table('operacao', 'users')
                     ->where('nomeOperacao',  'Carregamento')
-                    ->whereBetween('dataOperacao', [$_POST['DataInicio'],$_POST['DataFim']])
+                    ->whereBetween('dataOperacao', [$DI,$DF])
                     ->orderBy('dataOperacao' , 'DESC')
                     ->get();
-                    echo $cgd;
-$_POST['DI'], strtotime(yyyy-mm-dd)
-$_POST['DF'], strtotime(yyyy-mm-dd)
-
         return $cgd;
 
       }else {

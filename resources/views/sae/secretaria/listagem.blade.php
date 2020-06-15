@@ -184,13 +184,13 @@
 
                               <div class = "ct-chart ct-perfect-4th"> </div>
 
-                                <form href="{{ url('ListagensController@CarregamentosDiariosPorDatas') }}" method="post">
+                                <form action="{{route('pdfCarregamentos') }}" method="get">
 																De:
-																<input type="text" name="DataInicio" class="form-control" autocomplete="off" id="DataInicio" placeholder="Introduza a Data Inicial">
+																<input type="text" name="DI" class="form-control" autocomplete="off" id="DI" placeholder="Introduza a Data Inicial">
 																<br>
 																<br>
 																A:
-																<input type="text" name="DataFim" class="form-control" autocomplete="off" id="DataFim" placeholder="Introduza a Data Final">
+																<input type="text" name="DF" class="form-control" autocomplete="off" id="DF" placeholder="Introduza a Data Final">
 
                                 <div class="footer">
                                     <div class="legend">
@@ -199,10 +199,10 @@
                                     </div>
                                     <hr>
 																		<div style="padding:10px;">
-																	 <a href="{{ url('carregamentos/pdf') }}" class="btn btn-danger" name="BotaoCarregamentosDiarios" id="BotaoCarregamentosDiarios" target="_blank" style="width:100%" >Carregamentos Diários</a>
+																	 <button type="submit" class="btn btn-danger" name="BotaoCarregamentosDiarios" id="BotaoCarregamentosDiarios" target="_blank" style="width:100%" >Carregamentos Diários</button>
 																	 </div>
 																	 <div style="padding:10px;">
-																	<a href="{{ url('carregamentos/pdf') }}" class="btn btn-danger" name="BotaoCarregamentosPorData" id="BotaoCarregamentosPorData" target="_blank" style="width:100%" >Carregamentos por Datas</a>
+																	<button type="submit" class="btn btn-danger" name="BotaoCarregamentosPorData" id="BotaoCarregamentosPorData" target="_blank" style="width:100%" >Carregamentos por Datas</button>
 																	</div>
                                 </div>
 																</form>
