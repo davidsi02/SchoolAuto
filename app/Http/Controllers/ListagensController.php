@@ -28,16 +28,19 @@ class ListagensController extends Controller
                     ->orderBy('dataOperacao' , 'DESC')
                     ->get();
                     echo $cgd;
+$_POST['DI'], strtotime(yyyy-mm-dd)
+$_POST['DF'], strtotime(yyyy-mm-dd)
 
         return $cgd;
+
       }else {
+        $a=\Carbon\Carbon::today();
         $cgd = \DB::table('operacao')
                     ->where('nomeOperacao',  'Carregamento')
-                    ->where('dataOperacao', date('Y-m-d'))
+                    ->whereDate('dataOperacao', $a)
                     ->orderBy('dataOperacao' , 'DESC')
                     ->get();
 
-                    echo $cgd;
                     return $cgd;
                    }
 
@@ -69,7 +72,7 @@ class ListagensController extends Controller
              $nproc = \DB::table('users')->where('numProcesso',$user->numProcesso)->first();
              $outputc .= '
              <tr>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd.'</td>
+              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->idUtilizador.'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$nproc->numProcesso.'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->name.'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->nomeOperacao.'</td>
