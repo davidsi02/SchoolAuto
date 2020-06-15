@@ -83,8 +83,6 @@ return redirect('/redirect');
 
 public function getPermissions (){
 
-  session_start();
-
   $_SESSION['pesquisa'] = 0;
 
   $numProcesso = $_GET['numProcesso'];
@@ -96,10 +94,13 @@ public function getPermissions (){
              ->where('users.numProcesso', '=', $_GET['numProcesso']);
     });
 
-   if (isset($user)){
+   if (isset($perms)){
 
       $_SESSION['pesquisa'] = 1;
+
       return view ('/admin/gestperms', ['perms' => $perms]);
+
+
 
 
    }else{
