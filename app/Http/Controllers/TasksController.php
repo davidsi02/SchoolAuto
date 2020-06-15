@@ -28,7 +28,7 @@ class TasksController extends Controller
        if (isset($_POST['priv'])) $visib = 1;
        if(isset($visib)){
     DB::table('tasks')->insert(
-      ['created_by' =>  Auth::user()->numProcesso,
+      ['created_by' =>  Auth::user()->id,
       'conteudo' => $content ,
       'tipo' => $visib,
       'visibilidade' => 1

@@ -32,11 +32,11 @@ class SecretariaController extends Controller
 
 
     public function tasksPessoais(){
-      $TP = \DB::table('tasks')->where('visibilidade',1)->where('tipo',1)->where('created_by',Auth::user()->numProcesso)->get();
+      $TP = \DB::table('tasks')->where('visibilidade',1)->where('tipo',1)->where('created_by',Auth::user()->id)->get();
       return $TP;
     }
     public function tasksPessoaisUpdated(){
-      $TPU = DB::table('tasks')->where('visibilidade',1)->where('tipo',1)->where('created_by',Auth::user()->numProcesso)->orderBy('updated_at','desc')->value('updated_at');
+      $TPU = DB::table('tasks')->where('visibilidade',1)->where('tipo',1)->where('created_by',Auth::user()->id)->orderBy('updated_at','desc')->value('updated_at');
       $TPU= \Carbon\Carbon::parse($TPU)->diffForHumans();
       if($TPU ==1) $TPU ='--';
       return $TPU;
@@ -58,11 +58,11 @@ class SecretariaController extends Controller
 
 
     public function tasksPessoaisAcabadas(){
-      $TPA = \DB::table('tasks')->where('visibilidade',0)->where('tipo',1)->where('created_by',Auth::user()->numProcesso)->orderBy('updated_at','desc')->get();
+      $TPA = \DB::table('tasks')->where('visibilidade',0)->where('tipo',1)->where('created_by',Auth::user()->id)->orderBy('updated_at','desc')->get();
       return $TPA;
     }
     public function tasksPessoaisAcabadasUpdated(){
-      $TPAU = DB::table('tasks')->where('visibilidade',0)->where('tipo',1)->where('created_by',Auth::user()->numProcesso)->orderBy('updated_at','desc')->value('updated_at');
+      $TPAU = DB::table('tasks')->where('visibilidade',0)->where('tipo',1)->where('created_by',Auth::user()->id)->orderBy('updated_at','desc')->value('updated_at');
       $TPAU= \Carbon\Carbon::parse($TPAU)->diffForHumans();
       if($TPAU==1) $TPAU ='--';
       return $TPAU;
@@ -85,11 +85,13 @@ class SecretariaController extends Controller
 
 
     public function EeS(){
+
+      //Tarefas
       $TP = $this->tasksPessoais();
       $TG = $this->tasksGerais();
       $TPU = $this->tasksPessoaisUpdated();
       $TGU = $this->tasksGeraisUpdated();
-
+      //Tarefas Acabadas
       $TPA = $this->tasksPessoaisAcabadas();
       $TGA = $this->tasksGeraisAcabadas();
       $TPAU = $this->tasksPessoaisAcabadasUpdated();
