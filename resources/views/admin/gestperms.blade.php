@@ -145,7 +145,7 @@
 
       <tr>
         <td>Acesso Portaria</td>
-        <td> <form  action= {{'PermissionController@getPermissions'}} method="get">
+        <td> <form  action= '{{route('')}}' method="get">
           <div class="checkbox">
             <input id= "aportaria" type="checkbox" name='dr[]' value="{{$perms->AcessoPortaria ?? ''}}">
                   <label for= "aportaria" ></label>
@@ -195,7 +195,7 @@
 
       <tr>
         <td>Administrador</td>
-        <td> <form  action="{{route('cS')}}" method="get">
+        <td>
           <div class="checkbox">
             <input id= "admin" type="checkbox" name='dr[]' value="1" checked>
                   <label for= "admin" ></label>
