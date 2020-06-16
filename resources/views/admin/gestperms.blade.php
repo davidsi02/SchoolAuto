@@ -145,7 +145,7 @@
 
       <tr>
         <td>Acesso Portaria</td>
-        <td> <form  action= '{{route('')}}' method="get">
+        <td> <form  action= '' method="get">
           <div class="checkbox">
             <input id= "aportaria" type="checkbox" name='dr[]' value="{{$perms->AcessoPortaria ?? ''}}">
                   <label for= "aportaria" ></label>
