@@ -119,12 +119,13 @@ class TransactionController extends Controller
      ';
      foreach($rfc as $rfc)
       {
-       $user = \DB::table('users')->where('numProcesso',$rfc->numProcesso)->first();
+       $user = \DB::table('users')->where('id',$rfc->idUser)->first();
+
 
        $output1 .= '
        <tr>
         <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->idConsumo.'</td>
-        <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->numProcesso.'</td>
+        <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->numProcesso.'</td>
         <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->name.'</td>
         <td style="text-align:center;border: 1px solid; padding:1px;">'.date('Y-m-d', strtotime($rfc->dataSenha)).'</td>
         <td style="text-align:center;border: 1px solid; padding:1px;">'.$rfc->dataConsumo.'</td>

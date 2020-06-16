@@ -3,6 +3,7 @@
 ?>
 
 <html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -157,27 +158,26 @@
                   </div>
 								</div>
 
+</div>
 
-							</div>
+				<footer class="footer">
+				<div class="container-fluid">
+				<nav class="pull-left">
+				<ul>
 
-								<footer class="footer">
-									<div class="container-fluid">
-										<nav class="pull-right">
+				</nav>
+				<p class="copyright pull-right">
+				&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
+				</p>
 
-												<p class="copyright pull-right">
-													&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
-												</p>
-											</nav>
+				<center>
+				<img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
+				</center>
 
-											<div class="col-md-8 float-right">
-												<img  src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="">
-											</div>
+				</div>
+			  </footer>
 
-										</div>
-									</footer>
-
-
-              </body>
+   </body>
 
 							<!--   Core JS Files   -->  <!--Foto da escola no Background do Menu -->
 							<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
@@ -187,4 +187,4 @@
 							<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 
-              </html>
+</html>
