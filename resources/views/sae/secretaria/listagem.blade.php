@@ -1,5 +1,7 @@
 <!doctype html>
+
 <html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -211,6 +213,8 @@
                         </div>
                     </div>
 
+
+
                     <div class="col-md-6">
                         <div class="card">
                             <div class="header">
@@ -243,36 +247,34 @@
 																	</div>
                                 </div>
 															</form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+														</div>
+													</div>
+												</div>
+											</div>
+								</div>
 
-
-            </div>
-        </div>
-
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
-                </p>
-
-                <center>
-         <img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
-                </center>
-
-            </div>
-        </footer>
-
-    </div>
 </div>
-</body>
+
+					<footer class="footer">
+					<div class="container-fluid">
+					<nav class="pull-left">
+					<ul>
+
+					</nav>
+					<p class="copyright pull-right">
+					&copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.etpsico.pt">SCHOOLAUTO</a> por David Simões, Alexandre Lopes e Bruno Freitas.
+					</p>
+
+					<center>
+					<img src= "http://www.etpsico.pt/public/img/logos_entity.png" alt="" width=576 height=86 allign="middle">
+					</center>
+
+					</div>
+					</footer>
+
+</div>
+
+					</body>
 
 <!--   Core JS Files   -->  <!--Foto da escola no Background do Menu -->
 <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
