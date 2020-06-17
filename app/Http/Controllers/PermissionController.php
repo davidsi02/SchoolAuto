@@ -90,8 +90,8 @@ public function getPermissions (){
 
    $perms = DB::table('permission')
      -> join('users', 'permission.idUser', '=', 'users.id')
-     -> where('users.numProcesso', $_GET['numProcesso']);
-
+     -> where('users.numProcesso', $_GET['numProcesso'])
+     ->first();
 
      if (isset($perms)){
 

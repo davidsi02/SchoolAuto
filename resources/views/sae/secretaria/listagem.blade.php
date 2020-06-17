@@ -186,7 +186,9 @@
 
                               <div class = "ct-chart ct-perfect-4th"> </div>
 
-                                <form action="{{route('pdfCarregamentos') }}" method="get">
+                                <form action="{{route('pdfCarregamentos') }}" method="post">
+																	@csrf
+
 																De:
 																<input type="text" name="DI" class="form-control" autocomplete="off" id="DI" placeholder="Introduza a Data Inicial">
 																<br>
@@ -201,10 +203,10 @@
                                     </div>
                                     <hr>
 																		<div style="padding:10px;">
-																	 <button type="submit" class="btn btn-danger" name="BotaoCarregamentosDiarios" id="BotaoCarregamentosDiarios" target="_blank" style="width:100%" >Carregamentos Diários</button>
+																	 <button type="submit" class="btn btn-danger" target="_blank" style="width:100%" >Carregamentos Diários</button>
 																	 </div>
 																	 <div style="padding:10px;">
-																	<button type="submit" class="btn btn-danger" name="BotaoCarregamentosPorData" id="BotaoCarregamentosPorData" target="_blank" style="width:100%" >Carregamentos por Datas</button>
+																	<button type="submit" class="btn btn-danger" target="_blank" style="width:100%" >Carregamentos por Datas</button>
 																	</div>
                                 </div>
 																</form>
@@ -223,13 +225,15 @@
                             </div>
                             <div class="content">
 
-															<form href="{{ url('ListagensController@RefeicoesPorDatas') }}" method="post">
+															<form action="{{route('pdfRefeicoes') }}" method="post">
+																@csrf
+
 															De:
-															<input type="text" name="DataInicioRefeicoes" class="form-control" autocomplete="off" id="DataInicioRefeicoes" placeholder="Introduza a Data Inicial">
+															<input type="text" name="DIR" class="form-control" autocomplete="off" id="DIR" placeholder="Introduza a Data Inicial">
 															<br>
 															<br>
 															A:
-															<input type="text" name="DataFimRefeicoes" class="form-control" autocomplete="off" id="DataFimRefeicoes" placeholder="Introduza a Data Final">
+															<input type="text" name="DFR" class="form-control" autocomplete="off" id="DFR" placeholder="Introduza a Data Final">
 
 
                                 <div class="footer">
@@ -239,11 +243,11 @@
                                     </div>
                                     <hr>
 																		<div style="padding:10px;">
-																	 <a href="{{ url('refeicoesconsumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Refeições Consumidas</a>
+																			<button type="submit" class="btn btn-danger" name="consumidas" value="1" target="_blank" style="width:100%" >Refeições Consumidas</button>
 																	 </div>
 
 																	 <div style="padding:10px;">
-																	<a href="{{ url('refeicoesnconsumidas/pdf') }}" class="btn btn-danger" target="_blank" style="width:100%" >Refeições não Consumidas</a>
+																		 <button type="submit" class="btn btn-danger" name="consumidas" value="0" target="_blank" style="width:100%" >Refeições não Consumidas</button>
 																	</div>
                                 </div>
 															</form>

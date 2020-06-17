@@ -24,7 +24,6 @@ class ListagensController extends Controller
     if (isset($_GET['DI']) && isset($_GET['DF'])) {
       $DI=date('yy-m-d', strtotime($_GET['DI']));
       $DF=date('yy-m-d', strtotime($_GET['DF']));
-
         $cgd = \DB::table('operacao', 'users')
                     ->where('nomeOperacao',  'Carregamento')
                     ->whereBetween('dataOperacao', [$DI,$DF])
@@ -42,7 +41,6 @@ class ListagensController extends Controller
 
                     return $cgd;
                    }
-
   }
          public function pdfCarregamentos()
           {
@@ -72,8 +70,8 @@ class ListagensController extends Controller
              $outputc .= '
              <tr>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->idUtilizador.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$nproc->numProcesso.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->name.'</td>
+              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->numProcesso.'</td>
+              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->name.'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->nomeOperacao.'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->dataOperacao.'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->valorOperacao.'</td>
@@ -82,44 +80,68 @@ class ListagensController extends Controller
             }
             $outputc .= '</table>';
             return $outputc;
-         }/*
+         }
          public function pdfRefeicoes()
           {
             $pdfRefeicoes = \App::make('dompdf.wrapper');
             $pdfRefeicoes->loadHTML($this->RefeioesInfo());
             return $pdfRefeicoes->stream();
           }
+
+          public function RefData()
+           {
+             if (isset($_POST['DIR']) && isset($_POST['DFR'])) {
+               $DIR=date('yy-m-d', strtotime($_POST['DIR']));
+               $DFR=date('yy-m-d', strtotime($_POST['DFR']));
+               if ($_POST['consumidas']==1) {
+
+                 $cgd = \DB::table('consumorefeicao', 'users')
+                             ->where('dataConsumo','!=' , null)
+                             ->whereBetween('dataSenha', [$DIR,$DFR])
+                             ->orderBy('dataConsumo' , 'DESC')
+                             ->get();
+                 return $cgd;
+
+               }else {
+                 $cgd = \DB::table('consumorefeicao', 'users')
+                             ->where('dataConsumo', null)
+                             ->whereBetween('dataSenha', [$DIR,$DFR])
+                             ->orderBy('dataConsumo' , 'DESC')
+                             ->get();
+                 return $cgd;
+               }
+             }
+          }
          public function RefeioesInfo()
          {
-           $cgd=;
-           $outputc = '<h3 align="center">Listagem das Refeições</h3>
-           <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
-            <tr>
-          <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id Utilizador</th>
-          <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Número de Processo</th>
-          <th style="text-align:center;border: 1px solid; padding:10px;" width="23%">Nome do Utilizador</th>
-          <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Nome da Operação</th>
-          <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Data da Operação</th>
-          <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Valor da Operação</th>
-            </tr>
-           ';
-           foreach($cgd as $cgd)
-            {
-             $user = \DB::table('users')->where('id',$cgd->idUtilizador)->first();
-             $nproc = \DB::table('users')->where('numProcesso',$user->numProcesso)->first();
+           $cgd=$this->RefData();
+             $output1 = '<h3 align="center">Listagem das Refeições</h3>
+             <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
+              <tr>
+            <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Id Consumo</th>
+            <th style="text-align:center;border: 1px solid; padding:10px;" width="10%">Numero de Processo</th>
+            <th style="text-align:center;border: 1px solid; padding:10px;" width="40%">Nome do Aluno</th>
+            <th style="text-align:center;border: 1px solid; padding:10px;" width="30%">Data da Senha</th>
+            <th style="text-align:center;border: 1px solid; padding:10px;" width="5%">Data de Consumo</th>
 
-             $outputc .= '
-             <tr>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->idUtilizador.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$nproc->numProcesso.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->name.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->nomeOperacao.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->dataOperacao.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->valorOperacao.'</td>
-             </tr>
+              </tr>
              ';
-            }
-            $outputc .= '</table>';
-            return $outputc;
-         }*/
+             foreach($cgd as $cgd)
+              {
+               $user = \DB::table('users')->where('id',$cgd->idUser)->first();
+
+
+               $output1 .= '
+               <tr>
+                <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->idConsumo.'</td>
+                <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->numProcesso.'</td>
+                <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->name.'</td>
+                <td style="text-align:center;border: 1px solid; padding:1px;">'.date('Y-m-d', strtotime($cgd->dataSenha)).'</td>
+                <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->dataConsumo.'</td>
+               </tr>
+               ';
+              }
+              $output1 .= '</table>';
+              return $output1;
+         }
 }

@@ -113,9 +113,8 @@ return view ('sae/secretaria/gestaouser');
 
 //Secretaria--->PDFs//
 
-Route::get('/carregamentos/pdf', 'ListagensController@pdfCarregamentos')->name('pdfCarregamentos');
-Route::get('/refeicoesconsumidas/pdf', 'ListagensController@pdf3');
-Route::get('/refeicoesnconsumidas/pdf', 'ListagensController@pdf4');
+Route::any('/carregamentos/pdf', 'ListagensController@pdfCarregamentos')->name('pdfCarregamentos');
+Route::any('/refeicoes/pdf', 'ListagensController@pdfRefeicoes')->name('pdfRefeicoes');
 //______________________________________________________________//
 
 //Secretaria ----------> Tasks
