@@ -132,9 +132,7 @@
 	</div>
 
 
-   @if (isset($_SESSION['pesquisa']))
-      @if ($_SESSION['pesquisa'] == 0))
-
+  @if ($perms ?? '')
 
   <table class="table table-hover table-striped">
     <thead>
@@ -148,7 +146,7 @@
         <td>Acesso Portaria</td>
         <td> <form  action= {{'PermissionController@getPermissions'}} method="get">
           <div class="checkbox">
-            <input id= "aportaria" type="checkbox" name='dr[]' value="{{$perms->AcessoPortaria}}">
+            <input id= "aportaria" type="checkbox" name='dr[]' value= {{$perms->AcessoPortaria}}>
                   <label for= "aportaria" ></label>
 
           </div> </td>
@@ -229,7 +227,7 @@ alert("Utilizador não encontrado.");
 </script>
 
 @endif
-@endif
+
 
   </div>
 </div>
