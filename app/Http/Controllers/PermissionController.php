@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Auth;
+use Session;
 
 class PermissionController extends Controller
 {
@@ -17,7 +18,6 @@ class PermissionController extends Controller
 
      @csfr;
 
-     session_start();
 
      $_SESSION['permAdmin'] = 0;
      $_SESSION['AcessoCantina'] = 0;
@@ -99,7 +99,7 @@ public function getPermissions (){
 
 if (isset($user)){
 
-        $_SESSION['uid'] = $user->id;
+  session(['uid' => $user->id]);
 
 
 
@@ -145,8 +145,12 @@ if (isset($_POST['abar'])) $permBar = 1; else $permBar = 0;
 if (isset($_POST['abiblioteca'])) $permBiblioteca = 1; else $permBiblioteca= 0;
 if (isset($_POST['sae'])) $permSAE = 1; else $permSAE = 0;
 if (isset($_POST['admin'])) $permAdmin = 1; else $permAdmin = 0;
+Session::regenerate();
 
-    $uid = $_SESSION['uid'];
+
+$uid = session('uid');
+@csfr;
+
 
     DB::table('permission') ->
     where('idUser', $uid)
@@ -160,7 +164,7 @@ if (isset($_POST['admin'])) $permAdmin = 1; else $permAdmin = 0;
 
     $perms = DB::table('permission')
       -> join('users', 'permission.idUser', '=', 'users.id')
-      -> where('idUser', $_SESSION['uid'])
+      -> where('idUser', $uid)
       ->first();
 
       $_SESSION['pesquisa'] = 1;
