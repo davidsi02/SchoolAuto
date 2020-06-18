@@ -132,7 +132,9 @@
 	</div>
 
 
-  @if (isset($perms))
+  @if ($perms ?? '')
+
+  <?php echo $_SESSION['uid']; ?>
 
   <table class="table table-hover table-striped">
     <thead>
@@ -144,9 +146,9 @@
 
       <tr>
         <td>Acesso Portaria</td>
-        <td> <form  action= {{'PermissionController@getPermissions'}} method="get">
+        <td> <form  action= {{ route('alterPerms') }} method="POST"> @csrf
           <div class="checkbox">
-            <input id= "aportaria" type="checkbox" name='dr[]' value= '{{$perms->AcessoPortaria ?? ''}}'>
+            <input id= "aportaria" type="checkbox" name='aportaria' value= "1" @if($perms->AcessoPortaria == 1) checked @endif>
                   <label for= "aportaria" ></label>
 
           </div> </td>
@@ -154,9 +156,9 @@
 
       <tr>
         <td>Acesso Cantina</td>
-        <td> <form method="get">
+        <td> <form action=  {{ route('alterPerms') }} method="POST"> @csrf
           <div class="checkbox">
-            <input id= "acantina" type="checkbox" name='dr[]' value="1" checked>
+            <input id= "acantina" type="checkbox" name="acantina" value="2" @if($perms->AcessoCantina == 1) checked @endif>
                   <label for= "acantina" ></label>
 
           </div> </td>
@@ -164,9 +166,9 @@
 
       <tr>
         <td>Acesso Bar</td>
-        <td> <form method="get">
+        <td> <form action=  {{ route('alterPerms') }} method="POST"> @csrf
           <div class="checkbox">
-            <input id= "abar" type="checkbox" name='dr[]' value="1" checked>
+            <input id= "abar" type="checkbox" name="abar" value="1" @if($perms->AcessoBar == 1) checked @endif>
                   <label for= "abar" ></label>
 
           </div> </td>
@@ -174,9 +176,9 @@
 
       <tr>
         <td>Acesso Biblioteca</td>
-        <td> <form  method="get">
+        <td> <form  action=  {{ route('alterPerms') }} method="POST"> @csrf
           <div class="checkbox">
-            <input id= "abiblioteca" type="checkbox" name='dr[]' value="1" checked>
+            <input id= "abiblioteca" type="checkbox" name="abiblioteca" value="1" @if($perms->AcessoBiblioteca == 1) checked @endif>
                   <label for= "abiblioteca" ></label>
 
           </div> </td>
@@ -184,9 +186,9 @@
 
       <tr>
         <td>SAE</td>
-        <td> <form  method="get">
+        <td> <form  action=  {{ route('alterPerms') }} method="POST"> @csrf
           <div class="checkbox">
-            <input id= "sae" type="checkbox" name='dr[]' value="1" checked>
+            <input id= "sae" type="checkbox" name='sae' value="1" @if($perms->SAE == 1) checked @endif>
                   <label for= "sae" ></label>
 
           </div> </td>
@@ -194,9 +196,9 @@
 
       <tr>
         <td>Administrador</td>
-        <td> <form  method="get">
+        <td> <form  action= {{ route('alterPerms') }} method="POST"> @csrf
           <div class="checkbox">
-            <input id= "admin" type="checkbox" name='dr[]' value="1" checked>
+            <input id= "admin" type="checkbox" name='admin' value="1" @if($perms->Admin == 1) checked @endif>
                   <label for= "admin" ></label>
 
           </div> </td>

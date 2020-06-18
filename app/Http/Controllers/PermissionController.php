@@ -83,30 +83,96 @@ return redirect('/redirect');
 
 public function getPermissions (){
 
+
   $_SESSION['pesquisa'] = 0;
 
   $numProcesso = $_GET['numProcesso'];
   $userperms = collect();
+
+   $user = DB::table('users')->where('numProcesso', $numProcesso)->first();
 
    $perms = DB::table('permission')
      -> join('users', 'permission.idUser', '=', 'users.id')
      -> where('users.numProcesso', $_GET['numProcesso'])
      ->first();
 
+
+if (isset($user)){
+
+        $_SESSION['uid'] = $user->id;
+
+
+
      if (isset($perms)){
 
           $_SESSION['pesquisa'] = 1;
+
           return view ('/admin/gestperms', ['perms' => $perms]);
 
-     }else{
 
-       $_SESSION['pesquisa'] = 0;
+}else{
 
-       echo $_SESSION['pesquisa'];
+            DB::table('permission')->insert([
+                    ['idUser' => $user->id,]
+              ]);
 
-       return view ('/admin/gestperms');
+              $_SESSION['pesquisa'] = 1;
+
+              return view ('/admin/gestperms', ['perms' => $perms]);
+
 
      }
+
+} else {
+
+                    $_SESSION['pesquisa'] = 0;
+                      return view ('/admin/gestperms');
+
+
+}
+
+}
+
+
+public function alterPermissions (){
+
+
+       ///TESTES
+
+if (isset($_POST['aportaria'])) $permPortaria = 1; else $permPortaria = 0;
+if (isset($_POST['acantina'])) $permCantina = 1; else $permCantina = 0;
+if (isset($_POST['abar'])) $permBar = 1; else $permBar = 0;
+if (isset($_POST['abiblioteca'])) $permBiblioteca = 1; else $permBiblioteca= 0;
+if (isset($_POST['sae'])) $permSAE = 1; else $permSAE = 0;
+if (isset($_POST['admin'])) $permAdmin = 1; else $permAdmin = 0;
+
+    $uid = $_SESSION['uid'];
+
+    DB::table('permission') ->
+    where('idUser', $uid)
+    ->update([
+    'acessoPortaria' => $permPortaria,
+    'acessoCantina' => $permCantina,
+    'acessoBar' => $permBar,
+    'acessoBiblioteca' => $permBiblioteca,
+    'sae' => $permSAE,
+    'admin' => $permAdmin ])  ;
+
+    $perms = DB::table('permission')
+      -> join('users', 'permission.idUser', '=', 'users.id')
+      -> where('idUser', $_SESSION['uid'])
+      ->first();
+
+      $_SESSION['pesquisa'] = 1;
+
+    return view('/admin/gestperms', ['perms' => $perms]);
+
+
+
+
+
+
+
 
 
 

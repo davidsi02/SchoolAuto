@@ -235,6 +235,8 @@ Route::any ('/sae/password', 'CardAuthController@pswVerify')->name('pswVerify');
 Route::any ('/permissions','PermissionController@PermissionsVrf')->name('PermissionVrf')->middleware('auth');
 Route::any ('/redirect','CardRedirectController@CardRedirect')->middleware('auth');
 Route::any ('/getuserperms', 'PermissionController@getPermissions')->middleware('auth');
+Route::any ('/alteruserperms', 'PermissionController@alterPermissions')->name('alterPerms')->middleware('auth');
+
         //AdminActionsController
 // Model: Route::get ('', 'AdminActionsController@')->name('');
         //SenhasController
