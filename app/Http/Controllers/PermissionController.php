@@ -18,6 +18,8 @@ class PermissionController extends Controller
 
      @csfr;
 
+     session_start();
+
 
      $_SESSION['permAdmin'] = 0;
      $_SESSION['AcessoCantina'] = 0;
