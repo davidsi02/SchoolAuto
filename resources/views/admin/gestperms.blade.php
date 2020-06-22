@@ -134,7 +134,7 @@
 
   @if ($perms ?? '')
 
-  <?php echo $_SESSION['uid']; ?>
+  <?php // echo $_SESSION['uid']; ?>
 
   <table class="table table-hover table-striped">
     <thead>

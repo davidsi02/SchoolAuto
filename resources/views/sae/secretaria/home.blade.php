@@ -221,7 +221,7 @@
 
 					<ul class="nav">
 						<li class="active">
-							<a href="dashboard.html">
+							<a href="{{ url('/secretaria') }}">
 								<i class="pe-7s-graph"></i>
 								<p> Início </p>
 							</a>
@@ -233,13 +233,13 @@
 							</a>
 						</li>
 						<li>
-							<a href="table.html">
+							<a href="{{ url('/gestaousers') }}">
 								<i class="pe-7s-user"></i>
 								<p>Gestão de utilizadores</p>
 							</a>
 						</li>
 						<li>
-							<a href="typography.html">
+							<a href="{{url('/shop')}}" >
 								<i class="pe-7s-news-paper"></i>
 								<p>Posto de Venda</p>
 							</a>
@@ -252,6 +252,7 @@
 						</li>
 
 					</ul>
+
 				</div>
 			</div>
 
