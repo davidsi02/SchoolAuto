@@ -104,7 +104,7 @@
 	     <div class="main-panel">
 				 <div class="content">
 @if($user ?? '')
-	<div class="col-md-3 float-right">
+	<div class="col-md-3 col-sm-3 float-right">
 		<div class="card card-user">
 			<div class="image">
 				<img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
@@ -161,7 +161,7 @@
 									<div class="content col-md-12 col-sm-12 ">
 										<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
-									<div class="col-md-6" style="padding-bottom: 10px">
+									<div class="col-md-6 col-md-12" style="padding-bottom: 10px">
 										<div class="form-group" >
 											<label id = "escola" name = "escola" class="col-md-12" style="padding-left:0;">Escola</label>
 											<input type="text" class="col-md-12 form-control" disabled placeholder="Escola" value="ETP Sicó">
@@ -172,11 +172,11 @@
 								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
 
-									<div class="col-md-6" style="padding-bottom: 10px">
+									<div class="col-md-6 col-md-12" style="padding-bottom: 10px">
 										<div class="form-group" action = {{'DataController@getUserType'}} >
 											<label class="col-md-12" style="padding-left:0;">Nome</label>
 											<input id = "nome" name = "nome" type="text" class="form-control col-md-9" disabled placeholder="Nome" value='{{$user->name}}'>
-											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+											<input class="col-md-3 col-sm-3 form-control" id="Editar" type="button" value="Editar">
 										</div>
 									</div>
 								</form>
@@ -184,11 +184,11 @@
 								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
 
-									<div class="col-md-6" style="padding-bottom: 10px">
+									<div class="col-md-6 col-md-12" style="padding-bottom: 10px">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Email</label>
 											<input id = "email" name = "email" type="text" class="form-control col-md-9" disabled placeholder="Email" value='{{$user->email}}'>
-											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+											<input class="col-md-3 col-sm-3 form-control" id="Editar" type="button" value="Editar">
 										</div>
 
 									</div>
@@ -196,44 +196,44 @@
 								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
 
-									<div class="col-md-6" style="padding-bottom: 10">
+									<div class="col-md-6 col-md-12" style="padding-bottom: 10px">
 										<div class="form-group">
-											<label class="col-md-12" style="padding-left:0;">Isenção de Senha:</label>
+											<label class="col-md-11" style="padding-left:0;">Isenção de Senha:</label>
 											<select class="form-control col-md-9" disabled id = "isencaoSenha" name = "isencaoSenha">
 												@if($user->isencaoSenha == 1)<option value="1">Sim</option>@else <option value="0" >Não</option> @endif
 												@if($user->isencaoSenha != 1)<option value="1">Sim</option>@else <option value="0">Não</option> @endif
 											</select>
-											<input class="col-md-3 form-control" id="EditarSel" type="button" value="Editar">
+											<input class="col-md-3 col-sm-3 form-control" id="EditarSel" type="button" value="Editar">
 										</div>
 									</div>
 								</form>
 								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
 
-									<div class="col-md-6" style="padding-bottom: 10px">
+									<div class="col-md-6 col-md-12" style="padding-bottom: 10px">
 										<div class="form-group">
 											<label class="col-md-12" style="padding-left:0;">Numero de Processo:</label>
 											<input id = "numProcesso" name = "numProcesso" type="text" class="form-control col-md-9" disabled placeholder='{{$user->numProcesso}}'>
-											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+											<input class="col-md-3 col-sm-3 form-control" id="Editar" type="button" value="Editar">
 										</div>
 									</div>
 								</form>
 								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
 
-									<div class="col-md-6" style="padding-bottom: 10px">
+									<div class="col-md-6 col-md-12" style="padding-bottom: 10px">
 										<div class="form-group">
 
 											<label class="col-md-12" style="padding-left:0;">Numero de Cartão:</label>
 											<input name = "numCartao" type="text" class="form-control col-md-9" disabled placeholder="Sem cartão associado!" value='{{$user->numCartao}}'>
-											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+											<input class="col-md-3 col-sm-3 form-control" id="Editar" type="button" value="Editar">
 </div>
 									</div>
 								</form>
 								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
 
-									<div class="col-md-6" style="padding-bottom: 10px">
+									<div class="col-md-6 col-md-12" style="padding-bottom: 10px">
 										<div class="form-group" action = {{'DataController@getUserType'}} >
 											<label class="col-md-12" style="padding-left:0;">Tipo Utilizador:</label>
 											<select class="form-control col-md-9" disabled >
@@ -242,19 +242,21 @@
 												<option > Colaborador </option>
 
 											</select>
-											<input class="col-md-3 form-control" id="EditarSel" type="button" value="Editar">
+											<input class="col-md-3 col-sm-3 form-control" id="EditarSel" type="button" value="Editar">
 										</div>
 									</div>
 								</form>
 								<form method="post" action = "{{ url('/gestaousers/alteruser') }}">			@csrf
 
 
-									<div class="col-md-6" style="padding-bottom: 10px">
+									<div class="col-md-6 col-md-12" style="padding-bottom: 10px">
 										<div class="form-group" action = {{'DataController@getUserType'}} >
 											<label class="col-md-12" style="padding-left:0;">Fotografia:</label>
-											<input id = "path" name = "path" type="file" class="form-control col-md-9" disabled placeholder="Não associada" value='{{$user->path_fotografia}}'>
-											<input class="col-md-3 form-control" id="Editar" type="button" value="Editar">
+											<label for = "path" id = "pathL" type="text" style="text-transform: none;font-size:14px;background-color:#eee;" class="form-control col-md-9" ></label>
+											<input id = "path" name = "path" hidden  type="file" class="form-control" placeholder="Não associada" disabled value='{{$user->path_fotografia}}'>
 										</div>
+										<input class="col-md-3 col-sm-3 form-control" id="EditarF" type="button" value="Editar">
+
 									</div>
 								</form>
 								</div>
@@ -340,6 +342,32 @@ $('[id="EditarSel"]').on('click', function() {
 		var a = $(this).val();
 	}
 
+
+});
+
+$('[id="EditarF"]').on('click', function() {
+	if ($(this).val()=='Guardar') {
+		$(this).prop("type", "submit");
+
+	}else {
+		var prev = $('[id="path"]');
+		ro   = prev.prop('disabled');
+		prev.prop('disabled', !ro);
+		var label = $('[id="pathL"]');
+
+		$(this).val(ro ? 'Guardar' : 'Editar');
+		var a = $(this).val();
+		label.text('Escolher ficheiro.');
+		label.css("background-color", "white").focus();
+
+
+	}
+});
+$('[id="pathL"]').on('click', function() {
+	var label = $('[id="pathL"]');
+
+	label.prop("type", "file");
+	label.removeClass('enabled');
 
 });
 </script>
