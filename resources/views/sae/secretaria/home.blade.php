@@ -239,7 +239,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="{{url('/shop')}}" >
+							<a action="{{url('/shop')}}" >
 								<i class="pe-7s-news-paper"></i>
 								<p>Posto de Venda</p>
 							</a>
