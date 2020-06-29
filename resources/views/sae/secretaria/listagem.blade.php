@@ -57,7 +57,7 @@
 
             <ul class="nav">
                 <li>
-                    <a href="{{ url('/listagem') }}">
+                    <a href="{{ url('/secretaria') }}">
                         <i class="pe-7s-graph"></i>
                         <p> Início </p>
                     </a>
@@ -75,7 +75,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="{{ url('/shop') }}">
                         <i class="pe-7s-news-paper"></i>
                         <p>Posto de Venda</p>
                     </a>
