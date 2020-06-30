@@ -108,7 +108,7 @@ class DataController extends Controller
 
            if (isset($_POST['path'])){
                  $field = 'path_fotografia';
-                 $value = $_POST['path'];
+                 $value = 'C:\inetpub\wwwroot\PAP_GIT\SchoolAutoGIT\SchoolAuto\public\assets\img\faces\''.$_POST['path'];
                }
 
 
@@ -116,6 +116,12 @@ class DataController extends Controller
 
 
        return redirect()->back();
+
+
+   }
+
+   public function importUser(){
+
 
 
    }

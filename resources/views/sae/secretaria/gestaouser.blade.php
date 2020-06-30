@@ -83,7 +83,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="{{url('/shop')}}" >
+					<a href="{{ url('/shop') }}" >
 						<i class="pe-7s-news-paper"></i>
 						<p>Posto de Venda</p>
 					</a>
@@ -136,7 +136,7 @@
 
 
 
-					<input style="text-align:center;" id="numProcesso" type="password" name="numProcesso" autofocus placeholder = "Introduza o numero de Processo">
+					<input style="text-align:center;" id="numProcesso" type="text" name="numProcesso" autofocus placeholder = "Introduza o numero de Processo">
 
 				</form>
 			</div>
