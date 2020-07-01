@@ -7,7 +7,7 @@
 <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/>
 <html >
 
-<section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header1-3" data-rv-view="0" style="background-image: url('https://www.eclatbysylvi.com/wp-content/uploads/2016/05/Light-Blue-blur-background.jpg');">
+<section class="mbr-box mbr-section mbr-section--relative mbr-section--fixed-size mbr-section--full-height mbr-section--bg-adapted mbr-parallax-background" id="header1-3" data-rv-view="0" style="background-image: url(assets/images/dsc-0066-source-1500x1000.jpg);">
   <!--<button class="btn btn-info" href="{{route('logout')}}" style="width:75px ;font-size:2.5rem;font-weight:bold;float: right;"type="button">X</button>-->  <!--Butão de LOGOUT, CASO PRECISO-->
   <nav class="navbar fixed-bottom navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" style="font-weight:bold"href="{{route('product.index')}}">Painel de Admin</a>
@@ -43,7 +43,7 @@
 
 
     <?php $user= Session::get('user'); ?>
-    <div class="table col-md-4" style="background-color: white;right:0;top:300;position: absolute; padding: 10;border-color: white;clear:both;%">
+    <div class="table col-md-4 col-sm-12" style="background-color: white;right:0;top:300;position: absolute; padding: 10;border-color: white;clear:both;%">
 
     @if(isset($user))
         <div class="row align-items-center" style="padding-bottom: 10;">
@@ -81,7 +81,7 @@
       <div class="container col-md-8" style="margin-top:75px;margin-top:50px;float:left;padding:0; clear:both;">
         <div class="col-md-12" style="margin:0;padding:0">
           <div class="card">
-            <div style="background-color: #ffffff;" class="container col-12">
+            <div style="background-color: #f6f6f6;" class="container col-12">
               <div class="title col-10">
                 <h2 class="align-left pb-3 mbr-fonts-style" style="font-size:7rem">
                   {{\DB::table('categoriaproduto')->where('idCategoria',$_SESSION['categoriaShop'])->value('nomeCategoria')}}
@@ -95,7 +95,7 @@
                     <?php
                     for ($num=1; $num <= 12 ; $num++) { ?>
                       <li role="presentation" >
-                        <a type="button" @if($num==$activepage ?? '') class="btn btn-info"  @else  class="btn btn-primary" @endif class="col-md-1" style="font-size:4.2vh;width:4vw;" href="{{route('tabs',[$num])}}">{{ $num }}</a>
+                        <a type="button" @if($num==$activepage ?? '') class="btn btn-info"  @else  class="btn btn-primary" @endif class="col-md-1" style="font-size:4.2vh;width:4.5vw;" href="{{route('tabs',[$num])}}">{{ $num }}</a>
                       </li>
                     <?php  }?>
                   </ul>
@@ -112,8 +112,9 @@
                         <div class="card-wrapper">
                           <div class="card-box">
                             <h3 class="card outline" style="text-align: center;font-size:1.5vw ;border-style: none; background-color: white; color: black; ">
-                              {{ $product-> nomeProduto}}
-                              <a href="{{route('product.addToCart',[$product->id,$product->nomeProduto ,$product->precoProduto ])}}"  class="btn btn-primary" style=" font-size:2vw; font-weight: bold">{{$product-> precoProduto}}€ <a>
+                              <a href="{{route('product.addToCart',[$product->id,$product->nomeProduto ,$product->precoProduto ])}}"  class="btn btn-primary" style="overflow:hidden;background-size: 100%; @if( $product-> imagem??'') -webkit-text-stroke: 2.5px #3b444b;color: white;background-image:url('{{ $product-> imagem}}');;@endif font-size:2vw; font-weight: bold"> .<a>
+                                <span class="float-left"><b>{{ $product-> nomeProduto}}</b></span>
+                                <span class="float-right">  {{ $product-> precoProduto}}€</span>
                               </h3>
                             </div>
                           </div>
