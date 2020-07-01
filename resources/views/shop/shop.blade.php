@@ -113,8 +113,8 @@
                           <div class="card-box">
                             <h3 class="card outline" style="text-align: center;font-size:1.5vw ;border-style: none; background-color: white; color: black; ">
                               <a href="{{route('product.addToCart',[$product->id,$product->nomeProduto ,$product->precoProduto ])}}"  class="btn btn-primary" style="overflow:hidden;background-size: 100%; @if( $product-> imagem??'') -webkit-text-stroke: 2.5px #3b444b;color: white;background-image:url('{{ $product-> imagem}}');;@endif font-size:2vw; font-weight: bold"> .<a>
-                                <span class="float-left"><b>{{ $product-> nomeProduto}}</b></span>
-                                <span class="float-right">  {{ $product-> precoProduto}}€</span>
+                                <span class="float-left"><b>{{ $product-> nomeProduto}}</b></span><br>
+                                <span class="float-left" style="color:#8c8989">  {{ $product-> precoProduto}}€</span>
                               </h3>
                             </div>
                           </div>
