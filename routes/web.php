@@ -111,6 +111,7 @@ Route::get ('/gestaousers', function(){
 return view ('sae/secretaria/gestaouser');
 });
 
+
 //Secretaria--->PDFs//
 
 Route::any('/carregamentos/pdf', 'ListagensController@pdfCarregamentos')->name('pdfCarregamentos');
@@ -260,8 +261,8 @@ Route::any ('/notifications', 'NotificationsController@NotificationsTable')->mid
 Route::get ('/portaria/registar', 'PortariaController@acessoPortaria') -> name ('/acessoPortaria') ->middleware('auth');
 
           //CSV
-Route::get('import-export', 'CSVController@importExport');
-Route::post('import', 'CSVController@import');
-Route::get('export', 'CSVController@export');
+Route::any('import-export', 'CSVController@importExport');
+Route::any('import', 'CSVController@import');
+Route::any('export', 'CSVController@export');
 
 //);//
