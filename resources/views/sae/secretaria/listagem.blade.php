@@ -188,13 +188,10 @@
 
                                 <form action="{{route('pdfCarregamentos') }}" method="post">
 																	@csrf
-
-																De:
-																<input type="text" name="DI" class="form-control" autocomplete="off" id="DI" placeholder="Introduza a Data Inicial">
+																<span>Datas:</span>
 																<br>
-																<br>
-																A:
-																<input type="text" name="DF" class="form-control" autocomplete="off" id="DF" placeholder="Introduza a Data Final">
+																<input type="text" name="DI" class="form-control " style="width:49%;display:inline" autocomplete="off" id="DI" placeholder="Introduza a Data Inicial">
+																<input type="text" name="DF" class="form-control" style="width:49%;display:inline" autocomplete="off" id="DF" placeholder="Introduza a Data Final">
 
                                 <div class="footer">
                                     <div class="legend">

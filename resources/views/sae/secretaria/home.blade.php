@@ -683,7 +683,12 @@
 																{
 																	var id = id;
 																	console.log(id);
-																	$('[id="id"]')
+																		var b = $('[id]').closest('tr');
+																		console.log(b.id);
+																		ro   = b.prop('readonly');
+																		b.prop('readonly', !ro);
+
+
 																}
 
 																$('[id="EditarF"]').on('click', function() {
