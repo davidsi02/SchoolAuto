@@ -481,7 +481,7 @@
 													<tr>
 
 														@foreach($TG as $row)
-														<tr id="a">
+														<tr id="{{$row->idTask}}">
 
 														<td>
 															<div class="checkbox">
@@ -492,7 +492,7 @@
 
 														<td><input type="text" class="form" readonly value='{{$row->conteudo}}'</td>
 														<td class="td-actions text-right">
-															<button rel="tooltip" type="text" name="Edit" type="button" value="" title="Editar Tarefa" class="btn btn-info btn-simple btn-xs">
+															<button id="{{$row->idTask}}" rel="tooltip" type="text" name="Edit" type="button" onclick="c(this.id);" title="Editar Tarefa" class="btn btn-info btn-simple btn-xs">
 																<i class="fa fa-edit"></i>
 															</button>
 
@@ -678,6 +678,32 @@
 													                 },
 													         });
 												}
+
+												function c(id)
+																{
+																	var id = id;
+																	console.log(id);
+																	$('[id="id"]')
+																}
+
+																$('[id="EditarF"]').on('click', function() {
+																	if ($(this).val()=='Guardar') {
+																		$(this).prop("type", "submit");
+
+																	}else {
+																		var prev = $('[id="path"]');
+																		ro   = prev.prop('disabled');
+																		prev.prop('disabled', !ro);
+																		var label = $('[id="pathL"]');
+
+																		$(this).val(ro ? 'Guardar' : 'Editar');
+																		var a = $(this).val();
+																		label.text('Escolher ficheiro.');
+																		label.css("background-color", "white").focus();
+
+
+																	}
+																});
 				</script>
 
 

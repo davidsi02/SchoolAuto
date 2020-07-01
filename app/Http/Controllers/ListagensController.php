@@ -73,7 +73,7 @@ class ListagensController extends Controller
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->numProcesso.'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->name.'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->nomeOperacao.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->dataOperacao.'</td>
+              <td style="text-align:center;border: 1px solid; padding:1px;">'.date('d-m-Y', strtotime(.$cgd->dataOperacao)).'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->valorOperacao.'</td>
              </tr>
              ';
@@ -136,7 +136,7 @@ class ListagensController extends Controller
                 <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->idConsumo.'</td>
                 <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->numProcesso.'</td>
                 <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->name.'</td>
-                <td style="text-align:center;border: 1px solid; padding:1px;">'.date('Y-m-d', strtotime($cgd->dataSenha)).'</td>
+                <td style="text-align:center;border: 1px solid; padding:1px;">'.date('d-m-Y', strtotime($cgd->dataSenha)).'</td>
                 <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->dataConsumo.'</td>
                </tr>
                ';
