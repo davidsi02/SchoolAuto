@@ -192,6 +192,10 @@
 																<br>
 																<input type="text" name="DI" class="form-control " style="width:49%;display:inline" autocomplete="off" id="DI" placeholder="Introduza a Data Inicial">
 																<input type="text" name="DF" class="form-control" style="width:49%;display:inline" autocomplete="off" id="DF" placeholder="Introduza a Data Final">
+																<br>
+	                              <span>Numero de Processo:</span>
+																<input type="text" name="NP" class="form-control " style="width:49%;display:inline" autocomplete="off" id="NPRF" placeholder="Introduza o Numero de Processo">
+
 
                                 <div class="footer">
                                     <div class="legend">
@@ -223,15 +227,15 @@
                             <div class="content">
 
 															<form action="{{route('pdfRefeicoes') }}" method="post">
+
 																@csrf
-
-															De:
-															<input type="text" name="DIR" class="form-control" autocomplete="off" id="DIR" placeholder="Introduza a Data Inicial">
+															<span>Datas:</span>
 															<br>
-															<br>
-															A:
-															<input type="text" name="DFR" class="form-control" autocomplete="off" id="DFR" placeholder="Introduza a Data Final">
-
+															<input type="text" name="DI" class="form-control " style="width:49%;display:inline" autocomplete="off" id="DIR" placeholder="Introduza a Data Inicial">
+															<input type="text" name="DF" class="form-control" style="width:49%;display:inline" autocomplete="off" id="DFR" placeholder="Introduza a Data Final">
+                              <br>
+                              <span>Numero de Processo:</span>
+															<input type="text" name="NP" class="form-control " style="width:49%;display:inline" autocomplete="off" id="NPRF" placeholder="Introduza o Numero de Processo">
 
                                 <div class="footer">
                                     <div class="legend">
