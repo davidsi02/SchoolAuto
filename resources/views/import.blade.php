@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-
-@csfr
 <html>
 <head>
     <title>Laravel 6 Import Export Excel to database - Tuts Make</title>
@@ -16,8 +14,8 @@
         <div class="card-body">
             <form href="{{ url('/import') }}" method="POST" name="importform"
                enctype="multipart/form-data">
-                {{ csrf_token() }}
-                <input type="file" name="file" class="form-control">
+@csrf                <input type="file" name="file" class="form-control">
+
                 <br>
                 <a class="btn btn-info" href="{{ url('export') }}">
                  Export File</a>
