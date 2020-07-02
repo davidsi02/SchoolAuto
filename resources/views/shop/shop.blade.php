@@ -81,9 +81,9 @@
       <div class="container col-md-8" style="margin-top:75px;margin-top:50px;float:left;padding:0; clear:both;">
         <div class="col-md-12" style="margin:0;padding:0">
           <div class="card">
-            <div style="background-color: #f6f6f6;" class="container col-12">
-              <div class="title col-10">
-                <h2 class="align-left pb-3 mbr-fonts-style" style="font-size:7rem">
+            <div style="background-color: #f2f2f2;" class="container col-12">
+              <div class="title col-3">
+                <h2 class="align-left pb-3 mbr-fonts-style" style="font-size:4vw">
                   {{\DB::table('categoriaproduto')->where('idCategoria',$_SESSION['categoriaShop'])->value('nomeCategoria')}}
                 </h2>
               </div>
@@ -91,9 +91,9 @@
 
                 <div class="tabpanel">
                   <!-- Nav tabs -->
-                  <ul class="col-md-12 nav navbar" role="tablist">
+                  <ul class="col-md-9 nav navbar" role="tablist">
                     <?php
-                    for ($num=1; $num <= 12 ; $num++) { ?>
+                    for ($num=1; $num <= 9 ; $num++) { ?>
                       <li role="presentation" >
                         <a type="button" @if($num==$activepage ?? '') class="btn btn-info"  @else  class="btn btn-primary" @endif class="col-md-1" style="font-size:4.2vh;width:4.5vw;" href="{{route('tabs',[$num])}}">{{ $num }}</a>
                       </li>
@@ -108,7 +108,7 @@
                       @if($product->idCategoria == $_SESSION['categoriaShop'])
                       @if($product->visibilidade == 1)
 
-                      <div class="col-sm-3 col-md-3">
+                      <div class="col-sm-3 col-md-3" style="padding-bottom:30;">
                         <div class="card-wrapper">
                           <div class="card-box">
                             <h3 class="card outline" style="text-align: center;font-size:1.5vw ;border-style: none; background-color: white; color: black; ">

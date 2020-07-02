@@ -150,7 +150,7 @@ $myCollection = collect([
           ->where('dataSenha', $_GET['Anular'])
           ->delete();
 
-          \DB::table('users')->where('id', Auth::user()->id)->update(['saldo' =>  Auth::user()->saldo + 2.50]);
+          \DB::table('users')->where('id', Auth::user()->id)->update(['saldo' =>  Auth::user()->saldo + $preco]);
           \DB::table('operacao')->insert(
             ['valorOperacao' => $preco,
             'nomeOperacao' => 'Anulação de Senha',

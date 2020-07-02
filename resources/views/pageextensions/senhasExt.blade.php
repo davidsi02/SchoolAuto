@@ -169,7 +169,7 @@
 
 																		} else {
 																			?>
-																			<form  action="{{route('cS')}}" method="get">
+																			<form id="antiRouboFa" action="{{route('cS')}}" method="get">
 																				<div class="checkbox">
 																					<input id={{$count}} type="checkbox" name='dr[]' value="{{$row -> dataRefeicao}}" checked>
 																					<label for={{$count}}></label>
@@ -192,7 +192,7 @@
 
 															</tbody>
 														</table>
-														<input type="submit" id="btnSubmit" value="Comprar">
+														<input type="submit" id="antiRouboBa" value="Comprar">
 													</form>
 													</div>
 
@@ -272,5 +272,9 @@ for(var i=0, n=checkboxes.length;i<n;i++) {
 	checkboxes[i].checked = source.checked;
 }
 }
+
+$('[id="antiRouboFa"]').submit(function(){
+  $('[id="antiRouboBa"]').prop('disabled', true);
+});
 </script>
 </html>

@@ -170,7 +170,7 @@ if(!isset($_SESSION))
 
                           } else {
                             ?>
-                            <form  action="{{route('cS')}}" method="get">
+                            <form id="antiRouboFa" action="{{route('cS')}}" method="get">
                               <div class="checkbox">
                                 <input id={{$count}} type="checkbox" name='dr[]' value="{{$row -> dataRefeicao}}" checked>
                                 <label for={{$count}}></label>
@@ -193,7 +193,7 @@ if(!isset($_SESSION))
 
                       </tbody>
                     </table>
-                    <input type="submit" id="btnSubmit" value="Comprar">
+                    <input type="submit" id="antiRouboBa" value="Comprar">
                   </form>
                 </div>
 
@@ -249,7 +249,7 @@ if(!isset($_SESSION))
                       <i class=""></i>
                     </div>
                   </div>
-                  <form action="{{ route('aS') }}" method="get">
+                  <form id="antiRouboF" action="{{ route('aS') }}" method="get">
 
                   <select class="form-control col-md-" style="margin:0 auto;width:90%;font-size: 2rem;height:40px" name="Anular" required>
                     @foreach($senha as $row)
@@ -263,7 +263,7 @@ if(!isset($_SESSION))
                   </select>
                 </br>
                 <div style="padding:20px;padding-top:0px;">
-                  <button class="btn btn-danger" type="submit" style="width:100%" >Anular Senha </button>
+                  <button class="btn btn-danger" type="submit" id="antiRouboB" onclick="a(this);" style="width:100%" >Anular Senha </button>
                 </div>
 
                 </form>
@@ -361,5 +361,15 @@ alert("OK");
 
 
 -->
+<script type="text/javascript">
+
+
+$('[id="antiRouboFa"]').submit(function(){
+  $('[id="antiRouboBa"]').prop('disabled', true);
+});
+$('[id="antiRouboFb"]').submit(function(){
+  $('[id="antiRouboBb"]').prop('disabled', true);
+});
+</script>
 
 </html>

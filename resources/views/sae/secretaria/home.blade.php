@@ -683,7 +683,7 @@
 																{
 																	var id = id;
 																	console.log(id);
-																		var b = $('[id]').closest('tr');
+																		var b = $('id').closest('tr');
 																		console.log(b.id);
 																		ro   = b.prop('readonly');
 																		b.prop('readonly', !ro);
