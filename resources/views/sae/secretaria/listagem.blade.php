@@ -186,16 +186,16 @@
 
                               <div class = "ct-chart ct-perfect-4th"> </div>
 
-                                <form action="{{route('pdfCarregamentos') }}" method="post">
+                                <form action="{{route('pdfCarregamentos') }}" method="get">
 																	@csrf
 																<span>Datas:</span>
 																<br>
 																<input type="text" name="DI" class="form-control " style="width:49%;display:inline" autocomplete="off" id="DI" placeholder="Introduza a Data Inicial">
 																<input type="text" name="DF" class="form-control" style="width:49%;display:inline" autocomplete="off" id="DF" placeholder="Introduza a Data Final">
 																<br>
+																<br>
 	                              <span>Numero de Processo:</span>
-																<input type="text" name="NP" class="form-control " style="width:49%;display:inline" autocomplete="off" id="NPRF" placeholder="Introduza o Numero de Processo">
-
+																<input type="text" name="NPCR" class="form-control " style="width:49%;display:inline" autocomplete="off" id="NPCR" placeholder="Introduza o Numero de Processo">
 
                                 <div class="footer">
                                     <div class="legend">
@@ -234,6 +234,7 @@
 															<input type="text" name="DI" class="form-control " style="width:49%;display:inline" autocomplete="off" id="DIR" placeholder="Introduza a Data Inicial">
 															<input type="text" name="DF" class="form-control" style="width:49%;display:inline" autocomplete="off" id="DFR" placeholder="Introduza a Data Final">
                               <br>
+															<br>
                               <span>Numero de Processo:</span>
 															<input type="text" name="NP" class="form-control " style="width:49%;display:inline" autocomplete="off" id="NPRF" placeholder="Introduza o Numero de Processo">
 

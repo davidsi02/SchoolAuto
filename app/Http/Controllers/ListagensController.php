@@ -24,24 +24,60 @@ class ListagensController extends Controller
     if (isset($_GET['DI']) && isset($_GET['DF'])) {
       $DI=date('yy-m-d', strtotime($_GET['DI']));
       $DF=date('yy-m-d', strtotime($_GET['DF']));
+
+      if (isset($_GET['NPCR'])) {
         $cgd = \DB::table('operacao', 'users')
+                    ->join('users', 'operacao.idUtilizador', '=', 'users.id')
+                    ->where('users.numProcesso', $_GET['NPCR'])
                     ->where('nomeOperacao',  'Carregamento')
                     ->whereBetween('dataOperacao', [$DI,$DF])
                     ->orderBy('dataOperacao' , 'DESC')
                     ->get();
-        return $cgd;
+                    echo $cgd;
+                    echo '1';
+
+        }else{
+          $cgd = \DB::table('operacao', 'users')
+                      ->where('nomeOperacao',  'Carregamento')
+                      ->whereBetween('dataOperacao', [$DI,$DF])
+                      ->orderBy('dataOperacao' , 'DESC')
+                      ->get();
+                      echo $cgd;
+                      echo '2';
+
+        }
+    //    return $cgd;
 
       }else {
+        if (isset($_GET['NPCR'])) {
         $a=\Carbon\Carbon::today();
-        $cgd = \DB::table('operacao')
+        $cgd = \DB::table('operacao', 'users')
+                    ->join('users', 'operacao.idUtilizador', '=', 'users.id')
+                    ->where('users.numProcesso', $_GET['NPCR'])
                     ->where('nomeOperacao',  'Carregamento')
                     ->whereDate('dataOperacao', $a)
                     ->orderBy('dataOperacao' , 'DESC')
                     ->get();
 
-                    return $cgd;
+echo $cgd;
+echo '3';
+
+}else{
+  $a=\Carbon\Carbon::today();
+  $cgd = \DB::table('operacao', 'users')
+              ->where('nomeOperacao',  'Carregamento')
+              ->whereDate('dataOperacao', $a)
+              ->orderBy('dataOperacao' , 'DESC')
+              ->get();
+}
+echo $cgd;
+echo '4';
+
+              //      return $cgd;
                    }
   }
+
+
          public function pdfCarregamentos()
           {
             $pdfCarregamentos = \App::make('dompdf.wrapper');
@@ -51,7 +87,7 @@ class ListagensController extends Controller
          public function carregamentoInfo()
          {
            $cgd= $this->carregamentos();
-
+         echo $cgd;
            $outputc = '<h3 align="center">Listagem das Refeições</h3>
            <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
             <tr>
@@ -66,14 +102,14 @@ class ListagensController extends Controller
            foreach($cgd as $cgd)
             {
              $user = \DB::table('users')->where('id',$cgd->idUtilizador)->first();
-             $nproc = \DB::table('users')->where('numProcesso',$user->numProcesso)->first();
+             $nproc = \DB::table('users')->where('numProcesso',$user->numProcesso)->value('numProcesso');
              $outputc .= '
              <tr>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->idUtilizador.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->numProcesso.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->name.'</td>
+              <td style="text-align:center;border: 1px solid; padding:1px;">'.$nproc.'</td>
+              <td style="text-align:center;border: 1px solid; padding:1px;">'.$user->name.'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->nomeOperacao.'</td>
-              <td style="text-align:center;border: 1px solid; padding:1px;">'.date('d-m-Y', strtotime(.$cgd->dataOperacao)).'</td>
+              <td style="text-align:center;border: 1px solid; padding:1px;">'.date('d-m-Y', strtotime($cgd->dataOperacao)).'</td>
               <td style="text-align:center;border: 1px solid; padding:1px;">'.$cgd->valorOperacao.'</td>
              </tr>
              ';
