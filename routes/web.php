@@ -262,7 +262,7 @@ Route::get ('/portaria/registar', 'PortariaController@acessoPortaria') -> name (
 
           //CSV
 Route::any('import-export', 'CSVController@importExport');
-Route::any('import', 'CSVController@import');
-Route::any('export', 'CSVController@export');
+Route::post('import', 'CSVController@import');
+Route::get('export', 'CSVController@export');
 
 //);//
