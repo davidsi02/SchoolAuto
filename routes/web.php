@@ -261,8 +261,8 @@ Route::any ('/notifications', 'NotificationsController@NotificationsTable')->mid
 Route::get ('/portaria/registar', 'PortariaController@acessoPortaria') -> name ('/acessoPortaria') ->middleware('auth');
 
           //CSV
-Route::any('import-export', 'CSVController@importExport');
-Route::post('import', 'CSVController@import');
-Route::get('export', 'CSVController@export');
+Route::any('import-export', 'CSVController@index');
+Route::post('import', 'CSVController@import_excel');
+Route::get('export', 'CSVController@export_excel');
 
 //);//
