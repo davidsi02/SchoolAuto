@@ -249,7 +249,7 @@ if(!isset($_SESSION))
                       <i class=""></i>
                     </div>
                   </div>
-                  <form id="antiRouboF" action="{{ route('aS') }}" method="get">
+                  <form id="antiRouboFb" action="{{ route('aS') }}" method="get">
 
                   <select class="form-control col-md-" style="margin:0 auto;width:90%;font-size: 2rem;height:40px" name="Anular" required>
                     @foreach($senha as $row)
@@ -263,7 +263,7 @@ if(!isset($_SESSION))
                   </select>
                 </br>
                 <div style="padding:20px;padding-top:0px;">
-                  <button class="btn btn-danger" type="submit" id="antiRouboB" onclick="a(this);" style="width:100%" >Anular Senha </button>
+                  <button class="btn btn-danger" type="submit" id="antiRouboBb" style="width:100%" >Anular Senha </button>
                 </div>
 
                 </form>
@@ -366,9 +366,12 @@ alert("OK");
 
 $('[id="antiRouboFa"]').submit(function(){
   $('[id="antiRouboBa"]').prop('disabled', true);
+  console.log("aaaa");
 });
 $('[id="antiRouboFb"]').submit(function(){
   $('[id="antiRouboBb"]').prop('disabled', true);
+  console.log("bbbb");
+
 });
 </script>
 
