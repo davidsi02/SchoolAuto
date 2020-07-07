@@ -145,6 +145,8 @@ class Excel implements Exporter, Importer
         $readerType = FileTypeDetector::detect($filePath, $readerType);
         $response   = $this->reader->read($import, $filePath, $readerType, $disk);
 
+
+
         if ($response instanceof PendingDispatch) {
             return $response;
         }
