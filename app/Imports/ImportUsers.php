@@ -16,21 +16,20 @@ class ImportUsers implements ToModel
     public function model(array $row)
     {
 
+       session_start();
+
        $randompsw = Str::random(8);
 
         return new User([
-          /*  'name'     => $row[2],
+            'name'     => $row[2],
             'email'    => $row[6].'@etpsico.pt',
             'numProcesso' => $row[0],
             'password' => bcrypt($randompsw),
 
-            */
 
-            'name' => 'Acesso AAA',
-            'email' => 'aAAA@etpsico.pt',
-            'password' => bcrypt('password'),
-            'numProcesso' => 956765,
 
         ]);
+
+
     }
 }

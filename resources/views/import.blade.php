@@ -1,24 +1,21 @@
 <html>
 <head>
-	<title>Import Excel Ke Database Dengan Laravel</title>
+	<title>Importar Utilizadores</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 
 	<div class="container">
 		<center>
-			<h4>Import Excel Ke Database Dengan Laravel</h4>
-			<h5><a target="_blank" href="https://www.malasngoding.com/">www.malasngoding.com</a></h5>
+			<h4>Importar Utilizadores</h4>
 		</center>
 
-		{{-- notifikasi form validasi --}}
 		@if ($errors->has('file'))
 		<span class="invalid-feedback" role="alert">
 			<strong>{{ $errors->first('file') }}</strong>
 		</span>
 		@endif
 
-		{{-- notifikasi sukses --}}
 		@if ($sukses = Session::get('sukses'))
 		<div class="alert alert-success alert-block">
 			<button type="button" class="close" data-dismiss="alert">×</button>
@@ -27,7 +24,7 @@
 		@endif
 
 		<button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
-			IMPORT EXCEL
+			IMPORTAR
 		</button>
 
 		<!-- Import Excel -->
@@ -36,21 +33,21 @@
 				<form method="post" action="/import" enctype="multipart/form-data">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+							<h5 class="modal-title" id="exampleModalLabel">Importar</h5>
 						</div>
 						<div class="modal-body">
 
 							{{ csrf_field() }}
 
-							<label>Pilih file excel</label>
+							<label>Selecione o ficheiro</label>
 							<div class="form-group">
 								<input type="file" name="file" required="required">
 							</div>
 
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Import</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+							<button type="submit" class="btn btn-primary">Importar</button>
 						</div>
 					</div>
 				</form>
@@ -58,26 +55,23 @@
 		</div>
 
 
-
-		<a href="/siswa/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
-
 		<table class='table table-bordered'>
 			<thead>
 				<tr>
-					<th>No</th>
-					<th>Nama</th>
-					<th>NIS</th>
-					<th>Alamat</th>
+					<th>Nº Processo</th>
+					<th>Nome</th>
+					<th>Login</th>
+					<th>Password</th>
 				</tr>
 			</thead>
 			<tbody>
 				@php $i=1 @endphp
 				@foreach($siswa as $s)
 				<tr>
-					<td>{{ $i++ }}</td>
-					<td>{{$s->nama}}</td>
-					<td>{{$s->nis}}</td>
-					<td>{{$s->alamat}}</td>
+					<td>{{$s->numProcesso }}</td>
+					<td>{{$s->name}}</td>
+					<td>{{$s->email}}</td>
+					<td>{{$s->password}}</td>
 				</tr>
 				@endforeach
 			</tbody>
