@@ -19,7 +19,7 @@ class ListagensController extends Controller
 
 //Carregamentos Efectuados//
 
- public function carregamentos()
+ public function carregamentos1()
   {
     if (isset($_GET['DI']) && isset($_GET['DF'])) {
       $DI=date('yy-m-d', strtotime($_GET['DI']));
@@ -77,6 +77,37 @@ echo '4';
                    }
   }
 
+   public function carregamentos()
+    {
+
+      if (isset($_GET['CarregamentosDT'])) {
+          if (isset($_GET['DI']) && isset($_GET['DF'])) {
+            $DI=date('yy-m-d', strtotime($_GET['DI']));
+            $DF=date('yy-m-d', strtotime($_GET['DF']));
+            $cgd = \DB::table('users')
+                      ->join('operacao', 'operacao.idUtilizador', '=', 'users.id')
+                        ->where('operacao.nomeOperacao',  'Carregamento')
+                        ->whereBetween('operacao.dataOperacao', [$DI,$DF])
+                        ->orderBy('operacao.dataOperacao' , 'DESC')
+                        ->when($_GET['NPCR'], function ($cgd) {
+                                return $cgd->where('users.numProcesso', $_GET['NPCR']);
+                        })
+                            ->get();
+                        return $cgd;
+          }
+      }
+      if($_GET['CarregamentosDA']){
+        $a=\Carbon\Carbon::today();
+        $cgd = \DB::table('operacao', 'users')
+                    ->where('nomeOperacao',  'Carregamento')
+                    ->whereDate('dataOperacao', $a)
+                     ->orderBy('dataOperacao' , 'DESC')
+                    ->get();
+                    return $cgd;
+
+      }
+
+}
 
          public function pdfCarregamentos()
           {
@@ -87,7 +118,6 @@ echo '4';
          public function carregamentoInfo()
          {
            $cgd= $this->carregamentos();
-         echo $cgd;
            $outputc = '<h3 align="center">Listagem das Refeições</h3>
            <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
             <tr>

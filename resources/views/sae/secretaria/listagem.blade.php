@@ -204,10 +204,10 @@
                                     </div>
                                     <hr>
 																		<div style="padding:10px;">
-																	 <button type="submit" class="btn btn-danger" target="_blank" style="width:100%" >Carregamentos Diários</button>
+																	 <button type="submit" class="btn btn-danger" target="_blank" name="CarregamentosDA" style="width:100%" value="1" >Carregamentos Diários</button>
 																	 </div>
 																	 <div style="padding:10px;">
-																	<button type="submit" class="btn btn-danger" target="_blank" style="width:100%" >Carregamentos por Datas</button>
+																	<button name="CarregamentosDT" type="submit" class="btn btn-danger" target="_blank" style="width:100%" value="1">Carregamentos por Datas</button>
 																	</div>
                                 </div>
 																</form>
