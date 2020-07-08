@@ -92,8 +92,8 @@ echo '4';
                         ->when($_GET['NPCR'], function ($cgd) {
                                 return $cgd->where('users.numProcesso', $_GET['NPCR']);
                         })
-                            ->get();
-                        return $cgd;
+                        ->get();
+            return $cgd;
           }
       }
       if($_GET['CarregamentosDA']){
@@ -153,9 +153,68 @@ echo '4';
             $pdfRefeicoes->loadHTML($this->RefeioesInfo());
             return $pdfRefeicoes->stream();
           }
-
           public function RefData()
            {
+          if (isset($_GET['CarregamentosDT'])) {
+              if (isset($_GET['DI']) && isset($_GET['DF'])) {
+                $DI=date('yy-m-d', strtotime($_GET['DI']));
+                $DF=date('yy-m-d', strtotime($_GET['DF']));
+                $cgd = \DB::table('users')
+                          ->join('operacao', 'operacao.idUtilizador', '=', 'users.id')
+                            ->where('operacao.nomeOperacao',  'Carregamento')
+                            ->whereBetween('operacao.dataOperacao', [$DI,$DF])
+                            ->orderBy('operacao.dataOperacao' , 'DESC')
+                            ->when($_GET['NPCR'], function ($cgd) {
+                                    return $cgd->where('users.numProcesso', $_GET['NPCR']);
+                            })
+                            ->get();
+                return $cgd;
+              }
+          }
+          if($_GET['CarregamentosDA']){
+            $a=\Carbon\Carbon::today();
+            $cgd = \DB::table('operacao', 'users')
+                        ->where('nomeOperacao',  'Carregamento')
+                        ->whereDate('dataOperacao', $a)
+                         ->orderBy('dataOperacao' , 'DESC')
+                        ->get();
+                        return $cgd;
+
+          }
+          }
+          public function RefData1()
+           {
+
+                   if (isset($_GET['CarregamentosDT'])) {
+                       if (isset($_GET['DI']) && isset($_GET['DF'])) {
+                         $DI=date('yy-m-d', strtotime($_GET['DI']));
+                         $DF=date('yy-m-d', strtotime($_GET['DF']));
+                         $cgd = \DB::table('users')
+                                   ->join('operacao', 'operacao.idUtilizador', '=', 'users.id')
+                                     ->where('operacao.nomeOperacao',  'Carregamento')
+                                     ->whereBetween('operacao.dataOperacao', [$DI,$DF])
+                                     ->orderBy('operacao.dataOperacao' , 'DESC')
+                                     ->when($_GET['NPCR'], function ($cgd) {
+                                             return $cgd->where('users.numProcesso', $_GET['NPCR']);
+                                     })
+                                     ->get();
+                         return $cgd;
+                       }
+                   }
+                   if($_GET['CarregamentosDA']){
+                     $a=\Carbon\Carbon::today();
+                     $cgd = \DB::table('operacao', 'users')
+                                 ->where('nomeOperacao',  'Carregamento')
+                                 ->whereDate('dataOperacao', $a)
+                                  ->orderBy('dataOperacao' , 'DESC')
+                                 ->get();
+                                 return $cgd;
+
+                   }
+
+
+
+
              if (isset($_POST['DIR']) && isset($_POST['DFR'])) {
                $DIR=date('yy-m-d', strtotime($_POST['DIR']));
                $DFR=date('yy-m-d', strtotime($_POST['DFR']));
