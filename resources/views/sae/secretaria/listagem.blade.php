@@ -249,7 +249,7 @@
 																	 </div>
 
 																	 <div style="padding:10px;">
-																		 <button type="submit" class="btn btn-danger" name="consumidas" value="0" target="_blank" style="width:100%" >Refeições não Consumidas</button>
+																		 <button type="submit" class="btn btn-danger" name="Nconsumidas" value="0" target="_blank" style="width:100%" >Refeições não Consumidas</button>
 																	</div>
                                 </div>
 															</form>

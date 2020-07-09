@@ -155,66 +155,37 @@ echo '4';
           }
           public function RefData()
            {
-          if (isset($_GET['CarregamentosDT'])) {
-              if (isset($_GET['DI']) && isset($_GET['DF'])) {
-                $DI=date('yy-m-d', strtotime($_GET['DI']));
-                $DF=date('yy-m-d', strtotime($_GET['DF']));
-                $cgd = \DB::table('users')
-                          ->join('operacao', 'operacao.idUtilizador', '=', 'users.id')
-                            ->where('operacao.nomeOperacao',  'Carregamento')
-                            ->whereBetween('operacao.dataOperacao', [$DI,$DF])
-                            ->orderBy('operacao.dataOperacao' , 'DESC')
-                            ->when($_GET['NPCR'], function ($cgd) {
-                                    return $cgd->where('users.numProcesso', $_GET['NPCR']);
-                            })
-                            ->get();
-                return $cgd;
-              }
-          }
-          if($_GET['CarregamentosDA']){
-            $a=\Carbon\Carbon::today();
-            $cgd = \DB::table('operacao', 'users')
-                        ->where('nomeOperacao',  'Carregamento')
-                        ->whereDate('dataOperacao', $a)
-                         ->orderBy('dataOperacao' , 'DESC')
-                        ->get();
-                        return $cgd;
+             if (isset($_GET['DI']) && isset($_GET['DF'])) {
+               $DI=date('yy-m-d', strtotime($_GET['DI']));
+               $DF=date('yy-m-d', strtotime($_GET['DF']));            echo '1';
+
+               if (isset($_GET['consumidas'])) {
+
+
+                            $cgd = \DB::table('consumorefeicao')
+                                        ->where('dataConsumo','!=' , null)
+                                        ->whereBetween('dataSenha', [$DIR,$DFR])
+                                        ->orderBy('dataConsumo' , 'DESC')
+                                        ->get();
+                                        echo '2';
 
           }
+          if($_GET['Nconsumidas']){
+              $cgd = \DB::table('consumorefeicao')
+                          ->where('dataConsumo', null)
+                          ->whereBetween('dataSenha', [$DIR,$DFR])
+                          ->orderBy('dataConsumo' , 'DESC')
+                          ->get();
+                          echo '4';
+
+              }
+              echo '5';
+
+            }
+
           }
           public function RefData1()
            {
-
-                   if (isset($_GET['CarregamentosDT'])) {
-                       if (isset($_GET['DI']) && isset($_GET['DF'])) {
-                         $DI=date('yy-m-d', strtotime($_GET['DI']));
-                         $DF=date('yy-m-d', strtotime($_GET['DF']));
-                         $cgd = \DB::table('users')
-                                   ->join('operacao', 'operacao.idUtilizador', '=', 'users.id')
-                                     ->where('operacao.nomeOperacao',  'Carregamento')
-                                     ->whereBetween('operacao.dataOperacao', [$DI,$DF])
-                                     ->orderBy('operacao.dataOperacao' , 'DESC')
-                                     ->when($_GET['NPCR'], function ($cgd) {
-                                             return $cgd->where('users.numProcesso', $_GET['NPCR']);
-                                     })
-                                     ->get();
-                         return $cgd;
-                       }
-                   }
-                   if($_GET['CarregamentosDA']){
-                     $a=\Carbon\Carbon::today();
-                     $cgd = \DB::table('operacao', 'users')
-                                 ->where('nomeOperacao',  'Carregamento')
-                                 ->whereDate('dataOperacao', $a)
-                                  ->orderBy('dataOperacao' , 'DESC')
-                                 ->get();
-                                 return $cgd;
-
-                   }
-
-
-
-
              if (isset($_POST['DIR']) && isset($_POST['DFR'])) {
                $DIR=date('yy-m-d', strtotime($_POST['DIR']));
                $DFR=date('yy-m-d', strtotime($_POST['DFR']));
@@ -240,6 +211,8 @@ echo '4';
          public function RefeioesInfo()
          {
            $cgd=$this->RefData();
+           echo '1';
+
              $output1 = '<h3 align="center">Listagem das Refeições</h3>
              <table width="80%" style="text-align:center;border-collapse: collapse; border: 0px;">
               <tr>
