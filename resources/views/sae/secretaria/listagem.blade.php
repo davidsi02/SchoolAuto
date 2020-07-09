@@ -184,7 +184,9 @@
                             </div>
                             <div class="content">
 
-                              <div class = "ct-chart ct-perfect-4th"> </div>
+
+															 <!--Código para dar espaço para os graficos das sondagens -->
+                            <!-- <div class = "ct-chart ct-perfect-4th"> </div>  -->
 
                                 <form action="{{route('pdfCarregamentos') }}" method="get">
 																	@csrf
