@@ -19,6 +19,10 @@ class ImportUsers implements ToModel
        session_start();
 
        $randompsw = Str::random(8);
+       $email = $row[6].'@etpsico.pt';
+
+
+
 
         return new User([
             'name'     => $row[2],
@@ -29,6 +33,8 @@ class ImportUsers implements ToModel
 
 
         ]);
+
+
 
 
     }
