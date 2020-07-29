@@ -13,21 +13,34 @@ O intuito principal deste projeto é a automação dos sistemas escolares com vi
 ##  Plataformas utilizadas:
 
 Laravel - https://laravel.com/
+
 MySQL Server - https://www.mysql.com/
+
 Bootstrap 4 - https://getbootstrap.com/
 
 
 ## Linguagens de Programação / Estilização utilizadas:
 
  PHP
+
  Javascript
+
  SQL
+
  Vue
 
 
  HTML 5
+
  CSS
 
 ## Créditos de conteúdos Open-source utilizados:
 
 Light Bootstrap Dashboard - https://www.creative-tim.com/product/light-bootstrap-dashboard
+
+
+
+
+
+
+Desenvolvido com Atom: https://atom.io/
